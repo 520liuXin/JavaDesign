@@ -7840,3 +7840,290 @@ Caused by: java.io.InvalidClassException: com.example.cy.bean.User; local class 
 	at org.springframework.core.serializer.DefaultDeserializer.deserialize(DefaultDeserializer.java:72)
 	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:73)
 	... 12 common frames omitted
+20:28:58.820 login [main] INFO  com.example.cy.CyApplication - Starting CyApplication on LAPTOP-O5A21IPT with PID 3440 (F:\JavaCode\able-liu-java\target\classes started by 刘先生 in F:\JavaCode\able-liu-java)
+20:28:58.824 login [main] INFO  com.example.cy.CyApplication - No active profile set, falling back to default profiles: default
+20:28:59.850 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+20:28:59.851 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+20:29:00.313 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 443ms. Found 3 repository interfaces.
+20:29:00.342 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+20:29:00.343 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+20:29:00.394 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.FileInfoDao.
+20:29:00.395 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.MenuDao.
+20:29:00.395 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.UserDao.
+20:29:00.395 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+20:29:00.837 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e152606d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:29:00.897 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$7a0028a7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:29:00.901 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:29:00.901 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2e2f720' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:29:00.907 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$9ed4cb59] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:29:00.907 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:29:01.307 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+20:29:01.321 login [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+20:29:01.327 login [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:29:01.327 login [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+20:29:01.341 login [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin;C:\Users\刘先生\.dnx\bin;C:;Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\System32\OpenSSH\;F:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;F:\Git\cmd;%MYSQL_HOME%\bin;C:\Users\刘先生\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\刘先生\AppData\Local\Programs\Python\Python36\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\刘先生\AppData\Local\Microsoft\WindowsApps;;.]
+20:29:01.677 login [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:29:01.677 login [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2810 ms
+20:29:02.127 login [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:29:02.751 login [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:29:02.807 login [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+20:29:02.928 login [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+20:29:02.930 login [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+20:29:03.141 login [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+20:29:03.300 login [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: com.example.cy.config.MysqlConfig
+20:29:04.327 login [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:29:04.857 login [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+20:29:05.461 login [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+20:29:05.461 login [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+20:29:06.217 login [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a021f49, org.springframework.security.web.context.SecurityContextPersistenceFilter@493968a9, org.springframework.security.web.header.HeaderWriterFilter@5a06eeef, org.springframework.security.web.csrf.CsrfFilter@415262a0, org.springframework.security.web.authentication.logout.LogoutFilter@7dd7ec56, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@771cbd13, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c65f00e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@780c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e60c5a, org.springframework.security.web.session.SessionManagementFilter@3dd66ff5, org.springframework.security.web.access.ExceptionTranslationFilter@7a8b7e11, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ca60688]
+20:29:06.321 login [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20:29:06.597 login [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+20:29:07.238 login [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+20:29:07.251 login [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+20:29:07.251 login [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+20:29:07.278 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+20:29:07.278 login [main] INFO  com.example.cy.CyApplication - Started CyApplication in 9.221 seconds (JVM running for 11.005)
+20:29:36.816 login [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:29:36.816 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:29:36.828 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 12 ms
+20:29:36.864 login [http-nio-8888-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+org.springframework.data.redis.serializer.SerializationException: Cannot deserialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to deserialize payload. Is the byte array a result of corresponding serialization for DefaultDeserializer?; nested exception is java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.deserialize(JdkSerializationRedisSerializer.java:84)
+	at org.springframework.data.redis.core.AbstractOperations.deserializeHashValue(AbstractOperations.java:354)
+	at org.springframework.data.redis.core.AbstractOperations.deserializeHashMap(AbstractOperations.java:298)
+	at org.springframework.data.redis.core.DefaultHashOperations.entries(DefaultHashOperations.java:247)
+	at org.springframework.data.redis.core.DefaultBoundHashOperations.entries(DefaultBoundHashOperations.java:183)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.getSession(RedisOperationsSessionRepository.java:466)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.findById(RedisOperationsSessionRepository.java:435)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.findById(RedisOperationsSessionRepository.java:247)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getRequestedSession(SessionRepositoryFilter.java:380)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getSession(SessionRepositoryFilter.java:306)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getSession(SessionRepositoryFilter.java:201)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:241)
+	at org.springframework.security.web.context.HttpSessionSecurityContextRepository.loadContext(HttpSessionSecurityContextRepository.java:113)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to deserialize payload. Is the byte array a result of corresponding serialization for DefaultDeserializer?; nested exception is java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:78)
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:36)
+	at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.deserialize(JdkSerializationRedisSerializer.java:82)
+	... 47 common frames omitted
+Caused by: java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:699)
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1885)
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1751)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2042)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)
+	at org.springframework.core.serializer.DefaultDeserializer.deserialize(DefaultDeserializer.java:72)
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:73)
+	... 49 common frames omitted
+20:29:36.878 login [http-nio-8888-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception
+org.springframework.data.redis.serializer.SerializationException: Cannot deserialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to deserialize payload. Is the byte array a result of corresponding serialization for DefaultDeserializer?; nested exception is java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.deserialize(JdkSerializationRedisSerializer.java:84)
+	at org.springframework.data.redis.core.AbstractOperations.deserializeHashValue(AbstractOperations.java:354)
+	at org.springframework.data.redis.core.AbstractOperations.deserializeHashMap(AbstractOperations.java:298)
+	at org.springframework.data.redis.core.DefaultHashOperations.entries(DefaultHashOperations.java:247)
+	at org.springframework.data.redis.core.DefaultBoundHashOperations.entries(DefaultBoundHashOperations.java:183)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.getSession(RedisOperationsSessionRepository.java:466)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.findById(RedisOperationsSessionRepository.java:435)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.findById(RedisOperationsSessionRepository.java:247)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getRequestedSession(SessionRepositoryFilter.java:380)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getSession(SessionRepositoryFilter.java:306)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getSession(SessionRepositoryFilter.java:201)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:241)
+	at org.springframework.security.web.savedrequest.HttpSessionRequestCache.getRequest(HttpSessionRequestCache.java:71)
+	at org.springframework.security.web.savedrequest.HttpSessionRequestCache.getMatchingRequest(HttpSessionRequestCache.java:92)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:60)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:348)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:173)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to deserialize payload. Is the byte array a result of corresponding serialization for DefaultDeserializer?; nested exception is java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:78)
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:36)
+	at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.deserialize(JdkSerializationRedisSerializer.java:82)
+	... 57 common frames omitted
+Caused by: java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:699)
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1885)
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1751)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2042)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)
+	at org.springframework.core.serializer.DefaultDeserializer.deserialize(DefaultDeserializer.java:72)
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:73)
+	... 59 common frames omitted
+20:29:36.882 login [http-nio-8888-exec-1] ERROR o.a.c.c.C.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=500, location=/500]
+org.springframework.data.redis.serializer.SerializationException: Cannot deserialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to deserialize payload. Is the byte array a result of corresponding serialization for DefaultDeserializer?; nested exception is java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.deserialize(JdkSerializationRedisSerializer.java:84)
+	at org.springframework.data.redis.core.AbstractOperations.deserializeHashValue(AbstractOperations.java:354)
+	at org.springframework.data.redis.core.AbstractOperations.deserializeHashMap(AbstractOperations.java:298)
+	at org.springframework.data.redis.core.DefaultHashOperations.entries(DefaultHashOperations.java:247)
+	at org.springframework.data.redis.core.DefaultBoundHashOperations.entries(DefaultBoundHashOperations.java:183)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.getSession(RedisOperationsSessionRepository.java:466)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.findById(RedisOperationsSessionRepository.java:435)
+	at org.springframework.session.data.redis.RedisOperationsSessionRepository.findById(RedisOperationsSessionRepository.java:247)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getRequestedSession(SessionRepositoryFilter.java:380)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getSession(SessionRepositoryFilter.java:306)
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.getSession(SessionRepositoryFilter.java:201)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:241)
+	at org.springframework.security.web.savedrequest.HttpSessionRequestCache.getRequest(HttpSessionRequestCache.java:71)
+	at org.springframework.security.web.savedrequest.HttpSessionRequestCache.getMatchingRequest(HttpSessionRequestCache.java:92)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:60)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:348)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:173)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to deserialize payload. Is the byte array a result of corresponding serialization for DefaultDeserializer?; nested exception is java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:78)
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:36)
+	at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.deserialize(JdkSerializationRedisSerializer.java:82)
+	... 57 common frames omitted
+Caused by: java.io.InvalidClassException: com.example.cy.bean.User; local class incompatible: stream classdesc serialVersionUID = -6033258413659839221, local class serialVersionUID = -647028489936398787
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:699)
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1885)
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1751)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2042)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)
+	at org.springframework.core.serializer.DefaultDeserializer.deserialize(DefaultDeserializer.java:72)
+	at org.springframework.core.serializer.support.DeserializingConverter.convert(DeserializingConverter.java:73)
+	... 59 common frames omitted

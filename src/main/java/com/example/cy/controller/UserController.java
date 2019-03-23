@@ -135,8 +135,7 @@ public class UserController {
      * @return
      **/
     @RequestMapping(value = "/findUserNoCriteria", method = RequestMethod.GET)
-    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5)
-                                                  Pageable pageable){
+    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5) Pageable pageable){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
         Page<User> datas=userService.findUserNoCriteria(pageNumber-1, pageable.getPageSize());
@@ -149,8 +148,7 @@ public class UserController {
      * @return
      **/
     @RequestMapping(value = "/findUser", method = RequestMethod.GET)
-    public ResponseInfo<?> AllfindAllAndPage(@PageableDefault(page = 1, size = 5)
-                                                     Pageable pageable,
+    public ResponseInfo<?> AllfindAllAndPage(@PageableDefault(page = 1, size = 5) Pageable pageable,
                                              UserQuery userQuery){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;

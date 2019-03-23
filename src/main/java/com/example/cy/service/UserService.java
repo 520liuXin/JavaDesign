@@ -35,7 +35,13 @@ public interface UserService {
 
     User findUser(String username);
 
+    User updataUser(User user);
+
     User saveUser(User user);
+
+    void deleteUser(User user);
+
+    User updataUserByAdmin(User user);
 
     Page<User> findUserNoCriteria(Integer page, Integer size);
 

@@ -6,10 +6,7 @@ import com.example.cy.utils.DateUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -69,4 +66,13 @@ public class FileInfo extends BasePo {
     @JSONField(serialize = false)
     @Transient
     private InputStream content;
+
+
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Car.class)
+    @JoinColumn(name = "carId",referencedColumnName = "carId")
+    private Car car;
+
+
 }
+
+

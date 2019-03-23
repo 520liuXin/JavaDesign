@@ -2,13 +2,11 @@ package com.example.cy.service;
 
 import com.example.cy.bean.FileInfo;
 import com.example.cy.utils.ResponseInfo;
-import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 
 /**

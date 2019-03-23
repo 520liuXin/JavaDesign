@@ -1,6 +1,7 @@
 package com.example.cy.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.example.cy.bean.FileInfo;
 import com.example.cy.bean.User;
 import com.example.cy.bean.query.UserQuery;
@@ -16,6 +17,7 @@ import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
 import lombok.extern.slf4j.Slf4j;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -41,10 +43,6 @@ public class UserController {
     @Autowired
     private UserService userService;
     @Autowired
-    private FileInfoService fileInfoService;
-    @Autowired
-    private FileInfoDao fileInfoDao;
-    @Autowired
     private UserDao userDao;
 
 
@@ -57,13 +55,64 @@ public class UserController {
     * @return
     **/
     @PostMapping("/add")
-    public ResponseInfo<?> AddUser( @RequestBody  User user){
+    public ResponseInfo<?> AddUser( String jsonStr){
+        List < User > userList = new ArrayList < User > ();
+        if (StringUtils.isNotBlank(jsonStr)) {
+            userList = JSON.parseArray(jsonStr, User.class);
+        }
+      User user=userList.get(0);
+
        User oldUser=userDao.findUser(user.getUsername());
        if(Calibration.isNotEmpty(oldUser)){
            return ResponseInfo.error("用户存在，请登录");
        }
-       User newUser=userService.saveUser(user);
-        return ResponseInfo.success(newUser);
+        try {
+            User newUser = userService.saveUser(user);
+        }catch (Exception e){
+           return ResponseInfo.success("注册失败");
+        }
+        return ResponseInfo.success("注册成功");
+    }
+
+
+    @PostMapping("/updata")
+    public ResponseInfo<?> updataUser( String jsonStr){
+        List < User > userList = new ArrayList < User > ();
+        if (StringUtils.isNotBlank(jsonStr)) {
+            userList = JSON.parseArray(jsonStr, User.class);
+        }
+        User user=userList.get(0);
+        User oldUser=userDao.findUser(user.getUsername());
+        if(Calibration.isEmpty(oldUser)){
+            return ResponseInfo.error("用户不存在，无法修改");
+        }
+        try {
+            User newUser = userService.updataUser(user);
+        }catch (Exception e){
+            return ResponseInfo.success("修改失败");
+        }
+        return ResponseInfo.success("修改成功");
+    }
+
+
+
+    @PostMapping("/updata/admin")
+    public ResponseInfo<?> updataUserByAdmin( String jsonStr){
+        List < User > userList = new ArrayList < User > ();
+        if (StringUtils.isNotBlank(jsonStr)) {
+            userList = JSON.parseArray(jsonStr, User.class);
+        }
+        User user=userList.get(0);
+        User oldUser=userDao.findUser(user.getUsername());
+        if(Calibration.isEmpty(oldUser)){
+            return ResponseInfo.error("用户不存在，无法修改");
+        }
+        try {
+            User newUser = userService.saveUser(user);
+        }catch (Exception e){
+            return ResponseInfo.success("修改失败");
+        }
+        return ResponseInfo.success("修改成功");
     }
 
 
@@ -85,8 +134,8 @@ public class UserController {
      * @Param
      * @return
      **/
-    @RequestMapping(value = "/findallAndpage", method = RequestMethod.GET)
-    public ResponseInfo<?> findAllAndPage(@PageableDefault(page = 1, size = 5)
+    @RequestMapping(value = "/findUserNoCriteria", method = RequestMethod.GET)
+    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5)
                                                   Pageable pageable){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
@@ -99,7 +148,7 @@ public class UserController {
      * @Param
      * @return
      **/
-    @RequestMapping(value = "/AllfindallAndpage", method = RequestMethod.GET)
+    @RequestMapping(value = "/findUser", method = RequestMethod.GET)
     public ResponseInfo<?> AllfindAllAndPage(@PageableDefault(page = 1, size = 5)
                                                      Pageable pageable,
                                              UserQuery userQuery){
@@ -108,6 +157,9 @@ public class UserController {
         CommonResponsePage<UserQuery> datas=userService.findUserCriteria(pageNumber-1, pageable.getPageSize(),userQuery);
         return ResponseInfo.success(datas);
     }
+
+
+
 
 
     /**

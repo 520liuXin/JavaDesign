@@ -5,7 +5,9 @@ import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.UserDao;
 
 import com.example.cy.service.UserService;
+import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.DateUtils;
+import com.example.cy.utils.Tools;
 import com.example.cy.utils.page.CommonResponsePage;
 import com.example.cy.utils.page.VenusPageVO;
 import org.apache.commons.lang3.StringUtils;
@@ -45,17 +47,36 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUser(User user) {
-       User newUser=new User();
-       newUser.setAdmin("2");
-       newUser.setUsername(user.getUsername());
-       newUser.setPassword(user.getPassword());
-       newUser.setPhone(user.getPhone());
-       newUser.setCreatedDate(new Date());
-       newUser.setUpdatedDate(newUser.getCreatedDate());
-       userDao.save(newUser);
+    public User updataUser(User user) {
+        User newUser=encapsulationUser(user);
+        newUser.setUpdatedDate(new Date());
+        userDao.save(newUser);
         return newUser;
     }
+
+    @Override
+    public User saveUser(User user) {
+        User newUser=encapsulationUser(user);
+        newUser.setAdmin("2");
+        newUser.setCreatedDate(new Date());
+        userDao.save(newUser);
+        return newUser;
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        userDao.delete(user);
+    }
+
+    @Override
+    public User updataUserByAdmin(User user) {
+        User newUser=encapsulationUser(user);
+        newUser.setAdmin(user.getAdmin());
+        userDao.save(newUser);
+        return newUser;
+    }
+
+
     @Override
     public Page<User> findUserNoCriteria(Integer page, Integer size) {
         Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, "id");
@@ -90,10 +111,27 @@ public class UserServiceImpl implements UserService {
         userQuery.setId(user.getId());
         userQuery.setPhone(user.getPhone());
         userQuery.setUsername(user.getUsername());
-        userQuery.setEmail(user.getEmail());
         userQuery.setImgurl(user.getImgurl());
+        userQuery.setSex(user.getSex());
+        userQuery.setIdCard(user.getIdCard());
+        userQuery.setAdmin(user.getAdmin());
         return userQuery;
     }
+    private User encapsulationUser(User user){
+        User newuser=new User();
+        newuser.setId(user.getId());
+        newuser.setPhone(user.getPhone());
+        newuser.setUsername(user.getUsername());
+        newuser.setPassword(user.getPassword());
+        newuser.setImgurl(user.getImgurl());
+        newuser.setSex(user.getSex());
+        newuser.setIdCard(user.getIdCard());
+        newuser.setUpdatedDate(new Date());
+        return newuser;
+    }
+
+
+
 
     private Specification<User> packSpecification(UserQuery userQuery) {
         Specification<User> specification = (root, criteriaQuery, criteriaBuilder) -> {
@@ -104,8 +142,15 @@ public class UserServiceImpl implements UserService {
             if(StringUtils.isNotBlank(userQuery.getPhone())){
                 predicates.add(criteriaBuilder.equal(root.get("phone").as(String.class), userQuery.getPhone()));
             }
-            if(StringUtils.isNotBlank(userQuery.getEmail())){
-                predicates.add(criteriaBuilder.equal(root.get("email").as(String.class), userQuery.getEmail()));
+
+            if(StringUtils.isNotBlank(userQuery.getAdmin())){
+                predicates.add(criteriaBuilder.equal(root.get("admin").as(String.class), userQuery.getAdmin()));
+            }
+            if(StringUtils.isNotBlank(userQuery.getSex())){
+                predicates.add(criteriaBuilder.equal(root.get("set").as(String.class), userQuery.getSex()));
+            }
+            if(StringUtils.isNotBlank(userQuery.getIdCard())){
+                predicates.add(criteriaBuilder.equal(root.get("idCard").as(String.class), userQuery.getIdCard()));
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
         };

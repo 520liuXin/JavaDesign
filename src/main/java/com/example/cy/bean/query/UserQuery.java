@@ -13,15 +13,18 @@ public class UserQuery  {
 
     private  String username;
 
-
-
     private String phone;
 
 
-    private String email;
-
-
     private String imgurl;
+
+    private String admin;
+
+    private String sex;
+
+    private  String idCard;
+
+
 
 
 }

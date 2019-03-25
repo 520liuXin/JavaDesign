@@ -149,10 +149,11 @@ public class UserController {
      **/
     @RequestMapping(value = "/findUser", method = RequestMethod.GET)
     public ResponseInfo<?> AllfindAllAndPage(@PageableDefault(page = 1, size = 5) Pageable pageable,
-                                             UserQuery userQuery){
+                                             UserQuery userQuery,
+                                             @RequestParam(value = "sort", required = false) String sort){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        CommonResponsePage<UserQuery> datas=userService.findUserCriteria(pageNumber-1, pageable.getPageSize(),userQuery);
+        CommonResponsePage<UserQuery> datas=userService.findUserCriteria(pageNumber-1, pageable.getPageSize(),userQuery,sort);
         return ResponseInfo.success(datas);
     }
 

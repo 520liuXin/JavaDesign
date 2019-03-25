@@ -18,6 +18,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.persistence.Transient;
 import javax.persistence.criteria.Predicate;
 
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transient
     public User saveUser(User user) {
         User newUser=encapsulationUser(user);
         newUser.setAdmin("2");
@@ -84,8 +86,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, final UserQuery userQuery) {
-        Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, "id");
+    public CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, final UserQuery userQuery,String sort) {
+        if(StringUtils.isEmpty(sort)){
+            sort="id";
+        }
+        Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, sort);
         Specification<User> specification = packSpecification(userQuery);
         Page<User> pages = userDao.findAll(specification, pageable);
         List<User> users = pages.getContent();

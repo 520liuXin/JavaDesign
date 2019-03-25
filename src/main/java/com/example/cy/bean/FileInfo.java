@@ -69,7 +69,7 @@ public class FileInfo extends BasePo {
 
 
     @ManyToOne(fetch = FetchType.LAZY,targetEntity = Car.class)
-    @JoinColumn(name = "carId",referencedColumnName = "carId")
+    @JoinColumn(name = "carId",referencedColumnName = "id")
     private Car car;
 
 

@@ -7,7 +7,9 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -32,17 +34,17 @@ public class Car extends BasePo{
     @Column(length = 255)
     private String color;        //颜色
 
-
-    @Column(length = 255)
-    private Integer carNumber;  //库存数量
-
-
     @Column(length = 255)
     private Long rent;   //租金
 
-    @OneToMany(fetch = FetchType.LAZY,targetEntity=FileInfo.class,mappedBy="car")
-    private Set<FileInfo> fileInfos=new HashSet<>();  //汽车图片
-
     @Column(length = 255)
-    private Long heatValue=CarEnum.NEW_HEAT_VALUE.getCode();    //热度值
+    private Long heatValue=100L;    //热度值
+
+//    @Column(length = 255)
+//    private Integer carNumber;  //库存数量
+
+    @OneToMany(fetch = FetchType.LAZY,targetEntity=FileInfo.class,mappedBy="car")
+    private List<FileInfo> fileInfos=new ArrayList<>();  //汽车图片
+
+    private Integer state=CarEnum.STSTE_NO_RENT_OUT.getCode();
 }

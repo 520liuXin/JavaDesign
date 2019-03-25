@@ -1,6 +1,7 @@
 package com.example.cy.service;
 
 import com.example.cy.bean.FileInfo;
+import com.example.cy.exception.BusinessException;
 import com.example.cy.utils.ResponseInfo;
 
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public interface FileInfoService {
     void downloadFile(String fileName, HttpServletResponse res) throws Exception;
 
     ResponseInfo<?> upload(MultipartFile file) throws Exception;
+
+
+    FileInfo AddFile(MultipartFile file) throws BusinessException;
+
 
     ResponseInfo<?> findAll();
 

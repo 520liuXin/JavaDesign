@@ -46,6 +46,6 @@ public interface UserService {
     Page<User> findUserNoCriteria(Integer page, Integer size);
 
 
-    CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, UserQuery userQuery);
+    CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, UserQuery userQuery,String sort);
 
 }

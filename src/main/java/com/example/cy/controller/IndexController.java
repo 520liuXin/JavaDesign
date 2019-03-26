@@ -16,9 +16,14 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value="/user/success")
-    public String success()  {
-        return "success";
+    @RequestMapping(value="/user/admin")
+    public String successAdmin()  {
+        return "admin";
+    }
+
+    @RequestMapping(value="/user/user")
+    public String successUser()  {
+        return "user";
     }
 
 

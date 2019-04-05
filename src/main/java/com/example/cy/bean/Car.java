@@ -35,16 +35,30 @@ public class Car extends BasePo{
     private String color;        //颜色
 
     @Column(length = 255)
-    private Long rent;   //租金
+    private Long rent;   //租金/售价
 
     @Column(length = 255)
     private Long heatValue=100L;    //热度值
 
-//    @Column(length = 255)
-//    private Integer carNumber;  //库存数量
 
     @OneToMany(fetch = FetchType.LAZY,targetEntity=FileInfo.class,mappedBy="car")
     private List<FileInfo> fileInfos=new ArrayList<>();  //汽车图片
 
-    private Integer state=CarEnum.STSTE_NO_RENT_OUT.getCode();
+    private Integer state=CarEnum.STSTE_NO_RENT_OUT.getCode();//车辆状态
+
+    private String displacement;  //排量 （ 1.4L~1.5L）
+
+    private String fuelConsumption; //油耗 （15L）
+
+    private String engine;  //发动机（200匹）
+
+    private String driveWay;// 驱动方式（四驱）
+
+    private String ridingNumber; //可程人数 （五人）
+
+    private String carDescribe;  //车辆描述
+
+
+
+
 }

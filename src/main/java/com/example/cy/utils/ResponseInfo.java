@@ -1,5 +1,6 @@
 package com.example.cy.utils;
 
+import com.example.cy.enums.CarEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.google.common.collect.ImmutableMap;
@@ -24,7 +25,8 @@ public class ResponseInfo<T> implements Serializable {
     public static final String CODE_ERROR = "9999";
     private static final ImmutableMap<String, String> codeMap = ImmutableMap.of(
             CODE_SUCCESS, "成功",
-            CODE_ERROR, "系统异常，请稍后再试"
+            CODE_ERROR, "系统异常，请稍后再试",
+            CODE_ERROR, CarEnum.STATE_RENT_OUT.getMessage()
     );
     private String code;
     private String message;
@@ -37,6 +39,7 @@ public class ResponseInfo<T> implements Serializable {
     public static <T> ResponseInfo<T> error(T data) {
         return new ResponseInfo<>(CODE_ERROR, codeMap.get(CODE_ERROR), data);
     }
+
 
     @JsonIgnore
     public boolean isSuccess() {

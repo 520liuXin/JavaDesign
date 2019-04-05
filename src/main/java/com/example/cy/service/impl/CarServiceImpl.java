@@ -1,10 +1,14 @@
 package com.example.cy.service.impl;
 
 import com.example.cy.bean.Car;
+import com.example.cy.bean.FileInfo;
 import com.example.cy.bean.User;
+import com.example.cy.bean.input.CarInput;
+import com.example.cy.bean.query.CarQuery;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
 import com.example.cy.service.CarService;
+import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
 import com.example.cy.utils.page.CommonResponsePage;
 import com.example.cy.utils.page.VenusPageVO;
@@ -24,6 +28,8 @@ import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+
 @Service
 public class CarServiceImpl implements CarService {
 
@@ -65,27 +71,27 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public CommonResponsePage<Car> findCarAndPage(Integer page, Integer size, Car car) {
-        Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, "id");
+    public CommonResponsePage<CarQuery> findCarAndPage(Pageable pageable, CarInput car) {
+
         Specification<Car> specification = packSpecification(car);
         Page<Car> pages = carDao.findAll(specification, pageable);
         List<Car> cars = pages.getContent();
-        CommonResponsePage<Car> responsePage = new CommonResponsePage<>();
+        CommonResponsePage<CarQuery> responsePage = new CommonResponsePage<>();
         responsePage.setPagemeta(new VenusPageVO().init(pages));
         if (CollectionUtils.isEmpty(cars)) {
             responsePage.setItems(new ArrayList<>());
             return responsePage;
         }
-        List<Car> carList=new ArrayList<>(cars.size());
+        List<CarQuery> carList=new ArrayList<>(cars.size());
         for(Car car1 : cars){
-            carList.add(car1);
+            carList.add(packResultDataForCarQuery(car1));
         }
         responsePage.setItems(carList);
         return responsePage;
     }
 
 
-    private Specification<Car> packSpecification(Car car) {
+    private Specification<Car> packSpecification(CarInput car) {
         Specification<Car> specification = (root, criteriaQuery, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(StringUtils.isNotBlank(car.getCarId())){
@@ -106,8 +112,9 @@ public class CarServiceImpl implements CarService {
             if(car.getRent()!=null){
                 predicates.add(criteriaBuilder.equal(root.get("rent").as(String.class), car.getRent()));
             }
-            if(car.getHeatValue()!=null){
-                predicates.add(criteriaBuilder.equal(root.get("heatValue").as(String.class), car.getHeatValue()));
+            if (Objects.nonNull(car.getStarCreateDate()) && Objects.nonNull(car.getEndCreateDate())) {
+                predicates.add(criteriaBuilder.between(root.get("createdDate"), car.getStarCreateDate(),
+                        car.getEndCreateDate()));
             }
             if(car.getState()!=null){
                 predicates.add(criteriaBuilder.equal(root.get("state").as(String.class), car.getState()));
@@ -128,6 +135,23 @@ public class CarServiceImpl implements CarService {
         newCar.setCarType(car.getCarType());
         newCar.setColor(car.getColor());
         newCar.setUpdatedDate(new Date());
+        newCar.setHeatValue(car.getHeatValue());
+        newCar.setRent(car.getRent());
+        return newCar;
+
+    }
+
+
+    private CarQuery packResultDataForCarQuery(Car car){
+        CarQuery newCar=new CarQuery();
+        newCar.setId(car.getId());
+        newCar.setCarId(car.getCarId());
+        newCar.setCarBrand(car.getCarBrand());
+        newCar.setCarName(car.getCarName());
+        List<FileInfo> fileInfos=car.getFileInfos();
+        newCar.setFileInfoUrl(fileInfos.get(0).getUrl());
+        newCar.setCarType(car.getCarType());
+        newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());
         newCar.setRent(car.getRent());
         return newCar;

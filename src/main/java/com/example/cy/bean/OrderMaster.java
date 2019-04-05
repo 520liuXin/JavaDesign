@@ -1,12 +1,15 @@
 package com.example.cy.bean;
 
 import com.example.cy.enums.OrderStatusEnum;
+import com.example.cy.enums.SendCarEnum;
 import javafx.beans.property.SimpleLongProperty;
 import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
+import java.util.Date;
+
 @Data
 @Entity(name="order_master")
 public class OrderMaster extends BasePo{
@@ -53,7 +56,26 @@ public class OrderMaster extends BasePo{
     @Column(length = 255)
     private Integer leaseDay;   //租赁天数
 
+    private Date startDate;  //车辆租赁起始时间
+
+    private Date endDate; //车辆租赁终止时间
+
+    private String detailedAddress; //详细地址
+
+    private Integer sendCar=SendCarEnum.NO.getCode();  // 是否送车上门（if true 加50块钱）
+
+//    起始时间	StartTime
+//
+//    终止时间
+//
+//            详细地址
+//
+//
+
+
+
+
     @Column(length = 255)
-    private BigDecimal buyerAmount; /** 订单总金额. */
+    private Long buyerAmount; /** 订单总金额. */
 
 }

@@ -38,6 +38,9 @@ public class User extends BasePo implements UserDetails {
     @Column(length = 255)
     private String idCard;
 
+    @Column(length = 255)
+    private String label;
+
     @Transient
     private List<? extends GrantedAuthority> authorities;
 

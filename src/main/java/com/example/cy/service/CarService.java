@@ -3,7 +3,10 @@ package com.example.cy.service;
 
 
 import com.example.cy.bean.Car;
+import com.example.cy.bean.input.CarInput;
+import com.example.cy.bean.query.CarQuery;
 import com.example.cy.utils.page.CommonResponsePage;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,5 +23,5 @@ public interface CarService {
 
     List<Car> findAll();
 
-    CommonResponsePage<Car> findCarAndPage(Integer page, Integer size, Car car);
+    CommonResponsePage<CarQuery> findCarAndPage(Pageable pageable, CarInput car);
 }

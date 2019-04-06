@@ -3,12 +3,14 @@ package com.example.cy.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.example.cy.bean.Car;
+import com.example.cy.bean.FileInfo;
 import com.example.cy.bean.User;
 import com.example.cy.bean.input.CarInput;
 import com.example.cy.bean.query.CarQuery;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
 import com.example.cy.service.CarService;
+import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
 import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
@@ -21,8 +23,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @Slf4j
@@ -41,13 +42,12 @@ public class CarController {
      */
     @PostMapping("/fuzzyQuery")
     private ResponseInfo<?> fuzzyQuery(String carDescribe){
-        List<Car> cars =new ArrayList<>();
-        cars=carDao.findByCarDescribeLike("%"+carDescribe+"%");
-        if(Calibration.isNotEmpty(cars)){
-            return ResponseInfo.success(cars);
+        List<CarQuery> carQueries=new ArrayList<>();
+        carQueries=carService.fuzzy(carDescribe);
+        if (Calibration.isNotEmpty(carQueries)){
+            return ResponseInfo.success(carQueries);
         }
         return ResponseInfo.error("抱歉！！！没有相关信息");
-
     }
 
     /**
@@ -100,38 +100,103 @@ public class CarController {
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
         Pageable page = new PageRequest(pageNumber-1, pageable.getPageSize(), Sort.Direction.DESC, "heatValue");
         CommonResponsePage<CarQuery> datas=carService.findCarAndPage(page,car);
-        return ResponseInfo.success(datas);
+        List<CarQuery> carQueryList=new ArrayList<>();
+        carQueryList=datas.getItems();
+        return ResponseInfo.success(carQueryList);
     }
 
     /**
-     * 猜你喜欢
+     * 与众不同
      * @param pageable
-     * @param user
+     * @param car
      * @return
      */
-//    @PostMapping("/findByInterest")
-//    public ResponseInfo<?> findByInterest(@PageableDefault(page = 1, size = 5) Pageable pageable,User user){
-//        CarInput carInput=new CarInput();
-//        if(StringUtils.isEmpty(user.getLabel())){
-//            carInput.setCarType("");
-//        }
-//    }
-
-    /**
-     * @Author able-liu
-     * @Description /获取汽车并分页可提供指定查询分页
-     * @Param
-     * @return
-     **/
-    @RequestMapping(value = "/findCar", method = RequestMethod.GET)
-    public ResponseInfo<?> AllfindAllAndPage(@PageableDefault(page = 1, size = 5) Pageable pageable,
-                                             CarInput car){
+    @GetMapping("/findByDifferent")
+    public ResponseInfo<?> findByDifferent(@PageableDefault(page = 1, size = 5) Pageable pageable,CarInput car) {
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        Pageable page = new PageRequest(pageNumber-1, pageable.getPageSize(), Sort.Direction.DESC, "id");
-        CommonResponsePage<CarQuery> datas=carService.findCarAndPage(page,car);
-        return ResponseInfo.success(datas);
+        Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.ASC, "heatValue");
+        CommonResponsePage<CarQuery> datas = carService.findCarAndPage(page, car);
+        List<CarQuery> carQueryList=new ArrayList<>();
+        carQueryList=datas.getItems();
+        return ResponseInfo.success(carQueryList);
+    }
+
+    /**
+     * 最新上架
+     * @param pageable
+     * @param
+     * @return
+     */
+    @GetMapping("/findByLatest")
+    public ResponseInfo<?> findByLatest (@PageableDefault(page = 1, size = 5) Pageable pageable) {
+        CarInput car=new CarInput();
+        int pageNumber = pageable.getPageNumber();
+        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+        Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "createdDate");
+        CommonResponsePage<CarQuery> datas = carService.findCarAndPage(page, car);
+        List<CarQuery> carQueryList=new ArrayList<>();
+        carQueryList=datas.getItems();
+        return ResponseInfo.success(carQueryList);
     }
 
 
+
+        /**
+         * 猜你喜欢
+         * @param
+         * @param
+         * @return
+         */
+    @GetMapping("/findByInterest")
+    public ResponseInfo<?> findByInterest(@PageableDefault(page = 1, size = 5) Pageable pageable,String s){
+        List<CarQuery> carQueryList=new ArrayList<>();
+        if(StringUtils.isNotEmpty(s)){
+             return carService.findLike(s);
+        }else {
+            List<Car> cars=carService.findAll();
+            for (Car car:cars){
+                carQueryList.add( packResultDataForCarQuery(car));
+            }
+            return ResponseInfo.success(carQueryList);
+        }
+
+    }
+
+        /**
+         * @Author able-liu
+         * @Description /获取汽车并分页可提供指定查询分页
+         * @Param
+         * @return
+         **/
+        @RequestMapping(value = "/findCar", method = RequestMethod.GET)
+        public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 5) Pageable pageable,
+                CarInput car){
+            int pageNumber = pageable.getPageNumber();
+            pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+            Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "id");
+            CommonResponsePage<CarQuery> datas = carService.findCarAndPage(page, car);
+            return ResponseInfo.success(datas);
+        }
+
+
+
+    private CarQuery packResultDataForCarQuery(Car car){
+        CarQuery newCar=new CarQuery();
+        newCar.setId(car.getId());
+        newCar.setCarId(car.getCarId());
+        newCar.setCarBrand(car.getCarBrand());
+        newCar.setCarName(car.getCarName());
+        if(Calibration.isNotEmpty(car.getFileInfos())){
+            List<FileInfo> fileInfos=car.getFileInfos();
+            newCar.setFileInfoUrl(fileInfos.get(0).getUrl());
+        }
+        newCar.setCarType(car.getCarType());
+        newCar.setColor(car.getColor());
+        newCar.setHeatValue(car.getHeatValue());
+        newCar.setRent(car.getRent());
+        newCar.setCreatedDate(car.getCreatedDate());
+        return newCar;
+
+    }
 }

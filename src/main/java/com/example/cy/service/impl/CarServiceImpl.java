@@ -10,6 +10,7 @@ import com.example.cy.dao.CarDao;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
+import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
 import com.example.cy.utils.page.VenusPageVO;
 import org.apache.commons.lang3.ObjectUtils;
@@ -25,10 +26,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.unit.DataUnit;
 
 import javax.persistence.criteria.Predicate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -68,6 +66,65 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> findAll() {
         return carDao.findAll();
+    }
+
+    @Override
+    public List<CarQuery> findAllToCarQuery() {
+        List<CarQuery> carQueryList=new ArrayList<>();
+        List<Car> cars=this.findAll();
+        for (Car car:cars){
+            carQueryList.add( packResultDataForCarQuery(car));
+        }
+        return carQueryList;
+    }
+
+    @Override
+    public List<CarQuery> fuzzy(String carDescribe) {
+        List<Car> cars =new ArrayList<>();
+        cars=carDao.findByCarDescribeLike("%"+carDescribe+"%");
+        List<CarQuery> carQueries=new ArrayList<>();
+        if(Calibration.isNotEmpty(cars)){
+
+            for (Car car:cars){
+                CarQuery carQuery=  packResultDataForCarQuery(car);
+                carQueries.add(carQuery);
+            }
+            return carQueries;
+        }
+        return carQueries;
+
+    }
+
+    @Override
+    public ResponseInfo<?> findLike(String s) {
+        List<CarQuery> carQueryList=new ArrayList<>();
+        String[] strarr = s.split(",");
+        List<CarQuery> carQueries=new ArrayList<>();
+
+        for(String carDescribe:strarr){
+            carQueries=this.fuzzy(carDescribe);
+            for(CarQuery carQuery:carQueries){
+                carQueryList.add(carQuery);
+            }
+        }
+        if(Calibration.isNotEmpty(carQueryList)){
+            HashSet h = new HashSet(carQueryList);
+            carQueryList.clear();
+            carQueryList.addAll(h);
+            if(carQueryList.size()<4){
+                List<CarQuery> carQueries1=this.findAllToCarQuery();
+                List<CarQuery> listAll = new ArrayList<>();
+                listAll.addAll(carQueryList);
+                listAll.addAll(carQueries1);
+                listAll = new ArrayList<CarQuery>(new LinkedHashSet<>(listAll));
+                return ResponseInfo.success(listAll);
+            }
+            return ResponseInfo.success(carQueryList);
+
+        }else {
+            carQueryList=this.findAllToCarQuery();
+            return ResponseInfo.success(carQueryList);
+        }
     }
 
     @Override
@@ -157,6 +214,7 @@ public class CarServiceImpl implements CarService {
         newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());
         newCar.setRent(car.getRent());
+        newCar.setCreatedDate(car.getCreatedDate());
         return newCar;
 
     }

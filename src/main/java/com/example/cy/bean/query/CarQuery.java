@@ -4,6 +4,7 @@ import com.example.cy.bean.FileInfo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -31,6 +32,8 @@ public class CarQuery {
 
 
     private Long heatValue;  //热度值
+
+    private Date createdDate; //创建时间
 
 
 }

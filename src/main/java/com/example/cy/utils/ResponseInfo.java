@@ -25,8 +25,7 @@ public class ResponseInfo<T> implements Serializable {
     public static final String CODE_ERROR = "9999";
     private static final ImmutableMap<String, String> codeMap = ImmutableMap.of(
             CODE_SUCCESS, "成功",
-            CODE_ERROR, "系统异常，请稍后再试",
-            CODE_ERROR, CarEnum.STATE_RENT_OUT.getMessage()
+            CODE_ERROR, "系统异常，请稍后再试"
     );
     private String code;
     private String message;

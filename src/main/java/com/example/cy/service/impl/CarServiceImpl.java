@@ -112,6 +112,7 @@ public class CarServiceImpl implements CarService {
             if(car.getRent()!=null){
                 predicates.add(criteriaBuilder.equal(root.get("rent").as(String.class), car.getRent()));
             }
+
             if (Objects.nonNull(car.getStarCreateDate()) && Objects.nonNull(car.getEndCreateDate())) {
                 predicates.add(criteriaBuilder.between(root.get("createdDate"), car.getStarCreateDate(),
                         car.getEndCreateDate()));
@@ -148,8 +149,10 @@ public class CarServiceImpl implements CarService {
         newCar.setCarId(car.getCarId());
         newCar.setCarBrand(car.getCarBrand());
         newCar.setCarName(car.getCarName());
-        List<FileInfo> fileInfos=car.getFileInfos();
-        newCar.setFileInfoUrl(fileInfos.get(0).getUrl());
+        if(Calibration.isNotEmpty(car.getFileInfos())){
+            List<FileInfo> fileInfos=car.getFileInfos();
+            newCar.setFileInfoUrl(fileInfos.get(0).getUrl());
+        }
         newCar.setCarType(car.getCarType());
         newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());

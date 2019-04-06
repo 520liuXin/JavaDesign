@@ -41,7 +41,7 @@ public class Car extends BasePo{
     private Long heatValue=100L;    //热度值
 
 
-    @OneToMany(fetch = FetchType.LAZY,targetEntity=FileInfo.class,mappedBy="car")
+    @OneToMany(fetch = FetchType.EAGER,targetEntity=FileInfo.class,mappedBy="car")
     private List<FileInfo> fileInfos=new ArrayList<>();  //汽车图片
 
     private Integer state=CarEnum.STSTE_NO_RENT_OUT.getCode();//车辆状态

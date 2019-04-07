@@ -19,15 +19,10 @@ public class BasePo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "created_by")
-    private String createdBy;
 
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     @Column(name = "created_date")
     private Date createdDate;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     @Column(name = "updated_date")

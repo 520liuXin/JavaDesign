@@ -25,14 +25,21 @@ public class User extends BasePo implements UserDetails {
     @Column(length = 255)
     private String phone;
 
-    @Column(length = 255)
-    private String email;
 
     @Column(length = 255)
     private String imgurl;
 
     @Column(length = 255)
     private String admin;
+
+    @Column(length = 20)
+    private String sex;
+
+    @Column(length = 255)
+    private String idCard;
+
+    @Column(length = 255)
+    private String label;
 
     @Transient
     private List<? extends GrantedAuthority> authorities;
@@ -75,7 +82,5 @@ public class User extends BasePo implements UserDetails {
 
 
 
-    public String toString(){
-        return "name:"+username+",password:"+password+"userPhone: "+phone+",userEmail:"+email+",userImgUrl:"+imgurl;
-    }
+
 }

@@ -2,6 +2,7 @@ package com.example.cy.config;
 
 import org.hibernate.dialect.MySQL5InnoDBDialect;
 import org.hibernate.dialect.MySQLInnoDBDialect;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.stereotype.Component;
 
 /**

@@ -1,5 +1,6 @@
 package com.example.cy.utils;
 
+import com.example.cy.enums.CarEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.google.common.collect.ImmutableMap;
@@ -37,6 +38,7 @@ public class ResponseInfo<T> implements Serializable {
     public static <T> ResponseInfo<T> error(T data) {
         return new ResponseInfo<>(CODE_ERROR, codeMap.get(CODE_ERROR), data);
     }
+
 
     @JsonIgnore
     public boolean isSuccess() {

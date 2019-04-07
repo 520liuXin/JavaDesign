@@ -71,6 +71,9 @@ public class Calibration {
         return false;
     }
 
+    public static boolean longNotEmpty(long[] t){
+             return t != null && t.length > 0;
+            }
     /**
      * 判断对象不为空
      *

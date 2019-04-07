@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Data
 public class UserQuery  {
 
@@ -13,15 +15,18 @@ public class UserQuery  {
 
     private  String username;
 
-
-
     private String phone;
 
 
-    private String email;
-
-
     private String imgurl;
+
+    private String admin;
+
+    private String sex;
+
+    private  String idCard;
+
+
 
 
 }

@@ -55,9 +55,13 @@ public class LoginController {
             e.printStackTrace();
             return "redirect:login-error?error=2";//用户名或密码错误
         }
+        User user=SecurityUtils.getUser();
+        if ("1".equals(user.getAdmin())){
+            return "redirect:admin";
+        }
 
 
-        return "redirect:success";
+        return "redirect:user";
     }
 
 

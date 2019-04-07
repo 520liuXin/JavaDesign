@@ -124,12 +124,12 @@ public class CarController {
 
     /**
      * 最新上架
-     * @param pageable
+     * @param
      * @param
      * @return
      */
     @GetMapping("/findByLatest")
-    public ResponseInfo<?> findByLatest (@PageableDefault(page = 1, size = 5) Pageable pageable) {
+    public ResponseInfo<?> findByLatest () {
         List<Car> cars=new ArrayList<>();
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.DESC, "createdDate");
@@ -202,7 +202,11 @@ public class CarController {
 
     }
 
-
+    /**
+     * 校验车辆状态
+     * @param carQueries
+     * @return
+     */
     private List<CarQuery> checkCar(List<CarQuery> carQueries){
         List<CarQuery> List=new ArrayList<>();
         for(CarQuery carQuery:carQueries){
@@ -214,7 +218,11 @@ public class CarController {
 
     }
 
-
+    /**
+     * Car转换成CarQuery,并取前五条数据
+     * @param cars
+     * @return
+     */
     private List<CarQuery> carToCarQuery(List<Car> cars){
         List<CarQuery> carQueries=new ArrayList<>();
         List<CarQuery> carQueryList=new ArrayList<>();

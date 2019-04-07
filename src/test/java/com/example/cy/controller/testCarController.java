@@ -51,7 +51,7 @@ public class testCarController {
             car.setCarName("奔驰A100");
             car.setCarId("湘A154611"+i);
             car.setCarBrand("奔驰");
-            car.setFileInfos(fileInfos);
+            car.setCarImgUrl(fileInfos);
             Car newCar=carService.saveCar(car);
         }
 

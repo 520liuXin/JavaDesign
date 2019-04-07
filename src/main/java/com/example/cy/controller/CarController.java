@@ -95,31 +95,31 @@ public class CarController {
      * @return
      */
     @GetMapping("/findByVogue")
-    public ResponseInfo<?> findByVogue(@PageableDefault(page = 1, size = 5) Pageable pageable,CarInput car){
-        int pageNumber = pageable.getPageNumber();
-        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        Pageable page = new PageRequest(pageNumber-1, pageable.getPageSize(), Sort.Direction.DESC, "heatValue");
-        CommonResponsePage<CarQuery> datas=carService.findCarAndPage(page,car);
-        List<CarQuery> carQueryList=new ArrayList<>();
-        carQueryList=datas.getItems();
-        return ResponseInfo.success(carQueryList);
+    public ResponseInfo<?> findByVogue(){
+        List<Car> cars=new ArrayList<>();
+        List<CarQuery> carQueries=new ArrayList<>();
+        Sort sort = new Sort(Sort.Direction.DESC, "heatValue");
+        cars = carDao.findAll(sort);
+
+        carQueries= carToCarQuery(cars);
+        return ResponseInfo.success(carQueries);
+
     }
 
     /**
      * 与众不同
-     * @param pageable
-     * @param car
+
      * @return
      */
     @GetMapping("/findByDifferent")
-    public ResponseInfo<?> findByDifferent(@PageableDefault(page = 1, size = 5) Pageable pageable,CarInput car) {
-        int pageNumber = pageable.getPageNumber();
-        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.ASC, "heatValue");
-        CommonResponsePage<CarQuery> datas = carService.findCarAndPage(page, car);
-        List<CarQuery> carQueryList=new ArrayList<>();
-        carQueryList=datas.getItems();
-        return ResponseInfo.success(carQueryList);
+    public ResponseInfo<?> findByDifferent() {
+        List<Car> cars=new ArrayList<>();
+        List<CarQuery> carQueries=new ArrayList<>();
+        Sort sort = new Sort(Sort.Direction.ASC, "heatValue");
+        cars = carDao.findAll(sort);
+        carQueries= carToCarQuery(cars);
+        return ResponseInfo.success(carQueries);
+
     }
 
     /**
@@ -130,14 +130,13 @@ public class CarController {
      */
     @GetMapping("/findByLatest")
     public ResponseInfo<?> findByLatest (@PageableDefault(page = 1, size = 5) Pageable pageable) {
-        CarInput car=new CarInput();
-        int pageNumber = pageable.getPageNumber();
-        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "createdDate");
-        CommonResponsePage<CarQuery> datas = carService.findCarAndPage(page, car);
-        List<CarQuery> carQueryList=new ArrayList<>();
-        carQueryList=datas.getItems();
-        return ResponseInfo.success(carQueryList);
+        List<Car> cars=new ArrayList<>();
+        List<CarQuery> carQueries=new ArrayList<>();
+        Sort sort = new Sort(Sort.Direction.DESC, "createdDate");
+        cars = carDao.findAll(sort);
+        carQueries= carToCarQuery(cars);
+        return ResponseInfo.success(carQueries);
+
     }
 
 
@@ -149,16 +148,14 @@ public class CarController {
          * @return
          */
     @GetMapping("/findByInterest")
-    public ResponseInfo<?> findByInterest(@PageableDefault(page = 1, size = 5) Pageable pageable,String s){
+    public ResponseInfo<?> findByInterest(String s){
         List<CarQuery> carQueryList=new ArrayList<>();
         if(StringUtils.isNotEmpty(s)){
              return carService.findLike(s);
         }else {
             List<Car> cars=carService.findAll();
-            for (Car car:cars){
-                carQueryList.add( packResultDataForCarQuery(car));
-            }
-            return ResponseInfo.success(carQueryList);
+            carQueryList= carToCarQuery(cars);
+            return ResponseInfo.success(checkCar(carQueryList));
         }
 
     }
@@ -180,17 +177,22 @@ public class CarController {
         }
 
 
-
+    /**
+     * 整理车辆字段
+     * @param car
+     * @return
+     */
     private CarQuery packResultDataForCarQuery(Car car){
         CarQuery newCar=new CarQuery();
         newCar.setId(car.getId());
         newCar.setCarId(car.getCarId());
         newCar.setCarBrand(car.getCarBrand());
         newCar.setCarName(car.getCarName());
-        if(Calibration.isNotEmpty(car.getFileInfos())){
-            List<FileInfo> fileInfos=car.getFileInfos();
+        if(Calibration.isNotEmpty(car.getCarImgUrl())){
+            List<FileInfo> fileInfos=car.getCarImgUrl();
             newCar.setFileInfoUrl(fileInfos.get(0).getUrl());
         }
+        newCar.setState(car.getState());
         newCar.setCarType(car.getCarType());
         newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());
@@ -199,4 +201,31 @@ public class CarController {
         return newCar;
 
     }
+
+
+    private List<CarQuery> checkCar(List<CarQuery> carQueries){
+        List<CarQuery> List=new ArrayList<>();
+        for(CarQuery carQuery:carQueries){
+            if (carQuery.getState().equals(0)){
+                List.add(carQuery);
+            }
+        }
+        return List;
+
+    }
+
+
+    private List<CarQuery> carToCarQuery(List<Car> cars){
+        List<CarQuery> carQueries=new ArrayList<>();
+        List<CarQuery> carQueryList=new ArrayList<>();
+        for (Car car:cars){
+            CarQuery carQuery=packResultDataForCarQuery(car);
+            carQueries.add(carQuery);
+        }
+        carQueryList=  checkCar(carQueries).subList(0,5);
+        return carQueryList;
+
+    }
+
+
 }

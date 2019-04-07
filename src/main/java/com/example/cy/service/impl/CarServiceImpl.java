@@ -73,7 +73,9 @@ public class CarServiceImpl implements CarService {
         List<CarQuery> carQueryList=new ArrayList<>();
         List<Car> cars=this.findAll();
         for (Car car:cars){
-            carQueryList.add( packResultDataForCarQuery(car));
+            if(car.getState().equals(0)){
+                carQueryList.add( packResultDataForCarQuery(car));
+            }
         }
         return carQueryList;
     }
@@ -95,8 +97,14 @@ public class CarServiceImpl implements CarService {
 
     }
 
+    /**
+     * 猜你喜欢
+     * @param s
+     * @return
+     */
     @Override
     public ResponseInfo<?> findLike(String s) {
+        List<CarQuery> list=new ArrayList<>();
         List<CarQuery> carQueryList=new ArrayList<>();
         String[] strarr = s.split(",");
         List<CarQuery> carQueries=new ArrayList<>();
@@ -104,26 +112,31 @@ public class CarServiceImpl implements CarService {
         for(String carDescribe:strarr){
             carQueries=this.fuzzy(carDescribe);
             for(CarQuery carQuery:carQueries){
-                carQueryList.add(carQuery);
+                if (carQuery.getState().equals(0)){
+                    carQueryList.add(carQuery);
+                }
             }
         }
         if(Calibration.isNotEmpty(carQueryList)){
             HashSet h = new HashSet(carQueryList);
             carQueryList.clear();
             carQueryList.addAll(h);
-            if(carQueryList.size()<4){
+            if(carQueryList.size()<5){
                 List<CarQuery> carQueries1=this.findAllToCarQuery();
                 List<CarQuery> listAll = new ArrayList<>();
                 listAll.addAll(carQueryList);
                 listAll.addAll(carQueries1);
                 listAll = new ArrayList<CarQuery>(new LinkedHashSet<>(listAll));
-                return ResponseInfo.success(listAll);
+                list=listAll.subList(0,5);
+                return ResponseInfo.success(list);
             }
-            return ResponseInfo.success(carQueryList);
+            list=carQueryList.subList(0,5);
+            return ResponseInfo.success(list);
 
         }else {
             carQueryList=this.findAllToCarQuery();
-            return ResponseInfo.success(carQueryList);
+            list=carQueryList.subList(0,5);
+            return ResponseInfo.success(list);
         }
     }
 
@@ -189,11 +202,12 @@ public class CarServiceImpl implements CarService {
         newCar.setCarId(car.getCarId());
         newCar.setCarBrand(car.getCarBrand());
         newCar.setCarName(car.getCarName());
-        newCar.setFileInfos(car.getFileInfos());
+        newCar.setCarImgUrl(car.getCarImgUrl());
         newCar.setCarType(car.getCarType());
         newCar.setColor(car.getColor());
         newCar.setUpdatedDate(new Date());
         newCar.setHeatValue(car.getHeatValue());
+        newCar.setState(car.getState());
         newCar.setRent(car.getRent());
         return newCar;
 
@@ -206,10 +220,11 @@ public class CarServiceImpl implements CarService {
         newCar.setCarId(car.getCarId());
         newCar.setCarBrand(car.getCarBrand());
         newCar.setCarName(car.getCarName());
-        if(Calibration.isNotEmpty(car.getFileInfos())){
-            List<FileInfo> fileInfos=car.getFileInfos();
+        if(Calibration.isNotEmpty(car.getCarImgUrl())){
+            List<FileInfo> fileInfos=car.getCarImgUrl();
             newCar.setFileInfoUrl(fileInfos.get(0).getUrl());
         }
+        newCar.setState(car.getState());
         newCar.setCarType(car.getCarType());
         newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());

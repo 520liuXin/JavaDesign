@@ -30,6 +30,8 @@ public class CarQuery {
 
     private Long rent;   //租金
 
+    private Integer state;
+
 
     private Long heatValue;  //热度值
 

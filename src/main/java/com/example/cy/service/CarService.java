@@ -26,8 +26,18 @@ public interface CarService {
 
     List<CarQuery> findAllToCarQuery();
 
+    /**
+     * 模糊查询
+     * @param carDescribe
+     * @return
+     */
     List<CarQuery> fuzzy(String carDescribe);
 
+    /**
+     *猜你喜欢
+     * @param s
+     * @return
+     */
     ResponseInfo<?> findLike(String s);
 
     CommonResponsePage<CarQuery> findCarAndPage(Pageable pageable, CarInput car);

@@ -19,7 +19,7 @@ public class OrderMaster extends BasePo{
     private String orderId;
 
     @Column(length = 255)
-    private Long userrId;   //用户Id
+    private Long userId;   //用户Id
 
     /** 买家名字. */
     @Column(length = 255)
@@ -48,6 +48,9 @@ public class OrderMaster extends BasePo{
     private String carColor;        //颜色
 
     @Column(length = 255)
+    private String carImgUrl;  //车辆图片
+
+    @Column(length = 255)
     private Long carRent;           //租金
 
     @Column(length = 255)
@@ -68,13 +71,8 @@ public class OrderMaster extends BasePo{
 //
 //    终止时间
 //
-//            详细地址
+//     详细地址
 //
-//
-
-
-
-
     @Column(length = 255)
     private Long buyerAmount; /** 订单总金额. */
 

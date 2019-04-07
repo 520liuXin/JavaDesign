@@ -42,7 +42,7 @@ public class Car extends BasePo{
 
 
     @OneToMany(fetch = FetchType.EAGER,targetEntity=FileInfo.class,mappedBy="car")
-    private List<FileInfo> fileInfos=new ArrayList<>();  //汽车图片
+    private List<FileInfo> carImgUrl=new ArrayList<>();  //汽车图片
 
     private Integer state=CarEnum.STSTE_NO_RENT_OUT.getCode();//车辆状态
 

@@ -1,6 +1,7 @@
 package com.example.cy.service.impl;
 
 import com.example.cy.bean.User;
+import com.example.cy.bean.input.UserInput;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.UserDao;
 
@@ -23,6 +24,7 @@ import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
@@ -85,12 +87,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, final UserQuery userQuery,String sort) {
+    public CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, final UserInput userInput, String sort) {
         if(StringUtils.isEmpty(sort)){
             sort="id";
         }
         Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, sort);
-        Specification<User> specification = packSpecification(userQuery);
+        Specification<User> specification = packSpecification(userInput);
         Page<User> pages = userDao.findAll(specification, pageable);
         List<User> users = pages.getContent();
         CommonResponsePage<UserQuery> responsePage = new CommonResponsePage<>();
@@ -137,24 +139,28 @@ public class UserServiceImpl implements UserService {
 
 
 
-    private Specification<User> packSpecification(UserQuery userQuery) {
+    private Specification<User> packSpecification(UserInput userInput) {
         Specification<User> specification = (root, criteriaQuery, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
-            if(StringUtils.isNotBlank(userQuery.getUsername())){
-                predicates.add(criteriaBuilder.equal(root.get("username").as(String.class), userQuery.getUsername()));
+            if(StringUtils.isNotBlank(userInput.getUsername())){
+                predicates.add(criteriaBuilder.equal(root.get("username").as(String.class), userInput.getUsername()));
             }
-            if(StringUtils.isNotBlank(userQuery.getPhone())){
-                predicates.add(criteriaBuilder.equal(root.get("phone").as(String.class), userQuery.getPhone()));
+            if(StringUtils.isNotBlank(userInput.getPhone())){
+                predicates.add(criteriaBuilder.equal(root.get("phone").as(String.class), userInput.getPhone()));
             }
 
-            if(StringUtils.isNotBlank(userQuery.getAdmin())){
-                predicates.add(criteriaBuilder.equal(root.get("admin").as(String.class), userQuery.getAdmin()));
+            if(StringUtils.isNotBlank(userInput.getAdmin())){
+                predicates.add(criteriaBuilder.equal(root.get("admin").as(String.class), userInput.getAdmin()));
             }
-            if(StringUtils.isNotBlank(userQuery.getSex())){
-                predicates.add(criteriaBuilder.equal(root.get("set").as(String.class), userQuery.getSex()));
+            if(StringUtils.isNotBlank(userInput.getSex())){
+                predicates.add(criteriaBuilder.equal(root.get("set").as(String.class), userInput.getSex()));
             }
-            if(StringUtils.isNotBlank(userQuery.getIdCard())){
-                predicates.add(criteriaBuilder.equal(root.get("idCard").as(String.class), userQuery.getIdCard()));
+            if(StringUtils.isNotBlank(userInput.getIdCard())){
+                predicates.add(criteriaBuilder.equal(root.get("idCard").as(String.class), userInput.getIdCard()));
+            }
+            if (Objects.nonNull(userInput.getStarCreateDate()) && Objects.nonNull(userInput.getEndCreateDate())) {
+                predicates.add(criteriaBuilder.between(root.get("createdDate"), userInput.getStarCreateDate(),
+                        userInput.getEndCreateDate()));
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
         };

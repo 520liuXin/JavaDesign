@@ -1,20 +1,17 @@
-package com.example.cy.bean.query;
+package com.example.cy.bean.input;
 
-import com.example.cy.enums.OrderStatusEnum;
 import lombok.Data;
 
-import javax.persistence.Column;
 import java.util.Date;
 
 @Data
-public class OrderMasterQuery {
+public class OrderMasterInput {
     private String orderId;//订单号
 
     private String userName; //用户名
 
     private String carName;       //汽车名
 
-    private String carImgUrl;  //车辆图片
 
     private Long carRent;           //租金
 
@@ -24,11 +21,11 @@ public class OrderMasterQuery {
 
     private Integer orderStatus ;//状态
 
-    private Integer leaseDay;   //租赁天数
 
-    private Date startDate;  //车辆租赁起始时间
 
-    private Date endDate; //车辆租赁终止时间
+    private Date startDate;  //订单创建开始时间
+
+    private Date endDate; //订单创建结束时间（用于查询一定时间内订单）
 
     private Long buyerAmount; /** 订单总金额. */
 }

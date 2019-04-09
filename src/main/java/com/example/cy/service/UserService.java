@@ -2,6 +2,7 @@ package com.example.cy.service;
 
 import com.example.cy.bean.User;
 
+import com.example.cy.bean.input.UserInput;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.utils.page.CommonResponsePage;
 import org.springframework.data.domain.Page;
@@ -46,6 +47,6 @@ public interface UserService {
     Page<User> findUserNoCriteria(Integer page, Integer size);
 
 
-    CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, UserQuery userQuery,String sort);
+    CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, UserInput user, String sort);
 
 }

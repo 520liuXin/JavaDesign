@@ -180,7 +180,7 @@ public class CarServiceImpl implements CarService {
                 predicates.add(criteriaBuilder.equal(root.get("color").as(String.class), car.getColor()));
             }
             if(car.getRent()!=null){
-                predicates.add(criteriaBuilder.equal(root.get("rent").as(String.class), car.getRent()));
+                predicates.add(criteriaBuilder.equal(root.get("rent").as(Integer.class), car.getRent()));
             }
 
             if (Objects.nonNull(car.getStarCreateDate()) && Objects.nonNull(car.getEndCreateDate())) {
@@ -188,7 +188,7 @@ public class CarServiceImpl implements CarService {
                         car.getEndCreateDate()));
             }
             if(car.getState()!=null){
-                predicates.add(criteriaBuilder.equal(root.get("state").as(String.class), car.getState()));
+                predicates.add(criteriaBuilder.equal(root.get("state").as(Integer.class), car.getState()));
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
         };

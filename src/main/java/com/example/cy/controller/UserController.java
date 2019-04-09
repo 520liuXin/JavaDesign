@@ -4,6 +4,7 @@ package com.example.cy.controller;
 import com.alibaba.fastjson.JSON;
 import com.example.cy.bean.FileInfo;
 import com.example.cy.bean.User;
+import com.example.cy.bean.input.UserInput;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.FileInfoDao;
 import com.example.cy.dao.UserDao;
@@ -149,11 +150,11 @@ public class UserController {
      **/
     @RequestMapping(value = "/findUser", method = RequestMethod.GET)
     public ResponseInfo<?> AllfindAllAndPage(@PageableDefault(page = 1, size = 5) Pageable pageable,
-                                             UserQuery userQuery,
+                                             UserInput userInput,
                                              @RequestParam(value = "sort", required = false) String sort){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        CommonResponsePage<UserQuery> datas=userService.findUserCriteria(pageNumber-1, pageable.getPageSize(),userQuery,sort);
+        CommonResponsePage<UserQuery> datas=userService.findUserCriteria(pageNumber-1, pageable.getPageSize(),userInput,sort);
         return ResponseInfo.success(datas);
     }
 

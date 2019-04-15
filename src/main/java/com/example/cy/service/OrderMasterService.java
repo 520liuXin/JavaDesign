@@ -7,10 +7,11 @@ import com.example.cy.bean.input.OrderMasterInput;
 import com.example.cy.bean.query.OrderMasterQuery;
 import com.example.cy.utils.page.CommonResponsePage;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import javax.xml.crypto.Data;
 import java.util.Date;
-
+@Service
 public interface OrderMasterService {
     OrderMaster creatOrder(OrderMaster orderMaster);
 

@@ -30,5 +30,5 @@ public class OrderMasterQuery {
 
     private Date endDate; //车辆租赁终止时间
 
-    private Long buyerAmount; /** 订单总金额. */
-}
+    private Long buyerAmount; //** 订单总金额. */
+ }

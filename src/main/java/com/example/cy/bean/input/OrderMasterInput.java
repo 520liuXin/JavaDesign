@@ -21,7 +21,7 @@ public class OrderMasterInput {
 
     private Integer orderStatus ;//状态
 
-
+    private Date createdDate;
 
     private Date startDate;  //订单创建开始时间
 

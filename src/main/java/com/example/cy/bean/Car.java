@@ -1,6 +1,7 @@
 package com.example.cy.bean;
 
 import com.example.cy.enums.CarEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
@@ -40,7 +41,7 @@ public class Car extends BasePo{
     @Column(length = 255)
     private Long heatValue=100L;    //热度值
 
-
+    //@JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,targetEntity=FileInfo.class,mappedBy="car")
     private List<FileInfo> carImgUrl=new ArrayList<>();  //汽车图片
 

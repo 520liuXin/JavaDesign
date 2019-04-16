@@ -9,6 +9,7 @@ import com.example.cy.bean.input.CarInput;
 import com.example.cy.bean.query.CarQuery;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
+import com.example.cy.dao.FileInfoDao;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
@@ -34,6 +35,8 @@ public class CarController {
     private CarDao carDao;
     @Autowired
     private CarService carService;
+    @Autowired
+    private FileInfoDao fileInfoDao;
 
     /**
      * 模糊查询
@@ -76,19 +79,23 @@ public class CarController {
      * @param jsonStr
      * @return
      */
-    @PostMapping("/info")
+    @GetMapping("/info")
     public ResponseInfo<?> findCarById(String jsonStr){
-        List< Car > carList = new ArrayList< Car >();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            carList = JSON.parseArray(jsonStr, Car.class);
-        }
-        Car car=carList.get(0);
-        Car oldCar=carDao.findCarById(car.getId());
+//        List< Car > carList = new ArrayList< Car >();
+//        if (StringUtils.isNotBlank(jsonStr)) {
+//            carList = JSON.parseArray(jsonStr, Car.class);
+//        }
+//        Car car=carList.get(0);
+        Car oldCar=carDao.findCarById(7L);
+        List<FileInfo> fileInfos=fileInfoDao.findByCar_Id(7L);
+
+        oldCar.setCarImgUrl(fileInfos);
         if(Calibration.isNotEmpty(oldCar)){
             return ResponseInfo.success(oldCar);
         }
         return ResponseInfo.error("查询失败");
     }
+
 
     /**
      * 热门推荐

@@ -21,6 +21,8 @@ public interface FileInfoDao extends JpaRepository<FileInfo, Long> {
 
     List<FileInfo> findByResourceId(String resourceId);
 
+    List<FileInfo> findByCar_Id(Long id);
+
     /**
      * 通过原文件名查找已上传文件
      * @param fileOriginName

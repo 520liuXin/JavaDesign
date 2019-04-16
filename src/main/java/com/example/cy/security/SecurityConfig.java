@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http.authorizeRequests()
                 // 所有用户均可访问的资源
                 .antMatchers( "/favicon.ico","/css/**","/common/**","/js/**","/images/**","/images/password.jpg","/captcha.jpg","/login","/user/login","/login-error").permitAll()

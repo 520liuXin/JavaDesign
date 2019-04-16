@@ -14,6 +14,11 @@
     <script src="../js/bootstrap-switch.min.js"></script>
     <title>regist page</title>
 </head>
+<style>
+.col-sm-4{
+    margin: 5px 0 ;
+}
+</style>
 <body>
     <div class="SRose-head">
         <div class="headTop">
@@ -123,6 +128,12 @@
                             <label for="exampleInputPassword1">confirm password </label>
                             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="confirm password">
                         </div>
+                        <div class="form-group userdata CP" style="display:none">
+                          <label class="control-label">喜好标签</label>  
+                          <div class="">
+                              <input type="text" id="focusedInput" class="form-control tag-like" value="cos" data-toggle="modal" data-target="#myModal">
+                          </div>
+                        </div>
                         <div>
                         <!-- 引用jigsaw.js -->
                           <div style="width:310px;margin:50px auto;">
@@ -189,6 +200,55 @@
               </div><!-- /.modal-content -->
             </div><!-- /.modal -->
           </div>
+
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    标签选择
+                  </h4>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn1" class="btn btn-info col-sm-12">SUV</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn2" class="btn btn-info col-sm-12">Mercedes Benz</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn3" class="btn btn-info col-sm-12">法拉利</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn4" class="btn btn-info col-sm-12">经济型小轿车</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn5" class="btn btn-info col-sm-12">油电混合</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn6" class="btn btn-info col-sm-12">WAY</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn7" class="btn btn-info col-sm-12">电动车</button>
+                        </div>
+                    </div>
+                 
+                </div>
+    
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    确认
+                  </button>
+                </div>
+    
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+          </div>      
     <script src="../js/loginOrRegist.js"></script>
 </body>
 </html>

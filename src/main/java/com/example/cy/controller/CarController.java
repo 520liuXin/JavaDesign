@@ -76,14 +76,16 @@ public class CarController {
      * @param jsonStr
      * @return
      */
-    @PostMapping("/info")
+    @GetMapping ("/info")
     public ResponseInfo<?> findCarById(String jsonStr){
-        List< Car > carList = new ArrayList< Car >();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            carList = JSON.parseArray(jsonStr, Car.class);
-        }
-        Car car=carList.get(0);
-        Car oldCar=carDao.findCarById(car.getId());
+//        List< Car > carList = new ArrayList< Car >();
+//        if (StringUtils.isNotBlank(jsonStr)) {
+//            carList = JSON.parseArray(jsonStr, Car.class);
+//        }
+//        Car car=carList.get(0);
+        Car oldCar=carDao.findCarById(7L);
+        List<FileInfo> list=oldCar.getCarImgUrl();
+        System.out.println(list);
         if(Calibration.isNotEmpty(oldCar)){
             return ResponseInfo.success(oldCar);
         }

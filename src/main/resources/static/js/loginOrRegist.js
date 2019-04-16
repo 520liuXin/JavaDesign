@@ -19,6 +19,15 @@ $(function(){
         } 
     });
 
+    $('.tag-like').click(function(){
+        $('button').click(function(){
+            var obj=$(this);
+            obj.removeClass('btn-info');
+            obj.addClass('btn-primary');
+            console.log(obj);
+        });
+    });
+    
     // 登录 / 注册
     $(".subBtn").click(function(){
         var status = getSwitchStatus();
@@ -35,26 +44,46 @@ $(function(){
                 if(!(/^1[34578]\d{9}$/.test(inputName))){
                     alert("请检查您输入的手机号");
                 }else{
-                    $.post("user/login",JSON.stringify(loginObj),function(data,status){
-                        if(status=="success"){
-                            if(data=="有这个人"){
-                                window.location.href = "homePageFirstPage.html"; 
-                            }else{
-                                var randomNum = Math.random();
-                                if(randomNum<=0.25){
-                                    window.location.href = "http://hackcode.ishoulu.com/scp/";
-                                }else if(randomNum>0.25 & randomNum<=0.5){
-                                    window.location.href = "http://hackcode.ishoulu.com/combine/";
-                                }else if(randomNum>0.5 & randomNum<=0.75){
-                                    window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
-                                }else{
-                                    window.location.href = "http://hackcode.ishoulu.com/matrix/";
-                                }
-                            }
-                        }else{
-                            console.log("请求服务器出错");
+                    console.log(typeof JSON.stringify(loginObj));
+                    console.log(JSON.stringify(loginObj));
+                    var jsonStr=JSON.stringify(loginObj);
+                    $.ajax({
+                        headers: {
+                            Accept: "application/json; charset=utf-8"
+                        },
+                        contentType:'application/json;charset=utf-8',
+                        url: "/userLogin",
+                        type:"POST",
+                        dataType: "json",
+                        data:jsonStr,
+                        success: function(){
+                             alert(1);
+                        },
+                        error: function(){
+                             alert(2);
                         }
-                    });
+                     })
+                    // $.post("/login",jsonStr,function(data,status){
+                    //     alert(jsonStr);
+                        // if(status=="success"){
+                        //     if(data=="有这个人"){
+                        //         window.location.href = "homePageFirstPage.html"; 
+                        //     }else{
+                        //         var randomNum = Math.random();
+                        //         if(randomNum<=0.25){
+                        //             window.location.href = "http://hackcode.ishoulu.com/scp/";
+                        //         }else if(randomNum>0.25 & randomNum<=0.5){
+                        //             window.location.href = "http://hackcode.ishoulu.com/combine/";
+                        //         }else if(randomNum>0.5 & randomNum<=0.75){
+                        //             window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
+                        //         }else{
+                        //             window.location.href = "http://hackcode.ishoulu.com/matrix/";
+                        //         }
+                        //     }
+                        // }else{
+                        //     console.log("请求服务器出错");
+                        // }
+                    // });
                 }  
             }else{
                 alert("验证失败，为确保您的信息安全，请重新验证！");

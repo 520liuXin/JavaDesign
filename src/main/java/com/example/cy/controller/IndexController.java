@@ -88,6 +88,16 @@ public class IndexController {
         return "carDetail";
     }
 
+    @RequestMapping(value="loginOrRegist.html")
+    public String loginOrRegistPage()  {
+        return "loginOrRegist";
+    }
+
+    @RequestMapping(value="loginOrRegist")
+    public String loginOrRegist()  {
+        return "loginOrRegist";
+    }
+
     @RequestMapping("/404")
     public String to404()  {
         return "404";

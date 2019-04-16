@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/regist.css">
+    <link rel="stylesheet" href="../css/homePage.css">
+    <link rel="stylesheet" href="../css/bootstrap-switch.min.css">
+    <script src="../js/jigsaw.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-switch.min.js"></script>
+    <title>regist page</title>
+</head>
+<body>
+    <div class="SRose-head">
+        <div class="headTop">
+            <!-- 37px高度 100%宽度 包含 图标+淘车网首页  欢迎来到淘车网 登录 我的淘车 （阉割部分功能） 联系电话 -->
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="headp goleft">
+                                <button type="button" class="btn btn-link">
+                                    <a href="homePageFirstPage.html" class="a-css"><span class="glyphicon glyphicon-home"></span>淘车网首页</a>
+                                </button>
+                                </p>
+                            </div>
+
+                            <div class="col-md-6"></div>
+
+                            <div class="col-md-2">
+                                <!-- <p class="headp goright">
+                                欢迎来到淘车网
+                                <a href="#" class="a-css">登录</a>
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal" >登录</button>
+                                </p> -->
+                            </div>
+                            
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-link">
+                                <p class="headp goright"><a href="personalCenter.html" class="a-css">我的淘车</a></p>
+                                </button>
+                            </div>
+
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#phoneInfoModal">
+                                <p class="headp goright">联系电话</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="headBody">
+            <!-- 125px高度 宽度 col-md-8 居中 包含logo 搜索框 按钮 -->
+            <div class="row">
+            <div class="col-md-2"></div>
+            
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="a-css"><h1>淘车网 taoche.com</h1></a>
+                        </div>
+        
+                        <div class="col-md-1"></div>
+        
+                        <div class="col-md-8 searchbar"></div>
+                        </div>
+                </div>
+
+                <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航栏 高度37px 100%宽度  包含项 首页 买车 卖车 评估 置换-->
+        <div class="row navigator">
+            <div class="col-md-2 nearNavigator"></div>
+
+            <div class="col-md-8">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation"><a href="homePageFirstPage.html" target="_self">首页</a></li>
+                    <li role="presentation"><a href="homePageCarInformation.html" target="_self">资讯</a></li>
+                    <li role="presentation"><a href="homePageMerchant.html" target="_self">商家中心</a></li>
+                    <li role="presentation"><a href="personalCenter.html" target="_self">个人中心</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 nearNavigator"></div>
+        </div>
+        <!-- login or regist -->
+        <div class="container-fluid RALbody">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 RALbox">
+                    <form>
+                        <div class="form-group switch switch-large">
+                            <h4>请选择您要进行的操作类型</h4>
+                            <input type="checkbox" class="form-control" name="my-checkbox"  checked>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">name</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                         <div class="form-group CP" style="display:none">
+                            <label for="exampleInputPassword1">confirm password </label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="confirm password">
+                        </div>
+                        <div>
+                        <!-- 引用jigsaw.js -->
+                          <div style="width:310px;margin:50px auto;">
+                              <div id="captcha" style="position: relative"></div>
+                              <div id="msg"></div>
+                          </div>
+        
+                        <script>
+                          jigsaw.init(document.getElementById('captcha'), function () {
+                            document.getElementById('msg').innerHTML = '验证成功！'
+                          })
+                        </script>
+                      <!-- 引用结束 -->
+                        </div>
+                        <div class="subContainer">
+                          <input class="btn btn-default subBtn" type="button" value="提交" style="width:180px">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="col-md-2"></div>
+           
+        </div>
+    <!-- phoneInfoModal -->
+    <div class="modal fade" id="phoneInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2>淘车网热线</h2>
+                </div>
+      
+                <div class="modal-body">
+                  <!-- 左图右字 -->
+                  <div style="text-align:center; font-weight:bold;"><h4>欢迎致电淘车网！</h4></div>
+                  <div class="phoneInfoContainer">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>管理员</td>
+                          <th>联系电话</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>马瑞思</td>
+                          <td>18216215139</td>
+                        </tr>
+                        <tr>
+                          <td>骚信</td>
+                          <td>18229909690</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+      
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+                    确认
+                  </button>
+                </div>
+      
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+          </div>
+    <script src="../js/loginOrRegist.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../../img/icon.png" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/changePwd.css">
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>changePwd</title>
+</head>
+<body>
+    <!-- <h1 style="margin: 50px auto;">pwd</h1> -->
+    <!-- 更改密码： 旧密码 新密码 身份验证 -->
+    <div class="changePwdContainer">
+        <form class="form-horizontal" role="form">
+            <div class="form-group userdata">
+                <label class="col-sm-2 control-label">原密码</label>
+                <div class="col-sm-9">
+                    <input type="password" id="focusedInput" class="form-control" placeholder="enter your original password">
+                </div>
+            </div>
+            <div class="form-group userdata">
+                <label class="col-sm-2 control-label">新密码</label>
+                <div class="col-sm-9">
+                    <input type="password" id="focusedInput" class="form-control" placeholder="enter your new password">
+                </div>
+            </div>
+            <div class="form-group userdata">
+                <label class="col-sm-2 control-label">确认新密码</label>
+                <div class="col-sm-9">
+                    <input type="password" id="focusedInput" class="form-control" placeholder="check your new password">
+                </div>
+            </div>
+            <!-- 编辑按钮 -->
+            <div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-9">
+                        <button class="btn btn-default eidtAndSub pull-right" type="submit">确认</button>
+                </div>
+                    
+            </div>
+        </form>
+    </div>
+</body>
+</html>

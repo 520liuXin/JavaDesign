@@ -25,9 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
+        http.csrf().disable();
         http.authorizeRequests()
                 // 所有用户均可访问的资源
-                .antMatchers( "/favicon.ico","/css/**","/common/**","/js/**","/images/**","/images/password.jpg","/captcha.jpg","/login","/user/login","/login-error").permitAll()
+                //.antMatchers( "/favicon.ico","/css/**","/common/**","/js/**","/images/**","/img/**","/fonts/**","/images/password.jpg","/captcha.jpg","/login","/user/login","/login-error").permitAll()
+                .antMatchers( "/**").permitAll()
                 // 任何尚未匹配的URL只需要验证用户即可访问
                 .anyRequest().authenticated()
                 .and()

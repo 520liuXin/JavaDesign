@@ -1,0 +1,33 @@
+.orderContainer{
+    background-color: #F8F8F8;
+    height: 600px;
+    border: 1px solid #DDDDDD;
+}
+.userdata{
+    
+}
+li{
+    list-style: none;
+}
+.well{  
+    /* width: 800px;
+    height: 160px; */
+}
+.pageController{
+    width: 90%;
+    margin: 0 auto;
+}
+img{
+    max-width: 70px;
+    max-height: 70px;
+}
+.orderBody{
+    height: 80px;
+}
+.orderBody{
+    border:1px solid #DDDDDD;
+    background-color: white;
+}
+.itemContainer{
+    /* border: 1px dashed red; */
+}

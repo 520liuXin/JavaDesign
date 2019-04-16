@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../../img/icon.png" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/homePage.css">
+    <link rel="stylesheet" href="../../css/personalData.css">
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>personData</title>
+</head>
+<body>
+    <div class="personalDataContainer">
+            <form class="form-horizontal" role="form">
+                <div class="form-group userdata">
+                    <label class="col-sm-2 control-label">姓名</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="focusedInput" class="form-control" name="" value="张三" disabled>
+                    </div>
+                </div>
+                <div class="form-group userdata">
+                    <label class="col-sm-2 control-label">性别</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="focusedInput" class="form-control" value="女装大佬" disabled>
+                    </div>
+                </div>
+                <div class="form-group userdata">
+                    <label class="col-sm-2 control-label">电话号码</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="focusedInput" class="form-control" value="130xxxx5808" disabled>
+                    </div>
+                </div>
+                <div class="form-group userdata">
+                    <label class="col-sm-2 control-label">地址</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="focusedInput" class="form-control" value="湖南省长沙市" disabled>
+                    </div>
+                </div>
+                <div class="form-group userdata">
+                    <label class="col-sm-2 control-label">身份证号</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="focusedInput" class="form-control" value="******************" disabled>
+                    </div>
+                </div>
+                <div class="form-group userdata">
+                    <!-- 标签的添加准备用模态框 -->
+                    <label class="col-sm-2 control-label">喜好标签</label>  
+                    <div class="col-sm-9">
+                        <input type="text" id="focusedInput" class="form-control tag-like" value="cos" data-toggle="modal" data-target="#myModal" disabled>
+                    </div>
+                </div>
+                <!-- 编辑按钮（按下后显示确定） 身份证照片上传 -->
+                <div class="form-group userdata">
+                    <label class="col-sm-2 control-label ">证件信息上传</label>
+                    <div class="col-sm-9">
+                            <p>点击身份证照片:
+                                <button type="button" class="btn btn-default btn-sm fileUploadBtn">
+                                    <span class="glyphicon glyphicon-plus"></span> Add
+                                </button>
+                            </p>
+                         <input type="file" id="inputFile" class="form-control fileUploadInput" multiple="multiple" accept="image/png,image/jpg,image/gif,image/JPEG">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">证件图片</h3>
+                                </div>
+                                <div class="panel-body imgDiv">
+                                    <img src="../img/BIEKE.jpg" alt="" width="120px" height="90px;">
+                                    <img src="../img/BIEKE.jpg" alt="" width="120px" height="90px;">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <!-- 编辑按钮 -->
+                <div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-9">
+                            <button class="btn btn-default eidtAndSub pull-right" type="button">编辑</button>
+                    </div>
+                        
+                </div>
+            </form>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    标签选择
+                  </h4>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn1" class="btn btn-info col-sm-12">马杀鸡</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn2" class="btn btn-info col-sm-12">锤大背</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn3" class="btn btn-info col-sm-12">螺旋升天</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn4" class="btn btn-info col-sm-12">法式按摩</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn5" class="btn btn-info col-sm-12">鞭笞足疗</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn6" class="btn btn-info col-sm-12">点我就自爆</button>
+                        </div>
+                        <div class="col-sm-4">
+                                <button type="button" name="tagbtn7" class="btn btn-info col-sm-12">想不到别的词了</button>
+                        </div>
+                    </div>
+                 
+                </div>
+    
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    确认
+                  </button>
+                </div>
+    
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+          </div>
+    <div>
+        <script>
+            $(function(){
+                // 喜好标签选择
+                $('.tag-like').click(function(){
+                    $('button').click(function(){
+                        var obj=$(this);
+                        obj.removeClass('btn-info');
+                        obj.addClass('btn-primary');
+                        console.log(obj);
+                    });
+                });
+                // 文件上传按钮控制
+
+                // imgUpload={
+                //     inputId:'inputFile', //input框id
+                //     imgBox:'imgDiv', //图片容器id
+                //     buttonId:'fileUploadBtn', //提交按钮id
+                //     upUrl:'/testController/uploadImg',  //提交地址
+                //     data:'file', //参数名
+                //     num:"3"//最多上传图片个数
+                // };
+
+                // $('.fileUploadBtn').click(function(){
+                //     $('.fileUploadInput').click();
+                // });
+                // 编辑按钮设置
+                var $editAndSub =$('.eidtAndSub');
+                $editAndSub.click(function(){
+                    alert(11);
+                    var $disabledInput=$('input');
+                    if($editAndSub.html()=='编辑'){
+                        $disabledInput.attr('disabled',false);
+                        $editAndSub.text('保存');
+                    }else{
+                        $disabledInput.attr('disabled',true);
+                        $editAndSub.text('编辑');
+                    }
+                });
+            });    
+        </script>
+    </div>
+</body>
+
+</html>

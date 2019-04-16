@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../img/icon.png" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/homePage.css">
+    <link rel="stylesheet" href="../css/carDetail.css">
+    <link rel="stylesheet" href="../css/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-switch.min.js"></script>
+    <script src="../js/moment-with-locales.min.js"></script>
+    <script src="../js/bootstrap-datetimepicker.min.js"></script>
+    <title>carDetail</title>
+</head>
+<body>
+        <div class="SRose-head">
+            <div class="headTop">
+                <!-- 37px高度 100%宽度 包含 图标+淘车网首页  欢迎来到淘车网 登录 我的淘车 （阉割部分功能） 联系电话 -->
+                <div class="container-fluid">
+                    <div class="row">
+    
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+    
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <p class="headp goleft">
+                                    <button type="button" class="btn btn-link">
+                                        <a href="homePageFirstPage.html" target="_self" class="a-css"><span class="glyphicon glyphicon-home"></span>淘车网首页</a>
+                                    </button>
+                                    </p>
+                                </div>
+    
+                                <div class="col-md-6"></div>
+    
+                                <div class="col-md-2">
+                                    <!-- <p class="headp goright">
+                                    欢迎来到淘车网
+                                    <a href="#" class="a-css">登录</a>
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal" >登录</button>
+                                    </p> -->
+                                </div>
+                                
+                                <div class="col-md-1">
+                                    <button type="button" class="btn btn-link">
+                                    <p class="headp goright"><a href="#" class="a-css">我的淘车</a></p>
+                                    </button>
+                                </div>
+    
+                                <div class="col-md-1">
+                                    <button type="button" class="btn btn-link">
+                                    <p class="headp goright">联系电话</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-2"></div>
+    
+                    </div>
+                </div>
+            </div>
+            
+            <div class="headBody">
+                <!-- 125px高度 宽度 col-md-8 居中 包含logo 搜索框 按钮 -->
+                <div class="row">
+                <div class="col-md-2"></div>
+                
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="#" class="a-css"><h1>淘车网 taoche.com</h1></a>
+                            </div>
+            
+                            <div class="col-md-3"></div>
+            
+                            <div class="col-md-6 searchbar">
+                                <!-- <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="搜 帕加尼风之子 试试">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">搜索</button>
+                                        <button type="button" class="btn btn-default">卖车</button>
+                                    </span>
+                                </div>  -->
+                            </div>
+                            </div>
+                    </div>
+    
+                    <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- 导航栏 高度37px 100%宽度  包含项 首页 买车 卖车 评估 置换-->
+            <div class="row navigator">
+                <div class="col-md-2 nearNavigator"></div>
+                <div class="col-md-8">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li role="presentation"  class="active"><a href="#" target="_self">首页</a></li>
+                        <li role="presentation"><a href="homePageCarInformation.html" target="_self">资讯</a></li>
+                        <li role="presentation"><a href="homePageMerchant.html" target="_self">商家中心</a></li>
+                        <li role="presentation"><a href="personalCenter.html" target="_self">个人中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 nearNavigator"></div>
+            </div>
+        </div>  
+       <div class="carDetailMainContainer row">
+           <div class="col-md-2"></div>
+
+           <div class="col-md-8">
+                 <!-- carDetail img  -->
+                <div class="carDetailbody">
+                    <div class="imgAndOptions row">
+                        <div class="imgContainerF col-md-4">
+                            <div class="imgContainerS">
+                                    <div class="img-big">
+                                        <img src="../img/slider2.jpg" alt="">
+                                    </div>
+                                    <div class="img-small">
+                                        <img src="../img/pic1.jpg" alt="">
+                                        <img src="../img/pic2.jpg" alt="">
+                                        <img src="../img/pic17.jpg" alt="">
+                                        <img src="../img/pic21.jpg" alt="">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="options col-md-8">
+                                <div class="cardetailTitle col-md-12">
+                                    <div class="col-sm-8">
+                                        <h2>福特 focus 1.2T 自动档  精英版 改款</h2>
+                                    </div>
+                                       
+                                    <div class="col-sm-4">
+                                        <button type="button" class="likeBtn btn btn-default btn-sm pull-right">
+                                            <span class="glyphicon glyphicon-heart" style="color: rgb(221, 199, 199);font-size: 18px;"></span> 
+                                            <!-- <span class="glyphicon glyphicon-heart" style="color: rgb(255, 66, 29); font-size: 19px;"> 喜欢</span> -->
+                                        </button>
+                                    </div>    
+                                </div>
+                                <div class="carPrice">
+                                        <h1>11.68万</h1>
+                                        <h4>新车13.76万 含税1.08万</h4>
+                                        <div class="payment col-md-12">
+                                            首付3.26万起 | 月供2662元
+                                        </div>
+                                </div>
+                                <div class="carOperation">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#phoneInfoModal">资讯电话</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#orderModal">立即预约</button>
+                                    </div>
+                                </div>
+                                <!-- 新车价格 （含税）-->
+                                <!-- 首付/月供 -->
+                        </div>
+                    </div>
+
+                    <div class="description">
+                        <div class="baseInfo">
+                            <div class="col-md-12"><h2>基本信息</h2></div>
+                            <div class="baseInfoContainerF col-md-3">
+                                <div class="baseInfoContainerS well col-md-12">
+                                    <img src="../img/车况信息.png" alt="">
+                                </div>
+                            </div>
+                            <div class="baseInfoContainerF col-md-3">
+                                <div class="baseInfoContainerS well col-md-12">
+                                    <img src="../img/车辆维护情况.png" alt="">
+                                </div>
+                            </div>
+                            <div class="baseInfoContainerF col-md-3">
+                                <div class="baseInfoContainerS well col-md-12">
+                                    <img src="../img/可迁入.png" alt="">
+                                </div>
+                            </div>
+                            <div class="baseInfoContainerF col-md-3">
+                                <div class="baseInfoContainerS well col-md-12">
+                                    <img src="../img/特色.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paramConfiguration">
+                            <table class="table">   
+                                    <div class="col-md-12"><h2>配置信息</h2></div>
+                                <thead>
+                                    <tr>
+                                        <th>品牌</th>
+                                        <th>型号</th>
+                                        <th>排量</th>
+                                        <th>油耗</th>
+                                        <th>发动机</th>
+                                        <th>驱动方式</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>排量</th>
+                                        <th>油耗</th>
+                                        <th>长宽高</th>
+                                        <th>车身类型</th>
+                                        <th>后备箱容积</th>
+                                        <th>车辆级别</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                        <td>testCode</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="DetailedPhotosF row">
+                        <div class="DetailedPhotosS">
+                            <div class="col-md-12"><h2>车源图片</h2></div>
+                            <div class="col-md-6"><img src="../img/g-1.jpg" alt=""></div>
+                            <div class="col-md-6"><img src="../img/g-2.jpg" alt=""></div>
+                            <div class="col-md-6"><img src="../img/g-3.jpg" alt=""></div>
+                            <div class="col-md-6"><img src="../img/g-4.jpg" alt=""></div>
+                            <div class="col-md-6"><img src="../img/g-5.jpg" alt=""></div>
+                            <div class="col-md-6"><img src="../img/g-6.jpg" alt=""></div>
+                        </div>  
+                    </div>
+                </div> 
+           </div>
+
+           <div class="col-md-2"></div>
+       </div>
+
+       <div class="SRose-foot">
+        <!-- 页面介绍 二维码 版权信息 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+  
+          <div class="col-md-8">
+              <div class="wechat">
+                  <h4>淘车网是由marix 刘慕思二人合作开发的汽车租赁购买平台 网站最终解释权归二人所有</h4>
+                <div class="wechatImg">
+                    <img src="../img/marix.jpg" alt="marix个人微信" width="120px" height="120px">
+                    <span>marix个人微信</span>
+                </div>
+                <div class="wechatImg">
+                    <img src="../img/saoxin.jpg" alt="刘慕思个人微信" width="120px" height="120px">
+                    <span>刘慕思个人微信</span>
+                </div>
+              </div>
+          </div>
+  
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+
+    <div class="modal fade" id="phoneInfoModal" tabindex="-1" role="dialog" aria-labelledby="phoneInfoModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>淘车网热线</h2>
+          </div>
+
+          <div class="modal-body">
+            <!-- 左图右字 -->
+            <div style="text-align:center; font-weight:bold;"><h4>欢迎致电淘车网！</h4></div>
+            <div class="phoneInfoContainer">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>管理员</td>
+                    <th>联系电话</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>马瑞思</td>
+                    <td>18216215139</td>
+                  </tr>
+                  <tr>
+                    <td>骚信</td>
+                    <td>18229909690</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+              确认
+            </button>
+          </div>
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>创建淘车订单</h2>
+          </div>
+
+          <div class="modal-body">
+           <!-- 用户信息 -->
+            <div class="userInfoContainer">
+                <!-- username -->
+                <label for="exampleInputPassword1"><h3>用户：marix</h3></label>
+                <!-- <h3>用户：marix</h3> -->
+            </div>
+           <!-- 汽车信息 -->
+            <div class="carInfoContainer">
+                <!-- carMainImg carDescription -->
+                <div class="col-md-4">
+                    <img src="../img/a-1.jpg" alt="" width="100%" height="100%">
+                </div>
+                <div class="col-md-8">
+                    <p>福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</p>
+                    <p>In sit amet sapien eros. Integer in tincidunt velit. Ut sapien est, 
+                    molestie sit amet metussit amet, malesuada gravida ex.</p>
+                </div>
+            </div>
+           <!-- 支付及可选项 -->
+            <div class="payInfoContainer">
+                <!-- 金额 支付码 是否自取 -->
+                <div>
+                    <div class="form-group col-md-12">
+                        <label for="">取车方式:</label><br>
+                        <input type="checkbox" class="form-control" name="my-checkbox"  checked>
+                    </div>
+                    <div class="form-group col-md-12" id="SCSM" style="display:none;">
+                        <label for="">送车上门地址:</label>
+                        <input type="email" class="form-control" placeholder="请输入地址 **送车上门会收取适应运送费哦**">
+                    </div>
+                    <div class="form-group col-md-12" id="ZQDZ" >
+                        <label for="">自取地址</label>
+                        <input type="email" class="form-control" placeholder="湖南省长沙市岳麓区湖南商学院露天停车场112号">
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>选择起始日期：</label>
+                        <!--指定 date标记-->
+                        <div class='input-group date' id='datetimepickerS'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>选择结束日期：</label>
+                        <!--指定 date标记-->
+                        <div class='input-group date' id='datetimepickerE'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aliPayContainer">
+                <div class="Pricebox col-md-12">
+                    <span class="price">price:￥10000元</span>
+                </div>
+                <div class="alipayQRcode col-md-12">
+                    <img src="../img/Alipay.jpg" alt="" width="100%" height="100%">
+                </div>
+            </div>
+            
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+          </div>
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+    <script src="../js/carDetail.js"></script>
+</body>
+</html>

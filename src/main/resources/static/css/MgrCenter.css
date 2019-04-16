@@ -1,0 +1,28 @@
+div{
+    /* border: 1px dashed blue; */
+}
+.MgrBody{
+    border:1px solid #ACB2A6;
+    border-radius: 5px;
+}
+.titleContianer-Mgr{
+    text-align: center;
+}
+.MgrBodyLeft{
+    /* background-color: greenyellow; */
+    float: left;
+    /* border-right: 2px solid #ACB2A6; */
+}
+.MgrBodyRight{
+   border-left: 2px solid #ACB2A6;
+}
+.navigatior{
+    height: 514px;
+    /* border: 1px dashed blue; */
+    /* background-color:red; */
+}
+.pageController{
+    height: 80px;
+    width: 100%;
+    /* background-color: bisque;    */
+}

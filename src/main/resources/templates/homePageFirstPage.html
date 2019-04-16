@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../img/icon.png" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/homePage.css">
+    <link rel="stylesheet" href="../css/jigsaw.css">
+    <script src="../js/vue.js"></script>
+    <script src="../js/jigsaw.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <title>second head rose-首页</title>
+</head>
+<body>
+    <div class="SRose-head">
+        <div class="headTop">
+          <!-- 37px高度 100%宽度 包含 图标+淘车网首页  欢迎来到淘车网 登录 我的淘车 （阉割部分功能） 联系电话 -->
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+
+                  <div class="row">
+                      <div class="col-md-2">
+                          <p class="headp goleft">
+                            <button type="button" class="btn btn-link">
+                                <a href="#" class="a-css"><span class="glyphicon glyphicon-home"></span>淘车网首页</a>
+                            </button>
+                          </p>
+                      </div>
+
+                      <div class="col-md-6"></div>
+
+                      <div class="col-md-2">
+                          <p class="headp goright">
+                            <!-- <a href="#" class="a-css">登录</a> -->
+                            <button type="button" class="btn btn-link">
+                                 <a href="loginOrRegist.html" class="a-css">登录/注册</a> 
+                            </button>
+                          </p>
+                      </div>
+                      <div class="col-md-1">
+                          <button type="button" class="btn btn-link">
+                          <p class="headp goright"><a href="personalCenter.html" target="_blank"class="a-css">我的淘车</a></p>
+                          </button>
+                      </div>
+                    
+
+                      <div class="col-md-1">
+                          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#phoneInfoModal">
+                          <p class="headp goright">联系电话</p>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-2"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="headBody">
+          <!-- 125px高度 宽度 col-md-8 居中 包含logo 搜索框 按钮 -->
+          <div class="row">
+            <div class="col-md-2"></div>
+            
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">
+                      <a href="#" class="a-css"><h1>淘车网 taoche.com</h1></a>
+                    </div>
+    
+                    <div class="col-md-1"></div>
+    
+                    <div class="col-md-8 searchbar">
+                        <div class="input-group">
+                            <input type="text" class="form-control info-searchBar" placeholder="搜 帕加尼风之子 试试">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default btn-searchBar" type="button">
+                                搜索
+                              </button>
+
+                              <!-- <button type="button" class="btn btn-default">卖车</button> -->
+                            </span>
+                        </div><!-- /input-group -->                  
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="SRose-body">
+        <div class="navigator">
+          <!-- 导航栏 高度37px 100%宽度  包含项 首页 买车 卖车 评估 置换-->
+          <div class="row navigator">
+            <div class="col-md-2 nearNavigator"></div>
+
+            <div class="col-md-8">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation"  class="active"><a href="#" target="_self">首页</a></li>
+                    <li role="presentation"><a href="homePageCarInformation.html" target="_self">资讯</a></li>
+                    <li role="presentation"><a href="homePageMerchant.html" target="_self">商家中心</a></li>
+                    <li role="presentation"><a href="personalCenter.html" target="_self">个人中心</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 nearNavigator"></div>
+          </div>
+        </div>
+      </br>
+        <div class="rollBar">
+          <!-- 滚动栏 高度320px 宽度col-md-8 -->
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              
+                <div id="myCarousel" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>   
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="../img/car1.jpg" alt="First slide">
+                      </div>
+                      <div class="item">
+                        <img src="../img/car2.jpg" alt="Second slide">
+                      </div>
+                      <div class="item">
+                        <img src="../img/car3.jpg" alt="Third slide">
+                      </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div> 
+
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+
+        <div class="buyAndSell">
+          <!-- 买卖 8 4 -->
+            <div class="row">
+              <div class="col-md-2"></div>
+
+              <div class="col-md-8">
+                <div class="row">
+                    <div class="buyer col-md-8">
+                        <div class="buytitle">
+                            <h2><span>我要买车</span><small><span class="glyphicon glyphicon-chevron-right"></span></small></h2> 
+                        </div>
+                        <div class="typeContainer">
+                            <ul>
+                                <li>
+                                  <!-- 品牌图片区 -->
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/BEIJINGXD.jpg" alt="" width="50px" height="50px"><span>北京现代</span></div>
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/BIEKE.jpg" alt="" width="50px" height="50px"><span>别克</span></div>
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/BMW.jpg" alt="" width="50px" height="50px"><span>宝马</span></div> 
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/DAZHONG.jpg" alt="" width="50px" height="50px"><span>大众</span></div>
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/SIKEDA.jpg" alt="" width="50px" height="50px"><span>斯柯达</span></div> 
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/VOLVO.jpg" alt="" width="50px" height="50px"><span>沃尔沃</span></div> 
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/REDFLAG.jpg" alt="" width="50px" height="50px"><span>红旗</span></div> 
+                                  </a>
+                                  <a href="#">
+                                    <div class="typeImg"><img src="../img/viewAll.png" alt="" width="50px" height="50px"><span>查看全部</span></div>
+                                  </a>
+                                </li>
+                                <li>
+                                  <!-- 价格区 -->
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">三万以下</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">3-5万</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">5-8万</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">8-10万</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">10-15万</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">15-30万</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">30-60万</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">60-120万</a>
+                                  </div>
+                                </li>
+                                <li>
+                                  <!-- 车型区 -->
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">准新车</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">练手车</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">SUV</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">紧凑型车</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">小型车</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">MPV</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">中型车</a>
+                                  </div>
+                                  <div class="typeImg">
+                                    <a href="#" class="a-css">太空飞船</a>
+                                  </div>
+                                </li>
+                              </ul>
+                        </div>
+                        
+                    </div>
+          
+                      <div class="seller col-md-4">
+                          <div class="buytitle">
+                              <h2><span>我要卖车</span><small><span class="glyphicon glyphicon-chevron-right"></span></small></h2> 
+                          </div>
+                          <div class="input-group btn-group-lg btn-buyer-container">
+                            <input type="text" class="form-control btn-buyer-input" placeholder="该功能暂未开放" disabled>
+                            <button type="button" class="btn btn-default btn-buyer" disabled>我要卖车</button>
+                            <button type="button" class="btn btn-default btn-buyer" disabled>免费评估</button>
+                        </div><!-- /input-group -->          
+                      </div>
+                </div>
+              </div>
+
+              <div class="col-md-2"></div>
+            </div>
+        </div>
+        
+        <div class="viewAll">
+          <div class="row">
+            <div class="col-md-2"></div>
+            
+            <div class="col-md-8 ViewAllRendering">
+                <div class="typeTitle taochezhiyin col-md-12">
+                    <h3>淘车直营</h3>
+                  </div>
+              <ul>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=7" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=7" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=8" class="a-css"><img src="../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=8" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=9" class="a-css"><img src="../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=9" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=10" class="a-css"><img src="../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=10" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=11" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=11" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+              </ul>
+
+              <div class="typeTitle huorexiaoshou col-md-12">
+                  <h3>火热销售</h3>
+              </div>
+              <ul>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">火热销售</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=12" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=12" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">火热销售</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=13" class="a-css"><img src="../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=13" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">火热销售</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=14" class="a-css"><img src="../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=14" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">火热销售</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=15" class="a-css"><img src="../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=15" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">火热销售</div>
+                        <div class="detailCarImg"><a href="carDetail.html?ID=16" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="carDetail.html?ID=16" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+              </ul>
+
+              <div class="typeTitle cainixihuan col-md-12">
+                  <h3>猜你喜欢</h3>
+              </div>
+              <ul>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">猜你喜欢</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">猜你喜欢</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">猜你喜欢</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">猜你喜欢</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">猜你喜欢</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+              </ul>
+
+              <div class="typeTitle yuzhongbutong col-md-12">
+                  <h3>与众不同</h3>
+              </div>
+              <ul>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">与众不同</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">与众不同</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">与众不同</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">与众不同</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">与众不同</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../img/car2.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+              </ul>
+              
+            </div>
+
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="SRose-foot">
+      <!-- 页面介绍 二维码 版权信息 -->
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div class="wechat">
+                <h4>淘车网是由marix 刘慕思二人合作开发的汽车租赁购买平台 网站最终解释权归二人所有</h4>
+              <div class="wechatImg">
+                  <img src="../img/marix.jpg" alt="marix个人微信" width="120px" height="120px">
+                  <span>marix个人微信</span>
+              </div>
+              <div class="wechatImg">
+                  <img src="../img/saoxin.jpg" alt="刘慕思个人微信" width="120px" height="120px">
+                  <span>刘慕思个人微信</span>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+
+<!-- modal  -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+              </button>
+              <h4 class="modal-title" id="myModalLabel">
+                登录
+              </h4>
+            </div>
+
+            <div class="modal-body">
+              <!-- 注册链接 -->
+              <!-- <div class="regist-container pull-right">
+                    <p>
+                      <button type="button" class="btn btn-link">
+                          <a href="#" class="a-css">没有账号？现在就注册一个</a>
+                      </button>
+                    </p>
+              </div> -->
+
+              <!-- 引用jigsaw.js -->
+                <div class="modal-container" style="width:310px;margin:100px auto;">
+                  <form class="modal-login">
+                      <h3>用户登录</h3>
+                    <div class="input-group">
+                      <input type="text" placeholder="用户名/账号" class="form-control modal-login userLogin-username" style="margin:5px auto;"/>
+                      <input type="password" placeholder="密码" class="form-control modal-login userLogin-userpwd" style="margin:10px auto;"/>
+                    </div>
+                    <div id="captcha" style="position: relative"></div>
+                    <div id="msg"></div>
+                  </form>
+                </div>
+
+                <script>
+                  jigsaw.init(document.getElementById('captcha'), function () {
+                    document.getElementById('msg').innerHTML = '登录成功！'
+                  })
+                </script>
+                <!-- 引用结束 -->
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+                确认
+              </button>
+              
+              <button type="button" class="btn btn-default btn-userRegist">
+                  <a href="regist.html" target="_blank" style="text-decoration:none;">没有账号？现在就注册一个</a>
+              </button>
+            </div>
+
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+      </div>
+
+<!-- phoneInfoModal -->
+    <div class="modal fade" id="phoneInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>淘车网热线</h2>
+          </div>
+
+          <div class="modal-body">
+            <!-- 左图右字 -->
+            <div style="text-align:center; font-weight:bold;"><h4>欢迎致电淘车网！</h4></div>
+            <div class="phoneInfoContainer">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>管理员</td>
+                    <th>联系电话</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>马瑞思</td>
+                    <td>18216215139</td>
+                  </tr>
+                  <tr>
+                    <td>骚信</td>
+                    <td>18229909690</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+              确认
+            </button>
+          </div>
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+
+      <script src="../js/homePageFirstPage.js"></script>      
+</body>
+</html>

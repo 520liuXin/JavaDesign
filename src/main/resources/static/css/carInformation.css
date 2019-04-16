@@ -1,0 +1,16 @@
+.messageBoxF{
+    /* background-color: white; */
+}
+.messageBoxS{
+    border: 1px solid #EFEFEF;
+    height: 400px;
+    box-shadow: 0 0  5px #DDD;
+    margin: 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+.messageBoxS img{
+    width: 100%;
+    height: 150px;
+}

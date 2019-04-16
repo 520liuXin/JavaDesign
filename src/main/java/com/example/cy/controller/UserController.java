@@ -76,7 +76,7 @@ public class UserController {
     }
 
 
-    @PostMapping("/updata")
+    @PostMapping("/update")
     public ResponseInfo<?> updataUser( String jsonStr){
         List < User > userList = new ArrayList < User > ();
         if (StringUtils.isNotBlank(jsonStr)) {
@@ -97,7 +97,7 @@ public class UserController {
 
 
 
-    @PostMapping("/updata/admin")
+    @PostMapping("/update/admin")
     public ResponseInfo<?> updataUserByAdmin( String jsonStr){
         List < User > userList = new ArrayList < User > ();
         if (StringUtils.isNotBlank(jsonStr)) {

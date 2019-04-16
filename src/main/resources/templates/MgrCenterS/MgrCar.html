@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../../../img/icon.png" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/homePage.css">
+    <link rel="stylesheet" href="../../css/MgrCar.css ">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2块区域 查询/新增区-->
+    <!-- 车辆呈现区 -->
+    <div class="editAreaContainer">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 searchbox">
+            <h3>汽车管理 <span class="label label-default">taoche</span></h3>
+            <div class="btn-group btn-group-justified " role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">淘车直营</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">猜你喜欢</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">最新上架</button>
+                </div>
+                    <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">与众不同</button>
+                </div>
+            </div>
+            <div>
+                <div class="form-group col-md-8">
+                    <label for="exampleInputEmail1">输入车辆ID/品牌、型号 查询</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="帕加尼 风之子 2019 碳纤维定制赛道款">
+                </div>
+                <div class="col-md-2">
+                    <label for="exampleInputEmail1">&nbsp</label>
+                    <button type="submit" class="btn btn-default col-md-12">查询</button>
+                </div>
+                <div class="col-md-2">
+                    <label for="exampleInputEmail1">&nbsp</label>
+                    <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#addCarModal">新增</button>
+                </div>
+            </div> 
+        </div>
+        <div class="col-md-2"></div>
+        <!-- 淘车直营 猜你喜欢 最新上架 与众不同 -->
+        
+    </div>
+    <div class="carItemContainer">
+            <ul>
+                 <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html" class="a-css"><img src="../../img/img4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/img4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html" class="a-css"><img src="../../img/img4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/img4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="carDetail.html" class="a-css"><img src="../../img/img4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car3.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i> 
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/car1.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+                <li>
+                    <div class="carDetailContainer">
+                        <!-- 头顶小标题 车子图标 车子简介 价钱 服务 -->
+                        <div class="detailTitle">淘车直营</div>
+                        <div class="detailCarImg"><a href="" class="a-css"><img src="../../img/img4.jpg" alt=""></a></div>
+                        <div class="detailDescribe"><a href="" class="a-css">福特 focus 2.6T顶配版 4WD 1350KG 370匹马力 WRC拉力赛特供</a></div>
+                        <div class="priceContainer">
+                          <span class="totalPrice">300万</span>
+                          <span class="Installment">首付60万</span>
+                        </div>
+                        <div class="serviceContainer">
+                          <i>30天可退</i>
+                          <i>免费检测</i>
+                          <i>分期购车</i>
+                        </div>
+                      </div> 
+                </li>
+            </ul>
+    </div>
+    <div class="paginationContainer pull-right">
+        <ul class="pagination pagination-lg">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+
+    <div class="modal fade" id="addCarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>新增车辆</h2>
+          </div>
+
+          <div class="modal-body">
+          
+            
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+              确认
+            </button>
+            <button type="button" class="btn btn-primary btn-userlogin" data-dismiss="modal">
+              取消
+            </button>
+          </div>
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+</body>
+</html>

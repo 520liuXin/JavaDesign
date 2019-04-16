@@ -1,0 +1,249 @@
+.headTop{
+    background-color: #F8F8F8;
+    
+    text-align: center;
+}
+div{
+    /* border: dashed 1px red; */
+}
+.headp{
+    margin-top: 7px;
+}
+.goright{ 
+    float: right;
+}
+.goleft{
+    float: left;
+}
+.searchbar{
+    margin-top: 40px;
+}
+.btn-default{
+    margin: 0 5px;
+}
+.navigator{
+ background-color: #F8F8F8;
+}
+.nav-justified li{
+    font-size: 13pt;
+    font-weight: bold;
+}
+.typeImg{
+    float: left;
+    width: 91px;
+    text-align: center;
+    margin: 5px 0;
+}
+.typeImg span{
+    height: 20px;
+    width: 90px;
+    display:block;
+    text-align: center;
+}
+ul{
+    list-style:none;
+}
+.btn-buyer{
+    /* width: 176px; */
+    width: 47%;
+}
+.btn-buyer-container{
+    margin-top: 18px;
+}
+.btn-buyer-input{
+    height:50px;
+}
+.viewAll{
+    margin-top: 50px;
+    background-color: #F5F5F5;
+}
+.SRose-foot{
+    background-color: #EEEEEE;
+}
+.wechat{
+    margin: 0 auto;
+    /* float: right; */
+}
+.wechatImg{
+    float: left;
+    text-align: center;
+    float: right;
+    margin-left: 30px;
+    /* margin: 0 auto; */
+}
+.wechatImg span{
+    display: block;
+}
+.carDetailContainer{
+    float: left;
+    width: 18%;
+    height: 300px;
+    background-color: white;
+    margin: 5px 7px;
+    box-shadow: 0 0  10px #DDD;
+    border: 2px solid #EEEE;
+    /* border-radius: 10px 10px 10px 10px;  */
+}
+.detailTitle{
+    /* display: none; */
+    background-color: #FF6402;
+    width: 60px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    /* top: 20px; */
+}
+.carDetailContainer div img{
+    width:100%;
+    height: 155px;
+}
+div .a-css {
+    text-decoration: none;
+}
+.totalPrice{
+    color: #FF6402;
+    font:16px bolder;
+}
+.Installment{
+    color: #FF6402;
+    font:10px bold;
+}
+.detailDescribe{
+    margin-left: 2px;
+}
+.priceContainer{
+    margin: 20px 0px 5px 8px;
+}
+.serviceContainer{
+    border: 1px solid #E6EBEF;
+    height: 22px;
+    width: 170px;
+    text-align: center;
+    margin-left: 8%;
+    /* border: 1px solid red; */
+}
+.serviceContainer i{
+    font:13px arial,serif;
+    color: #9EAFD3;
+}
+
+
+/* modal */
+.block {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .sliderContainer {
+    position: relative;
+    text-align: center;
+    width: 310px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    background: #f7f9fa;
+    color: #45494c;
+    border: 1px solid #e4e7eb;
+  }
+  
+  .sliderContainer_active .slider {
+    height: 38px;
+    top: -1px;
+    border: 1px solid #1991FA;
+  }
+  
+  .sliderContainer_active .sliderMask {
+    height: 38px;
+    border-width: 1px;
+  }
+  
+  .sliderContainer_success .slider {
+    height: 38px;
+    top: -1px;
+    border: 1px solid #52CCBA;
+    background-color: #52CCBA !important;
+  }
+  
+  .sliderContainer_success .sliderMask {
+    height: 38px;
+    border: 1px solid #52CCBA;
+    background-color: #D2F4EF;
+  }
+  
+  .sliderContainer_success .sliderIcon {
+    background-position: 0 0 !important;
+  }
+  
+  .sliderContainer_fail .slider {
+    height: 38px;
+    top: -1px;
+    border: 1px solid #f57a7a;
+    background-color: #f57a7a !important;
+  }
+  
+  .sliderContainer_fail .sliderMask {
+    height: 38px;
+    border: 1px solid #f57a7a;
+    background-color: #fce1e1;
+  }
+  
+  .sliderContainer_fail .sliderIcon {
+    background-position: 0 -83px !important;
+  }
+  .sliderContainer_active .sliderText, .sliderContainer_success .sliderText, .sliderContainer_fail .sliderText {
+    display: none;
+  }
+  
+  .sliderMask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    border: 0 solid #1991FA;
+    background: #D1E9FE;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background .2s linear;
+  }
+  
+  .slider:hover {
+    background: #1991FA;
+  }
+  
+  .slider:hover .sliderIcon {
+    background-position: 0 -13px;
+  }
+  
+  .sliderIcon {
+    position: absolute;
+    top: 15px;
+    left: 13px;
+    width: 14px;
+    height: 10px;
+    background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -26px;
+    background-size: 34px 471px;
+  }
+  
+  .refreshIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -437px;
+    background-size: 34px 471px;
+  }
+  .table-bordered th, .table-bordered td{
+    text-align: center;
+  }

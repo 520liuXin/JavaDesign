@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-04-15 22:24:22
+Date: 2019-04-17 00:13:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,16 +44,16 @@ CREATE TABLE `car` (
 -- ----------------------------
 -- Records of car
 -- ----------------------------
-INSERT INTO `car` VALUES ('7', '湘A154611', '奔驰A100', '奔驰', 'SUV', '红色', '500', '2003', '2019-03-24 08:49:23', '2019-03-24 08:49:23', '1', '奔驰566464', null, null, null, null, null);
-INSERT INTO `car` VALUES ('8', '湘A1546110', '奔驰A100', '奔驰', 'SUV', '红色', '200', '2008', '2019-03-24 10:27:51', '2019-04-27 10:27:51', '0', '', null, null, null, null, null);
-INSERT INTO `car` VALUES ('10', '湘A1546112', '奔驰A100', '奔驰', 'SUV', '红色', '255', '200', '2019-03-24 10:27:51', '2019-03-24 10:27:51', '0', null, null, null, null, null, null);
-INSERT INTO `car` VALUES ('11', '湘A1546113', '奔驰A100', '奔驰', 'SUV', '红色', '56', '209', '2019-04-07 10:27:51', '2019-03-24 10:27:51', '0', null, null, null, null, null, null);
-INSERT INTO `car` VALUES ('12', '湘A1546114', '奔驰A100', '奔驰', 'SUV', '红色', '600', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '0', 'uhadjaldh，奔驰', null, null, null, null, null);
-INSERT INTO `car` VALUES ('13', '湘A1546115', '奔驰A100', '奔驰', 'SUV', '红色', '59', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '0', null, null, null, null, null, null);
-INSERT INTO `car` VALUES ('14', '湘A1546116', '奔驰A100', '奔驰', 'SUV', '红色', '562', '208', '2019-03-24 10:27:52', '2019-04-28 10:27:52', '0', null, null, null, null, null, null);
-INSERT INTO `car` VALUES ('15', '湘A1546117', '奔驰A100', '奔驰', 'SUV', '红色', '900', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '1', '奔驰', null, null, null, null, null);
-INSERT INTO `car` VALUES ('16', '湘A1546118', '奔驰A100', '奔驰', 'SUV', '红色', '8130', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '1', null, null, null, null, null, null);
-INSERT INTO `car` VALUES ('17', '湘A1546119', '奔驰A100', '奔驰', 'SUV', '红色', '894', '200', '2019-04-26 10:27:52', '2019-05-24 10:27:52', '1', '奔驰', null, null, null, null, null);
+INSERT INTO `car` VALUES ('7', '湘A154611', '奔驰A100', '奔驰', 'SUV', '红色', '500', '2003', '2019-03-24 08:49:23', '2019-03-24 08:49:23', '1', '奔驰566464', '1.4', '四驱', '200批', '15L', '四人');
+INSERT INTO `car` VALUES ('8', '湘A1546110', '奔驰A100', '奔驰', 'SUV', '红色', '200', '2008', '2019-03-24 10:27:51', '2019-04-27 10:27:51', '0', '', '1.4', '1.4', null, null, null);
+INSERT INTO `car` VALUES ('10', '湘A1546112', '奔驰A100', '奔驰', 'SUV', '红色', '255', '200', '2019-03-24 10:27:51', '2019-03-24 10:27:51', '0', '奔驰', '1.5', null, null, null, null);
+INSERT INTO `car` VALUES ('11', '湘A1546113', '奔驰A100', '奔驰', 'SUV', '红色', '56', '209', '2019-04-07 10:27:51', '2019-03-24 10:27:51', '0', null, '1.4', null, null, null, null);
+INSERT INTO `car` VALUES ('12', '湘A1546114', '奔驰A100', '奔驰', 'SUV', '红色', '600', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '0', 'uhadjaldh，奔驰', '1.4', null, null, null, null);
+INSERT INTO `car` VALUES ('13', '湘A1546115', '奔驰A100', '奔驰', 'SUV', '红色', '59', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '0', null, '1.4', null, null, null, null);
+INSERT INTO `car` VALUES ('14', '湘A1546116', '奔驰A100', '奔驰', 'SUV', '红色', '562', '208', '2019-03-24 10:27:52', '2019-04-28 10:27:52', '0', null, '1.4', null, null, null, null);
+INSERT INTO `car` VALUES ('15', '湘A1546117', '奔驰A100', '奔驰', 'SUV', '红色', '900', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '1', '奔驰', '1.4', null, null, null, null);
+INSERT INTO `car` VALUES ('16', '湘A1546118', '奔驰A100', '奔驰', 'SUV', '红色', '8130', '200', '2019-03-24 10:27:52', '2019-03-24 10:27:52', '1', null, '1.4', null, null, null, null);
+INSERT INTO `car` VALUES ('17', '湘A1546119', '奔驰A100', '奔驰', 'SUV', '红色', '894', '200', '2019-04-26 10:27:52', '2019-05-24 10:27:52', '1', '奔驰', '1.4', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for file_info
@@ -80,21 +80,19 @@ CREATE TABLE `file_info` (
   PRIMARY KEY (`id`),
   KEY `FK3h1ea71ovfm9de65vo6vdddmh` (`car_id`),
   CONSTRAINT `FK3h1ea71ovfm9de65vo6vdddmh` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of file_info
 -- ----------------------------
-INSERT INTO `file_info` VALUES ('2', null, null, null, null, null, 'FL_cbB5mnmYIwzc0gZnv.jpg', 'demo1.jpg', '/home/ableliu/file/20190225/111910', 'image/jpeg', '\0', null, '279356', '2019-02-25 11:19:10', '/home/ableliu/file/20190225/111910/FL_cbB5mnmYIwzc0gZnv.jpg', '', null);
-INSERT INTO `file_info` VALUES ('3', null, null, null, null, null, 'FL_fjKCUy29p4ykoixyg.jpg', 'demo1.jpg', '/home/ableliu/file/20190225/113243', 'image/jpeg', '\0', null, '279356', '2019-02-25 11:32:43', '/home/ableliu/file/20190225/113243/FL_fjKCUy29p4ykoixyg.jpg', '', null);
-INSERT INTO `file_info` VALUES ('4', null, null, null, null, null, 'FL_eUnpB2tShpk7cRuR8.jpeg', 'form.jpeg', '/home/ableliu/file/20190225/113647', 'image/jpeg', '\0', null, '62582', '2019-02-25 11:36:47', '/home/ableliu/file/20190225/113647/FL_eUnpB2tShpk7cRuR8.jpeg', '', null);
-INSERT INTO `file_info` VALUES ('5', null, null, null, null, null, 'FL_cPXXvO2SzHs5y7OlD.jpg', 'login.jpg', '/home/ableliu/file/20190225/114350', 'image/jpeg', '\0', null, '693604', '2019-02-25 11:43:50', '/home/ableliu/file/20190225/114350/FL_cPXXvO2SzHs5y7OlD.jpg', '', null);
-INSERT INTO `file_info` VALUES ('6', null, null, null, null, null, 'FL_efPQSqDYCPMbTf529.jpg', 'user.jpg', '/home/ableliu/file/20190225/133722', 'image/jpeg', '\0', null, '21836', '2019-02-25 13:37:22', '/home/ableliu/file/20190225/133722/FL_efPQSqDYCPMbTf529.jpg', '', null);
-INSERT INTO `file_info` VALUES ('7', null, null, null, null, null, 'FL_frknRug9HL9l76f69.jpg', 'user.jpg', '/home/ableliu/file/20190225/133916', 'image/jpeg', '\0', null, '21836', '2019-02-25 13:39:16', '/home/ableliu/file/20190225/133916/FL_frknRug9HL9l76f69.jpg', '', null);
-INSERT INTO `file_info` VALUES ('8', null, null, null, null, null, 'FL_cVxdDz6R4Tc9SDGgY.jpg', '1.jpg', '/home/ableliu/file/20190225/144855', 'image/jpeg', '\0', null, '277388', '2019-02-25 14:48:55', '/home/ableliu/file/20190225/144855/FL_cVxdDz6R4Tc9SDGgY.jpg', '', null);
-INSERT INTO `file_info` VALUES ('9', null, null, null, null, null, 'FL_bh3uYGteT6HiUkCVE.jpg', '1.jpg', '/home/ableliu/file/20190225/144917', 'image/jpeg', '\0', null, '277388', '2019-02-25 14:49:17', '/home/ableliu/file/20190225/144917/FL_bh3uYGteT6HiUkCVE.jpg', '', '17');
-INSERT INTO `file_info` VALUES ('10', null, null, null, null, null, 'FL_cxw6tgVfuJQ1AhAlD.png', '2019-01-24 09-26-40屏幕截图 (5).png', '/home/ableliu/file/20190304/171305', 'image/png', '\0', null, '1061247', '2019-03-04 17:13:05', '/home/ableliu/file/20190304/171305/FL_cxw6tgVfuJQ1AhAlD.png', '', '17');
-INSERT INTO `file_info` VALUES ('11', null, null, null, null, null, 'FL_cxaBsaJoWLC1OoYka.png', '2019-01-24 09-26-40屏幕截图 (3).png', '/home/ableliu/file/20190311/140013', 'image/png', '\0', null, '1061247', '2019-03-11 14:00:13', '/home/ableliu/file/20190311/140013/FL_cxaBsaJoWLC1OoYka.png', '', '17');
+INSERT INTO `file_info` VALUES ('14', null, null, null, null, null, 'FL_er3u1fOxuIEc8311H.jpg', '1024x0_1_q87_autohomecar__wKjB0lfD_-OAGcxpAAcPrYIzS1U931.jpg', '\\carFile\\img\\20190416\\221321', 'image/jpeg', '\0', null, '139701', '2019-04-16 22:13:21', '\\carFile\\img\\20190416\\221321\\FL_er3u1fOxuIEc8311H.jpg', '', null);
+INSERT INTO `file_info` VALUES ('15', null, null, null, null, null, 'FL_furBiMmCVTRk8kFBw.jpg', '36b58550-02190554so.jpg', '\\carFile\\img\\20190416\\221341', 'image/jpeg', '\0', null, '192293', '2019-04-16 22:13:41', '\\carFile\\img\\20190416\\221341\\FL_furBiMmCVTRk8kFBw.jpg', '', '7');
+INSERT INTO `file_info` VALUES ('16', null, null, null, null, null, 'FL_cDQJuZG4fR2hsVP2e.jpg', '1024x0_1_q87_20120423151702722264.jpg', '\\carFile\\img\\20190416\\221347', 'image/jpeg', '\0', null, '141842', '2019-04-16 22:13:47', '\\carFile\\img\\20190416\\221347\\FL_cDQJuZG4fR2hsVP2e.jpg', '', '7');
+INSERT INTO `file_info` VALUES ('17', null, null, null, null, null, 'FL_bJ4uk2f6Pko73tCar.jpg', '1024x0_1_q87_autohomecar__wKgH0FZqc7aAF7BXAAn-hCdIuOM507.jpg', '\\carFile\\img\\20190416\\221356', 'image/jpeg', '\0', null, '196552', '2019-04-16 22:13:56', '\\carFile\\img\\20190416\\221356\\FL_bJ4uk2f6Pko73tCar.jpg', '', '7');
+INSERT INTO `file_info` VALUES ('18', null, null, null, null, null, 'FL_dS3jcfAai0T9GK6Td.jpg', '1024x0_1_q87_autohomecar__wKgHIVpYityAbPnfAAc9vrfj3IM377.jpg', '\\carFile\\img\\20190416\\221402', 'image/jpeg', '\0', null, '151728', '2019-04-16 22:14:02', '\\carFile\\img\\20190416\\221402\\FL_dS3jcfAai0T9GK6Td.jpg', '', '7');
+INSERT INTO `file_info` VALUES ('19', null, null, null, null, null, 'FL_fTHG7xIdVir5uTVP1.jpg', '1024x0_1_q87_autohomecar__wKjB0FZF16aAUO5NAAVqUsWDgqg567.jpg', '\\carFile\\img\\20190416\\221408', 'image/jpeg', '\0', null, '115080', '2019-04-16 22:14:08', '\\carFile\\img\\20190416\\221408\\FL_fTHG7xIdVir5uTVP1.jpg', '', '7');
+INSERT INTO `file_info` VALUES ('20', null, null, null, null, null, 'FL_emX7bjyfTAP8Yv0GM.jpg', '1024x0_1_q87_autohomecar__wKjB0lfD_-OAGcxpAAcPrYIzS1U931.jpg', '\\carFile\\img\\20190416\\221414', 'image/jpeg', '\0', null, '139701', '2019-04-16 22:14:14', '\\carFile\\img\\20190416\\221414\\FL_emX7bjyfTAP8Yv0GM.jpg', '', '7');
+INSERT INTO `file_info` VALUES ('21', null, null, null, null, null, 'FL_cklAB6gbY6EcPD5mr.jpg', '1024x0_1_q87_autohomecar__wKgHIVpYityAbPnfAAc9vrfj3IM377.jpg', 'D:\\file\\img\\20190417\\001156', 'image/jpeg', '\0', null, '151728', '2019-04-17 00:11:56', 'D:\\file\\img\\20190417\\001156\\FL_cklAB6gbY6EcPD5mr.jpg', '', null);
 
 -- ----------------------------
 -- Table structure for hibernate_sequence
@@ -125,7 +123,7 @@ CREATE TABLE `menu` (
   `updated_by` varchar(255) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -134,6 +132,7 @@ INSERT INTO `menu` VALUES ('1', null, '添加用户', '/user/add', null, null, n
 INSERT INTO `menu` VALUES ('2', null, '修改用户', '/user/update', null, null, null, null, null);
 INSERT INTO `menu` VALUES ('3', null, '删除用户', '/user/del', null, null, null, null, null);
 INSERT INTO `menu` VALUES ('4', null, '会员列表', '/user/list', null, null, null, null, null);
+INSERT INTO `menu` VALUES ('5', null, '文件操作', 'api/file/*', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for order_master
@@ -204,7 +203,7 @@ CREATE TABLE `role_menu` (
   `updated_by` varchar(255) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of role_menu
@@ -214,6 +213,7 @@ INSERT INTO `role_menu` VALUES ('2', '1', '2', null, null, null, null);
 INSERT INTO `role_menu` VALUES ('3', '1', '3', null, null, null, null);
 INSERT INTO `role_menu` VALUES ('4', '1', '4', null, null, null, null);
 INSERT INTO `role_menu` VALUES ('5', '2', '4', null, null, null, null);
+INSERT INTO `role_menu` VALUES ('6', '1', '5', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for user

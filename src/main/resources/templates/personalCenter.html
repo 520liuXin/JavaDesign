@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../img/icon.png" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/homePage.css">
+    <link rel="stylesheet" href="../css/personalCenter.css">
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <title>personalCenter-个人中心</title>
+</head>
+<body>
+    <div class="SRose-head">
+        <div class="headTop">
+            <!-- 37px高度 100%宽度 包含 图标+淘车网首页  欢迎来到淘车网 登录 我的淘车 （阉割部分功能） 联系电话 -->
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="headp goleft">
+                                <button type="button" class="btn btn-link">
+                                    <a href="homePageFirstPage.html" target="_self" class="a-css"><span class="glyphicon glyphicon-home"></span>淘车网首页</a>
+                                </button>
+                                </p>
+                            </div>
+
+                            <div class="col-md-6"></div>
+
+                            <div class="col-md-2">
+                                <p class="headp goright">
+                                    <button type="button" class="btn btn-link">
+                                        <a href="loginOrRegist.html" class="a-css">登录/注册</a> 
+                                    </button>
+                                </p>
+                            </div>
+                            
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-link">
+                                <p class="headp goright"><a href="#" class="a-css">我的淘车</a></p>
+                                </button>
+                            </div>
+
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#phoneInfoModal">
+                                <p class="headp goright">联系电话</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="headBody">
+            <!-- 125px高度 宽度 col-md-8 居中 包含logo 搜索框 按钮 -->
+            <div class="row">
+            <div class="col-md-2"></div>
+            
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="a-css"><h1>淘车网 taoche.com</h1></a>
+                        </div>
+        
+                        <div class="col-md-3"></div>
+        
+                        <div class="col-md-6 searchbar">
+                            <!-- <div class="input-group">
+                                <input type="text" class="form-control" placeholder="搜 帕加尼风之子 试试">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">搜索</button>
+                                    <button type="button" class="btn btn-default">卖车</button>
+                                </span>
+                            </div>  -->
+                        </div>
+                        </div>
+                </div>
+
+                <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航栏 高度37px 100%宽度  包含项 首页 买车 卖车 评估 置换-->
+        <div class="row navigator">
+            <div class="col-md-2 nearNavigator"></div>
+
+            <div class="col-md-8">
+                <ul class="nav nav-tabs nav-justified">
+                        <li role="presentation"><a href="homePageFirstPage.html" target="_self">首页</a></li>
+                        <li role="presentation"><a href="homePageCarInformation.html" target="_self">资讯</a></li>
+                        <li role="presentation"><a href="homePageMerchant.html" target="_self">商家中心</a></li>
+                        <li role="presentation" class="active"  ><a href="#" target="_self">个人中心</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 nearNavigator"></div>
+        </div>
+
+        <!-- 个人中心展示 -->
+        <div class="PCContainer">
+            <div class="row">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-8">
+                    
+                    <div class="col-md-3 PCmenu">`
+                        <div class="PC-photo-container col-md-12">
+                            <img src="../img/marix.png" width="150px" height="150px" class="img-circle" alt="">
+                             <div><h3 class="username">老子名叫赵日天</h3></div>
+                        </div>
+                        <div class="btn col-md-12" role="button">
+                            <a href="personalS/personalData.html" target="detail" class="btn btn-default btn-lg btn-block col-md-12" role="button">个人资料</a>
+                            <a href="personalS/personalOrder.html" target="detail" class="btn btn-default btn-lg btn-block col-md-12" role="button">个人订单</a>
+                            <a href="personalS/changePwd.html" target="detail" class="btn btn-default btn-lg btn-block col-md-12" role="button">更改密码</a>
+                            <a href="https://www.baidu.com/" target="detail" class="btn btn-default btn-lg btn-block col-md-12" role="button">有问题请点我</a>
+                        </div>
+                    </div>
+
+                    <div class="PCiframe col-md-9">
+                        <iframe src="personalS/personalData.html" frameborder="0" name="detail" scrolling="no" style="width:100%;height: 600px;"></iframe>
+                    </div>
+                </div>
+                
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+
+        <div class="SRose-foot">
+            <!-- 页面介绍 二维码 版权信息 -->
+            <div class="row">
+                <div class="col-md-2"></div>
+        
+                <div class="col-md-8">
+                    <div class="wechat">
+                        <h4>淘车网是由marix 刘慕思二人合作开发的汽车租赁购买平台 网站最终解释权归二人所有</h4>
+                    <div class="wechatImg">
+                        <img src="../img/marix.jpg" alt="marix个人微信" width="120px" height="120px">
+                        <span>marix个人微信</span>
+                    </div>
+                    <div class="wechatImg">
+                        <img src="../img/saoxin.jpg" alt="刘慕思个人微信" width="120px" height="120px">
+                        <span>刘慕思个人微信</span>
+                    </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+
+        <!-- phoneInfoModal -->
+    <div class="modal fade" id="phoneInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>淘车网热线</h2>
+          </div>
+
+          <div class="modal-body">
+            <!-- 左图右字 -->
+            <div style="text-align:center; font-weight:bold;"><h4>欢迎致电淘车网！</h4></div>
+            <div class="phoneInfoContainer">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>管理员</td>
+                    <th>联系电话</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>马瑞思</td>
+                    <td>18216215139</td>
+                  </tr>
+                  <tr>
+                    <td>骚信</td>
+                    <td>18229909690</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
+              确认
+            </button>
+          </div>
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div>
+
+</body>
+</html>

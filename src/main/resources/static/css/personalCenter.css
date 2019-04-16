@@ -1,0 +1,17 @@
+.PCmenu{
+    margin: 20px 0;
+    height: 600px;
+    border: 1px solid #DDDDDD;
+    background-color: #F8F8F8;
+}
+.PC-photo-container{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.PC-photo-container{
+    margin: 5px 0;
+}
+.PCiframe{
+    margin: 20px 0;
+}

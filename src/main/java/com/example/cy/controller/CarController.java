@@ -79,6 +79,7 @@ public class CarController {
      * @param jsonStr
      * @return
      */
+
     @GetMapping("/info")
     public ResponseInfo<?> findCarById(String jsonStr){
 //        List< Car > carList = new ArrayList< Car >();
@@ -87,9 +88,11 @@ public class CarController {
 //        }
 //        Car car=carList.get(0);
         Car oldCar=carDao.findCarById(7L);
+
         List<FileInfo> fileInfos=fileInfoDao.findByCar_Id(7L);
 
         oldCar.setCarImgUrl(fileInfos);
+
         if(Calibration.isNotEmpty(oldCar)){
             return ResponseInfo.success(oldCar);
         }

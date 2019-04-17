@@ -256,7 +256,7 @@ public class FileInfoServiceImpl implements FileInfoService {
             throw new BusinessException("2001","文件名:"+fileName+" 不存在");
         }
         // 逻辑删除文件
-        fileInfo.setIsDelete(true);
+        fileInfo.setDelete(true);
         fileInfo.setDeleteTime(DateUtils.getDateString(new Date()));
         return ResponseInfo.success(fileInfo);
     }

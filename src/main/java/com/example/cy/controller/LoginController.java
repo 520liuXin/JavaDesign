@@ -36,39 +36,36 @@ public class LoginController {
 
 
 
-//    @RequestMapping(value = "/user/login")
-//    public String userLogin(HttpServletRequest request) {
-//
-//        User userInfo = new User();
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//
-//        userInfo.setUsername(username);
-//        userInfo.setPassword(password);
-//
-//        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-//
-//
-//        try{
-//            //使用SpringSecurity拦截登陆请求 进行认证和授权
-//            Authentication authenticate = myAuthenticationManager.authenticate(usernamePasswordAuthenticationToken);
-//
-//            SecurityContextHolder.getContext().setAuthentication(authenticate);
-//            //使用redis session共享
-//            HttpSession session = request.getSession();
-//            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return "redirect:login-error?error=2";//用户名或密码错误
-//        }
-//        User user=SecurityUtils.getUser();
-//        if ("1".equals(user.getAdmin())){
-////            return "redirect:admin";
-////        }
-//
-//
-//        return "redirect:user";
-//    }
+    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+    public String userLogin(HttpServletRequest request,@RequestBody JSONObject params) {
+
+
+        String username=params.getString("name");
+        String password=params.getString("pwd");
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+
+
+        try{
+            //使用SpringSecurity拦截登陆请求 进行认证和授权
+            Authentication authenticate = myAuthenticationManager.authenticate(usernamePasswordAuthenticationToken);
+
+            SecurityContextHolder.getContext().setAuthentication(authenticate);
+            //使用redis session共享
+            HttpSession session = request.getSession();
+            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
+        }catch (Exception e){
+            e.printStackTrace();
+
+            return "redirect:login-error?error=2";//用户名或密码错误
+        }
+        User user=SecurityUtils.getUser();
+        if ("1".equals(user.getAdmin())){
+            return "redirect:admin";          //管理员用户直接跳转到admin。html
+        }
+
+
+        return "redirect:user";              // 用户直接跳转到user。html
+    }
 
 
     @RequestMapping(value = "/user/logout")
@@ -76,11 +73,11 @@ public class LoginController {
         SecurityUtils.logout();
         return "redirect:login";
     }
-
-    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    public void login (@RequestBody JSONObject params){
-
-        System.out.println("param--name:"+params.getString("name")+"param--pwd:"+params.getString("pwd"));
+//
+//    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+//    public void login (@RequestBody JSONObject params){
+//
+//        System.out.println("param--name:"+params.getString("name")+"param--pwd:"+params.getString("pwd"));
 //        JSONObject jsonObj = JSONObject.parseObject(jsonStr);
 //        UserServiceImpl usl = new UserServiceImpl();
 //        User sendUser = new User();
@@ -94,7 +91,7 @@ public class LoginController {
 //        if(getUser.getPassword().equals(sendUser.getPassword())){
 //            return "success";
 //        }
-
-    }
+//
+//    }
 
 }

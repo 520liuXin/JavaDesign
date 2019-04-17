@@ -2,7 +2,7 @@
 
 upload: #文件上传配置
   localtion:  #配置默认文件保存位置
-    windows: D:/file/img
+    windows: E:/springboot-upload/file/
     linux: /home/ableliu/file/
   maxFileSize: 10Mb #单个文件最大KB/MB
   maxRequestSize: 1000Mb   #设置总上传数据总大小

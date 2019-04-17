@@ -42,6 +42,7 @@ public class LoginController {
 
         String username=params.getString("name");
         String password=params.getString("pwd");
+        System.out.println("username:"+username+"password"+password);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
 
 
@@ -60,11 +61,9 @@ public class LoginController {
         }
         User user=SecurityUtils.getUser();
         if ("1".equals(user.getAdmin())){
-            return "redirect:admin";          //管理员用户直接跳转到admin。html
+            return "redirect:mgrcenter";          //管理员用户直接跳转到admin。html
         }
-
-
-        return "redirect:user";              // 用户直接跳转到user。html
+        return "redirect:home";           // 用户直接跳转到user。html
     }
 
 

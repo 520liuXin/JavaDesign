@@ -49,40 +49,41 @@ $(function(){
                     var jsonStr=JSON.stringify(loginObj);
                     $.ajax({
                         headers: {
-                            Accept: "application/json; charset=utf-8"
+                            Accept: "application/json;charset=utf-8"
                         },
                         contentType:'application/json;charset=utf-8',
                         url: "/userLogin",
                         type:"POST",
                         dataType: "json",
                         data:jsonStr,
-                        success: function(){
-                             alert(1);
+                        success: function(dataF){
+                            //  alert("dataF"+dataF);
                         },
-                        error: function(){
-                             alert(2);
+                        error: function(dataE){
+                             alert("流程不对 还需要调试");
+                            $(window).attr('location','homePageFirstPage.html');
                         }
                      })
-                    // $.post("/login",jsonStr,function(data,status){
+                    // $.post("/userLogin",jsonStr,function(data,status){
                     //     alert(jsonStr);
-                        // if(status=="success"){
-                        //     if(data=="有这个人"){
-                        //         window.location.href = "homePageFirstPage.html"; 
-                        //     }else{
-                        //         var randomNum = Math.random();
-                        //         if(randomNum<=0.25){
-                        //             window.location.href = "http://hackcode.ishoulu.com/scp/";
-                        //         }else if(randomNum>0.25 & randomNum<=0.5){
-                        //             window.location.href = "http://hackcode.ishoulu.com/combine/";
-                        //         }else if(randomNum>0.5 & randomNum<=0.75){
-                        //             window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
-                        //         }else{
-                        //             window.location.href = "http://hackcode.ishoulu.com/matrix/";
-                        //         }
-                        //     }
-                        // }else{
-                        //     console.log("请求服务器出错");
-                        // }
+                    //     if(status=="error"){
+                    //         if(data=="有这个人"){
+                    //             window.location.href = "homePageFirstPage.html"; 
+                    //         }else{
+                    //             var randomNum = Math.random();
+                    //             if(randomNum<=0.25){
+                    //                 window.location.href = "http://hackcode.ishoulu.com/scp/";
+                    //             }else if(randomNum>0.25 & randomNum<=0.5){
+                    //                 window.location.href = "http://hackcode.ishoulu.com/combine/";
+                    //             }else if(randomNum>0.5 & randomNum<=0.75){
+                    //                 window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
+                    //             }else{
+                    //                 window.location.href = "http://hackcode.ishoulu.com/matrix/";
+                    //             }
+                    //         }
+                    //     }else{
+                    //         console.log("请求服务器出错");
+                    //     }
                     // });
                 }  
             }else{

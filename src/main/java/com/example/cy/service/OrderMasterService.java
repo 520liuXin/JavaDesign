@@ -11,10 +11,14 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.List;
+
 @Service
 public interface OrderMasterService {
     OrderMaster creatOrder(OrderMaster orderMaster);
 
     CommonResponsePage<OrderMasterQuery> findOrderMasterAndPage(Pageable pageable, OrderMasterInput orderMaster);
+
+    List<OrderMasterQuery> findOrderByUserId(Long userId);
 
 }

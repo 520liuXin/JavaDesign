@@ -10,6 +10,7 @@ import com.example.cy.bean.query.CarQuery;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
 import com.example.cy.dao.FileInfoDao;
+import com.example.cy.enums.CarEnum;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
@@ -181,6 +182,7 @@ public class CarController {
                 CarInput car){
             int pageNumber = pageable.getPageNumber();
             pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+            car.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
             Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "id");
             CommonResponsePage<CarQuery> datas = carService.findCarAndPage(page, car);
             return ResponseInfo.success(datas);

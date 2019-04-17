@@ -67,12 +67,6 @@ public class OrderMaster extends BasePo{
 
     private Integer sendCar=SendCarEnum.NO.getCode();  // 是否送车上门（if true 加50块钱）
 
-//    起始时间	StartTime
-//
-//    终止时间
-//
-//     详细地址
-//
     @Column(length = 255)
     private Long buyerAmount; /** 订单总金额. */
 

@@ -12,9 +12,11 @@ import com.example.cy.utils.GenerateOrderNoUtil;
 import com.example.cy.utils.page.CommonResponsePage;
 import com.example.cy.utils.page.VenusPageVO;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.criteria.Predicate;
@@ -24,15 +26,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-
+@Service
 public class OrderMasterServiceImpl implements OrderMasterService {
-
+    @Autowired
     private OrderMasterDao orderMasterDao;
 
     @Override
     public OrderMaster creatOrder(OrderMaster orderMaster) {
         try{
             orderMaster.setOrderId(GenerateOrderNoUtil.gens(orderMaster.getUserId()));
+            orderMaster.setCreatedDate(new Date());
             orderMasterDao.save(orderMaster);
             return orderMaster;
         }catch (Exception e){
@@ -57,6 +60,16 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         }
         responsePage.setItems(list);
         return responsePage;
+    }
+
+    @Override
+    public List<OrderMasterQuery> findOrderByUserId(Long userId) {
+        List<OrderMaster> orderMasters=orderMasterDao.findByUserId(userId);
+        List<OrderMasterQuery> list=new ArrayList<>(orderMasters.size());
+        for(OrderMaster om : orderMasters){
+            list.add(packResultData(om));
+        }
+        return list;
     }
 
 
@@ -107,6 +120,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         orderMasterQuery.setEndDate(orderMaster.getEndDate());
         orderMasterQuery.setCarName(orderMaster.getCarName());
         orderMasterQuery.setOrderStatus(orderMaster.getOrderStatus());
+        orderMasterQuery.setUserName(orderMaster.getUserName());
         return orderMasterQuery;
     }
 

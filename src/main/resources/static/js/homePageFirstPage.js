@@ -119,12 +119,42 @@ $(function(){
        }
       });
     };
+    var loadCarByLatest = function(){
+      $.getJSON("car/findByLatest",function(info,status){
+     if(status=="success"){
+        $.each(info.data,function(i,item){
+          $(".zuixinshangjia").append(
+            '<li>'+
+            '<div class="carDetailContainer">'+
+              '<div class="detailTitle">'+item.carType+'</div>'+
+              '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+              '<div class="priceContainer">'+
+                '<span class="totalPrice">300万</span>'+
+                '<span class="Installment">首付60万</span>'+
+              '</div>'+
+              '<div class="serviceContainer">'+
+                '<i>30天可退</i>'+
+                '<i>免费检测</i>'+
+                '<i>分期购车</i>'+
+              '</div>'+
+            '</div>'+
+            '</li>'
+          );
+        });
+     }else{
+      $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
+     }
+    });
+  };
+
   
     // 启用方法
     loadCarAll();
     loadCarByDifferent();
     loadCarByInterest();
     loadCarByVogue();
+    loadCarByLatest();
     //搜索栏
     $(".btn-searchBar").click(function(){
       var searchCar={};
@@ -134,55 +164,24 @@ $(function(){
       }else{
         alert("please input your information");
       };
-      // $.post("car/findCarByCarInfo",JSON.stringify(searchCar),function(data,status){
-      //   if(status=="success"){
-          // if(data){
-          //     $(".ViewAllRendering").html("");
-          //   $.each(data,function(i,item){
-          //     $(".ViewAllRendering").append(
-          //       '<div class="carDetailContainer">'+
-          //         '<div class="detailTitle">'+item.carType+'</div>'+
-          //         '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-          //         '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
-          //         '<div class="priceContainer">'+
-          //           '<span class="totalPrice">300万</span>'+
-          //           '<span class="Installment">首付60万</span>'+
-          //         '</div>'+
-          //         '<div class="serviceContainer">'+
-          //           '<i>30天可退</i>'+
-          //           '<i>免费检测</i>'+
-          //           '<i>分期购车</i>'+
-          //         '</div>'+
-          //       '</div>' 
-          //     );
-          //   });
-          // }
-      //   }else{
-      //        $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-      //   };
-      // });
-  
-  
+
       $.ajax({
-        headers: {
-            Accept: "application/json;charset=utf-8"
-        },
-        contentType:'application/json;charset=utf-8',
-        url: "car/fuzzyQuery",
-        type:"POST",
-        dataType: "json",
-        data:JSON.stringify(searchCar),
-        success: function(data){
-          if(data){
-            $(".ViewAllRendering").html("");
-          $.each(data,function(i,item){
-            console.log(item);
-            console.log(item.id);
-            $(".ViewAllRendering").append(
+          contentType:'application/json;charset=utf-8',
+          url: "car/fuzzyQuery",
+          type:"POST",
+          dataType: "json",
+          data:JSON.stringify(searchCar),
+          success: function(dataS,status){
+              console.log(dataS);
+              // $(".ViewAllRendering").html("");
+              $(".ViewAllRendering").html("<div class='typeTitle col-md-12'><h3>筛选精品</h3></div><ul class='fuzzyQuery'><ul>");
+            $.each(dataS.data,function(i,item){
+              $(".fuzzyQuery").append(
+              '<li>'+
               '<div class="carDetailContainer">'+
                 '<div class="detailTitle">'+item.carType+'</div>'+
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
                 '<div class="priceContainer">'+
                   '<span class="totalPrice">300万</span>'+
                   '<span class="Installment">首付60万</span>'+
@@ -192,16 +191,16 @@ $(function(){
                   '<i>免费检测</i>'+
                   '<i>分期购车</i>'+
                 '</div>'+
-              '</div>' 
-            );
-  
-          });
-        }
-        },
-        error: function(dataE){
-          $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-        }
-     })
+              '</div>'+
+              '</li>'
+              );
+            });
+          
+          },
+          error: function(dataE,status){
+            $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
+          }
+      })
     });
   
   });

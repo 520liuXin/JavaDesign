@@ -46,22 +46,23 @@ $(function(){
                 }else{
                     console.log(typeof JSON.stringify(loginObj));
                     console.log(JSON.stringify(loginObj));
-                    var jsonStr=JSON.stringify(loginObj);
                     $.ajax({
-                        headers: {
-                            Accept: "application/json;charset=utf-8"
-                        },
+                        // headers: {
+                        //     Accept: "application/json;charset=utf-8"
+                        // },
                         contentType:'application/json;charset=utf-8',
                         url: "/userLogin",
                         type:"POST",
                         dataType: "json",
-                        data:jsonStr,
+                        data:JSON.stringify(loginObj),
                         success: function(dataF){
-                            //  alert("dataF"+dataF);
+                             alert("success"+dataF);
+                             console.log("dataF"+dataF);
                         },
                         error: function(dataE){
-                             alert("流程不对 还需要调试");
-                            $(window).attr('location','homePageFirstPage.html');
+                            alert("error"+dataE);
+                            console.log("dataE"+dataE);
+                            // $(window).attr('location','homePageFirstPage.html');
                         }
                      })
                     // $.post("/userLogin",jsonStr,function(data,status){

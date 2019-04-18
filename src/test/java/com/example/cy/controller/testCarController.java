@@ -32,7 +32,7 @@ public class testCarController {
     private FileInfoService fileInfoService;
 
     @Test
-    @Ignore
+//    @Ignore
     public void testAddCar(){
         List<FileInfo> fileInfos=new ArrayList<>();
         FileInfo fileInfo=new FileInfo();
@@ -43,15 +43,20 @@ public class testCarController {
         fileInfos.add(fileInfo);
         fileInfos.add(fileInfo1);
 
-        for(int i=0;i<10;i++){
+        for(int i=0;i<5;i++){
             Car car=new Car();
-            car.setColor("红色");
+            car.setColor("中国红");
             car.setRent(200L);
-            car.setCarType("SUV");
-            car.setCarName("奔驰A100");
-            car.setCarId("湘A154611"+i);
-            car.setCarBrand("奔驰");
+            car.setCarType("WCC");
+            car.setCarName("尼桑");
+//            car.setCarId("湘A154611"+i);
+            car.setCarBrand("尼桑GTR36");
             car.setCarImgUrl(fileInfos);
+            car.setCarDescribe("全新梅赛德斯奔驰");
+            car.setDisplacement("1.4");
+            car.setDriveWay("后驱");
+            car.setEngine("800P");
+            car.setFuelConsumption("7L");
             Car newCar=carService.saveCar(car);
         }
 

@@ -2,6 +2,7 @@ package com.example.cy.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.cy.bean.Car;
 import com.example.cy.bean.FileInfo;
 import com.example.cy.bean.User;
@@ -44,10 +45,11 @@ public class CarController {
      * @param carDescribe
      * @return
      */
-    @PostMapping("/fuzzyQuery")
-    private ResponseInfo<?> fuzzyQuery(String carDescribe){
+    @RequestMapping(value = "/fuzzyQuery", method = RequestMethod.POST)
+    private ResponseInfo<?> fuzzyQuery(@RequestBody JSONObject params){
+        String carInfo = params.getString("carInfo");
         List<CarQuery> carQueries=new ArrayList<>();
-        carQueries=carService.fuzzy(carDescribe);
+        carQueries=carService.fuzzy(carInfo);
         if (Calibration.isNotEmpty(carQueries)){
             return ResponseInfo.success(carQueries);
         }
@@ -81,16 +83,18 @@ public class CarController {
      * @return
      */
 
-    @GetMapping("/info")
-    public ResponseInfo<?> findCarById(String jsonStr){
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
+    public ResponseInfo<?> findCarById(@RequestBody JSONObject params){
 //        List< Car > carList = new ArrayList< Car >();
 //        if (StringUtils.isNotBlank(jsonStr)) {
 //            carList = JSON.parseArray(jsonStr, Car.class);
 //        }
 //        Car car=carList.get(0);
-        Car oldCar=carDao.findCarById(7L);
+        System.out.println(params.getString("id"));
+        Long idInfo = Long.parseLong(params.getString("id"));
+        Car oldCar=carDao.findCarById(idInfo);
 
-        List<FileInfo> fileInfos=fileInfoDao.findByCar_Id(7L);
+        List<FileInfo> fileInfos=fileInfoDao.findByCar_Id(idInfo);
 
         oldCar.setCarImgUrl(fileInfos);
 
@@ -247,5 +251,16 @@ public class CarController {
 
     }
 
+    /**
+     *
+     * @param params
+     */
+    @PostMapping("/likeThisCar")
+    public void likeThisCar(@RequestBody JSONObject params ){
+        String carId=params.getString("carId");
+        Car car=new Car();
+        car.setId(Long.parseLong(carId));
+        carService.head_value(car);
+    }
 
 }

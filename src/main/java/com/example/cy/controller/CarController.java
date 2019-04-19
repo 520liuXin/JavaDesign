@@ -16,6 +16,7 @@ import com.example.cy.security.SecurityUtils;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
+import com.example.cy.utils.RandomDataUtil;
 import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
 import lombok.extern.slf4j.Slf4j;
@@ -120,7 +121,7 @@ public class CarController {
 
         cars = carDao.findByCarSource(store);
 
-        carQueries= carToCarQuery(cars);
+        carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
     }
@@ -141,7 +142,7 @@ public class CarController {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         cars = carDao.findByCarSource(personal);
 
-        carQueries= carToCarQuery(cars);
+        carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
     }
@@ -176,7 +177,7 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.ASC, "heatValue");
         cars = carDao.findAll(sort);
-        carQueries= carToCarQuery(cars);
+        carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
     }
@@ -213,7 +214,7 @@ public class CarController {
              return carService.findLike(s);
         }else {
             List<Car> cars=carService.findAll();
-            carQueryList= carToCarQuery(cars);
+            carQueryList= randomCarToCarQuery(cars);
             return ResponseInfo.success(checkCar(carQueryList));
         }
 
@@ -302,6 +303,28 @@ public class CarController {
             return carQueryList;
     }
 
+
+    /**
+     * Car转换成CarQuery,并随机取五条数据,
+     * @param cars
+     * @return
+     */
+    private List<CarQuery> randomCarToCarQuery(List<Car> cars){
+        RandomDataUtil randomDataUtil=new RandomDataUtil();
+        List<CarQuery> carQueries=new ArrayList<>();
+        List<CarQuery> carQueryList=new ArrayList<>();
+        for (Car car:cars){
+            CarQuery carQuery=packResultDataForCarQuery(car);
+            carQueries.add(carQuery);
+        }
+        carQueryList=  checkCar(carQueries);
+        if(carQueryList.size()>5){
+          carQueryList=  randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
+
+        }
+        return carQueryList;
+    }
+
   /**
    * @Author able-liu
    * @Description 车辆喜欢，提升热度值
@@ -318,12 +341,6 @@ public class CarController {
 
 
 
-    /**
-     * @Author able-liu
-     * @Description 查询用户发布到平台上的车辆
-     * @Param
-     * @return
-     **/
 
 
 

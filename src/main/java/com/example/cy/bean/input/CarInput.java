@@ -14,11 +14,11 @@ public class CarInput {
 
     private String carId;        //车牌
 
-
+    private Long sourceUserId;   //添加车辆用户
 
     private String carBrand;     //汽车品牌
 
-
+    private String carSource;   //车辆来源 1.个人车辆，2.店家直营
 
     private String carType;       //类型
 

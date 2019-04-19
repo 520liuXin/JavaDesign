@@ -41,6 +41,11 @@ public class Car extends BasePo{
     @Column(length = 255)
     private Long heatValue=100L;    //热度值
 
+    @Column(length = 255)
+    private String carSource;   //车辆来源 1.个人车辆，2.店家直营
+
+    private Long sourceUserId;   //添加车辆用户
+
     //@JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,targetEntity=FileInfo.class,mappedBy="car")
     private List<FileInfo> carImgUrl=new ArrayList<>();  //汽车图片
@@ -59,6 +64,7 @@ public class Car extends BasePo{
 
     private String carDescribe;  //车辆描述
 
+    private String fuzzyQuery;//适用于模糊查询
 
 
 

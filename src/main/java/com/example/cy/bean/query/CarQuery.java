@@ -26,7 +26,7 @@ public class CarQuery {
 
 
     private String color;        //颜色
-
+    private String carSource;   //车辆来源 1.个人车辆，2.店家直营
 
     private Long rent;   //租金
 

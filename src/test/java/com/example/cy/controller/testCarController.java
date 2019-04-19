@@ -32,7 +32,7 @@ public class testCarController {
     private FileInfoService fileInfoService;
 
     @Test
-//    @Ignore
+    @Ignore
     public void testAddCar(){
         List<FileInfo> fileInfos=new ArrayList<>();
         FileInfo fileInfo=new FileInfo();

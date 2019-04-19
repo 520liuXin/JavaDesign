@@ -2,6 +2,7 @@ package com.example.cy.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.cy.bean.FileInfo;
 import com.example.cy.bean.User;
 import com.example.cy.bean.input.UserInput;
@@ -56,14 +57,14 @@ public class UserController {
     * @return
     **/
     @PostMapping("/add")
-    public ResponseInfo<?> AddUser( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
-        }
-      User user=userList.get(0);
+    public ResponseInfo<?> AddUser( @RequestBody JSONObject params){
 
-       User oldUser=userDao.findUser(user.getUsername());
+
+        String username=params.getString("name");
+        String password=params.getString("pwd");
+        User user=new User();
+
+       User oldUser=userDao.findUser(username);
        if(Calibration.isNotEmpty(oldUser)){
            return ResponseInfo.error("用户存在，请登录");
        }
@@ -122,7 +123,7 @@ public class UserController {
      * 获取全部用户
      * @return
      */
-    @RequestMapping(value = "/findall", method = RequestMethod.GET)
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ResponseInfo<?> findAll(){
         List <User> list=userDao.findAll();
         return ResponseInfo.success(list);

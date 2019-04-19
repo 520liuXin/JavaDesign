@@ -91,6 +91,7 @@ ul{
     color: white;
     font-weight: bold;
     position: absolute;
+    text-align: center;
     /* top: 20px; */
 }
 .carDetailContainer div img{

@@ -102,3 +102,6 @@ div{
     border: 1px solid #DCDCDC;
     border-radius: 10px 10px 10px 10px; 
 }
+.cardetailTitle{
+    height: 170px;
+}

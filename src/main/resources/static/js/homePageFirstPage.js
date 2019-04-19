@@ -202,5 +202,51 @@ $(function(){
           }
       })
     });
-  
+    
+    $("a").click(function(){
+      // alert($(this).attr("name"));
+      // 获取name属性
+      var queryByCodition = {};
+      if($(this).attr("name")!=undefined || $(this).attr("name")!=null){
+        queryByCodition.codition = $(this).attr("name");
+      }
+      var urlStr = "/car/findCar?"+queryByCodition.codition;
+      console.log(urlStr+"------"+decodeURI(urlStr));
+
+      $.ajax({
+        headers: {
+                Accept:"application/json;charset=utf-8"
+            },
+        contentType:'application/json;charset=UTF-8',
+        url: decodeURI(decodeURI(urlStr)),
+        type:"GET",
+        success:function(dataS,status){
+          console.log(dataS);
+          $(".ViewAllRendering").html("<div class='typeTitle col-md-12'><h3>精准查询</h3></div><ul class='fuzzyQuery'><ul>");
+          $.each(dataS.data.items,function(i,item){
+            $(".fuzzyQuery").append(
+            '<li>'+
+            '<div class="carDetailContainer">'+
+              '<div class="detailTitle">'+item.carType+'</div>'+
+              '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+              '<div class="priceContainer">'+
+                '<span class="totalPrice">300万</span>'+
+                '<span class="Installment">首付60万</span>'+
+              '</div>'+
+              '<div class="serviceContainer">'+
+                '<i>30天可退</i>'+
+                '<i>免费检测</i>'+
+                '<i>分期购车</i>'+
+              '</div>'+
+            '</div>'+
+            '</li>'
+            );
+          });
+        },
+        error:function(dataE,status){
+          console.log(dataE);
+        }
+      });
+    });
   });

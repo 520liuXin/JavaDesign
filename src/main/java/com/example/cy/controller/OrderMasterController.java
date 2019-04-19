@@ -58,21 +58,18 @@ public class OrderMasterController {
      * @return
      **/
 
-    @RequestMapping(value = "/createOrder", method = RequestMethod.GET)
-    public  ResponseInfo<?> createOrder(){
+    @RequestMapping(value = "/createOrder", method = RequestMethod.POST)
+    public  ResponseInfo<?> createOrder(@RequestBody JSONObject params){
         OrderMaster orderMaster=new OrderMaster();
 
-//        String username=params.getString("username");
-//        String carId=params.getString("carId");
-//        String  satrDate=params.getString("starDate");
-//        String  endDate=params.getString("endDate");
-//        String detailedAddress=params.getString("detailedAddress");
+        String username=params.getString("username");
+        String carId=params.getString("id");
+        String  startTime=params.getString("startTime");
+        String  endTime=params.getString("endTime");
+        String getCar=params.getString("getCar");
+        String detailedAddress=params.getString("address");
+        String price=params.getString("price");
 
-        String username="17673817175";
-        String carId="7";
-        String satrDate="2019-02-21";
-        String endDate="2019-02-26";
-        String detailedAddress="湖南商学院";
         if(detailedAddress.isEmpty()){
             orderMaster.setSendCar(SendCarEnum.NO.getCode());
         }
@@ -81,20 +78,20 @@ public class OrderMasterController {
 
         User user=userDao.findUser(username);
         userToOrder(user,orderMaster);
-        Car  car=carDao.findCarById(Long.parseLong(carId));
+        Car car=carDao.findCarById(Long.parseLong(carId));
         carToOeder(car,orderMaster);
 
-        Date starTime=DateUtils.strToDate(satrDate);
-        Date endTime=DateUtils.strToDate(endDate);
+        Date StartTime=DateUtils.strToDate(startTime);
+        Date EndTime=DateUtils.strToDate(endTime);
 
-        int days=DateUtils.daysBetween(starTime,endTime)+1;
+        int days=DateUtils.daysBetween(StartTime,EndTime)+1;
         if (days<=0){
             ResponseInfo.error("租赁时间不可小于0天");
         }
 
         orderMaster.setLeaseDay(days);
-        orderMaster.setStartDate(starTime);
-        orderMaster.setEndDate(endTime);
+        orderMaster.setStartDate(StartTime);
+        orderMaster.setEndDate(EndTime);
         orderMaster.setBuyerAmount(days*orderMaster.getCarRent());
 
         orderMasterService.creatOrder(orderMaster);

@@ -226,7 +226,7 @@ public class CarController {
          * @return
          **/
         @RequestMapping(value = "/findCar", method = RequestMethod.GET)
-        public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 5) Pageable pageable,
+        public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 20) Pageable pageable,
                 CarInput car){
             int pageNumber = pageable.getPageNumber();
             if(car.getSourceUserId()!=null){

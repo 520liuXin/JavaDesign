@@ -21,4 +21,8 @@ public interface OrderMasterService {
 
     List<OrderMasterQuery> findOrderByUserId(Long userId);
 
+    OrderMaster updataOrder(OrderMaster orderMaster);
+
+    void deleteOrder(OrderMaster orderMaster) throws Exception;
+
 }

@@ -46,6 +46,7 @@ public class CarController {
 
     private String personal="个人卖家";
 
+
     /**
      * 模糊查询
      * @param
@@ -91,7 +92,6 @@ public class CarController {
 
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public ResponseInfo<?> findCarById(@RequestBody JSONObject params){
-        System.out.println(params.getString("id"));
         Long idInfo = Long.parseLong(params.getString("id"));
         Car oldCar=carDao.findCarById(idInfo);
 
@@ -116,11 +116,14 @@ public class CarController {
 
     @GetMapping("/store")
     public ResponseInfo<?> store(){
+        RandomDataUtil randomDataUtil=new RandomDataUtil();
         List<Car> cars=new ArrayList<>();
         List<CarQuery> carQueries=new ArrayList<>();
 
         cars = carDao.findByCarSource(store);
-
+        if(cars.size()>20){
+            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
+        }
         carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
@@ -137,11 +140,14 @@ public class CarController {
 
     @GetMapping("/personal")
     public ResponseInfo<?> personal(){
+        RandomDataUtil randomDataUtil=new RandomDataUtil();
         List<Car> cars=new ArrayList<>();
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         cars = carDao.findByCarSource(personal);
-
+        if(cars.size()>20){
+            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
+        }
         carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
@@ -160,8 +166,12 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.DESC, "heatValue");
         cars = carDao.findAll(sort);
+        if(cars.size()>20){
+            carQueries= carToCarQuery(cars.subList(0,20));
+        }else {
+            carQueries= carToCarQuery(cars);
+        }
 
-        carQueries= carToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
     }
@@ -173,10 +183,14 @@ public class CarController {
      */
     @GetMapping("/findByDifferent")
     public ResponseInfo<?> findByDifferent() {
+        RandomDataUtil randomDataUtil=new RandomDataUtil();
         List<Car> cars=new ArrayList<>();
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.ASC, "heatValue");
         cars = carDao.findAll(sort);
+        if(cars.size()>30){
+            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
+        }
         carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
@@ -194,7 +208,11 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.DESC, "createdDate");
         cars = carDao.findAll(sort);
-        carQueries= carToCarQuery(cars);
+        if(cars.size()>20){
+            carQueries= carToCarQuery(cars.subList(0,20));
+        }else {
+            carQueries= carToCarQuery(cars);
+        }
         return ResponseInfo.success(carQueries);
 
     }
@@ -208,10 +226,11 @@ public class CarController {
          * @return
          */
     @GetMapping("/findByInterest")
-    public ResponseInfo<?> findByInterest(String s){
+    public ResponseInfo<?> findByInterest(){
         List<CarQuery> carQueryList=new ArrayList<>();
-        if(StringUtils.isNotEmpty(s)){
-             return carService.findLike(s);
+        String like=SecurityUtils.getUser().getLabel();
+        if(StringUtils.isNotEmpty(like)){
+             return carService.findLike(like);
         }else {
             List<Car> cars=carService.findAll();
             carQueryList= randomCarToCarQuery(cars);
@@ -295,10 +314,9 @@ public class CarController {
             CarQuery carQuery=packResultDataForCarQuery(car);
             carQueries.add(carQuery);
         }
-        carQueryList=  checkCar(carQueries);
+        carQueryList=checkCar(carQueries);
         if(carQueryList.size()>5){
-            carQueryList.subList(0,5);
-
+            carQueryList= carQueryList.subList(0,5);
         }
             return carQueryList;
     }

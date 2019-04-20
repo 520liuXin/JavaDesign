@@ -47,12 +47,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.authorizeRequests()
                 // 所有用户均可访问的资源
-                //.antMatchers( "/favicon.ico","/css/**","/common/**","/js/**","/images/**","/img/**","/fonts/**","/images/password.jpg","/captcha.jpg","/login","/user/login","/login-error").permitAll()
-                .antMatchers( "/**").permitAll()
+                .antMatchers( "/favicon.ico","/css/**","/common/**","/js/**","/images/**","/img/**","/fonts/**","/images/password.jpg","/captcha.jpg","/login","/userLogin","/user/add","/login-error").permitAll()
+                //.antMatchers( "/**").permitAll()
                 // 任何尚未匹配的URL只需要验证用户即可访问
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").successForwardUrl("/success")//.failureForwardUrl("/login?error=1")
+                .formLogin().loginPage("/login")//.successForwardUrl("/success")//.failureForwardUrl("/login?error=1")
                 .and()
                 //权限拒绝的页面
                 .exceptionHandling().accessDeniedPage("/403");

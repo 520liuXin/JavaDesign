@@ -14,6 +14,7 @@ import com.example.cy.dao.UserDao;
 import com.example.cy.enums.CarEnum;
 import com.example.cy.enums.SendCarEnum;
 import com.example.cy.security.SecurityUtils;
+import com.example.cy.service.AlipayService;
 import com.example.cy.service.OrderMasterService;
 import com.example.cy.utils.Calibration;
 import com.example.cy.utils.DateUtils;
@@ -26,8 +27,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -49,6 +54,9 @@ public class OrderMasterController {
     @Autowired
     private OrderMasterDao orderMasterDao;
 
+    @Autowired
+    private AlipayService alipayService;
+
 
 
     /**
@@ -59,14 +67,12 @@ public class OrderMasterController {
      **/
 
     @RequestMapping(value = "/createOrder", method = RequestMethod.POST)
-    public  ResponseInfo<?> createOrder(@RequestBody JSONObject params){
+    public ModelAndView createOrder( @RequestBody JSONObject params)throws Exception{
         OrderMaster orderMaster=new OrderMaster();
 
-        String username=params.getString("username");
         String carId=params.getString("id");
         String  startTime=params.getString("startTime");
         String  endTime=params.getString("endTime");
-        String getCar=params.getString("getCar");
         String detailedAddress=params.getString("address");
         String price=params.getString("price");
 
@@ -76,7 +82,10 @@ public class OrderMasterController {
         orderMaster.setDetailedAddress(detailedAddress);
         orderMaster.setSendCar(SendCarEnum.YES.getCode());
 
-        User user=userDao.findUser(username);
+        User user=SecurityUtils.getUser();
+        if(user==null){
+            ResponseInfo.error("用户未登录，请登录");
+        }
         userToOrder(user,orderMaster);
         Car car=carDao.findCarById(Long.parseLong(carId));
         carToOeder(car,orderMaster);
@@ -92,23 +101,63 @@ public class OrderMasterController {
         orderMaster.setLeaseDay(days);
         orderMaster.setStartDate(StartTime);
         orderMaster.setEndDate(EndTime);
-        orderMaster.setBuyerAmount(days*orderMaster.getCarRent());
+        orderMaster.setBuyerAmount(Long.parseLong(price));
 
         orderMasterService.creatOrder(orderMaster);
-        return ResponseInfo.success(orderMaster);
+        ModelAndView mv = new ModelAndView();
+        String orderId=orderMaster.getOrderId();
+        //mv.addObject("orderMaster", orderId);
+       mv.setViewName("redirect:/alipay/pay?orderId="+orderId+"");
+        return mv;
+
+
+
     }
 
 
+    /**
+     * 更新订单
+     * @param orderMaster
+     * @return
+     */
+    public ResponseInfo<?> updataOrder(OrderMaster orderMaster){
+        OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
+        if(oldOrderMaster==null){
+            return ResponseInfo.error("订单不存在");
+        }
+        OrderMaster newdata=orderMasterService.updataOrder(orderMaster);
+        if(newdata==null){
+            return ResponseInfo.error("更新失败");
+        }
+        return ResponseInfo.success("更新成功");
+
+
+    }
 
 
     /**
-     * @Author able-liu
-     * @Description 取消订单
-     * @Param
+     * 删除订单
+     * @param orderMaster
      * @return
-     **/
+     */
+    public ResponseInfo<?> deleteOrder(OrderMaster orderMaster){
+        OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
+        if(oldOrderMaster==null){
+            return ResponseInfo.error("订单不存在");
+        }
+        OrderMaster newdata=orderMasterService.updataOrder(orderMaster);
+        if(newdata==null){
+            return ResponseInfo.error("删除失败");
+        }
+        return ResponseInfo.success("删除成功");
 
 
+    }
+
+    /**
+     * 查询个人订单
+     * @return
+     */
     @GetMapping("/info")
     public ResponseInfo<?> orderinfo(){
         User user=SecurityUtils.getUser();

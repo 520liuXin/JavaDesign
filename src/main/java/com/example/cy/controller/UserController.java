@@ -27,11 +27,17 @@ import org.springframework.data.domain.Pageable;
 
 import org.springframework.data.web.PageableDefault;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +53,9 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private AuthenticationManager myAuthenticationManager;
+
 
 
 
@@ -57,13 +66,17 @@ public class UserController {
     * @return
     **/
     @PostMapping("/add")
-    public ResponseInfo<?> AddUser( @RequestBody JSONObject params){
-
-
+    public ResponseInfo<?> AddUser(HttpServletRequest request, @RequestBody JSONObject params){
         String username=params.getString("name");
         String password=params.getString("pwd");
-        User user=new User();
+        String usertag=params.getString("Usertag");
+       usertag=usertag.replace("[","");
+       String label=usertag.replace("]","");
 
+        User user=new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setLabel(label);
        User oldUser=userDao.findUser(username);
        if(Calibration.isNotEmpty(oldUser)){
            return ResponseInfo.error("用户存在，请登录");
@@ -71,7 +84,20 @@ public class UserController {
         try {
             User newUser = userService.saveUser(user);
         }catch (Exception e){
-           return ResponseInfo.success("注册失败");
+           return ResponseInfo.error("注册失败");
+        }
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+        try{
+            //使用SpringSecurity拦截登陆请求 进行认证和授权
+            Authentication authenticate = myAuthenticationManager.authenticate(usernamePasswordAuthenticationToken);
+
+            SecurityContextHolder.getContext().setAuthentication(authenticate);
+            //使用redis session共享
+            HttpSession session = request.getSession();
+            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
+        }catch (Exception e){
+            e.printStackTrace();
+
         }
         return ResponseInfo.success("注册成功");
     }
@@ -91,7 +117,7 @@ public class UserController {
         try {
             User newUser = userService.updataUser(user);
         }catch (Exception e){
-            return ResponseInfo.success("修改失败");
+            return ResponseInfo.error("修改失败");
         }
         return ResponseInfo.success("修改成功");
     }
@@ -110,11 +136,32 @@ public class UserController {
             return ResponseInfo.error("用户不存在，无法修改");
         }
         try {
-            User newUser = userService.saveUser(user);
+            User newUser = userService.updataUserByAdmin(user);
         }catch (Exception e){
-            return ResponseInfo.success("修改失败");
+            return ResponseInfo.error("修改失败");
         }
         return ResponseInfo.success("修改成功");
+    }
+
+
+
+    @PostMapping("/delete")
+    public ResponseInfo<?> deleteUser( String jsonStr){
+        List < User > userList = new ArrayList < User > ();
+        if (StringUtils.isNotBlank(jsonStr)) {
+            userList = JSON.parseArray(jsonStr, User.class);
+        }
+        User user=userList.get(0);
+        User oldUser=userDao.findUser(user.getUsername());
+        if(Calibration.isEmpty(oldUser)){
+            return ResponseInfo.error("用户不存在，无法修改");
+        }
+        try {
+                   userService.deleteUser(user);
+        }catch (Exception e){
+            return ResponseInfo.error("删除失败");
+        }
+        return ResponseInfo.success("删除成功");
     }
 
 

@@ -158,6 +158,8 @@ $(function(){
         orderInfoObj.getCar = status;
         orderInfoObj.address = $("#ZQDZ input").val();
         orderInfoObj.price = $(".price").html();
+        orderInfoObj.startTime = $("#datetimepickerS input").val();
+        orderInfoObj.endTime = $("#datetimepickerE input").val();
         console.log(JSON.stringify(orderInfoObj));
 
         $.ajax({
@@ -166,16 +168,12 @@ $(function(){
             type:"POST",
             dataType: "json",
             data:JSON.stringify(orderInfoObj),
-            success: function(dataF){       
-                if(dataF.code=="0000"){
-                    alert("下单成功");
+            success: function(dataF){
                     console.log(dataF);
-                }
             },
             error: function(dataE){
-                if(dataE.code=="9999"){
-                    alert("网络繁忙，请重试~");
-                }
+                    console.log(dataE);
+                    $(".carDetailMainContainer").html(dataE.responseText);
             }
          })
     });

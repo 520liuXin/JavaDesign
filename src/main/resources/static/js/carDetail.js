@@ -147,6 +147,7 @@ $(function(){
             success: function(dataF){       
                 if(dataF.code=="0000"){
                     alert("下单成功");
+                    console.log(dataF);
                 }
             },
             error: function(dataE){

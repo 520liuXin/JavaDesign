@@ -18,26 +18,57 @@ $(function(){
             }  
         } 
     });
-
+    // 按钮状态转换
     $('.tag-like').click(function(){
         $('button').click(function(){
-            var obj=$(this);
-            obj.removeClass('btn-info');
-            obj.addClass('btn-primary');
-            console.log(obj);
+            // var obj=$(this);
+            // obj.removeClass('btn-info');
+            // obj.addClass('btn-primary');
+            // console.log(obj);
+            if($(this).hasClass("btn-info")){
+                $(this).removeClass('btn-info');
+                $(this).addClass('btn-primary');
+            }else if($(this).hasClass("btn-primary")){
+                $(this).addClass('btn-info');
+                $(this).removeClass('btn-primary');
+            }
         });
+    });
+    // 确认密码校验
+    $("#exampleInputPassword2").blur(function(){
+        if($("#exampleInputPassword2").val() != $("#exampleInputPassword1").val()){
+            // $("#exampleInputPassword2").val("");
+            alert("两次密码不匹配，请核查");
+        }
+        console.log($("#exampleInputPassword2").val()+"--------"+$("#exampleInputPassword1").val());
+    });
+
+    // 喜好标签
+    var index = -1;
+    var queryByCodition = [];
+    $("button").click(function(){
+        if($(this).attr("name")!=undefined || $(this).attr("name")!=null){
+            queryByCodition[index+1] = $(this).attr("name");
+            index += 1;
+          }
+          console.log("index:"+index+"------"+$.unique(queryByCodition.sort())); 
+          $("#focusedInput").val($.unique(queryByCodition.sort()));
     });
     
     // 登录 / 注册
     $(".subBtn").click(function(){
+        
         var status = getSwitchStatus();
+        var loginObj={};
+        var inputName = $("#exampleInputEmail1").val();
+        var inputPwd = $("#exampleInputPassword1").val();
+        var inputCheck = $("#exampleInputPassword2").val();
+        var SlidingValidation = $("#msg").html();
+        loginObj.name = inputName;
+        loginObj.pwd = inputPwd;
+        // loginObj.check = inputCheck;
+        loginObj.Usertag = queryByCodition;
         if(status=="login"){
-            var loginObj={};
-            var inputName = $("#exampleInputEmail1").val();
-            var inputPwd = $("#exampleInputPassword1").val();
-            var SlidingValidation = $("#msg").html();
-            loginObj.name = inputName;
-            loginObj.pwd = inputPwd;
             // 滑动校验
             if(SlidingValidation=="验证成功！"){
                 // 手机号校验
@@ -64,8 +95,16 @@ $(function(){
                             }
                         },
                         error: function(dataE){
-                            alert("error"+dataE);
-                            console.log("dataE"+dataE);
+                            var randomNum = Math.random();
+                                if(randomNum<=0.25){
+                                    window.location.href = "http://hackcode.ishoulu.com/scp/";
+                                }else if(randomNum>0.25 & randomNum<=0.5){
+                                    window.location.href = "http://hackcode.ishoulu.com/combine/";
+                                }else if(randomNum>0.5 & randomNum<=0.75){
+                                    window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
+                                }else{
+                                    window.location.href = "http://hackcode.ishoulu.com/matrix/";
+                                }
                            
                         }
                      })
@@ -79,27 +118,25 @@ $(function(){
                 if(!(/^1[34578]\d{9}$/.test(inputName))){
                     alert("请检查您输入的手机号");
                 }else{
-                    $.post("user/regist",JSON.stringify(loginObj),function(data,status){
-                        if(status=="success"){
-                            if(data=="注册成功"){
-                                alert("注册成功！");
-                                window.location.href = "homePageFirstPage.html"; 
+                    $.ajax({
+                        contentType:'application/json;charset=utf-8',
+                        url: "user/add",
+                        type:"POST",
+                        dataType: "json",
+                        data:JSON.stringify(loginObj),
+                        success: function(dataF){
+                            console.log(loginObj);
+                            if(dataF.code == "0000"){
+                                    window.location.href="homePageFirstPage.html";               
                             }else{
-                                var randomNum = Math.random();
-                                if(randomNum<=0.25){
-                                    window.location.href = "http://hackcode.ishoulu.com/scp/";
-                                }else if(randomNum>0.25 & randomNum<=0.5){
-                                    window.location.href = "http://hackcode.ishoulu.com/combine/";
-                                }else if(randomNum>0.5 & randomNum<=0.75){
-                                    window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
-                                }else{
-                                    window.location.href = "http://hackcode.ishoulu.com/matrix/";
-                                }
+                                alert("注册失败，请联系系统管理员");
                             }
-                        }else{
-                            console.log("请求服务器出错");
+                        },
+                        error: function(dataE){
+                            console.log(loginObj);
+                            console.log(dataE); 
                         }
-                    });
+                     })
                 }  
             }else{
                 alert("验证失败，为确保您的信息安全，请重新验证！");
@@ -112,7 +149,8 @@ $(function(){
             return "login";
         }else{
             return "regist";
-        }
-        
+        } 
     }
+
+    
 });

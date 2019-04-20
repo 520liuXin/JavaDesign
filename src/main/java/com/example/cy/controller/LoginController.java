@@ -25,14 +25,8 @@ public class LoginController {
     @Autowired
     private AuthenticationManager myAuthenticationManager;
 
-<<<<<<< HEAD
     @ResponseBody
-=======
-
-
->>>>>>> 8a8b4355a3bbc3d17c266baf881fa6dbd59964f8
     @PostMapping("/userLogin")
-
     public ResponseInfo<?> userLogin(HttpServletRequest request, @RequestBody JSONObject params) {
 
 

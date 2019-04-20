@@ -125,14 +125,17 @@ $(function(){
                         dataType: "json",
                         data:JSON.stringify(loginObj),
                         success: function(dataF){
-                            console.log(loginObj);
+                            console.log(dataF);
                             if(dataF.code == "0000"){
                                     window.location.href="homePageFirstPage.html";               
+                            }else if(dataF.code == "9999"){
+                                alert("注册失败，该用户名已注册。");
                             }else{
-                                alert("注册失败，请联系系统管理员");
+                                alert("意外错误，请刷新页面重试。");
                             }
                         },
                         error: function(dataE){
+                            alert("意外错误，请刷新页面重试。");
                             console.log(loginObj);
                             console.log(dataE); 
                         }

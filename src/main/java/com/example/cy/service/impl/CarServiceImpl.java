@@ -7,6 +7,7 @@ import com.example.cy.bean.input.CarInput;
 import com.example.cy.bean.query.CarQuery;
 import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
+import com.example.cy.security.SecurityUtils;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
@@ -37,6 +38,12 @@ public class CarServiceImpl implements CarService {
     public Car saveCar(Car car) {
         Car newCar=packResultData(car);
         newCar.setCreatedDate(new Date());
+//        if("1".equals(SecurityUtils.getUser().getAdmin())){
+//            newCar.setCarSource("店家直营");
+//        }else{
+//            newCar.setCarSource("个人卖家");
+//        }
+//        newCar.setSourceUserId(SecurityUtils.getUser().getId());
         carDao.save(newCar);
         return newCar;
     }
@@ -60,7 +67,6 @@ public class CarServiceImpl implements CarService {
     @Override
     public void deleteCar(Car car) {
         carDao.delete(car);
-
     }
 
     @Override
@@ -182,7 +188,16 @@ public class CarServiceImpl implements CarService {
             if(car.getRent()!=null){
                 predicates.add(criteriaBuilder.equal(root.get("rent").as(Integer.class), car.getRent()));
             }
-
+            if(car.getSourceUserId()!=null){
+                predicates.add(criteriaBuilder.equal(root.get("sourceUserId").as(Integer.class), car.getSourceUserId()));
+            }
+            if(car.getMinRent()!=null&&car.getMaxRent()!=null){
+                predicates.add(criteriaBuilder.between(root.get("rent"), car.getMinRent(),
+                        car.getMaxRent()));
+            }
+            if(StringUtils.isNotBlank(car.getCarSource())){
+                predicates.add(criteriaBuilder.equal(root.get("carSource").as(String.class), car.getCarSource()));
+            }
             if (Objects.nonNull(car.getStarCreateDate()) && Objects.nonNull(car.getEndCreateDate())) {
                 predicates.add(criteriaBuilder.between(root.get("createdDate"), car.getStarCreateDate(),
                         car.getEndCreateDate()));
@@ -209,6 +224,7 @@ public class CarServiceImpl implements CarService {
         newCar.setHeatValue(car.getHeatValue());
         newCar.setState(car.getState());
         newCar.setRent(car.getRent());
+        newCar.setCarSource(car.getCarSource());
         return newCar;
 
     }
@@ -229,6 +245,7 @@ public class CarServiceImpl implements CarService {
         newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());
         newCar.setRent(car.getRent());
+        newCar.setCarSource(car.getCarSource());
         newCar.setCreatedDate(car.getCreatedDate());
         return newCar;
 

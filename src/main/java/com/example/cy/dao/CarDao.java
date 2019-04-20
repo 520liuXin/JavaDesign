@@ -24,5 +24,7 @@ public interface CarDao extends JpaRepository<Car,Long> {
     @Query(value = "select c from  car c ")
     List<Car> findUserLikeBySort(Sort sort);
 
+    List<Car> findByCarSource(String source);
+
 
 }

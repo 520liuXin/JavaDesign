@@ -12,9 +12,11 @@ import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
 import com.example.cy.dao.FileInfoDao;
 import com.example.cy.enums.CarEnum;
+import com.example.cy.security.SecurityUtils;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
+import com.example.cy.utils.RandomDataUtil;
 import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
 import lombok.extern.slf4j.Slf4j;
@@ -40,9 +42,13 @@ public class CarController {
     @Autowired
     private FileInfoDao fileInfoDao;
 
+    private String store="店家直营";
+
+    private String personal="个人卖家";
+
     /**
      * 模糊查询
-     * @param carDescribe
+     * @param
      * @return
      */
     @RequestMapping(value = "/fuzzyQuery", method = RequestMethod.POST)
@@ -79,17 +85,12 @@ public class CarController {
 
     /**
      * 查询车辆详细信息
-     * @param jsonStr
+     * @param
      * @return
      */
 
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public ResponseInfo<?> findCarById(@RequestBody JSONObject params){
-//        List< Car > carList = new ArrayList< Car >();
-//        if (StringUtils.isNotBlank(jsonStr)) {
-//            carList = JSON.parseArray(jsonStr, Car.class);
-//        }
-//        Car car=carList.get(0);
         System.out.println(params.getString("id"));
         Long idInfo = Long.parseLong(params.getString("id"));
         Car oldCar=carDao.findCarById(idInfo);
@@ -103,6 +104,50 @@ public class CarController {
         }
         return ResponseInfo.error("查询失败");
     }
+
+
+
+    /**
+     * @Author able-liu
+     * @Description 店家直营
+     * @Param
+     * @return
+     **/
+
+    @GetMapping("/store")
+    public ResponseInfo<?> store(){
+        List<Car> cars=new ArrayList<>();
+        List<CarQuery> carQueries=new ArrayList<>();
+
+        cars = carDao.findByCarSource(store);
+
+        carQueries= randomCarToCarQuery(cars);
+        return ResponseInfo.success(carQueries);
+
+    }
+
+
+
+    /**
+     * @Author able-liu
+     * @Description 个人卖家
+     * @Param
+     * @return
+     **/
+
+    @GetMapping("/personal")
+    public ResponseInfo<?> personal(){
+        List<Car> cars=new ArrayList<>();
+        List<CarQuery> carQueries=new ArrayList<>();
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        cars = carDao.findByCarSource(personal);
+
+        carQueries= randomCarToCarQuery(cars);
+        return ResponseInfo.success(carQueries);
+
+    }
+
+
 
 
     /**
@@ -132,7 +177,7 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.ASC, "heatValue");
         cars = carDao.findAll(sort);
-        carQueries= carToCarQuery(cars);
+        carQueries= randomCarToCarQuery(cars);
         return ResponseInfo.success(carQueries);
 
     }
@@ -169,7 +214,7 @@ public class CarController {
              return carService.findLike(s);
         }else {
             List<Car> cars=carService.findAll();
-            carQueryList= carToCarQuery(cars);
+            carQueryList= randomCarToCarQuery(cars);
             return ResponseInfo.success(checkCar(carQueryList));
         }
 
@@ -185,6 +230,9 @@ public class CarController {
         public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 20) Pageable pageable,
                 CarInput car){
             int pageNumber = pageable.getPageNumber();
+            if(car.getSourceUserId()!=null){
+                car.setSourceUserId(SecurityUtils.getUser().getId());
+            }
             pageNumber = pageNumber <= 0 ? 1 : pageNumber;
             car.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
             Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "id");
@@ -210,6 +258,7 @@ public class CarController {
         }
         newCar.setState(car.getState());
         newCar.setCarType(car.getCarType());
+        newCar.setCarSource(car.getCarSource());
         newCar.setColor(car.getColor());
         newCar.setHeatValue(car.getHeatValue());
         newCar.setRent(car.getRent());
@@ -235,7 +284,7 @@ public class CarController {
     }
 
     /**
-     * Car转换成CarQuery,并取前五条数据
+     * Car转换成CarQuery,并取前五条数据,
      * @param cars
      * @return
      */
@@ -246,15 +295,42 @@ public class CarController {
             CarQuery carQuery=packResultDataForCarQuery(car);
             carQueries.add(carQuery);
         }
-        carQueryList=  checkCar(carQueries).subList(0,5);
-        return carQueryList;
+        carQueryList=  checkCar(carQueries);
+        if(carQueryList.size()>5){
+            carQueryList.subList(0,5);
 
+        }
+            return carQueryList;
     }
 
+
     /**
-     *
-     * @param params
+     * Car转换成CarQuery,并随机取五条数据,
+     * @param cars
+     * @return
      */
+    private List<CarQuery> randomCarToCarQuery(List<Car> cars){
+        RandomDataUtil randomDataUtil=new RandomDataUtil();
+        List<CarQuery> carQueries=new ArrayList<>();
+        List<CarQuery> carQueryList=new ArrayList<>();
+        for (Car car:cars){
+            CarQuery carQuery=packResultDataForCarQuery(car);
+            carQueries.add(carQuery);
+        }
+        carQueryList=  checkCar(carQueries);
+        if(carQueryList.size()>5){
+          carQueryList=  randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
+
+        }
+        return carQueryList;
+    }
+
+  /**
+   * @Author able-liu
+   * @Description 车辆喜欢，提升热度值
+   * @Param
+   * @return
+   **/
     @PostMapping("/likeThisCar")
     public void likeThisCar(@RequestBody JSONObject params ){
         String carId=params.getString("carId");
@@ -262,5 +338,10 @@ public class CarController {
         car.setId(Long.parseLong(carId));
         carService.head_value(car);
     }
+
+
+
+
+
 
 }

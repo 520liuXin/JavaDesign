@@ -93,15 +93,13 @@ div{
     height: 230px;
     border: 1px solid #DCDCDC;
 }
-.alipayQRcode{
-    margin-top: 20px;
-    height: 152px;
-    width: 152px;
-    position: relative;
-    left: 37%;
+.alipayQRcodeS{
+    text-align: center;
+}
+.alipayQRcodeS img{
     border: 1px solid #DCDCDC;
-    border-radius: 10px 10px 10px 10px; 
+    border-radius: 10px;
 }
 .cardetailTitle{
     height: 170px;
-}
+}   

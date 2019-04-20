@@ -127,6 +127,7 @@ $(function(){
                         success: function(dataF){
                             console.log(dataF);
                             if(dataF.code == "0000"){
+                                alert("注册成功！");
                                     window.location.href="homePageFirstPage.html";               
                             }else if(dataF.code == "9999"){
                                 alert("注册失败，该用户名已注册。");

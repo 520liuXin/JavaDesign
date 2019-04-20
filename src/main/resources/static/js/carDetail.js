@@ -1,4 +1,26 @@
 $(function(){
+// 全局常量池
+    god = {};
+
+    function datedifference(sDate1, sDate2) {    //sDate1和sDate2是2006-12-18格式  
+        var dateSpan,
+            tempDate,
+            iDays;
+        sDate1 = Date.parse(sDate1);
+        sDate2 = Date.parse(sDate2);
+        dateSpan = sDate2 - sDate1;
+        dateSpan = Math.abs(dateSpan);
+        iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
+        return iDays;
+    };
+    $("#datetimepickerE input").blur(function(){
+        var days = datedifference( $("#datetimepickerS input").val(),$("#datetimepickerE input").val());
+        $(".price").html(days*god.rent);
+        console.log("god:"+JSON.stringify(god));
+        console.log("days*god.rent:"+days*god.rent);
+    });
+
+
     // loadcarInfoFromBackGround
     var loadcarInfo = function(){
         var ID ={};
@@ -59,6 +81,7 @@ $(function(){
                     '<td>---</td>'
                 );
 
+                god.rent = dataF.data.rent;
             },
             error: function(dataE){
                alert("请求错误");
@@ -81,6 +104,7 @@ $(function(){
         }
         
     }
+
     // 点击切换主图
 
     //启用方法
@@ -125,19 +149,17 @@ $(function(){
         });
     });
 
-    $(".order-submit").click(function(){
+    $(".aliPay").click(function(){
         // 获取汽车 id  起始时间 终止时间  取车？自取 ：地址 支付
         var orderInfoObj = {};
         orderInfoObj.id = getUrlParam("id");
-        orderInfoObj.startTime = $("#datetimepickerS input").val(); 
-        orderInfoObj.endTime = $("#datetimepickerE input").val();
-
         var status = getSwitchStatus();
 
         orderInfoObj.getCar = status;
         orderInfoObj.address = $("#ZQDZ input").val();
         orderInfoObj.price = $(".price").html();
         console.log(JSON.stringify(orderInfoObj));
+
         $.ajax({
             contentType:'application/json;charset=UTF-8',
             url: "/order/createOrder",
@@ -156,5 +178,9 @@ $(function(){
                 }
             }
          })
+    });
+
+    $(".weChatPay").click(function(){
+        alert("微信支付通道正在对接中....");
     });
 });

@@ -44,48 +44,31 @@ $(function(){
                 if(!(/^1[34578]\d{9}$/.test(inputName))){
                     alert("请检查您输入的手机号");
                 }else{
-                    console.log(typeof JSON.stringify(loginObj));
-                    console.log(JSON.stringify(loginObj));
                     $.ajax({
-                        // headers: {
-                        //     Accept: "application/json;charset=utf-8"
-                        // },
                         contentType:'application/json;charset=utf-8',
                         url: "/userLogin",
                         type:"POST",
                         dataType: "json",
                         data:JSON.stringify(loginObj),
                         success: function(dataF){
-                             alert("success"+dataF);
-                             console.log("dataF"+dataF);
+                            // 登录状态判断
+                            // 登录身份信息验证
+                            if(dataF.code == "0000"){
+                                if(dataF.data.admin == "2"){
+                                    window.location.href="homePageFirstPage.html";
+                                }else{
+                                    window.location.href="mgrcenter";
+                                }
+                            }else{
+                                alert("登录信息有误，请核实您的信息");
+                            }
                         },
                         error: function(dataE){
                             alert("error"+dataE);
                             console.log("dataE"+dataE);
-                            // $(window).attr('location','homePageFirstPage.html');
+                           
                         }
                      })
-                    // $.post("/userLogin",jsonStr,function(data,status){
-                    //     alert(jsonStr);
-                    //     if(status=="error"){
-                    //         if(data=="有这个人"){
-                    //             window.location.href = "homePageFirstPage.html"; 
-                    //         }else{
-                    //             var randomNum = Math.random();
-                    //             if(randomNum<=0.25){
-                    //                 window.location.href = "http://hackcode.ishoulu.com/scp/";
-                    //             }else if(randomNum>0.25 & randomNum<=0.5){
-                    //                 window.location.href = "http://hackcode.ishoulu.com/combine/";
-                    //             }else if(randomNum>0.5 & randomNum<=0.75){
-                    //                 window.location.href = "http://hackcode.ishoulu.com/blackmesa/";
-                    //             }else{
-                    //                 window.location.href = "http://hackcode.ishoulu.com/matrix/";
-                    //             }
-                    //         }
-                    //     }else{
-                    //         console.log("请求服务器出错");
-                    //     }
-                    // });
                 }  
             }else{
                 alert("验证失败，为确保您的信息安全，请重新验证！");

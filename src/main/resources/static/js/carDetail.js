@@ -174,7 +174,7 @@ $(function(){
             },
             error: function(dataE){
                 if(dataE.code=="9999"){
-                    alert("网络繁忙，请重试~");
+                    console.log("网络繁忙，请重试~");
                 }
             }
          })

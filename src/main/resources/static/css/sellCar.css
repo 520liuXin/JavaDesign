@@ -1,0 +1,13 @@
+div{
+    border:1px dashed red;
+}
+.infoTop{
+    text-align: center;
+}
+.sellService{
+    padding-top: 50px;
+}
+.flow{
+    margin: 0 auto;
+    height: 200px;
+}

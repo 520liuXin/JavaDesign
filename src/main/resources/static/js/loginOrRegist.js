@@ -40,19 +40,30 @@ $(function(){
             // $("#exampleInputPassword2").val("");
             alert("两次密码不匹配，请核查");
         }
-        console.log($("#exampleInputPassword2").val()+"--------"+$("#exampleInputPassword1").val());
+        // console.log($("#exampleInputPassword2").val()+"--------"+$("#exampleInputPassword1").val());
     });
 
     // 喜好标签
     var index = -1;
     var queryByCodition = [];
-    $("button").click(function(){
-        if($(this).attr("name")!=undefined || $(this).attr("name")!=null){
+    $("button").click(function(){      
+        // 判断class btn-primary 有就添加 btn-info 有就删除
+        if($(this).hasClass("btn-info")){
             queryByCodition[index+1] = $(this).attr("name");
             index += 1;
-          }
-          console.log("index:"+index+"------"+$.unique(queryByCodition.sort())); 
-          $("#focusedInput").val($.unique(queryByCodition.sort()));
+        }
+        if($(this).hasClass("btn-primary")){
+            var theName = $(this).attr("name");
+            $.each(queryByCodition,function(i,value){
+                if(value == theName){
+                    queryByCodition.splice(i,1);
+                    $.unique(queryByCodition.sort()).filter(s => $.trim(s).length > 0);
+                    console.log("queryByCodition"+queryByCodition);
+                }
+            });
+        }
+        console.log("index:"+index+"------"+$.unique(queryByCodition.sort())); 
+        $("#focusedInput").val($.unique(queryByCodition.sort()).filter(s => $.trim(s).length > 0));
     });
     
     // 登录 / 注册
@@ -67,7 +78,7 @@ $(function(){
         loginObj.name = inputName;
         loginObj.pwd = inputPwd;
         // loginObj.check = inputCheck;
-        loginObj.Usertag = queryByCodition;
+        loginObj.Usertag = $("#focusedInput").val();
         if(status=="login"){
             // 滑动校验
             if(SlidingValidation=="验证成功！"){

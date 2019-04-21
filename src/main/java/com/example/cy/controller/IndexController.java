@@ -54,6 +54,10 @@ public class IndexController {
     public String personalCenter()  {
         return "personalCenter";
     }
+    @RequestMapping(value="/homePageSellcar.html")
+    public String homePageSellCar()  {
+        return "homePageSellcar";
+    }
 //    iframe-personalCenter
     @RequestMapping(value="personalS/changePwd.html")
     public String changePwd()  {
@@ -87,6 +91,10 @@ public class IndexController {
     @RequestMapping(value="MgrCenterS/MgrData.html")
     public String MgrData()  {
         return "MgrCenterS/MgrData";
+    }
+    @RequestMapping(value="MgrCenterS/upLoadCar.html")
+    public String uploadCar()  {
+        return "MgrCenterS/upLoadCar.html";
     }
 
     @RequestMapping(value="carDetail.html")

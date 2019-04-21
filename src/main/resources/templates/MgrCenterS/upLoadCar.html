@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="../../img/icon.png" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/upLoadCar.css">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 提示用户上传相关信息 -->
+   <div class="info">
+       <h3>上传您的车辆信息</h3>
+   </div>
+
+   <div class="upLoadInfo container">
+       <form action="">
+            <!-- 需要字段
+                汽车品牌 
+                汽车名
+                排量
+                油耗
+                发动机
+                驱动形式
+                车身类型
+                颜色
+                租金
+                可乘人数
+                描述
+            -->
+            <div class="form-group col-md-6">
+              <label for="carBrand">汽车品牌</label>
+              <input type="text" class="form-control" id="carBrand" placeholder="输入您的汽车品牌[english only] 类如：Ford">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="carName">汽车名</label>
+              <input type="text" class="form-control" id="carName" placeholder="请输入您的汽车名 类如：帕加尼 风之子">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="displacement">排量</label>
+              <input type="text" class="form-control" id="displacement" placeholder="请输入您的汽车排量 类如：1.4">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="fuelConumption">油耗</label>
+              <input type="text" class="form-control" id="fuelConumption" placeholder="请输入您的汽车油耗 类如：15L">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="engine">发动机</label>
+              <input type="text" class="form-control" id="engine" placeholder="请输入您的汽车马力 类如：400P">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="color">颜色</label>
+              <input type="text" class="form-control" id="color" placeholder="请输入您的汽车颜色 类如：雪绒白">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="rent">售价</label>
+              <input type="text" class="form-control" id="rent" placeholder="请输入您的汽车售价 类如：2000">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="container">检修描述</label>
+              <input type="text" class="form-control" id="repair" placeholder="请描述您的汽车检修情况 类如：4s店定期保养">
+            </div>
+            <div class="form-group col-md-12">
+              <label for="carDescribe">爱车描述</label>
+              <input type="text" class="form-control" id="carDescribe" placeholder="请输入您的汽车描述 类如： 洒脱流畅的线条汇集于一处：与您心灵相约———奔驰cls级轿跑车">
+            </div>
+            <div class="form-group col-md-12">
+              <label for="driveWay">驱动类型</label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline1" id="houqu" value="后驱" checked> 后驱
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline1" id="siqu"  value="四驱"> 四驱
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline1" id="qianqu"  value="前驱"> 前驱
+              </label>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="carType">车身类型</label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline2" id="SUV" value="SUV" checked> SUV
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline2" id="SSC"  value="SSC"> SSC
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline2" id="WRC"  value="WRC"> WRC
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline2" id="MPV"  value="MPV"> MPV
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline2" id="GT"  value="GT"> GT
+              </label>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="ridingNumber">可乘人数</label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline3" id="optionsRadios3" value="二人" checked> 2人
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline3" id="optionsRadios4"  value="四人"> 4人
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline3" id="optionsRadios4"  value="五人"> 5人
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline3" id="optionsRadios4"  value="七人"> 7人
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optionsRadiosinline3" id="optionsRadios4"  value="二十一人"> 21人
+              </label>
+            </div>
+            
+            <!-- 图片上传 -->
+            <div class="form-group col-md-12">
+              <label for="exampleInputFile">File input</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="col-md-12 pull-right">
+              <button type="submit" class="btn btn-default">提交</button>
+            </div>
+       </form>
+
+   </div>
+</body>
+</html>

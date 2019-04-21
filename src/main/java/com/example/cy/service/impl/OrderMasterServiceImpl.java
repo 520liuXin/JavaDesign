@@ -153,6 +153,8 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         orderMasterQuery.setCarName(orderMaster.getCarName());
         orderMasterQuery.setOrderStatus(orderMaster.getOrderStatus());
         orderMasterQuery.setUserName(orderMaster.getUserName());
+        orderMasterQuery.setCarDescribe(orderMaster.getCarDescribe());
+        orderMasterQuery.setCreatedDate(orderMaster.getCreatedDate());
         return orderMasterQuery;
     }
 

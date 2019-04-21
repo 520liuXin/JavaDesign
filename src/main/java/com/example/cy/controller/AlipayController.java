@@ -23,6 +23,7 @@ import com.example.cy.utils.ResponseInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -80,10 +81,10 @@ public class AlipayController {
       //
         // 模拟从前台传来的数据
        String orderNo = orderId; // 生成订单号
-
-        String totalAmount = "1"; // 支付总金额
-        String subject = "ITAEMBook"; // 订单名称
-        String body = "reading"; // 商品描述
+        OrderMaster orderMaster=orderMasterDao.findByOrderId(orderId);
+        String totalAmount = orderMaster.getBuyerAmount()+""; // 支付总金额
+        String subject = "租车金额"; // 订单名称
+        String body = orderMaster.getCarDescribe(); // 商品描述
 
         // 封装请求客户端
         AlipayClient client = new DefaultAlipayClient(url, app_id, private_key, format, charset, public_key, signtype);
@@ -155,10 +156,10 @@ public class AlipayController {
      * @param request
      * @throws Exception
      */
-
-    @ResponseBody
+//    @Transactional
+ //   @ResponseBody
     @RequestMapping("/notifyUrl")
-    public ResponseInfo<?> notifyUrl(HttpServletRequest request) throws Exception {
+    public String  notifyUrl(HttpServletRequest request) throws Exception {
         // 获取支付宝GET过来反馈信息
         Map<String, String> params = new HashMap<String, String>();
         Map<String, String[]> requestParams = request.getParameterMap();
@@ -182,18 +183,18 @@ public class AlipayController {
             // 交易状态
             String trade_status = request.getParameter("trade_status");
             // 修改数据库
-
+            System.out.println("交易状态"+trade_status);
             OrderMaster orderMaster=orderMasterDao.findByOrderId(out_trade_no);
             orderMaster.setOrderStatus(OrderStatusEnum.ORDERING.getCode());
             orderMasterService.updataOrder(orderMaster);
             Car car=carDao.findCarById(orderMaster.getCarId());
             car.setState(CarEnum.STATE_RENT_OUT.getCode());
-            carService.updataCar(car);
+             carService.updataCar(car);
 
-            return ResponseInfo.success("支付成功");
+            return "redirect:/orderSuccess.html";
         } else {
             System.out.println("异步通知失败");
-            return ResponseInfo.success("支付失败");
+            return "redirect:/orderFailed.html";
         }
     }
 

@@ -48,6 +48,11 @@ public class IndexController {
         return "homePageMerchant";
     }
 
+    @RequestMapping(value="/orderSuccess.html")
+    public String orderSuccess()  {
+        return "orderSuccess";
+    }
+
     @RequestMapping(value="/personalCenter.html")
     public String personalCenter()  {
         return "personalCenter";
@@ -71,6 +76,7 @@ public class IndexController {
     public String personalOrder()  {
         return "personalS/personalOrder";
     }
+
 //    iframe-mgrCenter
     @RequestMapping(value="mgrcenter")
     public String mgrcenter()  {

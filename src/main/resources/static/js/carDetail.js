@@ -142,11 +142,21 @@ $(function(){
     // redStar
     $(".glyphicon-heart").one("click",function(){
         $(this).css("color","rgb(255, 66, 29)");
-        $.post("car/likeThisCar",
-        {carId:getUrlParam("id")},
-        function(data,success){
-            console.log("+1");
-        });
+        carItem={};
+        carItem.carId=getUrlParam("id");
+        $.ajax({
+            contentType:'application/json;charset=UTF-8',
+            url: "/car/likeThisCar",
+            type:"POST",
+            dataType: "json",
+            data:JSON.stringify(carItem),
+            success: function(dataF){
+                console.log(dataF);
+            },
+            error: function(dataE){
+                console.log(dataE); 
+            }
+         })
     });
 
     $(".aliPay").click(function(){
@@ -172,14 +182,11 @@ $(function(){
                     console.log(dataF);
             },
             error: function(dataE){
-<<<<<<< HEAD
                 if(dataE.code=="9999"){
                     console.log("网络繁忙，请重试~");
                 }
-=======
                     console.log(dataE);
                     $(".carDetailMainContainer").html(dataE.responseText);
->>>>>>> 3d77bac7853a939b488806ee665c8104f889f442
             }
          })
     });

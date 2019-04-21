@@ -204,11 +204,12 @@ public class OrderMasterController {
         orderMaster.setCarName(car.getCarName());
         orderMaster.setCarRent(car.getRent());
         orderMaster.setCarType(car.getCarType());
+        orderMaster.setCarDescribe(car.getCarDescribe());
         if(Calibration.isNotEmpty(car.getCarImgUrl())){
             List<FileInfo> fileInfos=car.getCarImgUrl();
             orderMaster.setCarImgUrl(fileInfos.get(0).getUrl());
         }
-        orderMaster.setCarDescribe(car.getCarDescribe());
+
         return orderMaster;
     }
 

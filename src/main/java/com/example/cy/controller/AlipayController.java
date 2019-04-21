@@ -156,8 +156,6 @@ public class AlipayController {
      * @param request
      * @throws Exception
      */
-//    @Transactional
- //   @ResponseBody
     @RequestMapping("/notifyUrl")
     public String  notifyUrl(HttpServletRequest request) throws Exception {
         // 获取支付宝GET过来反馈信息
@@ -190,6 +188,7 @@ public class AlipayController {
             Car car=carDao.findCarById(orderMaster.getCarId());
             car.setState(CarEnum.STATE_RENT_OUT.getCode());
              carService.updataCar(car);
+
 
             return "redirect:/orderSuccess.html";
         } else {

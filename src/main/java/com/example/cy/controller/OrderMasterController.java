@@ -154,16 +154,19 @@ public class OrderMasterController {
 
     }
 
-    /**
-     * 查询个人订单
-     * @return
-     */
-    @GetMapping("/info")
-    public ResponseInfo<?> orderinfo(){
-        User user=SecurityUtils.getUser();
-        List<OrderMasterQuery> list=orderMasterService.findOrderByUserId(user.getId());
-         return ResponseInfo.success(list);
-    }
+//    /**
+//     * 查询个人订单
+//     * @return
+//     */
+//    @GetMapping("/info")
+//    public ResponseInfo<?> orderinfo (@PageableDefault(page = 1, size = 5) Pageable pageable, OrderMasterInput input){
+//        int pageNumber = pageable.getPageNumber();
+//        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+//        input.setUserId(SecurityUtils.getUser().getId());
+//        Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "createdDate");
+//        CommonResponsePage<OrderMasterQuery> datas = orderMasterService.findOrderMasterAndPage(page, input);
+//        return ResponseInfo.success(datas);
+//    }
 
 
     /**
@@ -176,6 +179,10 @@ public class OrderMasterController {
     public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 5) Pageable pageable, OrderMasterInput input){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+        User user=SecurityUtils.getUser();
+        if("2".equals(user.getAdmin())){
+            input.setUserId(user.getId());
+        }
         Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "createdDate");
         CommonResponsePage<OrderMasterQuery> datas = orderMasterService.findOrderMasterAndPage(page, input);
         return ResponseInfo.success(datas);
@@ -201,6 +208,7 @@ public class OrderMasterController {
             List<FileInfo> fileInfos=car.getCarImgUrl();
             orderMaster.setCarImgUrl(fileInfos.get(0).getUrl());
         }
+        orderMaster.setCarDescribe(car.getCarDescribe());
         return orderMaster;
     }
 

@@ -39,6 +39,7 @@ public class CarServiceImpl implements CarService {
     public Car saveCar(Car car) {
         Car newCar=packResultData(car);
         newCar.setCreatedDate(new Date());
+        newCar.setHeatValue( 100 + (((long) (new Random().nextDouble() * (10 - 1)))));
 //        if("1".equals(SecurityUtils.getUser().getAdmin())){
 //            newCar.setCarSource("店家直营");
 //        }else{

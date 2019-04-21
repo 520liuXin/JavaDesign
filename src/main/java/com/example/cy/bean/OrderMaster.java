@@ -70,4 +70,6 @@ public class OrderMaster extends BasePo{
     @Column(length = 255)
     private Long buyerAmount; /** 订单总金额. */
 
+    private String carDescribe;  //车辆描述
+
 }

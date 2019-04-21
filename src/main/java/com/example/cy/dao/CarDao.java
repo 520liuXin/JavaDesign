@@ -7,7 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -26,6 +28,9 @@ public interface CarDao extends JpaRepository<Car,Long> {
 
     List<Car> findByCarSource(String source);
 
+//    @Modifying
+//    @Query("update car  SET c.state= :state WHERE c.id = :id")
+//    void updateCarState(@Param("id")Long id, @Param("state")Integer state);
 
 
 

@@ -39,7 +39,7 @@ public class Car extends BasePo{
     private Long rent;   //租金/售价
 
     @Column(length = 255)
-    private Long heatValue=100L;    //热度值
+    private Long heatValue;    //热度值
 
     @Column(length = 255)
     private String carSource;   //车辆来源 1.个人车辆，2.店家直营
@@ -47,7 +47,7 @@ public class Car extends BasePo{
     private Long sourceUserId;   //添加车辆用户
 
     //@JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER,targetEntity=FileInfo.class,mappedBy="car")
+    @OneToMany(fetch = FetchType.EAGER,targetEntity=FileInfo.class,mappedBy="car",orphanRemoval=true)
     private List<FileInfo> carImgUrl=new ArrayList<>();  //汽车图片
 
     private Integer state=CarEnum.STSTE_NO_RENT_OUT.getCode();//车辆状态

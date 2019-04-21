@@ -15,4 +15,8 @@ public interface OrderMasterDao extends JpaRepository<OrderMaster,Long> {
 
     List<OrderMaster> findByUserId(Long userId);
 
+    OrderMaster findByOrderId(String OrderId);
+
+
+
 }

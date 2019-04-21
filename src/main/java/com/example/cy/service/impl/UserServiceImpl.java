@@ -50,34 +50,54 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updataUser(User user) {
-        User newUser=encapsulationUser(user);
-        newUser.setUpdatedDate(new Date());
-        userDao.save(newUser);
-        return newUser;
+        try {
+            User newUser=encapsulationUser(user);
+            newUser.setUpdatedDate(new Date());
+            userDao.save(newUser);
+            return newUser;
+        }catch (Exception e) {
+           return null;
+        }
     }
 
     @Override
     @Transient
     public User saveUser(User user) {
-        User newUser=encapsulationUser(user);
-        newUser.setAdmin("2");
-        newUser.setCreatedDate(new Date());
-        userDao.save(newUser);
-        return newUser;
+        try{
+            User newUser=encapsulationUser(user);
+            newUser.setAdmin("2");
+            newUser.setCreatedDate(new Date());
+            userDao.save(newUser);
+            return newUser;
+        }catch (Exception e) {
+            return null;
+        }
+
     }
 
     @Override
-    public void deleteUser(User user) {
-        userDao.delete(user);
+    public void deleteUser(User user) throws Exception{
+        try {
+            userDao.delete(user);
+        }
+        catch (Exception e) {
+           throw new Exception();
+        }
     }
 
     @Override
     public User updataUserByAdmin(User user) {
-        User newUser=encapsulationUser(user);
-        newUser.setAdmin(user.getAdmin());
-        userDao.save(newUser);
-        return newUser;
+        try {
+            User newUser=encapsulationUser(user);
+            newUser.setAdmin(user.getAdmin());
+            userDao.save(newUser);
+            return newUser;
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
+
 
 
     @Override
@@ -133,6 +153,7 @@ public class UserServiceImpl implements UserService {
         newuser.setSex(user.getSex());
         newuser.setIdCard(user.getIdCard());
         newuser.setUpdatedDate(new Date());
+        newuser.setLabel(user.getLabel());
         return newuser;
     }
 

@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value="/login")
-    public String login()  {
-        return "login";
-    }
-
 
     @RequestMapping(value="/file")
     public String file()  {
@@ -31,6 +26,7 @@ public class IndexController {
     public String successUser()  {
         return "user";
     }
+
 //homepage
     @RequestMapping(value="/homePageFirstPage.html")
     public String homePageFirstPage()  {
@@ -46,10 +42,12 @@ public class IndexController {
     public String homePageCarInformation()  {
         return "homePageCarInformation";
     }
+
     @RequestMapping(value="/homePageMerchant.html")
     public String homePageMerchant()  {
         return "homePageMerchant";
     }
+
     @RequestMapping(value="/personalCenter.html")
     public String personalCenter()  {
         return "personalCenter";
@@ -63,10 +61,12 @@ public class IndexController {
     public String changePwd()  {
         return "personalS/changePwd";
     }
+
     @RequestMapping(value="personalS/personalData.html")
     public String personalData()  {
         return "personalS/personalData";
     }
+
     @RequestMapping(value="personalS/personalOrder.html")
     public String personalOrder()  {
         return "personalS/personalOrder";
@@ -76,18 +76,22 @@ public class IndexController {
     public String mgrcenter()  {
         return "mgrcenter";
     }
+
     @RequestMapping(value="MgrCenterS/MgrOrder.html")
     public String MgrOrder()  {
         return "MgrCenterS/MgrOrder";
     }
+
     @RequestMapping(value="MgrCenterS/MgrCar.html")
     public String MgrCar()  {
         return "MgrCenterS/MgrCar";
     }
+
     @RequestMapping(value="MgrCenterS/MgrUser.html")
     public String MgrUser()  {
         return "MgrCenterS/MgrUser";
     }
+
     @RequestMapping(value="MgrCenterS/MgrData.html")
     public String MgrData()  {
         return "MgrCenterS/MgrData";
@@ -102,7 +106,7 @@ public class IndexController {
         return "carDetail";
     }
 
-    @RequestMapping(value="loginOrRegist.html")
+    @RequestMapping(value="login")
     public String loginOrRegistPage()  {
         return "loginOrRegist";
     }

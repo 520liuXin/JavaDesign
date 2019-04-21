@@ -9,12 +9,22 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.cy.bean.Car;
+import com.example.cy.bean.OrderMaster;
 import com.example.cy.config.AlipayConfig;
+import com.example.cy.dao.CarDao;
+import com.example.cy.dao.OrderMasterDao;
+import com.example.cy.enums.CarEnum;
+import com.example.cy.enums.OrderStatusEnum;
+import com.example.cy.service.CarService;
+import com.example.cy.service.OrderMasterService;
 import com.example.cy.utils.GenerateOrderNoUtil;
 import com.example.cy.utils.ResponseInfo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,6 +44,15 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 @RequestMapping("/alipay")
 public class AlipayController {
 
+
+    @Autowired
+    private OrderMasterService orderMasterService;
+    @Autowired
+    private CarService carService;
+    @Autowired
+    private CarDao carDao;
+    @Autowired
+    private OrderMasterDao orderMasterDao;
 
 
     // 获取配置文件的信息
@@ -56,10 +75,12 @@ public class AlipayController {
      * @throws Exception
      */
     @RequestMapping("/pay")
-    public void pay(HttpServletRequest request, HttpServletResponse response,String money) throws Exception {
+    public void pay(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "orderId") String orderId) throws Exception {
 
+      //
         // 模拟从前台传来的数据
-        String orderNo = GenerateOrderNoUtil.gens(500L); // 生成订单号
+       String orderNo = orderId; // 生成订单号
+
         String totalAmount = "1"; // 支付总金额
         String subject = "ITAEMBook"; // 订单名称
         String body = "reading"; // 商品描述
@@ -85,6 +106,8 @@ public class AlipayController {
         response.getWriter().write(form); // 直接将完整的表单html输出到页面
         response.getWriter().flush();
         response.getWriter().close();
+
+
     }
 
     /**
@@ -159,6 +182,13 @@ public class AlipayController {
             // 交易状态
             String trade_status = request.getParameter("trade_status");
             // 修改数据库
+
+            OrderMaster orderMaster=orderMasterDao.findByOrderId(out_trade_no);
+            orderMaster.setOrderStatus(OrderStatusEnum.ORDERING.getCode());
+            orderMasterService.updataOrder(orderMaster);
+            Car car=carDao.findCarById(orderMaster.getCarId());
+            car.setState(CarEnum.STATE_RENT_OUT.getCode());
+            carService.updataCar(car);
 
             return ResponseInfo.success("支付成功");
         } else {

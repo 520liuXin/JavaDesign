@@ -11,6 +11,7 @@ import com.example.cy.security.SecurityUtils;
 import com.example.cy.service.CarService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
+import com.example.cy.utils.RandomDataUtil;
 import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
 import com.example.cy.utils.page.VenusPageVO;
@@ -44,15 +45,20 @@ public class CarServiceImpl implements CarService {
 //            newCar.setCarSource("个人卖家");
 //        }
 //        newCar.setSourceUserId(SecurityUtils.getUser().getId());
+        newCar.setFuzzyQuery(newCar.getCarType()+newCar.getCarName()+newCar.getCarBrand()+newCar.getColor()+newCar.getCarSource());
         carDao.save(newCar);
         return newCar;
     }
 
     @Override
     public Car updataCar(Car car) {
-        Car newCar=packResultData(car);
-        carDao.save(newCar);
-        return newCar;
+        try{
+            car.setUpdatedDate(new Date());
+            carDao.save(car);
+            return car;
+        }catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -87,12 +93,11 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CarQuery> fuzzy(String carDescribe) {
+    public List<CarQuery> fuzzy(String fuzzyQuery) {
         List<Car> cars =new ArrayList<>();
-        cars=carDao.findByCarDescribeLike("%"+carDescribe+"%");
+        cars=carDao.findByFuzzyQueryLike("%"+fuzzyQuery+"%");
         List<CarQuery> carQueries=new ArrayList<>();
         if(Calibration.isNotEmpty(cars)){
-
             for (Car car:cars){
                 CarQuery carQuery=  packResultDataForCarQuery(car);
                 carQueries.add(carQuery);
@@ -110,13 +115,13 @@ public class CarServiceImpl implements CarService {
      */
     @Override
     public ResponseInfo<?> findLike(String s) {
+        RandomDataUtil randomDataUtil=new RandomDataUtil();
         List<CarQuery> list=new ArrayList<>();
         List<CarQuery> carQueryList=new ArrayList<>();
         String[] strarr = s.split(",");
         List<CarQuery> carQueries=new ArrayList<>();
-
-        for(String carDescribe:strarr){
-            carQueries=this.fuzzy(carDescribe);
+        for(String fuzzyQuery:strarr){
+            carQueries=this.fuzzy(fuzzyQuery);
             for(CarQuery carQuery:carQueries){
                 if (carQuery.getState().equals(0)){
                     carQueryList.add(carQuery);
@@ -133,15 +138,15 @@ public class CarServiceImpl implements CarService {
                 listAll.addAll(carQueryList);
                 listAll.addAll(carQueries1);
                 listAll = new ArrayList<CarQuery>(new LinkedHashSet<>(listAll));
-                list=listAll.subList(0,5);
+                list=randomDataUtil.generateRandomDataNoRepeat(listAll,5);
                 return ResponseInfo.success(list);
             }
-            list=carQueryList.subList(0,5);
+            list=randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
             return ResponseInfo.success(list);
 
         }else {
             carQueryList=this.findAllToCarQuery();
-            list=carQueryList.subList(0,5);
+            list=randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
             return ResponseInfo.success(list);
         }
     }

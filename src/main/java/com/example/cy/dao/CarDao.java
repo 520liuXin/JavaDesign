@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface CarDao extends JpaRepository<Car,Long> {
 
-    List<Car> findByCarDescribeLike(String carDescribe);
+    List<Car> findByFuzzyQueryLike(String fuzzyQuery);
 
     Car findCarByCarId(String CarId);
 
@@ -25,6 +25,8 @@ public interface CarDao extends JpaRepository<Car,Long> {
     List<Car> findUserLikeBySort(Sort sort);
 
     List<Car> findByCarSource(String source);
+
+
 
 
 }

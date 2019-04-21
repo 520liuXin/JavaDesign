@@ -6,9 +6,11 @@ import com.example.cy.bean.User;
 import com.example.cy.bean.input.OrderMasterInput;
 import com.example.cy.bean.query.OrderMasterQuery;
 import com.example.cy.dao.OrderMasterDao;
+import com.example.cy.service.CarService;
 import com.example.cy.service.OrderMasterService;
 import com.example.cy.utils.DateUtils;
 import com.example.cy.utils.GenerateOrderNoUtil;
+import com.example.cy.utils.ResponseInfo;
 import com.example.cy.utils.page.CommonResponsePage;
 import com.example.cy.utils.page.VenusPageVO;
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +21,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.persistence.Transient;
 import javax.persistence.criteria.Predicate;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
@@ -31,12 +34,19 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     @Autowired
     private OrderMasterDao orderMasterDao;
 
+    @Autowired
+    private CarService carService;
+
+    @Transient
     @Override
     public OrderMaster creatOrder(OrderMaster orderMaster) {
         try{
             orderMaster.setOrderId(GenerateOrderNoUtil.gens(orderMaster.getUserId()));
             orderMaster.setCreatedDate(new Date());
             orderMasterDao.save(orderMaster);
+            Car car=new Car();
+            car.setState(1);
+            carService.updataCar(car);
             return orderMaster;
         }catch (Exception e){
             return null;
@@ -70,6 +80,28 @@ public class OrderMasterServiceImpl implements OrderMasterService {
             list.add(packResultData(om));
         }
         return list;
+    }
+
+    @Override
+    public OrderMaster updataOrder(OrderMaster orderMaster) {
+        try{
+            orderMaster.setUpdatedDate(new Date());
+            orderMasterDao.save(orderMaster);
+            return orderMaster;
+        }catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    @Override
+    public void deleteOrder(OrderMaster orderMaster) throws Exception{
+        try{
+            orderMasterDao.delete(orderMaster);
+        }catch (Exception e) {
+          throw  new Exception("删除失败");
+        }
+
     }
 
 

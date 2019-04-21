@@ -53,6 +53,11 @@ public class IndexController {
         return "orderSuccess";
     }
 
+    @RequestMapping(value="/orderFailed.html")
+    public String orderFailed()  {
+        return "orderFailed";
+    }
+
     @RequestMapping(value="/personalCenter.html")
     public String personalCenter()  {
         return "personalCenter";

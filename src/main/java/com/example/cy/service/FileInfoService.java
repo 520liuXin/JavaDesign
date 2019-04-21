@@ -1,5 +1,6 @@
 package com.example.cy.service;
 
+import com.example.cy.bean.Car;
 import com.example.cy.bean.FileInfo;
 import com.example.cy.exception.BusinessException;
 import com.example.cy.utils.ResponseInfo;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 
 /**
@@ -28,7 +30,7 @@ public interface FileInfoService {
     ResponseInfo<?> upload(MultipartFile file) throws Exception;
 
 
-    FileInfo AddFile(MultipartFile file) throws BusinessException;
+    List<FileInfo> batchUpload(List<MultipartFile> multipartFile,Car car) throws BusinessException;
 
 
     ResponseInfo<?> findAll();

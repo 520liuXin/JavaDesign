@@ -78,6 +78,9 @@ public class OrderMasterController {
 
         if(detailedAddress.isEmpty()){
             orderMaster.setSendCar(SendCarEnum.NO.getCode());
+        }else {
+            orderMaster.setDetailedAddress(detailedAddress);
+            orderMaster.setSendCar(SendCarEnum.YES.getCode());
         }
         orderMaster.setDetailedAddress(detailedAddress);
         orderMaster.setSendCar(SendCarEnum.YES.getCode());

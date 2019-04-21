@@ -12,8 +12,10 @@ import com.example.cy.bean.query.UserQuery;
 import com.example.cy.dao.CarDao;
 import com.example.cy.dao.FileInfoDao;
 import com.example.cy.enums.CarEnum;
+import com.example.cy.exception.BusinessException;
 import com.example.cy.security.SecurityUtils;
 import com.example.cy.service.CarService;
+import com.example.cy.service.FileInfoService;
 import com.example.cy.utils.BeansUtil;
 import com.example.cy.utils.Calibration;
 import com.example.cy.utils.RandomDataUtil;
@@ -27,7 +29,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @RestController
@@ -41,6 +47,9 @@ public class CarController {
     private CarService carService;
     @Autowired
     private FileInfoDao fileInfoDao;
+    @Autowired
+    private FileInfoService fileInfoService;
+
 
     private String store="店家直营";
 
@@ -69,15 +78,24 @@ public class CarController {
      * @Param
      * @return
      **/
-    @PostMapping("/add")
-    public ResponseInfo<?> AddUser(String jsonStr){
-        List< Car > carList = new ArrayList< Car >();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            carList = JSON.parseArray(jsonStr, Car.class);
+    @RequestMapping ("/add")
+    public ResponseInfo<?> AddUser(@RequestParam(required = false,value = "files" ) MultipartFile[] multipartFiles,@RequestBody JSONObject params,HttpServletRequest request)throws BusinessException {
+
+
+        CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver(request.getSession().getServletContext());
+        if(commonsMultipartResolver.isMultipart(request)){
+            MultipartHttpServletRequest multipartHttpServletRequest=(MultipartHttpServletRequest)request;
+            List<MultipartFile> list=multipartHttpServletRequest.getFiles("files");
         }
-        Car car=carList.get(0);
+
+
+        List<MultipartFile> list=new ArrayList<>();
+        Car car=new Car();
+
         try {
             Car car1=carService.saveCar(car);
+            fileInfoService.batchUpload(list,car1);
+
         }catch (Exception e){
             return ResponseInfo.success("添加失败");
         }

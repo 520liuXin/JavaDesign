@@ -42,6 +42,7 @@ $(function(){
             }
         }
          $.ajax({
+                contentType:'application/json;charset=utf-8',
                 url: "car/add",
                 type:"POST",
                 dataType: "json",

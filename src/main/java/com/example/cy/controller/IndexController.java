@@ -67,19 +67,19 @@ public class IndexController {
         return "homePageSellcar";
     }
 //    iframe-personalCenter
-    @RequestMapping(value="personalS/changePwd.html")
+    @RequestMapping(value="/changePwd.html")
     public String changePwd()  {
-        return "personalS/changePwd";
+        return "/changePwd";
     }
 
-    @RequestMapping(value="personalS/personalData.html")
+    @RequestMapping(value="/personalData.html")
     public String personalData()  {
-        return "personalS/personalData";
+        return "/personalData";
     }
 
-    @RequestMapping(value="personalS/personalOrder.html")
+    @RequestMapping(value="/personalOrder.html")
     public String personalOrder()  {
-        return "personalS/personalOrder";
+        return "/personalOrder";
     }
 
 //    iframe-mgrCenter
@@ -88,28 +88,28 @@ public class IndexController {
         return "mgrcenter";
     }
 
-    @RequestMapping(value="MgrCenterS/MgrOrder.html")
+    @RequestMapping(value="/MgrOrder.html")
     public String MgrOrder()  {
-        return "MgrCenterS/MgrOrder";
+        return "/MgrOrder";
     }
 
-    @RequestMapping(value="MgrCenterS/MgrCar.html")
+    @RequestMapping(value="/MgrCar.html")
     public String MgrCar()  {
-        return "MgrCenterS/MgrCar";
+        return "/MgrCar";
     }
 
-    @RequestMapping(value="MgrCenterS/MgrUser.html")
+    @RequestMapping(value="/MgrUser.html")
     public String MgrUser()  {
-        return "MgrCenterS/MgrUser";
+        return "/MgrUser";
     }
 
-    @RequestMapping(value="MgrCenterS/MgrData.html")
+    @RequestMapping(value="/MgrData.html")
     public String MgrData()  {
-        return "MgrCenterS/MgrData";
+        return "/MgrData";
     }
-    @RequestMapping(value="MgrCenterS/upLoadCar.html")
+    @RequestMapping(value="/upLoadCar.html")
     public String uploadCar()  {
-        return "MgrCenterS/upLoadCar.html";
+        return "/upLoadCar.html";
     }
 
     @RequestMapping(value="carDetail.html")

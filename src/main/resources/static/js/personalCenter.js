@@ -7,7 +7,8 @@ $(function(){
             dataType: "json",
             // data:JSON.stringify(loginObj),
             success: function(dataF){
-                console.log(dataF);
+                console.log("dataF"+dataF);
+                console.log(typeof dataF);
                 $(".username").html(dataF.username);
             },
             error: function(dataE){

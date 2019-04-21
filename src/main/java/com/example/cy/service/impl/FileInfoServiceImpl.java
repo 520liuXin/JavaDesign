@@ -2,6 +2,7 @@ package com.example.cy.service.impl;
 
 
 
+import com.example.cy.bean.Car;
 import com.example.cy.bean.FileInfo;
 import com.example.cy.config.UploadConfigure;
 import com.example.cy.dao.FileInfoDao;
@@ -24,6 +25,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class FileInfoServiceImpl implements FileInfoService {
      */
     @Transactional
     public ResponseInfo<?> upload(MultipartFile file) throws BusinessException {
-        //基础路径  E:/springboot-upload/image/
+        //基础路径 F:/D
         String basePath = uploadConfigure.getBasePath();
         //获取文件保存路径 \20180608\113339\
         String folder = FileUtils.getFolder();
@@ -78,6 +80,7 @@ public class FileInfoServiceImpl implements FileInfoService {
             fileInfo.setUrl(fullPath.toString());
             fileInfo.setFileName(fileName);
             fileInfo.setFilePath(filePath.toString());
+
 
             fileInfoDao.save(fileInfo);
         } catch (Exception e) {
@@ -95,53 +98,57 @@ public class FileInfoServiceImpl implements FileInfoService {
     }
 
     /**
-     * 文件上传，返回Fileinfo
-     * @param file
+     *车辆多图片上传
+     * @param
      * @return
      * @throws BusinessException
      */
 
     @Transactional
-    public FileInfo AddFile(MultipartFile file) throws BusinessException {
+    public List<FileInfo> batchUpload(List<MultipartFile> multipartFile,Car car) throws BusinessException {
         //基础路径  E:/springboot-upload/image/
         String basePath = uploadConfigure.getBasePath();
         //获取文件保存路径 \20180608\113339\
         String folder = FileUtils.getFolder();
         // 获取前缀为"FL_" 长度为20 的文件名  FL_eUljOejPseMeDg86h.png
-        String fileName = FileUtils.getFileName() + FileUtils.getFileNameSub(file.getOriginalFilename());
-
-        try {
-            // /home/ableliu/file/20190225/112214
-            Path filePath = Files.createDirectories(Paths.get(basePath, folder));
-            log.info("path01-->{}", filePath);
-
-            //写入文件  /home/ableliu/file/20190225/112214\FL_eUljOejPseMeDg86h.png
-            Path fullPath = Paths.get(basePath, folder, fileName);
-            log.info("fullPath-->{}", fullPath);
-            // /home/ableliu/file/20190225/112214\FL_eUljOejPseMeDg86h.png
-            Files.write(fullPath, file.getBytes(), StandardOpenOption.CREATE);
-
-            //保存文件信息
-            FileInfo fileInfo = new FileInfo();
-            fileInfo.setFileOriginName(file.getOriginalFilename());
-            fileInfo.setFileType(file.getContentType());
-            fileInfo.setSize(file.getSize());
-            fileInfo.setUrl(fullPath.toString());
-            fileInfo.setFileName(fileName);
-            fileInfo.setFilePath(filePath.toString());
-
-            fileInfoDao.save(fileInfo);
-            return fileInfo;
-        } catch (Exception e) {
-            Path path = Paths.get(basePath, folder);
-            log.error("写入文件异常,删除文件。。。。", e);
+        List<FileInfo> list=new ArrayList<>();
+        for(MultipartFile file:multipartFile){
+            String fileName = FileUtils.getFileName() + FileUtils.getFileNameSub(file.getOriginalFilename());
             try {
-                Files.deleteIfExists(path);
-            } catch (IOException e1) {
-                e1.printStackTrace();
+                // /home/ableliu/file/20190225/112214
+                Path filePath = Files.createDirectories(Paths.get(basePath, folder));
+                log.info("path01-->{}", filePath);
+
+                //写入文件  /home/ableliu/file/20190225/112214\FL_eUljOejPseMeDg86h.png
+                Path fullPath = Paths.get(basePath, folder, fileName);
+                log.info("fullPath-->{}", fullPath);
+                // /home/ableliu/file/20190225/112214\FL_eUljOejPseMeDg86h.png
+                Files.write(fullPath, file.getBytes(), StandardOpenOption.CREATE);
+
+                //保存文件信息
+                FileInfo fileInfo = new FileInfo();
+                fileInfo.setFileOriginName(file.getOriginalFilename());
+                fileInfo.setFileType(file.getContentType());
+                fileInfo.setSize(file.getSize());
+                fileInfo.setUrl(fullPath.toString());
+                fileInfo.setFileName(fileName);
+                fileInfo.setFilePath(filePath.toString());
+                fileInfo.setCar(car);
+                fileInfoDao.save(fileInfo);
+                list.add(fileInfo);
+            } catch (Exception e) {
+                Path path = Paths.get(basePath, folder);
+                log.error("写入文件异常,删除文件。。。。", e);
+                try {
+                    Files.deleteIfExists(path);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
             }
-            return new FileInfo();
+
         }
+        return list;
 
 
     }

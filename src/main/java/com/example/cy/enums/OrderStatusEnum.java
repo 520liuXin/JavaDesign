@@ -9,7 +9,8 @@ public enum OrderStatusEnum {
     ORDERING(1, "已支付"),
 
     FINISH(2, "已还车"),
-    CANCEL(3, "已取消"),;
+    CANCEL(3, "已取消"),
+    DELETE(4, "已删除");
 
     private Integer code;
 

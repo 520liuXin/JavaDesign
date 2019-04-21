@@ -187,7 +187,7 @@ public class AlipayController {
             orderMasterService.updataOrder(orderMaster);
             Car car=carDao.findCarById(orderMaster.getCarId());
             car.setState(CarEnum.STATE_RENT_OUT.getCode());
-             carService.updataCar(car);
+            carService.updataCar(car);
 
 
             return "redirect:/orderSuccess.html";

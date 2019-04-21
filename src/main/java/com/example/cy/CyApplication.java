@@ -11,7 +11,9 @@ import org.springframework.context.annotation.Configuration;
 
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.MultipartConfigElement;
+import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableScheduling
@@ -19,6 +21,11 @@ import javax.servlet.MultipartConfigElement;
 @EnableCaching
 @MapperScan("com.example.cy.dao")
 public class CyApplication {
+
+    @PostConstruct
+    void started() {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(CyApplication.class, args);

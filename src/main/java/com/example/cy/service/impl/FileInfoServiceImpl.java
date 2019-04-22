@@ -105,7 +105,7 @@ public class FileInfoServiceImpl implements FileInfoService {
      */
 
     @Transactional
-    public List<FileInfo> batchUpload(List<MultipartFile> multipartFile,Car car) throws BusinessException {
+    public List<FileInfo> batchUpload(MultipartFile[] multipartFile,Car car) throws BusinessException {
         //基础路径  E:/springboot-upload/image/
         String basePath = uploadConfigure.getBasePath();
         //获取文件保存路径 \20180608\113339\
@@ -134,6 +134,7 @@ public class FileInfoServiceImpl implements FileInfoService {
                 fileInfo.setFileName(fileName);
                 fileInfo.setFilePath(filePath.toString());
                 fileInfo.setCar(car);
+                fileInfo.setCreatedDate(new Date());
                 fileInfoDao.save(fileInfo);
                 list.add(fileInfo);
             } catch (Exception e) {

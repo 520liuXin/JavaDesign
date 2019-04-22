@@ -28,6 +28,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -78,24 +79,16 @@ public class CarController {
      * @Param
      * @return
      **/
-    @RequestMapping ("/add")
-    public ResponseInfo<?> AddUser(@RequestParam(required = false,value = "files" ) MultipartFile[] multipartFiles,@RequestBody JSONObject params,HttpServletRequest request)throws BusinessException {
 
 
-        CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver(request.getSession().getServletContext());
-        if(commonsMultipartResolver.isMultipart(request)){
-            MultipartHttpServletRequest multipartHttpServletRequest=(MultipartHttpServletRequest)request;
-            List<MultipartFile> list=multipartHttpServletRequest.getFiles("files");
-        }
+   @RequestMapping (value="/add",method = RequestMethod.POST)
+    public ResponseInfo<?> AddUser(@RequestParam("files") MultipartFile[] file,Car car)throws BusinessException {
 
-
-        List<MultipartFile> list=new ArrayList<>();
-        Car car=new Car();
 
         try {
-            Car car1=carService.saveCar(car);
-            fileInfoService.batchUpload(list,car1);
-
+            Car newCar=carService.saveCar(car);
+            System.out.println(newCar.toString());
+            fileInfoService.batchUpload(file,newCar);
         }catch (Exception e){
             return ResponseInfo.success("添加失败");
         }
@@ -107,7 +100,7 @@ public class CarController {
      * @param
      * @return
      */
-
+    @ResponseBody
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public ResponseInfo<?> findCarById(@RequestBody JSONObject params){
         Long idInfo = Long.parseLong(params.getString("id"));
@@ -131,7 +124,7 @@ public class CarController {
      * @Param
      * @return
      **/
-
+    @ResponseBody
     @GetMapping("/store")
     public ResponseInfo<?> store(){
         RandomDataUtil randomDataUtil=new RandomDataUtil();
@@ -155,7 +148,7 @@ public class CarController {
      * @Param
      * @return
      **/
-
+    @ResponseBody
     @GetMapping("/personal")
     public ResponseInfo<?> personal(){
         RandomDataUtil randomDataUtil=new RandomDataUtil();
@@ -178,6 +171,7 @@ public class CarController {
      * 热门推荐
      * @return
      */
+    @ResponseBody
     @GetMapping("/findByVogue")
     public ResponseInfo<?> findByVogue(){
         List<Car> cars=new ArrayList<>();
@@ -199,6 +193,7 @@ public class CarController {
 
      * @return
      */
+    @ResponseBody
     @GetMapping("/findByDifferent")
     public ResponseInfo<?> findByDifferent() {
         RandomDataUtil randomDataUtil=new RandomDataUtil();
@@ -220,6 +215,7 @@ public class CarController {
      * @param
      * @return
      */
+    @ResponseBody
     @GetMapping("/findByLatest")
     public ResponseInfo<?> findByLatest () {
         List<Car> cars=new ArrayList<>();
@@ -243,6 +239,7 @@ public class CarController {
          * @param
          * @return
          */
+        @ResponseBody
     @GetMapping("/findByInterest")
     public ResponseInfo<?> findByInterest(){
         List<CarQuery> carQueryList=new ArrayList<>();
@@ -263,6 +260,7 @@ public class CarController {
          * @Param
          * @return
          **/
+        @ResponseBody
         @RequestMapping(value = "/findCar", method = RequestMethod.GET)
         public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 20) Pageable pageable,
                 CarInput car){

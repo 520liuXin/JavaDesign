@@ -30,7 +30,7 @@ public interface FileInfoService {
     ResponseInfo<?> upload(MultipartFile file) throws Exception;
 
 
-    List<FileInfo> batchUpload(List<MultipartFile> multipartFile,Car car) throws BusinessException;
+    List<FileInfo> batchUpload(MultipartFile[] multipartFile,Car car) throws BusinessException;
 
 
     ResponseInfo<?> findAll();

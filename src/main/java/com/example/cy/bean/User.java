@@ -25,6 +25,9 @@ public class User extends BasePo implements UserDetails {
     @Column(length = 255)
     private String phone;
 
+    @Column(length = 255)
+    private String name;
+
 
     @Column(length = 255)
     private String imgurl;

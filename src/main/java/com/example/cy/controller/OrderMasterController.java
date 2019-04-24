@@ -12,9 +12,11 @@ import com.example.cy.dao.CarDao;
 import com.example.cy.dao.OrderMasterDao;
 import com.example.cy.dao.UserDao;
 import com.example.cy.enums.CarEnum;
+import com.example.cy.enums.OrderStatusEnum;
 import com.example.cy.enums.SendCarEnum;
 import com.example.cy.security.SecurityUtils;
 import com.example.cy.service.AlipayService;
+import com.example.cy.service.CarService;
 import com.example.cy.service.OrderMasterService;
 import com.example.cy.utils.Calibration;
 import com.example.cy.utils.DateUtils;
@@ -56,6 +58,9 @@ public class OrderMasterController {
 
     @Autowired
     private AlipayService alipayService;
+
+    @Autowired
+    private CarService carService;
 
 
 
@@ -123,6 +128,7 @@ public class OrderMasterController {
      * @param orderMaster
      * @return
      */
+    @RequestMapping(value = "/updtaOrder", method = RequestMethod.POST)
     public ResponseInfo<?> updataOrder(OrderMaster orderMaster){
         OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
         if(oldOrderMaster==null){
@@ -143,33 +149,44 @@ public class OrderMasterController {
      * @param orderMaster
      * @return
      */
-    public ResponseInfo<?> deleteOrder(OrderMaster orderMaster){
-        OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
-        if(oldOrderMaster==null){
+    @RequestMapping(value = "/deleteOrder", method = RequestMethod.POST)
+    public ResponseInfo<?> deleteOrder(OrderMaster orderMaster) {
+        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderMaster.getOrderId());
+        if (oldOrderMaster == null) {
             return ResponseInfo.error("订单不存在");
         }
-        OrderMaster newdata=orderMasterService.updataOrder(orderMaster);
-        if(newdata==null){
-            return ResponseInfo.error("删除失败");
+        try {
+            orderMasterService.deleteOrder(orderMaster);
+        } catch (Exception e) {
+           return ResponseInfo.error("删除失败");
         }
-        return ResponseInfo.success("删除成功");
+       return ResponseInfo.success("删除成功");
+    }
 
+
+
+    @RequestMapping(value = "/repayCar", method = RequestMethod.POST)
+    public ResponseInfo<?> repayCar(OrderMaster orderMaster) {
+        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderMaster.getOrderId());
+        if (oldOrderMaster == null) {
+            return ResponseInfo.error("订单不存在");
+        }
+       int i =DateUtils.daysBetween(oldOrderMaster.getEndDate(),new Date());
+        if(i<=0){
+            orderMaster.setOrderStatus(OrderStatusEnum.FINISH.getCode());
+            orderMasterService.updataOrder(orderMaster);
+            Car car=carDao.findCarById(orderMaster.getCarId());
+            car.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
+            carService.updataCar(car);
+           return ResponseInfo.success("还车成功");
+
+        }else {
+          return   ResponseInfo.error("租赁时间超长，请于管理员联系付清租赁费用才可还车！！！");
+        }
 
     }
 
-//    /**
-//     * 查询个人订单
-//     * @return
-//     */
-//    @GetMapping("/info")
-//    public ResponseInfo<?> orderinfo (@PageableDefault(page = 1, size = 5) Pageable pageable, OrderMasterInput input){
-//        int pageNumber = pageable.getPageNumber();
-//        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-//        input.setUserId(SecurityUtils.getUser().getId());
-//        Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "createdDate");
-//        CommonResponsePage<OrderMasterQuery> datas = orderMasterService.findOrderMasterAndPage(page, input);
-//        return ResponseInfo.success(datas);
-//    }
+
 
 
     /**

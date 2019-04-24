@@ -15,9 +15,9 @@ $(function(){
     };
     $("#datetimepickerE input").blur(function(){
         var days = datedifference( $("#datetimepickerS input").val(),$("#datetimepickerE input").val());
-        $(".price").html(days*god.rent);
-        console.log("god:"+JSON.stringify(god));
-        console.log("days*god.rent:"+days*god.rent);
+        $(".price span").text(days*god.rent);
+        // console.log("god:"+JSON.stringify(god));
+        console.log('days:'+days+'-----------'+"days*god.rent:"+days*god.rent);
     });
 
 
@@ -41,18 +41,22 @@ $(function(){
                 // 主图附图呈现
                 $(".img-big img").attr('src',dataF.data.carImgUrl[0].url); 
                 $(".img-small").html("");
-                $(".cardetailTitle h2").html(''+dataF.data.carBrand+'<h4>'+dataF.data.carDescribe+'</h4>');
+                $(".cardetailTitle h1").html(''+dataF.data.carBrand+'');
                 $.each(dataF.data.carImgUrl,function(i,item){
                    $(".img-small").append(
-                       " <img src="+dataF.data.carImgUrl[i].url+">"
+                       " <img src="+item.url+">"
                    );
                    if(i>=3){
                         return false;
                    }
                 });
+                // 车辆价格区呈现
+                $(".carPrice p").html(''+dataF.data.carDescribe+'');
+                $(".payment strong").html(''+dataF.data.rent+'');
                 // 车源图片呈现
+
                 $.each(dataF.data.carImgUrl,function(i,item){
-                    $(".DetailedPhotosSS").append(
+                    $(".DetailedPhotosS").append(
                         '<div class="col-md-6"><img src="'+item.url+'" alt=""></div>'
                     )
                     if(i>=5){
@@ -68,19 +72,17 @@ $(function(){
                 $(".configInfo1").html(   
                     '<td>'+dataF.data.carBrand+'</td>'+
                     '<td>'+dataF.data.carName+'</td>'+
+                    '<td>'+dataF.data.displacement+'</td>'+
                     '<td>'+dataF.data.fuelConsumption+'</td>'+
                     '<td>'+dataF.data.engine+'</td>'+
-                    '<td>'+dataF.data.driveWay+'</td>'
+                    '<td>'+dataF.data.carType+'</td>'+
+                    '<td>'+dataF.data.driveWay+'</td>'+
+                    '<td>'+dataF.data.ridingNumber+'</td>'
                 );
-
-                $(".configInfo2").html(
-                    '<td>'+dataF.data.displacement+'</td>'+
-                    '<td>'+dataF.data.ridingNumber+'</td>'+
-                    '<td>---</td>'+
-                    '<td>---</td>'+
-                    '<td>---</td>'
-                );
-
+                
+                // 模态框信息呈现
+                $(".carInfoContainerS img").attr('src',dataF.data.carImgUrl[0].url);
+                $(".carInfoContainerSS").html(''+dataF.data.carBrand +' '+dataF.data.carName);
                 god.rent = dataF.data.rent;
             },
             error: function(dataE){
@@ -167,7 +169,7 @@ $(function(){
 
         orderInfoObj.getCar = status;
         orderInfoObj.address = $("#ZQDZ input").val();
-        orderInfoObj.price = $(".price").html();
+        orderInfoObj.price = $(".price span").html();
         orderInfoObj.startTime = $("#datetimepickerS input").val();
         orderInfoObj.endTime = $("#datetimepickerE input").val();
         console.log(JSON.stringify(orderInfoObj));
@@ -191,7 +193,4 @@ $(function(){
          })
     });
 
-    $(".weChatPay").click(function(){
-        alert("微信支付通道正在对接中....");
-    });
 });

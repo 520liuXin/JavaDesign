@@ -17,16 +17,37 @@ div{
     text-align: center;
 }
 .RALbox{
-    margin: 30px 0;
+    /* margin: 30px 0; */
+    margin-top: 80px;
+    width: 600px;
     border: 1px solid #CCCCCC;
     background-color: white;
-    border-radius: 10px 10px 10px 10px;
+    /* background-image: url("../img/bg-header.png"); */
+    background-repeat: repeat;
+    border-radius: 5px;
 }
 .RALbody{
-    background-image: url(../img/registBGimg.jpg);
+    background-image: url(../img/ti543mg.jpg);
+    height: 820px;
 }
 .subContainer{
     /* border: 1px dashed red; */
-    text-align: center;
+    /* text-align: center; */
+    padding-top: 10px;
+    padding-left: 33%;
     height: 65px;
+}
+small{
+ color: gray;
+}
+.col-sm-4{
+    margin: 5px 0 ;
+}
+h4 ,label {
+    /* color: white; */
+}
+.authCodeBox{
+    /* height: 80px; */
+    padding-top: 20px;
+    text-align: center;
 }

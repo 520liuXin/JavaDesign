@@ -66,7 +66,7 @@ $(function(){
         $("#focusedInput").val($.unique(queryByCodition.sort()).filter(s => $.trim(s).length > 0));
     });
     
-    // 登录 / 注册
+    //  注册
     $(".subBtn").click(function(){
         
         var status = getSwitchStatus();

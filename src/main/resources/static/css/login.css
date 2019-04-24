@@ -1,0 +1,52 @@
+.regist-info-container{
+    margin-top: 50px;
+    padding: 10px;
+    box-shadow: 0 0  10px #DDD;
+}
+.regist-title{
+    margin-bottom: 20px;
+}
+div{
+    /* border:1px dashed red; */
+}
+.imginput{
+    background-image: url(../img/registBGimg.jpg);
+    height: 650px;
+}
+.switch{
+    text-align: center;
+}
+.RALbox{
+    /* margin: 30px 0; */
+    margin-top: 80px;
+    border: 1px solid #CCCCCC;
+    background-color: white;
+    /* background-image: url("../img/bg-header.png"); */
+    background-repeat: repeat;
+    border-radius: 5px;
+    height: 410px;
+}
+.RALbody{
+    background-image: url(../img/ti543mg.jpg);
+    /* border: 1p dashed red; */
+    height: 820px;
+}
+.subContainer{
+    /* border: 1px dashed red; */
+    text-align: center;
+    height: 45px;
+}
+small{
+ color: gray;
+}
+.col-sm-4{
+    margin: 5px 0 ;
+}
+h4 ,label {
+    /* color: white; */
+}
+.authCodeBox{
+    height: 80px;
+    padding-top: 10px;
+    text-align: center;
+}

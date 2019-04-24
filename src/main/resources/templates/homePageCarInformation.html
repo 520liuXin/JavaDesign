@@ -18,53 +18,6 @@
 </head>
 <body>
     <div class="SRose-head">
-        <div class="headTop">
-          <!-- 37px高度 100%宽度 包含 图标+淘车网首页  欢迎来到淘车网 登录 我的淘车 （阉割部分功能） 联系电话 -->
-          <div class="container-fluid">
-            <div class="row">
-
-              <div class="col-md-2"></div>
-              <div class="col-md-8">
-
-                  <div class="row">
-                      <div class="col-md-2">
-                          <p class="headp goleft">
-                            <button type="button" class="btn btn-link">
-                                <a href="homePageFirstPage.html" target="_self" class="a-css"><span class="glyphicon glyphicon-home"></span>淘车网首页</a>
-                            </button>
-                          </p>
-                      </div>
-
-                      <div class="col-md-6"></div>
-
-                      <div class="col-md-2">
-                          <p class="headp goright">
-                            <button type="button" class="btn btn-link">
-                              <a href="loginOrRegist.html" class="a-css">登录/注册</a> 
-                           </button>
-                          </p>
-                      </div>
-                      <div class="col-md-1">
-                          <button type="button" class="btn btn-link">
-                          <p class="headp goright"><a href="personalCenter.html" target="_blank"class="a-css">我的淘车</a></p>
-                          </button>
-                      </div>
-                    
-
-                      <div class="col-md-1">
-                          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#phoneInfoModal">
-                          <p class="headp goright">联系电话</p>
-                          </button>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-md-2"></div>
-
-            </div>
-          </div>
-        </div>
-
         <div class="headBody">
           <!-- 125px高度 宽度 col-md-8 居中 包含logo 搜索框 按钮 -->
           <div class="row">
@@ -72,23 +25,33 @@
             
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-3">
-                      <a href="#" class="a-css"><h1>淘车网 taoche.com</h1></a>
-                    </div>
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <h1 style="color: aliceblue; ">租车网 <small> 想租车，来租车网，给予你不一样的租车体验！</small></h1>
+                            
+                        </div>
+                      </div>
     
-                    <div class="col-md-1"></div>
+                    <!-- <div class="col-md-5"></div> -->
     
-                    <div class="col-md-8 searchbar">
-                        <!-- <div class="input-group">
-                            <input type="text" class="form-control info-searchBar" placeholder="搜 帕加尼风之子 试试">
-                            <span class="input-group-btn">
-                              <button class="btn btn-default btn-searchBar" type="button">
-                                搜索
-                              </button>
-
-                              <button type="button" class="btn btn-default">卖车</button>
-                            </span>
-                        </div> -->
+                    <div class="col-md-4">
+                      <div class="leader">
+                          <nav class="navbar navbar-default" role="navigation">
+                            <div class="container-fluid">
+                            <div class="navbar-header">
+                              <!-- <a class="navbar-brand" class="active" href="homePageFirstPage.html">租车网</a> -->
+                            </div>
+                            <div>
+                              <ul class="nav navbar-nav">
+                                <li><a href="homePageFirstPage.html">租车首页</a></li>
+                                <li class="active"><a href="homePageCarInformation.html">最新资讯</a></li>
+                                <li><a href="homePageMerchant.html">商家中心</a></li>
+                                <li><a href="personalCenter.html">个人中心</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                          </nav>
+                      </div>
                     </div>
                   </div>
             </div>
@@ -97,7 +60,7 @@
           </div>
         </div>
     </div>
-
+    <div style="width:100%; height:15px; background-color: #E6E6E6;"></div>
     <div class="SRose-body">
         <div class="navigator">
           <!-- 导航栏 高度37px 100%宽度  包含项 首页 买车 卖车 评估 置换-->
@@ -105,13 +68,13 @@
             <div class="col-md-2 nearNavigator"></div>
 
             <div class="col-md-8">
-                <ul class="nav nav-tabs nav-justified">
+                <!-- <ul class="nav nav-tabs nav-justified">
                     <li role="presentation"><a href="homePageFirstpage.html" target="_self">首页</a></li>
                     <li role="presentation" class="active"><a href="#" target="_self">资讯</a></li>
                     <li role="presentation"><a href="homePageMerchant.html" target="_self">商家中心</a></li>
                     <li role="presentation"><a href="personalCenter.html" target="_self">个人中心</a></li>
-                    <!-- <li role="presentation"><a href="second-rose-Substitution.html" target="_self">置换</a></li> -->
-                  </ul>
+                    <li role="presentation"><a href="second-rose-Substitution.html" target="_self">置换</a></li>
+                  </ul> -->
             </div>
 
             <div class="col-md-2 nearNavigator"></div>
@@ -130,32 +93,33 @@
                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                       <li data-target="#myCarousel" data-slide-to="1"></li>
                       <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
                     </ol>   
                     <!-- 轮播（Carousel）项目 -->
                     <!-- 修改为资讯信息 -->
                     <div class="carousel-inner">
-                      <div class="item active">
-                        <img src="../img/zixun1.jpg" style="width:100%;height: 320px;" alt="First slide">
+                        <div class="item active">
+                          <img src="../img/Carousel5.jpg" width="100%" alt="First slide">
+                        </div>
+                        <div class="item">
+                          <img src="../img/Carousel4.jpg" width="100%" alt="Second slide">
+                        </div>
+                        <div class="item">
+                          <img src="../img/Carousel3.jpg" width="100%" alt="Third slide">
+                        </div>
+                        <div class="item">
+                          <img src="../img/Carousel2.jpg" width="100%" alt="Third slide">
+                        </div>
                       </div>
-                      <div class="item">
-                        <img src="../img/zixun2.jpg" style="width:100%;height: 320px;" alt="Second slide">
-                      </div>
-                      <div class="item">
-                        <img src="../img/zixun3.jpg" style="width:100%;height: 320px;" alt="Third slide">
-                      </div>
-                      <div class="item">
-                        <img src="../img/zixun4.jpg" style="width:100%;height: 320px;" alt="fourth slide">
-                      </div>
-                    </div>
                     <!-- 轮播（Carousel）导航 -->
-                    <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                     </a>
                     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
-                    </a> -->
+                    </a>
                   </div> 
 
             </div>
@@ -262,165 +226,49 @@
 
     </div>
 
+    <div style="width:100%; height:15px; background-color: #232323;"></div>
     <div class="SRose-foot">
       <!-- 页面介绍 二维码 版权信息 -->
       <div class="row">
-        <div class="col-md-2"></div>
-
-        <div class="col-md-8">
-            <div class="wechat">
-                <h4>淘车网是由marix 刘慕思二人合作开发的汽车租赁购买平台 网站最终解释权归二人所有</h4>
-              <div class="wechatImg">
-                  <img src="../img/marix.jpg" alt="marix个人微信" width="120px" height="120px">
-                  <span>marix个人微信</span>
-              </div>
-              <div class="wechatImg">
-                  <img src="../img/saoxin.jpg" alt="刘慕思个人微信" width="120px" height="120px">
-                  <span>刘慕思个人微信</span>
-              </div>
-            </div>
+        <div class="col-md-12 webGS" style="height:100px;background-color: #000000;">
+        <h4 style="line-height: 50px;color:aliceblue;">本网站最终解释权归 liuxin 所有</h4>
         </div>
-
-        <div class="col-md-2"></div>
       </div>
     </div>
 
-<!-- modal  -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                &times;
-              </button>
-              <h4 class="modal-title" id="myModalLabel">
-                登录
-              </h4>
+              sexy woman
             </div>
 
             <div class="modal-body">
-              <!-- 注册链接 -->
-              <!-- <div class="regist-container pull-right">
-                    <p>
-                      <button type="button" class="btn btn-link">
-                          <a href="#" class="a-css">没有账号？现在就注册一个</a>
-                      </button>
-                    </p>
-              </div> -->
-
-              <!-- 引用jigsaw.js -->
-                <div class="modal-container" style="width:310px;margin:100px auto;">
-                  <form class="modal-login">
-                      <h3>用户登录</h3>
-                    <div class="input-group">
-                      <input type="text" placeholder="用户名/账号" class="form-control modal-login userLogin-username" style="margin:5px auto;"/>
-                      <input type="password" placeholder="密码" class="form-control modal-login userLogin-userpwd" style="margin:10px auto;"/>
-                    </div>
-                    <div id="captcha" style="position: relative"></div>
-                    <div id="msg"></div>
-                  </form>
-                </div>
-
-                <script>
-                  jigsaw.init(document.getElementById('captcha'), function () {
-                    document.getElementById('msg').innerHTML = '登录成功！'
-                  })
-                </script>
-                <!-- 引用结束 -->
-            </div>
+              <img src="../img/gallery1.jpg" width="100%" height="100%" alt="">
+                <h3>Overflowing text to show scroll behavior</h3>
+                <h4>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                  </h4>
+                <h4>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  </h4>
+                <h4>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                  </h4>
+                <h4>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                  </h4>
+                <h4>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  </h4>
+                <h4>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                  </h4>
+              </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
-                确认
-              </button>
-              
-              <button type="button" class="btn btn-default btn-userRegist">
-                  <a href="regist.html" target="_blank" style="text-decoration:none;">没有账号？现在就注册一个</a>
-              </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
 
           </div><!-- /.modal-content -->
         </div><!-- /.modal -->
       </div>
-<!-- modal2 -->
-      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                sexy woman
-              </div>
-  
-              <div class="modal-body">
-                <img src="../img/slide3.jpg" width="100%" height="100%" alt="">
-                  <h3>Overflowing text to show scroll behavior</h3>
-                  <h4>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                    </h4>
-                  <h4>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                    </h4>
-                  <h4>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-                    </h4>
-                  <h4>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                    </h4>
-                  <h4>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                    </h4>
-                  <h4>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-                    </h4>
-                </div>
-  
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-              </div>
-  
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal -->
-        </div>
-
-      </div>
-
-      <!-- phoneInfoModal -->
-    <div class="modal fade" id="phoneInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2>淘车网热线</h2>
-            </div>
-  
-            <div class="modal-body">
-              <!-- 左图右字 -->
-              <div style="text-align:center; font-weight:bold;"><h4>欢迎致电淘车网！</h4></div>
-              <div class="phoneInfoContainer">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>管理员</td>
-                      <th>联系电话</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>马瑞思</td>
-                      <td>18216215139</td>
-                    </tr>
-                    <tr>
-                      <td>骚信</td>
-                      <td>18229909690</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-  
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-userlogin" data-dismiss="modal">
-                确认
-              </button>
-            </div>
-  
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
-      </div>
-  
       <script>
         $(function(){
           $(".messageBoxS").bind("click",function(){

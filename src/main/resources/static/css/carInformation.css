@@ -9,8 +9,12 @@
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
+    background-color: #EFEFEF;
 }
 .messageBoxS img{
     width: 100%;
     height: 150px;
+}
+h2{
+    color: aliceblue;
 }

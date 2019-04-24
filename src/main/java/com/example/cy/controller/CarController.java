@@ -178,12 +178,11 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.DESC, "heatValue");
         cars = carDao.findAll(sort);
-        if(cars.size()>20){
+        if(cars.size()>30){
             carQueries= carToCarQuery(cars.subList(0,20));
         }else {
             carQueries= carToCarQuery(cars);
         }
-
         return ResponseInfo.success(carQueries);
 
     }
@@ -222,7 +221,7 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         Sort sort = new Sort(Sort.Direction.DESC, "createdDate");
         cars = carDao.findAll(sort);
-        if(cars.size()>20){
+        if(cars.size()>30){
             carQueries= carToCarQuery(cars.subList(0,20));
         }else {
             carQueries= carToCarQuery(cars);
@@ -298,6 +297,7 @@ public class CarController {
         newCar.setHeatValue(car.getHeatValue());
         newCar.setRent(car.getRent());
         newCar.setCreatedDate(car.getCreatedDate());
+        newCar.setEngine(car.getEngine());
         return newCar;
 
     }
@@ -331,8 +331,8 @@ public class CarController {
             carQueries.add(carQuery);
         }
         carQueryList=checkCar(carQueries);
-        if(carQueryList.size()>5){
-            carQueryList= carQueryList.subList(0,5);
+        if(carQueryList.size()>12){
+            carQueryList= carQueryList.subList(0,12);
         }
             return carQueryList;
     }
@@ -352,8 +352,8 @@ public class CarController {
             carQueries.add(carQuery);
         }
         carQueryList=  checkCar(carQueries);
-        if(carQueryList.size()>5){
-          carQueryList=  randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
+        if(carQueryList.size()>12){
+          carQueryList=  randomDataUtil.generateRandomDataNoRepeat(carQueryList,12);
 
         }
         return carQueryList;
@@ -372,10 +372,6 @@ public class CarController {
         car.setId(Long.parseLong(carId));
         carService.head_value(car);
     }
-
-
-
-
 
 
 }

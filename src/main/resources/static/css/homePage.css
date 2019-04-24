@@ -1,10 +1,15 @@
 .headTop{
     background-color: #F8F8F8;
-    
+    display: none;
     text-align: center;
 }
 div{
     /* border: dashed 1px red; */
+}
+.headBody{
+  background-color: #161616;
+  height: 115px;
+  padding-top: 30px;
 }
 .headp{
     margin-top: 7px;
@@ -16,17 +21,52 @@ div{
     float: left;
 }
 .searchbar{
-    margin-top: 40px;
+    margin-top: 50px;
+}
+.leader{
+  width: 385px;
+  height:70px;
+  padding-top: 15px;
+}
+/* rollBar */
+.webGS{
+  text-align: center;
+  
+}
+.rollBar{
+  height: 700px;
 }
 .btn-default{
     margin: 0 5px;
 }
 .navigator{
- background-color: #F8F8F8;
+ /* background-color: #F8F8F8; */
+}
+.searchBox{
+  height: 200px;
+  text-align: center;
+  border: 1px solid #373737;
+  background-color: #5C5C5C;
+}
+.searchBox2{
+  height: 300px;
+  text-align: center;
+  border: 1px solid #373737;
+  background-color: #5C5C5C;
+}
+.searchBoxH{
+ 
+}
+.searchinput input,.searchinput button{
+  margin-top: 40px;
+  height: 50px;
 }
 .nav-justified li{
     font-size: 13pt;
     font-weight: bold;
+}
+.sellItem{
+  background-color: #D9DFE3;
 }
 .typeImg{
     float: left;
@@ -74,15 +114,15 @@ ul{
 .wechatImg span{
     display: block;
 }
-.carDetailContainer{
-    float: left;
-    width: 18%;
-    height: 300px;
-    background-color: white;
-    margin: 5px 7px;
-    box-shadow: 0 0  10px #DDD;
-    border: 2px solid #EEEE;
-    /* border-radius: 10px 10px 10px 10px;  */
+.ViewAllRendering{
+  padding-top: 25px 10px 10px 25px;
+  /* background-color: #151515; */
+}
+.viewAll{
+  background-color: #D9DFE3  ;
+  /* background-image: url("../img/m.png");
+  background-repeat: repeat; */
+  padding-top: 25px; 
 }
 .detailTitle{
     /* display: none; */
@@ -91,19 +131,36 @@ ul{
     color: white;
     font-weight: bold;
     position: absolute;
-    text-align: center;
     /* top: 20px; */
+}
+/* 车辆个体 */
+.carDetailContainer{
+  float: left;
+  width: 22%;
+  height: 280px;
+  background-color: white;
+  margin: 5px 7px;
+  /* box-shadow: 0 0  10px #DDD; */
+  border: 1px solid #EEEE;
+  /* border-radius: 5px;  */
 }
 .carDetailContainer div img{
     width:100%;
-    height: 155px;
+    height: 165px;
 }
 div .a-css {
     text-decoration: none;
 }
+.priceContainer{
+  text-align: left;
+    /* margin: 20px 0px 5px 8px; */
+    margin-top: 5px;
+    margin-left: 5px;
+}
 .totalPrice{
-    color: #FF6402;
+    color: rgb(226, 68, 6);
     font:16px bolder;
+    font-family:Arial,Helvetica,sans-serif;
 }
 .Installment{
     color: #FF6402;
@@ -113,13 +170,11 @@ div .a-css {
     margin-left: 2px;
     height: 62px;
 }
-.priceContainer{
-    margin: 20px 0px 5px 8px;
-}
+
 .serviceContainer{
     border: 1px solid #E6EBEF;
     height: 22px;
-    width: 170px;
+    width: 128px;
     text-align: center;
     margin-left: 8%;
     /* border: 1px solid red; */

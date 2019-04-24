@@ -56,6 +56,8 @@ public class UserController {
     @Autowired
     private AuthenticationManager myAuthenticationManager;
 
+    private String CHECK_CODE = "CHECK_CODE";
+
 
 
 
@@ -70,13 +72,23 @@ public class UserController {
         String username=params.getString("name");
         String password=params.getString("pwd");
         String usertag=params.getString("Usertag");
-       usertag=usertag.replace("[","");
-       String label=usertag.replace("]","");
+       String idCard=params.getString("idNumber");
+       String name=params.getString("trueName");
 
+        String kaptcha=params.getString("kaptcha");
+
+        String s = request.getSession().getAttribute(CHECK_CODE).toString();
+        if (com.example.cy.utils.StringUtils.isEmpty(kaptcha) || !s.equals(kaptcha)) {
+            return ResponseInfo.error("验证码不正确");
+        }
+        usertag=usertag.replace("[","");
+        String label=usertag.replace("]","");
         User user=new User();
         user.setUsername(username);
         user.setPassword(password);
         user.setLabel(label);
+        user.setName(name);
+        user.setIdCard(idCard);
        User oldUser=userDao.findUser(username);
        if(Calibration.isNotEmpty(oldUser)){
            return ResponseInfo.error("用户存在，请登录");

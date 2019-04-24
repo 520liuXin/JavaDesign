@@ -61,16 +61,25 @@ li{
     bottom:-10px;
     right: 16px;
 }
-.itemLabel{
+/* .itemLabel{
     line-height: 81px;
-}
+} */
 .btn-group{
     padding-top: 3%;
     padding-left: 6%;
 }
-.itemDetail{
+.itemDetailS{
+    border-left: 1px solid  #E9E9E9;
     border-right: 1px solid  #E9E9E9;
+    height: 100%;
+    text-align: center;
+    padding-top: 15px;
 }
 .itemDescription{
-    margin-top: 5px;
+    margin-top: 15px;
+}
+.optionBtn{
+    position: relative;
+    right: 7px;
+    top: 15px;
 }

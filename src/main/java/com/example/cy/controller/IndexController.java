@@ -26,6 +26,17 @@ public class IndexController {
     public String successUser()  {
         return "user";
     }
+//loginOrRegist
+//    the main entrance
+    @RequestMapping(value="/login")
+    public String loginOrRegistPage()  {
+        return "login";
+    }
+
+    @RequestMapping(value="/regist.html")
+    public String loginOrRegist()  {
+        return "Regist";
+    }
 
 //homepage
     @RequestMapping(value="/homePageFirstPage.html")
@@ -83,9 +94,9 @@ public class IndexController {
     }
 
 //    iframe-mgrCenter
-    @RequestMapping(value="mgrcenter")
+    @RequestMapping(value="/mgrcenter")
     public String mgrcenter()  {
-        return "mgrcenter";
+        return "/MgrCenter";
     }
 
     @RequestMapping(value="/MgrOrder.html")
@@ -112,20 +123,12 @@ public class IndexController {
         return "/upLoadCar.html";
     }
 
-    @RequestMapping(value="carDetail.html")
+    @RequestMapping(value="/carDetail.html")
     public String carDetail()  {
         return "carDetail";
     }
 
-    @RequestMapping(value="login")
-    public String loginOrRegistPage()  {
-        return "loginOrRegist";
-    }
 
-    @RequestMapping(value="loginOrRegist")
-    public String loginOrRegist()  {
-        return "loginOrRegist";
-    }
 
     @RequestMapping("/404")
     public String to404()  {

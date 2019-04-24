@@ -231,6 +231,7 @@ public class CarServiceImpl implements CarService {
         newCar.setState(car.getState());
         newCar.setRent(car.getRent());
         newCar.setCarSource(car.getCarSource());
+        newCar.setEngine(car.getEngine());
         return newCar;
 
     }
@@ -253,6 +254,7 @@ public class CarServiceImpl implements CarService {
         newCar.setRent(car.getRent());
         newCar.setCarSource(car.getCarSource());
         newCar.setCreatedDate(car.getCreatedDate());
+        newCar.setEngine(car.getEngine());
         return newCar;
 
     }

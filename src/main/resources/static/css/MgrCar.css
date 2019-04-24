@@ -5,6 +5,10 @@
     margin-bottom: 40px;
     /* background-color: #C5C7BC; */
 }
-.carItemContainer{
-    
+body{
+    background-image: url("../img/m.png");
+    background-repeat: repeat;
+}
+.searchbox{
+    background-color: white;
 }

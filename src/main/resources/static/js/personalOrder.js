@@ -1,6 +1,18 @@
 $(function(){
     // god = {};
     // 获取用户订单信息
+    function timestampToTime(timestamp) {
+        var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = date.getDate() + ' ';
+        var h = date.getHours() + ':';
+        var m = date.getMinutes() + ':';
+        var s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
+
+    // timestampToTime(1403058804);
     function getUserOrder(){
         $.ajax({
             contentType:'application/json;charset=utf-8',
@@ -17,9 +29,9 @@ $(function(){
                     $(".itemContainer").append(
                         ' <div class="orderItem">'+ 
                         ' <div class="orderHead col-md-12">'+
-                        '<span>订单时间:'+item.createdDate+' </span> <span>流水号'+item.orderId+'</span>'+
+                        '<span>订单时间:'+timestampToTime(item.createdDate)+' </span> <span>流水号'+item.orderId+'</span>'+
                         '</div>'+
-                        '<div class="orderBody">'+
+                        '<div class="orderBody col-md-12">'+
                         '<div class="col-sm-6 itemDetail">'+
                         ' <div class="col-sm-4">'+
                         '<img src="../'+item.carImgUrl+'" alt="" class="img-thumbnail">'+
@@ -28,11 +40,18 @@ $(function(){
                         '<label for="">'+item.carName+''+item.carDescribe+'</label>'+
                         ' </div>'+
                         '</div>'+
-                        '<div class="col-sm-2 itemDetail"><label class="itemLabel" for=""><span class="glyphicon glyphicon-user"></span> '+item.userName+'</label></div>'+
-                        '<div class="col-sm-2 itemDetail"><label class="itemLabel" for="">￥： <span>'+item.buyerAmount+'</span>元</label></div>'+
-                        '<div class="col-sm-2 btn-group itemDetail">'+
-                        '<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span></button>'+
-                        '</div></div></div>'
+                        '<div class="col-sm-3 itemDetailS"><label class="itemLabel" for="">'+
+                        '<p>起始时间：<strong>'+timestampToTime(item.startDate)+'</strong></p>'+
+                        '<p>终止时间：<strong>'+timestampToTime(item.endDate)+'</strong></p>'+
+                        '</div>'+
+                        '<div class="col-sm-2 itemDetailS"><label class="itemLabel" for="">￥： <span>'+item.buyerAmount+'</span>元</label></div>'+
+                        '<div class="col-sm-1 itemDetail">'+
+                        '<div class="optionBtn">'+
+                        '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">操作'+
+                        '<span class="caret"></span>'+
+                        ' </button>'+
+                        '<ul class="dropdown-menu"><li><a href="">还车</a></li><li><a href="">删除</a></li></ul>'+
+                        '</div></div></div></div>'
                     );
                 });             
                 
@@ -86,9 +105,9 @@ $(function(){
                     $(".itemContainer").append(
                         ' <div class="orderItem">'+ 
                         ' <div class="orderHead col-md-12">'+
-                        '<span>订单时间:'+item.createdDate+' </span> <span>流水号'+item.orderId+'</span>'+
+                        '<span>订单时间:'+timestampToTime(item.createdDate)+' </span> <span>流水号'+item.orderId+'</span>'+
                         '</div>'+
-                        '<div class="orderBody">'+
+                        '<div class="orderBody col-md-12">'+
                         '<div class="col-sm-6 itemDetail">'+
                         ' <div class="col-sm-4">'+
                         '<img src="../'+item.carImgUrl+'" alt="" class="img-thumbnail">'+
@@ -97,11 +116,18 @@ $(function(){
                         '<label for="">'+item.carName+''+item.carDescribe+'</label>'+
                         ' </div>'+
                         '</div>'+
-                        '<div class="col-sm-2 itemDetail"><label class="itemLabel" for=""><span class="glyphicon glyphicon-user"></span> '+item.userName+'</label></div>'+
-                        '<div class="col-sm-2 itemDetail"><label class="itemLabel" for="">￥： <span>'+item.buyerAmount+'</span>元</label></div>'+
-                        '<div class="col-sm-2 btn-group itemDetail">'+
-                        '<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span></button>'+
-                        '</div></div></div>'
+                        '<div class="col-sm-3 itemDetailS"><label class="itemLabel" for="">'+
+                        '<p>起始时间：<strong>'+timestampToTime(item.startDate)+'</strong></p>'+
+                        '<p>终止时间：<strong>'+timestampToTime(item.endDate)+'</strong></p>'+
+                        '</div>'+
+                        '<div class="col-sm-2 itemDetailS"><label class="itemLabel" for="">￥： <span>'+item.buyerAmount+'</span>元</label></div>'+
+                        '<div class="col-sm-1 itemDetail">'+
+                        '<div class="optionBtn">'+
+                        '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">操作'+
+                        '<span class="caret"></span>'+
+                        ' </button>'+
+                        '<ul class="dropdown-menu"><li><a href="">还车</a></li><li><a href="">删除</a></li></ul>'+
+                        '</div></div></div></div>'
                     );
                 });             
                 

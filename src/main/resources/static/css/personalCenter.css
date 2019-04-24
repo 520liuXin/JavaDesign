@@ -1,17 +1,25 @@
 .PCmenu{
     margin: 20px 0;
-    height: 600px;
+    height: 450px;
     border: 1px solid #DDDDDD;
+    border-radius: 3px;
     background-color: #F8F8F8;
 }
 .PC-photo-container{
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    padding-top: 30px;
 }
 .PC-photo-container{
     margin: 5px 0;
 }
 .PCiframe{
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    
+}
+.PCContainer{
+    background-image: url("../img/body-bg.png");
+    background-repeat: repeat;
 }

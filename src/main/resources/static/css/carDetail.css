@@ -4,32 +4,52 @@ div{
     /* border-radius: 10px 10px 10px 10px; */
 }
 .imgContainerS{
-    width: 370px;
+    width: 100%;
     border: 1px solid #DDDDDD;
     background-color: #F8F8F8;
-    height: 390px;
+    height: 490px;
     padding: 7px;
 }
 .img-big img{
     width: 100%;
-    height: 300px;
+    height: 350px;
 }
 .img-small img{
-    width: 85px;
-    height: 75px;
+    width: 24%;
+    margin-top: 4px;
+    margin-left: 2px;
+    height: 120px;
 }
 .payment{
     background-color: #F8F8F8;
     text-align: left;
+    margin-top: 40px;
     padding: 15px 5px;
-    height: 50px;
+    height: 145px;
 }
 .carPrice{
-    padding-top: 100px;
+    padding-top: 10px;
     height: 315px;
+    border: 1px solid #DDDDDD;
+}
+.payment span{
+    font-size: 24px;
+}
+.carPrice p {
+    line-height: 22px;
+    font-size: 20px;
+}
+.payment strong{
+    font-size: 25px;
+    color: #FF7414;
 }
 .carDetailMainContainer{
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    /* background-image: url("../img/body-bg.png");
+    background-repeat: repeat; */
+}
+.carDetailMainContainerS{
+    background-color: rgba(248,248,248, 1);
 }
 .description{
     margin-top: 80px;
@@ -38,17 +58,21 @@ div{
     position: relative;
     top: 20px;
 }
+.theBigTitle{
+    text-align: center;
+}
+
 .baseInfoContainerS{
     height: 230px;
     width: 100%;
     background-color: #fafafa;
 }
-.baseInfoContainerS img{
-    width: 100%;
-    height: 100%;
+.baseInfoContainerFF{
+    padding-left: 30px;
 }
 .paramConfiguration{
     margin-top: 100px;
+    height: 200px;
 }
 .paramConfiguration table,.paramConfiguration th{
     text-align: center;
@@ -90,16 +114,35 @@ div{
 .aliPayContainer{
     margin-top: 10px;
     padding-top: 10px;
-    height: 230px;
+    height: 50px;
     border: 1px solid #DCDCDC;
 }
 .alipayQRcodeS{
     text-align: center;
+    padding-top: 30px;
 }
 .alipayQRcodeS img{
     border: 1px solid #DCDCDC;
     border-radius: 10px;
 }
+.alipayQRcodeS label{
+    line-height: 30px;
+}
 .cardetailTitle{
-    height: 170px;
-}   
+    height: 70px;
+}
+.cardetailTitle h1{
+    color: #3F4359;
+    font-family:Arial,Helvetica,sans-serif;
+}
+/* modal */
+#orderModal{
+    /* background-color: #303634; */
+    background-image: url("../img/SSR1.jpg");
+    background-repeat: repeat;
+}
+.modal-content{
+    /* background-image: url("../img/maoboli2.jpg");
+    background-repeat: no-repeat; */
+    /* background-color: #EBE9EA; */
+}

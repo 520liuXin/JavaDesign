@@ -5,162 +5,138 @@ $(function(){
   // 加载页面汽车信息
       //全量加载
     var loadCarAll = function(){
+      $(".WDNMD").html(" ");
       $.getJSON("car/findCar",function(info,status){
-       if(status=="success"){
-          $.each(info.data.items,function(i,item){
-            $(".taochezhiyin").append(
-              '<li>'+
-              '<div class="carDetailContainer">'+
-                '<div class="detailTitle">'+item.carType+'</div>'+
-                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
-                '<div class="priceContainer">'+
-                  '<span class="totalPrice">300万</span>'+
-                  '<span class="Installment">首付60万</span>'+
-                '</div>'+
-                '<div class="serviceContainer">'+
-                  '<i>30天可退</i>'+
-                  '<i>免费检测</i>'+
-                  '<i>分期购车</i>'+
-                '</div>'+
-              '</div>'+
-              '</li>'
-            );
-          });
-       }else{
-        $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-       }
-      });
-    };
-      // 按热度加载
-    var loadCarByVogue = function(){
-        $.getJSON("car/findByVogue",function(info,status){
-       if(status=="success"){
-          $.each(info.data,function(i,item){
-            $(".huorexiaoshou").append(
-              '<li>'+
-              '<div class="carDetailContainer">'+
-                '<div class="detailTitle">'+item.carType+'</div>'+
-                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
-                '<div class="priceContainer">'+
-                  '<span class="totalPrice">300万</span>'+
-                  '<span class="Installment">首付60万</span>'+
-                '</div>'+
-                '<div class="serviceContainer">'+
-                  '<i>30天可退</i>'+
-                  '<i>免费检测</i>'+
-                  '<i>分期购车</i>'+
-                '</div>'+
-              '</div>'+
-              '</li>'
-            );
-          });
-       }else{
-        $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-       }
-      });
-    };
-      // 按猜你喜欢加载
-    var loadCarByInterest = function(){
-        $.getJSON("car/findByInterest",function(info,status){
-       if(status=="success"){
-          $.each(info.data,function(i,item){
-            $(".cainixihuan").append(
-              '<li>'+
-              '<div class="carDetailContainer">'+
-                '<div class="detailTitle">'+item.carType+'</div>'+
-                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
-                '<div class="priceContainer">'+
-                  '<span class="totalPrice">300万</span>'+
-                  '<span class="Installment">首付60万</span>'+
-                '</div>'+
-                '<div class="serviceContainer">'+
-                  '<i>30天可退</i>'+
-                  '<i>免费检测</i>'+
-                  '<i>分期购车</i>'+
-                '</div>'+
-              '</div>'+
-              '</li>'
-            );
-          });
-       }else{
-        $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-       }
-      });
-    };
-      // 按与众不同加载
-    var loadCarByDifferent = function(){
-        $.getJSON("car/findByDifferent",function(info,status){
-       if(status=="success"){
-          $.each(info.data,function(i,item){
-            $(".yuzhongbutong").append(
-              '<li>'+
-              '<div class="carDetailContainer">'+
-                '<div class="detailTitle">'+item.carType+'</div>'+
-                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
-                '<div class="priceContainer">'+
-                  '<span class="totalPrice">300万</span>'+
-                  '<span class="Installment">首付60万</span>'+
-                '</div>'+
-                '<div class="serviceContainer">'+
-                  '<i>30天可退</i>'+
-                  '<i>免费检测</i>'+
-                  '<i>分期购车</i>'+
-                '</div>'+
-              '</div>'+
-              '</li>'
-            );
-          });
-       }else{
-        $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-       }
-      });
-    };
-    var loadCarByLatest = function(){
-      $.getJSON("car/findByLatest",function(info,status){
-     if(status=="success"){
-        $.each(info.data,function(i,item){
-          $(".zuixinshangjia").append(
+        console.log(info);
+        $.each(info.data.items,function(i,item){
+          // console.log(i);
+          // console.log(item);
+          $(".WDNMD").append(
             '<li>'+
             '<div class="carDetailContainer">'+
-              '<div class="detailTitle">'+item.carType+'</div>'+
+              '<div class="detailTitle"></div>'+
               '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
               '<div class="priceContainer">'+
-                '<span class="totalPrice">300万</span>'+
-                '<span class="Installment">首付60万</span>'+
+                '<span class="totalPrice">￥</span>'+
+                '<span class="Installment">'+item.rent+'</span>'+
               '</div>'+
-              '<div class="serviceContainer">'+
-                '<i>30天可退</i>'+
-                '<i>免费检测</i>'+
-                '<i>分期购车</i>'+
-              '</div>'+
+              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"> '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 给您最优质的服务，最享受的驾驶体验。 </a></div>'+
+              
             '</div>'+
             '</li>'
           );
         });
-     }else{
-      $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
-     }
-    });
-  };
+      });
+    };
+     
+      $("#BYBK").click(function(){
+        console.log("BYBK");
+        $(".WDNMD").html(" ");
+        $.getJSON("car/findByVogue",function(info,status){
+          console.log(info);
+          $.each(info.data,function(i,item){
+            // console.log(i);
+            // console.log(item);
+            $(".WDNMD").append(
+              '<li>'+
+              '<div class="carDetailContainer">'+
+                '<div class="detailTitle"></div>'+
+                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+                '<div class="priceContainer">'+
+                  '<span class="totalPrice">￥</span>'+
+                  '<span class="Installment">'+item.rent+'</span>'+
+                '</div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"> '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 给您最优质的服务，最享受的驾驶体验。 </a></div>'+
+                
+              '</div>'+
+              '</li>'
+            );
+          });
+        });
+      });
+      $("#ZCJX").click(function(){
+        $(".WDNMD").html(" ");
+        $.getJSON("car/findByInterest",function(info,status){
+          console.log(info);
+          $.each(info.data,function(i,item){
+            // console.log(i);
+            // console.log(item);
+            $(".WDNMD").append(
+              '<li>'+
+              '<div class="carDetailContainer">'+
+                '<div class="detailTitle"></div>'+
+                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+                '<div class="priceContainer">'+
+                  '<span class="totalPrice">￥</span>'+
+                  '<span class="Installment">'+item.rent+'</span>'+
+                '</div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"> '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 给您最优质的服务，最享受的驾驶体验。 </a></div>'+
+                
+              '</div>'+
+              '</li>'
+            );
+          });
+        });
+      });
+      $("#DJYG").click(function(){
+        $(".WDNMD").html(" ");
+        $.getJSON("car/findByDifferent",function(info,status){
+          console.log(info);
+          $.each(info.data,function(i,item){
+            // console.log(i);
+            // console.log(item);
+            $(".WDNMD").append(
+              '<li>'+
+              '<div class="carDetailContainer">'+
+                '<div class="detailTitle"></div>'+
+                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+                '<div class="priceContainer">'+
+                  '<span class="totalPrice">￥</span>'+
+                  '<span class="Installment">'+item.rent+'</span>'+
+                '</div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"> '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 给您最优质的服务，最享受的驾驶体验。 </a></div>'+
+                
+              '</div>'+
+              '</li>'
+            );
+          });
+       });
+      });
+      $("#MRHC").click(function(){
+        $(".WDNMD").html(" ");
+        $.getJSON("car/findByLatest",function(info,status){
+          console.log(info);
+          $.each(info.data,function(i,item){
+            // console.log(i);
+            // console.log(item);
+            $(".WDNMD").append(
+              '<li>'+
+              '<div class="carDetailContainer">'+
+                '<div class="detailTitle"></div>'+
+                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+                '<div class="priceContainer">'+
+                  '<span class="totalPrice">￥</span>'+
+                  '<span class="Installment">'+item.rent+'</span>'+
+                '</div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"> '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 给您最优质的服务，最享受的驾驶体验。 </a></div>'+
+                
+              '</div>'+
+              '</li>'
+            );
+          });
+       });
+      });
 
-  
     // 启用方法
     loadCarAll();
-    loadCarByDifferent();
-    loadCarByInterest();
-    loadCarByVogue();
-    loadCarByLatest();
+
     //搜索栏
     $(".btn-searchBar").click(function(){
+      $(".WDNMD").html(" ");
       var searchCar={};
-      var carInfoVal=$(".info-searchBar").val();
-      if(carInfoVal!=''){
-        searchCar.carInfo=carInfoVal;
+      var carinfoVal=$(".info-searchBar").val();
+      if(carinfoVal!=''){
+        searchCar.carInfo=carinfoVal;
       }else{
         alert("please input your information");
       };
@@ -168,37 +144,37 @@ $(function(){
       $.ajax({
           contentType:'application/json;charset=utf-8',
           url: "car/fuzzyQuery",
-          type:"POST",
+          type:"POST",  
           dataType: "json",
           data:JSON.stringify(searchCar),
-          success: function(dataS,status){
-              console.log(dataS);
-              // $(".ViewAllRendering").html("");
-              $(".ViewAllRendering").html("<div class='typeTitle col-md-12'><h3>筛选精品</h3></div><ul class='fuzzyQuery'><ul>");
-            $.each(dataS.data,function(i,item){
-              $(".fuzzyQuery").append(
-              '<li>'+
-              '<div class="carDetailContainer">'+
-                '<div class="detailTitle">'+item.carType+'</div>'+
-                '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
-                '<div class="priceContainer">'+
-                  '<span class="totalPrice">300万</span>'+
-                  '<span class="Installment">首付60万</span>'+
-                '</div>'+
-                '<div class="serviceContainer">'+
-                  '<i>30天可退</i>'+
-                  '<i>免费检测</i>'+
-                  '<i>分期购车</i>'+
-                '</div>'+
-              '</div>'+
-              '</li>'
-              );
-            });
-          
+          success: function(info,status){
+              console.log(info);
+              // // $(".ViewAllRendering").html("");
+              // $(".ViewAllRendering").html("<div class='typeTitle col-md-12'><h3>筛选精品</h3></div><ul class='fuzzyQuery'><ul>");
+              $(".WDNMD").html("");
+              if(info.code == "9999"){
+                $(".WDNMD").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
+              }else{
+                $.each(info.data,function(i,item){
+                  $(".WDNMD").append(
+                  '<li>'+
+                  '<div class="carDetailContainer">'+
+                    '<div class="detailTitle"></div>'+
+                    '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
+                    '<div class="priceContainer">'+
+                      '<span class="totalPrice">￥</span>'+
+                      '<span class="Installment">'+item.rent+'</span>'+
+                    '</div>'+
+                    '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"> '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 给您最优质的服务，最享受的驾驶体验。 </a></div>'+
+                    
+                  '</div>'+
+                  '</li>'
+                  );
+              });
+              }
           },
           error: function(dataE,status){
-            $(".ViewAllRendering").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
+            $(".persentLabel").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
           }
       })
     });
@@ -220,16 +196,16 @@ $(function(){
         contentType:'application/json;charset=UTF-8',
         url: decodeURI(decodeURI(urlStr)),
         type:"GET",
-        success:function(dataS,status){
-          console.log(dataS);
+        success:function(info,status){
+          console.log(info);
           $(".ViewAllRendering").html("<div class='typeTitle col-md-12'><h3>精准查询</h3></div><ul class='fuzzyQuery'><ul>");
-          $.each(dataS.data.items,function(i,item){
+          $.each(info.data.items,function(i,item){
             $(".fuzzyQuery").append(
             '<li>'+
             '<div class="carDetailContainer">'+
               '<div class="detailTitle">'+item.carType+'</div>'+
-              '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+              '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileinfoUrl+'" alt=""></a></div>'+
+              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
               '<div class="priceContainer">'+
                 '<span class="totalPrice">300万</span>'+
                 '<span class="Installment">首付60万</span>'+
@@ -247,6 +223,19 @@ $(function(){
         error:function(dataE,status){
           console.log(dataE);
         }
+      });
+    });
+
+    $(".glyphicon-log-out").click(function(){
+      $.ajax({
+        contentType:'application/json;charset=utf-8',
+          url: "/user/logout",
+          type:"GET",  
+          // dataType: "json", 
+          // data:JSON.stringify(searchCar),
+          success:function(data){
+            console.log("loginOut:"+data);
+          }
       });
     });
   });

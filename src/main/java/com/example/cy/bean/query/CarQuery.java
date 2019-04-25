@@ -31,7 +31,7 @@ public class CarQuery {
     private Long rent;   //租金
 
     private Integer state;
-
+    private String engine;  //发动机（200匹）
 
     private Long heatValue;  //热度值
 

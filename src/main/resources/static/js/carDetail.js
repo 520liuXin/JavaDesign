@@ -50,6 +50,10 @@ $(function(){
                         return false;
                    }
                 });
+                $(".carPrice").html(
+                    '<h1>'+item.rent+'元</h1>'+
+                    '<div class="payment col-md-12">首付'+item.rent/3+'元起 | 月供'+item.rent/12+'元</div>'
+                );
                 // 车源图片呈现
                 $.each(dataF.data.carImgUrl,function(i,item){
                     $(".DetailedPhotosSS").append(

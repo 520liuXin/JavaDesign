@@ -1,0 +1,14 @@
+.changePwdContainer{
+    background-color: #F8F8F8;
+    height: 600px;
+    border: 1px solid #DDDDDD;
+}
+.userdata{
+    position: relative;
+    top: 20px;
+}
+.eidtAndSub{
+    position: relative;
+    top: 20px;
+    left: 12px;
+}

@@ -53,7 +53,7 @@
                   </div>
             </div>
 
-            <div class="col-md-2"></div>
+            <div class="col-md-2"><div class="pull-right"><span class="glyphicon glyphicon-log-out" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;top:-25px;right: 5px "></span></div></div>
           </div>
         </div>
     </div>
@@ -151,7 +151,21 @@
       </div>
     </div>
 <!-- phoneInfoModal -->
-
+    <script>
+    $(".glyphicon-log-out").click(function(){
+      $.ajax({
+        contentType:'application/json;charset=utf-8',
+          url: "/user/logout",
+          type:"GET",  
+          // dataType: "json", 
+          // data:JSON.stringify(searchCar),
+          success:function(data){
+            console.log("loginOut:"+data);
+            window.location.reload();
+          }
+      });
+    });
+    </script>
       <script src="../js/homePageMerchant.js"></script>
 </body>
 </html>

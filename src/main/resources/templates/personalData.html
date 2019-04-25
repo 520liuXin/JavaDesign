@@ -48,13 +48,13 @@
                 </div>
                 <div class="form-group userdata">
                     <!-- 标签的添加准备用模态框 -->
-                    <label class="col-sm-2 control-label">喜好标签</label>  
+                    <label class="col-sm-2 control-label">感兴趣</label>  
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control tag-like" value="cos" data-toggle="modal" data-target="#myModal" disabled>
+                        <input type="text" id="focusedInput" class="form-control tag-like" value="SUV" data-toggle="modal" data-target="#myModal" disabled>
                     </div>
                 </div>
                 <!-- 编辑按钮（按下后显示确定） 身份证照片上传 -->
-                <div class="form-group userdata">
+                <div class="form-group userdata" style="display:none">
                     <label class="col-sm-2 control-label ">证件信息上传</label>
                     <div class="col-sm-9">
                             <p>点击身份证照片:
@@ -135,7 +135,33 @@
             </div><!-- /.modal -->
           </div>
     <div>
-        <script src="../js/personalData.js"></script>
+        <script>
+            $(function(){
+                // 喜好标签选择
+                $('.tag-like').click(function(){
+                    $('button').click(function(){
+                        var obj=$(this);
+                        obj.removeClass('btn-info');
+                        obj.addClass('btn-primary');
+                        console.log(obj);
+                    });
+                });
+                // 文件上传按钮控制
+                // 编辑按钮设置
+                var $editAndSub =$('.eidtAndSub');
+                $editAndSub.click(function(){
+                    alert(11);
+                    var $disabledInput=$('input');
+                    if($editAndSub.html()=='编辑'){
+                        $disabledInput.attr('disabled',false);
+                        $editAndSub.text('保存');
+                    }else{
+                        $disabledInput.attr('disabled',true);
+                        $editAndSub.text('编辑');
+                    }
+                });
+            });    
+        </script>
     </div>
 </body>
 

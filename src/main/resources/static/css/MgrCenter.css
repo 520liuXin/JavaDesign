@@ -17,7 +17,8 @@ div{
    border-left: 2px solid #ACB2A6;
 }
 .navigatior{
-    height: 514px;
+    margin-top: 44px;
+    /* height: 514px; */
     /* border: 1px dashed blue; */
     /* background-color:red; */
 }
@@ -25,4 +26,7 @@ div{
     height: 80px;
     width: 100%;
     /* background-color: bisque;    */
+}
+.PC-photo-container{
+    padding-top: 270px;
 }

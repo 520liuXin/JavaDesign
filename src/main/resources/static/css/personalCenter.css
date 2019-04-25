@@ -16,10 +16,10 @@
 }
 .PCiframe{
     margin-top: 20px;
-    margin-bottom: 100px;
+    margin-bottom: 220px;
     
 }
 .PCContainer{
-    background-image: url("../img/body-bg.png");
-    background-repeat: repeat;
+    background-image: url("../img/SC2.jpg");
+    background-repeat: no-repeat;
 }

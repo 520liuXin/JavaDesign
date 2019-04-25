@@ -1,36 +1,20 @@
-.itemS{
-    height: 175px;
-    /* background-color: red; */
-    /* border: 1px dashed red; */
+.orderItem{
+    height: 200px;
+    /* border: 1px dashed blue; */
 }
-img{
-    height: 70px;
-    width: 70px;
+.orderBody{
+    border: 1px solid #CCCCCC;
+    border-radius: 7px;
+    height: 135px;
 }
-.itemShead{
-    height: 30px;
-    margin-top: -20px;
-    /* background-color: cornflowerblue; */
+.orderFoot{
+    margin-top: 5px;
 }
-.itemShead h5{
-    /* text-decoration: underline; */
-    /* color: #E3E3E3; */
+.itemDetailS{
+    height: 100%;
+    padding-top: 35px;  
+    border: 1px solid #E9E9E9;
 }
-.itemSbody{
-    background-color: white;
-    margin: 0 auto;
-    text-align: left;
-    height: 78px;
-}
-div{
-    /* border: 1px dashed red; */
-}
-.btn-operational{
-    position: absolute;
-    top: 12px;
-    width: 90px;
-}
-.foot span{
-    position: absolute;
-    top: 12px;
+.itemDetail{
+    padding-top: 35px;  
 }

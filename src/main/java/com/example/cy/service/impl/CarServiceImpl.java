@@ -37,7 +37,7 @@ public class CarServiceImpl implements CarService {
     private CarDao carDao;
     @Override
     public Car saveCar(Car car) {
-        Car newCar=packResultData(car);
+        Car newCar=car;
         newCar.setCreatedDate(new Date());
         newCar.setHeatValue( 100 + (((long) (new Random().nextDouble() * (10 - 1)))));
         if("1".equals(SecurityUtils.getUser().getAdmin())){
@@ -231,6 +231,7 @@ public class CarServiceImpl implements CarService {
         newCar.setState(car.getState());
         newCar.setRent(car.getRent());
         newCar.setCarSource(car.getCarSource());
+
         return newCar;
 
     }

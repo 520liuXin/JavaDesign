@@ -13,7 +13,7 @@ $(function(){
               '<div class="carDetailContainer">'+
                 '<div class="detailTitle">'+item.carType+'</div>'+
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供</a></div>'+
                 '<div class="priceContainer">'+
                   '<span class="totalPrice">300万</span>'+
                   '<span class="Installment">首付60万</span>'+
@@ -42,7 +42,7 @@ $(function(){
               '<div class="carDetailContainer">'+
                 '<div class="detailTitle">'+item.carType+'</div>'+
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供</a></div>'+
                 '<div class="priceContainer">'+
                   '<span class="totalPrice">300万</span>'+
                   '<span class="Installment">首付60万</span>'+
@@ -71,7 +71,7 @@ $(function(){
               '<div class="carDetailContainer">'+
                 '<div class="detailTitle">'+item.carType+'</div>'+
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供</a></div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供</a></div>'+
                 '<div class="priceContainer">'+
                   '<span class="totalPrice">300万</span>'+
                   '<span class="Installment">首付60万</span>'+
@@ -100,7 +100,7 @@ $(function(){
               '<div class="carDetailContainer">'+
                 '<div class="detailTitle">'+item.carType+'</div>'+
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
                 '<div class="priceContainer">'+
                   '<span class="totalPrice">300万</span>'+
                   '<span class="Installment">首付60万</span>'+
@@ -128,7 +128,7 @@ $(function(){
             '<div class="carDetailContainer">'+
               '<div class="detailTitle">'+item.carType+'</div>'+
               '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
               '<div class="priceContainer">'+
                 '<span class="totalPrice">300万</span>'+
                 '<span class="Installment">首付60万</span>'+
@@ -181,7 +181,7 @@ $(function(){
               '<div class="carDetailContainer">'+
                 '<div class="detailTitle">'+item.carType+'</div>'+
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+                '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
                 '<div class="priceContainer">'+
                   '<span class="totalPrice">300万</span>'+
                   '<span class="Installment">首付60万</span>'+
@@ -229,7 +229,7 @@ $(function(){
             '<div class="carDetailContainer">'+
               '<div class="detailTitle">'+item.carType+'</div>'+
               '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
-              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.rent+'匹 前置后驱 淘车线上专供 </a></div>'+
+              '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
               '<div class="priceContainer">'+
                 '<span class="totalPrice">300万</span>'+
                 '<span class="Installment">首付60万</span>'+

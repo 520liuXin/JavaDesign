@@ -4835,3 +4835,555 @@ java.lang.ClassCastException: java.lang.String cannot be cast to com.example.cy.
 16:31:41.455 login [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
 16:31:41.468 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
 16:31:41.470 login [main] INFO  com.example.cy.CyApplication - Started CyApplication in 5.783 seconds (JVM running for 6.432)
+16:33:06.507 login [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:33:06.507 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:33:06.514 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+16:33:06.538 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:06.553 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:06.721 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:06.837 login [http-nio-8888-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.lang.String cannot be cast to com.example.cy.bean.User] with root cause
+java.lang.ClassCastException: java.lang.String cannot be cast to com.example.cy.bean.User
+	at com.example.cy.security.SecurityUtils.getUser(SecurityUtils.java:43)
+	at com.example.cy.controller.CarController.findByInterest(CarController.java:246)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+16:33:06.841 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:06.842 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:06.844 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:07.036 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:07.038 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:07.038 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:07.040 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:07.041 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:07.055 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:07.055 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:07.058 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:07.066 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:19.165 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:19.165 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:19.177 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:28.511 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:28.512 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:28.516 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:28.527 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:28.528 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:28.535 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:33:28.566 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:33:28.567 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:33:28.570 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:34:35.752 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:34:35.753 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:34:35.758 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:34:35.774 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:34:35.775 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:34:35.785 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:34:35.813 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:34:35.814 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:34:35.818 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:12.836 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:12.837 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:12.841 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:12.922 login [http-nio-8888-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.lang.String cannot be cast to com.example.cy.bean.User] with root cause
+java.lang.ClassCastException: java.lang.String cannot be cast to com.example.cy.bean.User
+	at com.example.cy.security.SecurityUtils.getUser(SecurityUtils.java:43)
+	at com.example.cy.controller.CarController.findByInterest(CarController.java:246)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:151)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+16:35:12.924 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:12.924 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:12.926 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:13.009 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:13.010 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:13.010 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:13.010 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:13.011 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:13.011 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:13.011 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:13.018 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:13.018 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:22.745 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:22.746 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:22.750 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:29.664 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:29.746 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:29.747 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:29.757 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:29.758 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:29.768 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:29.972 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:29.980 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:29.980 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:29.980 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:29.981 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:29.981 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:29.981 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:29.988 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:29.989 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:31.532 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:31.532 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:31.538 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:31.562 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:31.563 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:31.570 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:35:31.609 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:35:31.610 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:35:31.615 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:38:42.625 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:38:42.626 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:38:42.638 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:38:42.663 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:38:42.664 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:38:42.672 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:38:42.707 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:38:42.708 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:38:42.713 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:41:06.551 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:41:06.551 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_gbKjeLvltGb2v99eE.jpg
+16:41:06.559 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:41:06.559 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bDTPCbEPfIo0a0vzI.jpg
+16:41:20.375 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:41:20.375 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:41:20.385 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:41:20.413 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:41:20.414 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:41:20.423 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:41:20.457 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:41:20.457 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:41:20.462 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:42:24.183 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:42:24.183 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_b5AmSz9P6Ejcm7y8R.jpg
+16:42:24.186 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:42:24.186 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dZCNQZi8IED96DEQa.jpg
+16:42:24.190 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:42:24.190 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eQ59DXLcCC7gOWa0s.jpg
+16:42:24.194 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:42:24.194 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bAL71VxGLKbco19j7.jpg
+16:42:24.197 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:42:24.197 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_deX9C4sqWih4a8ohm.jpg
+16:42:24.200 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:42:24.200 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cl7STknXDG55SVkpM.jpg
+16:42:26.667 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:42:26.668 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:42:26.673 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:42:26.692 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:42:26.693 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:42:26.701 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:42:26.735 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:42:26.735 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:42:26.740 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:43:30.299 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:43:30.300 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eV9QJbFdsR8lzrosk.jpg
+16:43:30.304 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:43:30.304 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_f10fIOF2Hcic32Nt2.jpg
+16:43:30.307 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:43:30.307 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bCYpWk7FwkEhrVkM3.jpg
+16:43:30.310 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:43:30.310 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_er73YVPYPw8aIpwez.jpg
+16:43:30.316 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:43:30.316 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cVDAXSg7HPHhsSHuh.jpg
+16:43:30.319 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:43:30.319 login [http-nio-8888-exec-6] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bboL5w7Damr4hy2eJ.jpg
+16:43:33.126 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:43:33.126 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:43:33.136 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:43:33.161 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:43:33.162 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:43:33.170 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:43:33.205 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:43:33.205 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:43:33.210 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:44:34.843 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:44:34.843 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cNtxP0ibKF7eXBusK.jpg
+16:44:34.847 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:44:34.847 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_gcJRjYqRCr2dTOLPL.jpg
+16:44:34.850 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:44:34.850 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cDDQEFHtjpXai2XfA.jpg
+16:44:34.853 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:44:34.853 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_fxbrnCYmgek2LDr12.jpg
+16:44:34.856 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:44:34.856 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_enbrFGexosSfIa3RK.jpg
+16:44:34.859 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:44:34.859 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_fyngiT97b0TcmahX5.jpg
+16:44:36.957 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:44:36.957 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:44:36.965 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:44:36.993 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:44:36.993 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:44:37.001 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:44:37.038 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:44:37.038 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:44:37.043 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:45:39.342 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:45:39.342 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_fYVJK2X73gAcoMBp8.jpg
+16:45:39.345 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:45:39.345 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dNQM8ilIcml6J2JFM.jpg
+16:45:39.348 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:45:39.348 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_clU6fDnz8MJ8cJQB9.jpg
+16:45:39.350 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:45:39.351 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bhQeo4wBJpe9DZQB6.jpg
+16:45:39.354 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:45:39.354 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_e3NaOhThpHCcg6frE.jpg
+16:45:39.357 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:45:39.357 login [http-nio-8888-exec-1] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_b51YNt7cLPW9RIBHa.jpg
+16:45:41.045 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:45:41.045 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:45:41.050 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:45:41.070 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:45:41.070 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:45:41.079 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:45:41.115 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:45:41.115 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:45:41.120 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:46:39.492 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:46:39.492 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eIVwDrNKt8G6rjLv0.jpg
+16:46:39.495 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:46:39.495 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cqM53nzmJBe7d0LAe.jpg
+16:46:39.499 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:46:39.499 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_fTR1DjJX4n996ZBLq.jpg
+16:46:39.502 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:46:39.502 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_g8BZNsK7GgFhIhblB.jpg
+16:46:39.505 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:46:39.505 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_b9pvoVOFnju4hS0zw.jpg
+16:46:39.508 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:46:39.508 login [http-nio-8888-exec-3] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dzeRw3i7vCpjGaUC3.jpg
+16:46:40.662 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:46:40.662 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:46:40.667 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:46:40.686 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:46:40.687 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:46:40.694 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:46:40.731 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:46:40.731 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:46:40.736 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:47:40.664 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:47:40.665 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dkZ2qN5J6HG72AQbH.jpg
+16:47:40.668 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:47:40.668 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bBi9bhdgTLR4YyULJ.jpg
+16:47:40.670 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:47:40.670 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bovED9USfxf4pwItl.jpg
+16:47:40.673 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:47:40.673 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_ffK006lEpt8buCR8u.jpg
+16:47:40.677 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:47:40.677 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dKn5mfxaaPi8mmrsW.jpg
+16:47:40.680 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:47:40.680 login [http-nio-8888-exec-8] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_es8B4PjYHXNkoRLli.jpg
+16:47:43.520 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:47:43.520 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:47:43.529 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:47:43.556 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:47:43.557 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:47:43.563 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:47:43.596 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:47:43.596 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:47:43.601 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:49:15.892 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:49:15.892 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_c2EvMOuwFmEewyC3N.jpg
+16:49:15.895 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:49:15.895 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cvhJ43pCPlk4lv8AQ.jpg
+16:49:15.898 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:49:15.898 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_d0mE1szEyELfMiyP7.jpg
+16:49:15.901 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:49:15.901 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dr0t5NM9WVOetoDUm.jpg
+16:49:15.904 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:49:15.904 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bnOfenAc7LD5CBsFy.jpg
+16:49:15.907 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:49:15.907 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dWdqu8eZsTM9cZHDu.jpg
+16:49:19.398 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:49:19.399 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:49:19.408 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:49:19.434 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:49:19.434 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:49:19.442 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:49:19.475 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:49:19.476 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:49:19.480 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:51:25.070 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:51:25.070 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_c272u5ETG3hbQulGi.jpg
+16:51:25.074 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:51:25.074 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bs42EPFch6jk16fkD.jpg
+16:51:25.076 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:51:25.076 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eDQcyM7Dhe32Zanf5.jpg
+16:51:25.079 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:51:25.079 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eavLdIdA1QY6ZhBim.jpg
+16:51:25.083 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:51:25.083 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cdQbafSUteYlO3782.jpg
+16:51:25.086 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:51:25.086 login [http-nio-8888-exec-10] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_edkp45aVycXh3pSC5.jpg
+16:51:26.445 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:51:26.445 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:51:26.455 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:51:26.480 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:51:26.481 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:51:26.489 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:51:26.523 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:51:26.523 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:51:26.528 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:10.504 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:53:10.504 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bcFP3ygvbTQelBU28.jpg
+16:53:10.507 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:53:10.507 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dAxwTRpI58A26tZJC.jpg
+16:53:10.511 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:53:10.511 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_dC6t8QxrYwRfznGjF.jpg
+16:53:10.514 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:53:10.514 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_ee9Eny69LtsglO5Bo.jpg
+16:53:10.517 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:53:10.517 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_c0oUQtMjKhCittE9Z.jpg
+16:53:10.520 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+16:53:10.520 login [http-nio-8888-exec-7] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cBcu9SSfbKb6mkpuR.jpg
+16:53:18.325 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:18.328 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:18.328 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:18.329 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:18.329 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:18.334 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.476 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.476 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.482 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.709 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.709 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.709 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.709 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.712 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.713 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.714 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.714 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.715 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.715 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.715 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.716 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.717 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.717 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.721 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.724 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.725 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.725 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.726 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.726 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.727 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.729 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.729 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.729 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.730 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.731 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.736 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:53:22.737 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:53:22.737 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:53:22.741 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:13.972 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:13.973 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:13.978 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.096 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.096 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.096 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.096 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.096 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.096 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.096 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.096 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.096 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.096 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.100 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.100 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.102 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.102 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.103 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.103 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.103 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.106 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.110 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.110 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.110 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.110 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.110 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:14.110 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.110 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.110 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:14.115 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.115 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.115 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:14.116 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:15.893 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:15.893 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:15.899 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.016 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.016 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.016 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.016 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.016 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.016 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.016 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.016 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.016 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.017 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.018 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.019 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.022 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.022 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.022 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.024 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.025 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.026 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.032 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.032 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.032 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.032 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.032 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+16:54:16.032 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.032 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.032 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+16:54:16.036 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.036 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.036 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+16:54:16.037 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成

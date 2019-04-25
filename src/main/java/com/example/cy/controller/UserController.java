@@ -69,8 +69,8 @@ public class UserController {
     **/
     @PostMapping("/add")
     public ResponseInfo<?> AddUser(HttpServletRequest request, @RequestBody JSONObject params){
-        String username=params.getString("name");
-        String password=params.getString("pwd");
+        String username=params.getString("Name");
+        String password=params.getString("Pwd");
         String usertag=params.getString("Usertag");
        String idCard=params.getString("idNumber");
        String name=params.getString("trueName");

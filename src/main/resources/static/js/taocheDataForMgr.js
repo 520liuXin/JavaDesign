@@ -73,10 +73,10 @@ $(function(){
         type:"column"
       };
       json.title = {
-        text: "淘车月度交易数据统计"
+        text: "租车网年度交易数据统计"
       };
       json.sutitle = {
-        text:' <a href="http://www.taoche.com">taoche.com</a>'
+        text:' <a href="http://www.zuche.com">zuche.com</a>'
       };
       json.xAxis = {
         type: 'category',
@@ -95,7 +95,7 @@ $(function(){
         }
       };
       json.tooltip = {
-        pointFormat: '2008 年人口: <b>{point.y:.1f} 百万</b>'
+        pointFormat: '2018 年租赁情况: <b>{point.y:.1f} 千</b>'
       }
       json.credits = {
         enabled: false
@@ -103,26 +103,19 @@ $(function(){
       json.series = [{
         name: 'Population',
         data: [
-            ['Shanghai', 23.7],
-            ['Lagos', 16.1],
-            ['Instanbul', 14.2],
-            ['Karachi', 14.0],
-            ['Mumbai', 12.5],
-            ['Moscow', 12.1],
-            ['Sao Paulo', 11.8],
-            ['Beijing', 11.7],
-            ['Guangzhou', 11.1],
-            ['Delhi', 11.1],
-            ['Shenzhen', 10.5],
-            ['Seoul', 10.4],
-            ['Jakarta', 10.0],
-            ['Kinshasa', 9.3],
-            ['Tianjin', 9.3],
-            ['Tokyo', 9.0],
-            ['Cairo', 8.9],
-            ['Dhaka', 8.9],
-            ['Mexico City', 8.9],
-            ['Lima', 8.9]
+            ['一月', 23.7],
+            ['二月', 16.1],
+            ['三月', 14.2],
+            ['四月', 14.0],
+            ['五月', 12.5],
+            ['六月', 12.1],
+            ['七月', 11.8],
+            ['八月', 11.7],
+            ['九月', 11.1],
+            ['十月', 11.1],
+            ['十一月', 10.5],
+            ['十二月', 10.4]
+
         ],
         dataLabels: {
             enabled: true,
@@ -146,13 +139,13 @@ $(function(){
         type:"bar"
       };
       json.title = {
-        text: "淘车月度热度值统计"
+        text: "2019年第一季度汽车品牌热度值统计"
       };
       json.sutitle = {
         text:' <a href="http://www.taoche.com">taoche.com</a>'
       };
       json.xAxis = {
-        categories: ['volovo','Benz','nissan','Chevrolet','VW'],
+          categories: ['奔驰','宝马','福特','保时捷','大众'],
         title: {
            text: null
         }
@@ -160,7 +153,7 @@ $(function(){
       json.yAxis = {
         min: 0,
         title: {
-           text: 'Population (millions)',
+           text: '数目 (/次)',
            align: 'high'
         },
         labels: {
@@ -192,14 +185,14 @@ $(function(){
         enabled: false
       }
       json.series = [{
-           name: 'month Feb.',
-              data: [107, 31, 635, 203, 2]
+           name: '一月',
+              data: [107, 31, 235, 203, 352]
           }, {
-              name: 'month Mar.',
-              data: [133, 156, 947, 408, 6]
+              name: '二月',
+              data: [133, 156, 147, 408, 246]
           }, {
-              name: 'month Apr.',
-              data: [973, 914, 4054, 732, 34]      
+              name: '三月',
+              data: [373, 114, 405, 732, 34]
           }
      ];     
      $(".chartsContainer2").highcharts(json);   

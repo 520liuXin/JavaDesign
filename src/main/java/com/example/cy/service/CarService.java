@@ -28,10 +28,10 @@ public interface CarService {
 
     /**
      * 模糊查询
-     * @param carDescribe
+     * @param
      * @return
      */
-    List<CarQuery> fuzzy(String carDescribe);
+    List<CarQuery> fuzzy(String fuzzy);
 
     /**
      *猜你喜欢

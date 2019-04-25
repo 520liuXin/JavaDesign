@@ -63,7 +63,6 @@ public class LoginController {
             session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
         }catch (Exception e){
             e.printStackTrace();
-
             return ResponseInfo.error("账户或密码错误");
         }
         User user=SecurityUtils.getUser();

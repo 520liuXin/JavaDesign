@@ -117,52 +117,52 @@ public class CarController {
     }
 
 
-
-    /**
-     * @Author able-liu
-     * @Description 店家直营
-     * @Param
-     * @return
-     **/
-    @ResponseBody
-    @GetMapping("/store")
-    public ResponseInfo<?> store(){
-        RandomDataUtil randomDataUtil=new RandomDataUtil();
-        List<Car> cars=new ArrayList<>();
-        List<CarQuery> carQueries=new ArrayList<>();
-
-        cars = carDao.findByCarSource(store);
-        if(cars.size()>20){
-            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
-        }
-        carQueries= randomCarToCarQuery(cars);
-        return ResponseInfo.success(carQueries);
-
-    }
-
-
-
-    /**
-     * @Author able-liu
-     * @Description 个人卖家
-     * @Param
-     * @return
-     **/
-    @ResponseBody
-    @GetMapping("/personal")
-    public ResponseInfo<?> personal(){
-        RandomDataUtil randomDataUtil=new RandomDataUtil();
-        List<Car> cars=new ArrayList<>();
-        List<CarQuery> carQueries=new ArrayList<>();
-        Sort sort = new Sort(Sort.Direction.DESC, "id");
-        cars = carDao.findByCarSource(personal);
-        if(cars.size()>20){
-            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
-        }
-        carQueries= randomCarToCarQuery(cars);
-        return ResponseInfo.success(carQueries);
-
-    }
+//
+//    /**
+//     * @Author able-liu
+//     * @Description 店家直营
+//     * @Param
+//     * @return
+//     **/
+//    @ResponseBody
+//    @GetMapping("/store")
+//    public ResponseInfo<?> store(){
+//        RandomDataUtil randomDataUtil=new RandomDataUtil();
+//        List<Car> cars=new ArrayList<>();
+//        List<CarQuery> carQueries=new ArrayList<>();
+//
+//        cars = carDao.findByCarSource(store);
+//        if(cars.size()>20){
+//            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
+//        }
+//        carQueries= randomCarToCarQuery(cars);
+//        return ResponseInfo.success(carQueries);
+//
+//    }
+//
+//
+//
+//    /**
+//     * @Author able-liu
+//     * @Description 个人卖家
+//     * @Param
+//     * @return
+//     **/
+//    @ResponseBody
+//    @GetMapping("/personal")
+//    public ResponseInfo<?> personal(){
+//        RandomDataUtil randomDataUtil=new RandomDataUtil();
+//        List<Car> cars=new ArrayList<>();
+//        List<CarQuery> carQueries=new ArrayList<>();
+//        Sort sort = new Sort(Sort.Direction.DESC, "id");
+//        cars = carDao.findByCarSource(personal);
+//        if(cars.size()>20){
+//            cars=  randomDataUtil.generateRandomDataNoRepeat(cars,20);
+//        }
+//        carQueries= randomCarToCarQuery(cars);
+//        return ResponseInfo.success(carQueries);
+//
+//    }
 
 
 
@@ -248,7 +248,7 @@ public class CarController {
         }else {
             List<Car> cars=carService.findAll();
             carQueryList= randomCarToCarQuery(cars);
-            return ResponseInfo.success(checkCar(carQueryList));
+            return ResponseInfo.success(carQueryList);
         }
 
     }
@@ -266,6 +266,7 @@ public class CarController {
             int pageNumber = pageable.getPageNumber();
             if(car.getSourceUserId()!=null){
                 car.setSourceUserId(SecurityUtils.getUser().getId());
+                car.setState(0);
             }
             pageNumber = pageNumber <= 0 ? 1 : pageNumber;
             car.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
@@ -306,17 +307,17 @@ public class CarController {
      * 校验车辆状态
      * @param carQueries
      * @return
-     */
-    private List<CarQuery> checkCar(List<CarQuery> carQueries){
-        List<CarQuery> List=new ArrayList<>();
-        for(CarQuery carQuery:carQueries){
-            if (carQuery.getState().equals(0)){
-                List.add(carQuery);
-            }
-        }
-        return List;
-
-    }
+//     */
+//    private List<CarQuery> checkCar(List<CarQuery> carQueries){
+//        List<CarQuery> List=new ArrayList<>();
+//        for(CarQuery carQuery:carQueries){
+//            if (carQuery.getState().equals(0)){
+//                List.add(carQuery);
+//            }
+//        }
+//        return List;
+//
+//    }
 
     /**
      * Car转换成CarQuery,并取前五条数据,
@@ -327,14 +328,15 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         List<CarQuery> carQueryList=new ArrayList<>();
         for (Car car:cars){
-            CarQuery carQuery=packResultDataForCarQuery(car);
-            carQueries.add(carQuery);
+            if(car.getState().equals(0)){
+                CarQuery carQuery=packResultDataForCarQuery(car);
+                carQueries.add(carQuery);
+            }
         }
-        carQueryList=checkCar(carQueries);
-        if(carQueryList.size()>12){
-            carQueryList= carQueryList.subList(0,12);
+        if(carQueries.size()>12){
+            carQueries= carQueries.subList(0,12);
         }
-            return carQueryList;
+            return carQueries;
     }
 
 
@@ -348,15 +350,15 @@ public class CarController {
         List<CarQuery> carQueries=new ArrayList<>();
         List<CarQuery> carQueryList=new ArrayList<>();
         for (Car car:cars){
+            if(car.getState().equals(0)){
             CarQuery carQuery=packResultDataForCarQuery(car);
-            carQueries.add(carQuery);
+            carQueries.add(carQuery);}
         }
-        carQueryList=  checkCar(carQueries);
-        if(carQueryList.size()>12){
-          carQueryList=  randomDataUtil.generateRandomDataNoRepeat(carQueryList,12);
+        if(carQueries.size()>12){
+            carQueries=  randomDataUtil.generateRandomDataNoRepeat(carQueries,12);
 
         }
-        return carQueryList;
+        return carQueries;
     }
 
   /**

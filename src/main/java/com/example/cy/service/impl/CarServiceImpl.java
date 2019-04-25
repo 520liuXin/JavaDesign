@@ -100,8 +100,10 @@ public class CarServiceImpl implements CarService {
         List<CarQuery> carQueries=new ArrayList<>();
         if(Calibration.isNotEmpty(cars)){
             for (Car car:cars){
-                CarQuery carQuery=  packResultDataForCarQuery(car);
-                carQueries.add(carQuery);
+                if(car.getState().equals(0)){
+                    CarQuery carQuery=  packResultDataForCarQuery(car);
+                    carQueries.add(carQuery);
+                }
             }
             return carQueries;
         }
@@ -133,21 +135,21 @@ public class CarServiceImpl implements CarService {
             HashSet h = new HashSet(carQueryList);
             carQueryList.clear();
             carQueryList.addAll(h);
-            if(carQueryList.size()<5){
+            if(carQueryList.size()<12){
                 List<CarQuery> carQueries1=this.findAllToCarQuery();
                 List<CarQuery> listAll = new ArrayList<>();
                 listAll.addAll(carQueryList);
                 listAll.addAll(carQueries1);
                 listAll = new ArrayList<CarQuery>(new LinkedHashSet<>(listAll));
-                list=randomDataUtil.generateRandomDataNoRepeat(listAll,5);
+                list=randomDataUtil.generateRandomDataNoRepeat(listAll,12);
                 return ResponseInfo.success(list);
             }
-            list=randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
+            list=randomDataUtil.generateRandomDataNoRepeat(carQueryList,12);
             return ResponseInfo.success(list);
 
         }else {
             carQueryList=this.findAllToCarQuery();
-            list=randomDataUtil.generateRandomDataNoRepeat(carQueryList,5);
+            list=randomDataUtil.generateRandomDataNoRepeat(carQueryList,12);
             return ResponseInfo.success(list);
         }
     }

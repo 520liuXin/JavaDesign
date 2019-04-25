@@ -117,14 +117,11 @@ public class OrderMasterController {
         //mv.addObject("orderMaster", orderId);
        mv.setViewName("redirect:/alipay/pay?orderId="+orderId+"");
         return mv;
-
-
-
     }
 
 
     /**
-     * 更新订单
+     * 修改订单
      * @param orderMaster
      * @return
      */
@@ -164,7 +161,11 @@ public class OrderMasterController {
     }
 
 
-
+    /***
+     * 还车
+     * @param orderMaster
+     * @return
+     */
     @RequestMapping(value = "/repayCar", method = RequestMethod.POST)
     public ResponseInfo<?> repayCar(OrderMaster orderMaster) {
         OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderMaster.getOrderId());

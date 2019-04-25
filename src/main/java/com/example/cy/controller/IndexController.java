@@ -12,20 +12,6 @@ public class IndexController {
         return "file";
     }
 
-    @RequestMapping(value="/index")
-    public String index()  {
-        return "index";
-    }
-
-    @RequestMapping(value="/user/admin")
-    public String successAdmin()  {
-        return "admin";
-    }
-
-    @RequestMapping(value="/user/user")
-    public String successUser()  {
-        return "user";
-    }
 //loginOrRegist
 //    the main entrance
     @RequestMapping(value="/login")

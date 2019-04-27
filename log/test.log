@@ -129,3 +129,232 @@
 09:24:19.640 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
 09:24:19.642 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
 09:24:19.643 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.647 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.647 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.661 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.865 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.866 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.866 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.866 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.866 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.866 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.866 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:44.866 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.866 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.866 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.866 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.866 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:44.872 login [http-nio-8888-exec-7] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.876 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.876 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.879 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.879 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:44.880 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.476 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.477 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.493 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.700 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.700 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.700 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.700 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.701 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.701 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.701 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.701 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.701 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:45.701 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.701 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.701 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:45.709 login [http-nio-8888-exec-8] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.709 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.709 login [http-nio-8888-exec-10] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.709 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.713 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:45.717 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:47.735 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:47.736 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:47.749 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:47.856 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:47.857 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:47.864 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:48.078 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:25:48.079 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:25:48.086 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:25:55.582 login [main] INFO  com.example.cy.CyApplication - Starting CyApplication on 6L0FJTAQN617LJJ with PID 4544 (E:\Master-branch-secondCar\JavaDesign\target\classes started by Administrator in E:\Master-branch-secondCar\JavaDesign)
+09:25:55.585 login [main] INFO  com.example.cy.CyApplication - No active profile set, falling back to default profiles: default
+09:25:56.615 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+09:25:56.617 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+09:25:56.797 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 169ms. Found 5 repository interfaces.
+09:25:56.829 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+09:25:56.830 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+09:25:56.869 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.CarDao.
+09:25:56.870 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.FileInfoDao.
+09:25:56.871 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.MenuDao.
+09:25:56.871 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.OrderMasterDao.
+09:25:56.872 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.UserDao.
+09:25:56.872 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28ms. Found 0 repository interfaces.
+09:25:57.405 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c5567545] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:25:57.499 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$5e043d7f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:25:57.507 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:25:57.509 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7e94d093' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:25:57.513 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$82d8e031] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:25:57.519 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:25:58.009 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+09:25:58.027 login [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+09:25:58.045 login [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+09:25:58.045 login [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+09:25:58.054 login [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;E:\htmltools\Microsoft VS Code\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Program Files\MySQL\MySQL Server 8.0\bin;;.]
+09:25:58.431 login [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:25:58.432 login [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2796 ms
+09:25:59.001 login [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+09:25:59.401 login [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+09:25:59.459 login [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+09:25:59.516 login [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+09:25:59.517 login [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+09:25:59.632 login [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+09:25:59.828 login [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: com.example.cy.config.MysqlConfig
+09:26:00.643 login [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:26:01.216 login [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+09:26:01.762 login [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+09:26:01.766 login [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+09:26:02.231 login [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a58db42, org.springframework.security.web.context.SecurityContextPersistenceFilter@4258106, org.springframework.security.web.header.HeaderWriterFilter@37ade216, org.springframework.security.web.authentication.logout.LogoutFilter@215a329c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3387ab0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b423f90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10a064bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@217fd3c, org.springframework.security.web.session.SessionManagementFilter@6032622, org.springframework.security.web.access.ExceptionTranslationFilter@644e6a8e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ea0a7a9]
+09:26:02.366 login [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:26:02.652 login [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+09:26:03.307 login [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+09:26:03.319 login [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+09:26:03.322 login [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+09:26:03.341 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+09:26:03.343 login [main] INFO  com.example.cy.CyApplication - Started CyApplication in 8.427 seconds (JVM running for 9.59)
+09:26:07.106 login [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:26:07.107 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09:26:07.117 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+09:26:07.172 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:07.191 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:07.449 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:26:07.632 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:07.632 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:07.669 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:26:32.353 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:32.354 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:32.373 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:26:32.421 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:32.421 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:32.443 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:26:32.516 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:32.517 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:32.519 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:32.519 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:32.527 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:26:32.529 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:26:32.638 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:26:32.639 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:26:32.646 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:29:25.959 login [main] INFO  com.example.cy.CyApplication - Starting CyApplication on 6L0FJTAQN617LJJ with PID 5932 (E:\Master-branch-secondCar\JavaDesign\target\classes started by Administrator in E:\Master-branch-secondCar\JavaDesign)
+09:29:25.962 login [main] INFO  com.example.cy.CyApplication - No active profile set, falling back to default profiles: default
+09:29:27.033 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+09:29:27.034 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+09:29:27.181 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 137ms. Found 5 repository interfaces.
+09:29:27.200 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+09:29:27.201 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+09:29:27.239 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.CarDao.
+09:29:27.239 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.FileInfoDao.
+09:29:27.241 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.MenuDao.
+09:29:27.241 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.OrderMasterDao.
+09:29:27.241 login [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.cy.dao.UserDao.
+09:29:27.241 login [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27ms. Found 0 repository interfaces.
+09:29:27.744 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc47cd4e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:29:27.838 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$64f59588] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:29:27.847 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:29:27.849 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6da9dc6' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:29:27.853 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$89ca383a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:29:27.859 login [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+09:29:28.350 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+09:29:28.367 login [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+09:29:28.382 login [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+09:29:28.382 login [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+09:29:28.390 login [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;E:\htmltools\Microsoft VS Code\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Program Files\MySQL\MySQL Server 8.0\bin;;.]
+09:29:28.592 login [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:29:28.592 login [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2545 ms
+09:29:29.342 login [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+09:29:29.701 login [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+09:29:29.750 login [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+09:29:29.801 login [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+09:29:29.803 login [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+09:29:29.918 login [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+09:29:30.129 login [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: com.example.cy.config.MysqlConfig
+09:29:30.947 login [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:29:31.308 login [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+09:29:32.035 login [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+09:29:32.035 login [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+09:29:32.533 login [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f911d24, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e85df, org.springframework.security.web.header.HeaderWriterFilter@7bdb4d69, org.springframework.security.web.authentication.logout.LogoutFilter@6949cead, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6ec2d990, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b4f1eb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7cd25bf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3de383f7, org.springframework.security.web.session.SessionManagementFilter@361fa478, org.springframework.security.web.access.ExceptionTranslationFilter@6fd97fd1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35d81657]
+09:29:32.654 login [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:29:32.941 login [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+09:29:33.620 login [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+09:29:33.639 login [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+09:29:33.640 login [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+09:29:33.656 login [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+09:29:33.656 login [main] INFO  com.example.cy.CyApplication - Started CyApplication in 8.259 seconds (JVM running for 9.31)
+09:29:37.906 login [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:29:37.906 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09:29:37.919 login [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+09:29:37.982 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:29:38.004 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:29:38.237 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:29:38.297 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:29:38.298 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:29:38.346 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:29:38.422 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:29:38.423 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:29:38.436 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:29:38.437 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:29:38.442 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:29:38.461 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:29:38.561 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:29:38.562 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:29:38.575 login [http-nio-8888-exec-3] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:26.828 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+09:30:26.829 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eZ8BcMwTuvJ3TpXD8.jpg
+09:30:26.843 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+09:30:26.843 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_bQua45Yocg6hObYT6.jpg
+09:30:26.849 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+09:30:26.850 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_eF8pghs1IlF6fZpyQ.jpg
+09:30:26.856 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+09:30:26.856 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_f1oYdg8HUr4dA7XSb.jpg
+09:30:26.863 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+09:30:26.863 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_cz1FGX6NczXh8hMHu.jpg
+09:30:26.870 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - path01-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img
+09:30:26.870 login [http-nio-8888-exec-2] INFO  c.e.c.s.impl.FileInfoServiceImpl - fullPath-->E:\Master-branch-secondCar\JavaDesign\src\main\resources\static\img\FL_fFfWvBFrbOo9QZS89.jpg
+09:30:29.762 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:29.762 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:29.790 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:29.908 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:29.909 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:29.921 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:30.248 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:30.249 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:30.258 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:36.723 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:36.724 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:36.738 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:37.065 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:37.066 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:37.066 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:37.066 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:37.067 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:37.067 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:37.067 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:37.068 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:37.068 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:37.067 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept开始拦截
+09:30:37.068 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:37.069 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept正在拦截
+09:30:37.081 login [http-nio-8888-exec-9] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:37.082 login [http-nio-8888-exec-4] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:37.082 login [http-nio-8888-exec-5] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:37.083 login [http-nio-8888-exec-1] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:37.088 login [http-nio-8888-exec-2] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成
+09:30:37.089 login [http-nio-8888-exec-6] INFO  com.example.cy.config.MyIntercept - MyIntercept拦截完成

@@ -71,8 +71,6 @@ public class OrderMasterController {
         OrderMaster orderMaster=new OrderMaster();
 
         String carId=params.getString("id");
-        String  startTime=params.getString("startTime");
-        String  endTime=params.getString("endTime");
         String detailedAddress=params.getString("address");
         String price=params.getString("price");
 
@@ -93,17 +91,6 @@ public class OrderMasterController {
         Car car=carDao.findCarById(Long.parseLong(carId));
         carToOeder(car,orderMaster);
 
-        Date StartTime=DateUtils.strToDate(startTime);
-        Date EndTime=DateUtils.strToDate(endTime);
-
-        int days=DateUtils.daysBetween(StartTime,EndTime)+1;
-        if (days<=0){
-            ResponseInfo.error("租赁时间不可小于0天");
-        }
-
-        orderMaster.setLeaseDay(days);
-        orderMaster.setStartDate(StartTime);
-        orderMaster.setEndDate(EndTime);
         orderMaster.setBuyerAmount(Long.parseLong(price));
 
         orderMasterService.creatOrder(orderMaster);

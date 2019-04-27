@@ -100,8 +100,11 @@ public class CarServiceImpl implements CarService {
         List<CarQuery> carQueries=new ArrayList<>();
         if(Calibration.isNotEmpty(cars)){
             for (Car car:cars){
-                CarQuery carQuery=  packResultDataForCarQuery(car);
-                carQueries.add(carQuery);
+                if(car.getState().equals(0)){
+                    CarQuery carQuery=  packResultDataForCarQuery(car);
+                    carQueries.add(carQuery);
+                }
+
             }
             return carQueries;
         }

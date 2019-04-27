@@ -16,7 +16,7 @@ $(function(){
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
                 '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供</a></div>'+
                 '<div class="priceContainer">'+
-                  '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                  '<span class="totalPrice">'+item.rent+'</span>'+
                   
                 '</div>'+
                 '<div class="serviceContainer">'+
@@ -45,7 +45,7 @@ $(function(){
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
                 '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供</a></div>'+
                 '<div class="priceContainer">'+
-                  '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                  '<span class="totalPrice">'+item.rent+'</span>'+
                   
                 '</div>'+
                 '<div class="serviceContainer">'+
@@ -74,7 +74,7 @@ $(function(){
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
                 '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供</a></div>'+
                 '<div class="priceContainer">'+
-                  '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                  '<span class="totalPrice">'+item.rent+'</span>'+
                   
                 '</div>'+
                 '<div class="serviceContainer">'+
@@ -103,7 +103,7 @@ $(function(){
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
                 '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
                 '<div class="priceContainer">'+
-                  '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                  '<span class="totalPrice">'+item.rent+'</span>'+
                   
                 '</div>'+
                 '<div class="serviceContainer">'+
@@ -131,7 +131,7 @@ $(function(){
               '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
               '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
               '<div class="priceContainer">'+
-                '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                '<span class="totalPrice">'+item.rent+'</span>'+
                 
               '</div>'+
               '<div class="serviceContainer">'+
@@ -184,7 +184,7 @@ $(function(){
                 '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
                 '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
                 '<div class="priceContainer">'+
-                  '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                  '<span class="totalPrice">'+item.rent+'</span>'+
                   
                 '</div>'+
                 '<div class="serviceContainer">'+
@@ -232,7 +232,7 @@ $(function(){
               '<div class="detailCarImg"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css"><img src="'+item.fileInfoUrl+'" alt=""></a></div>'+
               '<div class="detailDescribe"><a href="carDetail.html?id='+item.id+'" target="_blank" class="a-css">淘车推荐 '+item.carName+' 魅力 '+item.color+' 动力强劲 马力'+item.engine+'匹 前置后驱 淘车线上专供 </a></div>'+
               '<div class="priceContainer">'+
-                '<span class="totalPrice">￥'+item.rent+'元</span>'+
+                '<span class="totalPrice">'+item.rent+'</span>'+
                 
               '</div>'+
               '<div class="serviceContainer">'+

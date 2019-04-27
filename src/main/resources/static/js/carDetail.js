@@ -51,8 +51,8 @@ $(function(){
                    }
                 });
                 $(".carPrice").html(
-                    '<h1>'+item.rent+'元</h1>'+
-                    '<div class="payment col-md-12">首付'+item.rent/3+'元起 | 月供'+item.rent/12+'元</div>'
+                    '<h1>'+dataF.data.rent+'元</h1>'+
+                    '<div class="payment col-md-12">首付'+dataF.data.rent/3+'元起 | 月供'+dataF.data.rent/12+'元</div>'
                 );
                 // 车源图片呈现
                 $.each(dataF.data.carImgUrl,function(i,item){
@@ -84,8 +84,18 @@ $(function(){
                     '<td>---</td>'+
                     '<td>---</td>'
                 );
+                
+                $(".imgContainerZ").html(
+                    ' <img src='+dataF.data.carImgUrl[0].url+' alt="" width="100%" height="100%">'
+                );
+                $(".carInfoContainerSS").html(
+                    ' <p>'+dataF.data.carBrand+'---'+dataF.data.carName+'</p>'+
+                    '<p>In sit amet sapien eros. Integer in tincidunt velit. Ut sapien est, molestie sit amet metussit amet, malesuada gravida ex.</p>'
+                );
 
-                god.rent = dataF.data.rent;
+               $(".price").html(
+                   dataF.data.rent
+               );
             },
             error: function(dataE){
                alert("请求错误");

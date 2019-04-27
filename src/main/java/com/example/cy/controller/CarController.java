@@ -267,6 +267,7 @@ public class CarController {
             int pageNumber = pageable.getPageNumber();
             if(car.getSourceUserId()!=null){
                 car.setSourceUserId(SecurityUtils.getUser().getId());
+                car.setState(0);
             }
             pageNumber = pageNumber <= 0 ? 1 : pageNumber;
             car.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
@@ -298,6 +299,7 @@ public class CarController {
         newCar.setHeatValue(car.getHeatValue());
         newCar.setRent(car.getRent());
         newCar.setCreatedDate(car.getCreatedDate());
+        newCar.setEngine(car.getEngine());
         return newCar;
 
     }

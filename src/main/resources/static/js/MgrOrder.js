@@ -91,12 +91,13 @@ $(function(){
                         dataType: "json",
                         data:JSON.stringify(repay),
                         success:function(dataS){
-                            parent.location.reload();
                             console.log("dataS:"+dataS);
-                            alert("操作成功");
-                        },
-                        error:function(){
+                            alert(dataS.data);
                             parent.location.reload();
+                        },
+                        error:function(dataE){
+                            console.log("dataE:"+dataE);
+                            // parent.location.reload();
                             alert("操作失败,请联系管理员");
                         }
                     });
@@ -111,8 +112,9 @@ $(function(){
                         type:"POST",
                         dataType: "json",
                         data:JSON.stringify(dele),
-                        success:function(){
-                            alert("删除成功");
+                        success:function(dataS){
+                            alert(dataS.data);
+                            parent.location.reload();
                         },
                         error:function(){
                             alert("删除失败");
@@ -209,10 +211,12 @@ $(function(){
                         data:JSON.stringify(repay),
                         success:function(dataS){
                             console.log("dataS:"+dataS);
+                            // parent.location.reload();
+                            alert(dataS.data);
                             parent.location.reload();
-                            alert("操作成功");
                         },
-                        error:function(){
+                        error:function(dataE){
+                            console.log("dataE:"+dataE);
                             alert("操作失败,请联系管理员");
                         }
                     });
@@ -227,11 +231,14 @@ $(function(){
                         type:"POST",
                         dataType: "json",
                         data:JSON.stringify(dele),
-                        success:function(){
+                        success:function(dataS){
+                            console.log("dataS:"+dataS);
+                            // parent.location.reload();
+                            alert(dataS.data);
                             parent.location.reload();
-                            alert("删除成功");
                         },
-                        error:function(){
+                        error:function(dataE){
+                            console.log("dataE:"+dataE);
                             alert("删除失败");
                         }
                     });

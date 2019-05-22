@@ -56,10 +56,12 @@ $(function(){
             processData : false, //必须false才会避开jQuery对 formdata 的默认处理
             contentType : false, //必须false才会自动加上正确的Content-Type
             success:function(dataS){
+                alert("上传成功");
                 console.log("dataS"+dataS);
                 console.log(formData);
             },
             error:function(dataE){
+                alert("上传失败");
                 console.log('dataE'+dataE);
                 console.log(formData);
             },

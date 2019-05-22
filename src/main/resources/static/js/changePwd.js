@@ -21,7 +21,7 @@ $(function(){
             success:function(dataS){
                 alert("修改成功");
             },
-            error:function(dataE){
+            error:function(dataType){
                 alert("修改失败");
             }
         });

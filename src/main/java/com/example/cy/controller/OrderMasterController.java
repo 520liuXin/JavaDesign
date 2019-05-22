@@ -101,7 +101,7 @@ public class OrderMasterController {
         Date StartTime=DateUtils.strToDate(startTime);
         Date EndTime=DateUtils.strToDate(endTime);
 
-        int days=DateUtils.daysBetween(StartTime,EndTime)+1;
+        int days=DateUtils.daysBetween(StartTime,EndTime);
         if (days<=0){
             ResponseInfo.error("租赁时间不可小于0天");
         }
@@ -173,12 +173,12 @@ public class OrderMasterController {
             return ResponseInfo.error("订单不存在");
         }
        int i =DateUtils.daysBetween(oldOrderMaster.getEndDate(),new Date());
-        if(i<=0){
+        if(i<0){
             orderMaster.setOrderStatus(OrderStatusEnum.FINISH.getCode());
             orderMasterService.updataOrder(orderMaster);
-            Car car=carDao.findCarById(orderMaster.getCarId());
-            car.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
-            carService.updataCar(car);
+            Car newcar=carDao.findCarById(orderMaster.getCarId());
+            newcar.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
+            carService.updataCar(newcar);
            return ResponseInfo.success("还车成功");
 
         }else {

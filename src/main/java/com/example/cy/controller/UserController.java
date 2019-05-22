@@ -258,7 +258,6 @@ public class UserController {
 
 
     private User updataGetUser(JSONObject params){
-
         String usertag=params.getString("Usertag");
         String idCard=params.getString("idNumber");
         String name=params.getString("trueName");

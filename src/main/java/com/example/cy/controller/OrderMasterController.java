@@ -197,7 +197,7 @@ public class OrderMasterController {
      * @return
      **/
     @RequestMapping(value = "/findAllAndPage", method = RequestMethod.GET)
-    public ResponseInfo<?> AllfindAllAndPage (@PageableDefault(page = 1, size = 4) Pageable pageable, OrderMasterInput input){
+    public ResponseInfo<?> findOrderAndPage (@PageableDefault(page = 1, size = 4) Pageable pageable, OrderMasterInput input){
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
         User user=SecurityUtils.getUser();

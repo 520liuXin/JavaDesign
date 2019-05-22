@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
     public User saveUser(User user) {
         try{
             User newUser=encapsulationUser(user);
-            newUser.setAdmin("2");
+            newUser.setAdmin(2L);
             newUser.setCreatedDate(new Date());
             userDao.save(newUser);
             return newUser;
@@ -170,8 +170,8 @@ public class UserServiceImpl implements UserService {
                 predicates.add(criteriaBuilder.equal(root.get("phone").as(String.class), userInput.getPhone()));
             }
 
-            if(StringUtils.isNotBlank(userInput.getAdmin())){
-                predicates.add(criteriaBuilder.equal(root.get("admin").as(String.class), userInput.getAdmin()));
+            if(Objects.nonNull(userInput.getAdmin())){
+                predicates.add(criteriaBuilder.equal(root.get("admin").as(Long.class), userInput.getAdmin()));
             }
             if(StringUtils.isNotBlank(userInput.getSex())){
                 predicates.add(criteriaBuilder.equal(root.get("set").as(String.class), userInput.getSex()));

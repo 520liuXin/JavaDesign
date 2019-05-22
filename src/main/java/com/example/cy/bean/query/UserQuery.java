@@ -20,7 +20,7 @@ public class UserQuery  {
 
     private String imgurl;
 
-    private String admin;
+    private Long admin;
 
     private String sex;
 

@@ -86,9 +86,12 @@ public class CarController {
 
 
         try {
-            Car newCar=carService.saveCar(car);
-            System.out.println(newCar.toString());
-            fileInfoService.batchUpload(file,newCar);
+            if(Calibration.isNotEmpty(car)){
+                Car newCar=carService.saveCar(car);
+                System.out.println(newCar.toString());
+                fileInfoService.batchUpload(file,newCar);
+            }
+
         }catch (Exception e){
             return ResponseInfo.success("添加失败");
         }

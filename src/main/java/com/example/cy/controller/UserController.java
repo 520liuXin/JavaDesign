@@ -69,27 +69,14 @@ public class UserController {
     **/
     @PostMapping("/add")
     public ResponseInfo<?> AddUser(HttpServletRequest request, @RequestBody JSONObject params){
-        String username=params.getString("Name");
-        String password=params.getString("Pwd");
-        String usertag=params.getString("Usertag");
-       String idCard=params.getString("idNumber");
-       String name=params.getString("trueName");
-
         String kaptcha=params.getString("kaptcha");
 
         String s = request.getSession().getAttribute(CHECK_CODE).toString();
         if (com.example.cy.utils.StringUtils.isEmpty(kaptcha) || !s.equals(kaptcha)) {
             return ResponseInfo.error("验证码不正确");
         }
-        usertag=usertag.replace("[","");
-        String label=usertag.replace("]","");
-        User user=new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setLabel(label);
-        user.setName(name);
-        user.setIdCard(idCard);
-       User oldUser=userDao.findUser(username);
+        User user= getUser(params);
+       User oldUser=userDao.findUser(user.getUsername());
        if(Calibration.isNotEmpty(oldUser)){
            return ResponseInfo.error("用户存在，请登录");
        }
@@ -98,7 +85,7 @@ public class UserController {
         }catch (Exception e){
            return ResponseInfo.error("注册失败");
         }
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         try{
             //使用SpringSecurity拦截登陆请求 进行认证和授权
             Authentication authenticate = myAuthenticationManager.authenticate(usernamePasswordAuthenticationToken);
@@ -116,16 +103,29 @@ public class UserController {
 
 
     @PostMapping("/update")
-    public ResponseInfo<?> updataUser( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
+    public ResponseInfo<?> updataUser(@RequestBody JSONObject params){
+        User user= getUser(params);
+        user.setId(SecurityUtils.getUser().getId());
+        try {
+            User newUser = userService.updataUser(user);
+        }catch (Exception e){
+            return ResponseInfo.error("修改失败");
         }
-        User user=userList.get(0);
-        User oldUser=userDao.findUser(user.getUsername());
-        if(Calibration.isEmpty(oldUser)){
-            return ResponseInfo.error("用户不存在，无法修改");
+        return ResponseInfo.success("修改成功");
+    }
+
+
+
+
+    @PostMapping("/updatePwd")
+    public ResponseInfo<?> updataUserPwd(@RequestBody JSONObject params){
+        User user=userService.findUser(SecurityUtils.getUser().getUsername());
+        String oldPwd=params.getString("oldPwd");
+        if(!oldPwd.equals(user.getPassword())){
+            return ResponseInfo.error("原密码错误");
         }
+       String newPwd =params.getString("newPwd");
+        user.setPassword(newPwd);
         try {
             User newUser = userService.updataUser(user);
         }catch (Exception e){
@@ -158,22 +158,23 @@ public class UserController {
 
 
     @PostMapping("/delete")
-    public ResponseInfo<?> deleteUser( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
-        }
-        User user=userList.get(0);
-        User oldUser=userDao.findUser(user.getUsername());
-        if(Calibration.isEmpty(oldUser)){
-            return ResponseInfo.error("用户不存在，无法修改");
-        }
-        try {
-                   userService.deleteUser(user);
-        }catch (Exception e){
-            return ResponseInfo.error("删除失败");
-        }
-        return ResponseInfo.success("删除成功");
+    public ResponseInfo<?> deleteUser( @RequestBody JSONObject params){
+//
+//        List < User > userList = new ArrayList < User > ();
+//        if (StringUtils.isNotBlank(jsonStr)) {
+//            userList = JSON.parseArray(jsonStr, User.class);
+//        }
+//        User user=userList.get(0);
+//        User oldUser=userDao.findUser(user.getUsername());
+//        if(Calibration.isEmpty(oldUser)){
+//            return ResponseInfo.error("用户不存在，无法删除");
+//        }
+//        try {
+//                   userService.deleteUser(user);
+//        }catch (Exception e){
+//            return ResponseInfo.error("删除失败");
+//        }
+       return ResponseInfo.success("删除成功");
     }
 
 
@@ -233,4 +234,25 @@ public class UserController {
         return SecurityUtils.getUser();
     }
 
+
+
+    private User getUser(JSONObject params){
+
+        String username=params.getString("Name");
+        String password=params.getString("Pwd");
+        String usertag=params.getString("Usertag");
+        String idCard=params.getString("idNumber");
+        String name=params.getString("trueName");
+        usertag=usertag.replace("[","");
+        String label=usertag.replace("]","");
+        User user=new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setLabel(label);
+        user.setName(name);
+        user.setIdCard(idCard);
+
+        return user;
+
+    }
 }

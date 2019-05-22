@@ -17,7 +17,7 @@ public class UserInput {
 
     private String imgurl;
 
-    private String admin;
+    private Long admin;
 
     private String sex;
 

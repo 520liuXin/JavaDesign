@@ -9,8 +9,7 @@ import javax.persistence.Entity;
 @Data
 @Entity(name="role")
 public class Role extends BasePo{
-    @Column(length = 255)
-    private Integer roleId;
+    private Long roleId;
 
     @Column(length = 255)
     private String roleName;

@@ -17,19 +17,19 @@ public class MyIntercept extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.info("MyIntercept开始拦截");
+        //logger.info("MyIntercept开始拦截");
         return super.preHandle(request, response, handler);
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         super.postHandle(request, response, handler, modelAndView);
-        logger.info("MyIntercept正在拦截");
+        //logger.info("MyIntercept正在拦截");
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         super.afterCompletion(request, response, handler, ex);
-        logger.info("MyIntercept拦截完成");
+      //  logger.info("MyIntercept拦截完成");
     }
 }

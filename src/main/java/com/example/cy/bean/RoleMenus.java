@@ -9,9 +9,9 @@ import javax.persistence.Entity;
 @Entity(name="role_menu")
 public class RoleMenus extends BasePo{
 
-    @Column(length = 255)
-    private Integer roleId;
 
-    @Column(length = 255)
-    private Integer menuId;
+    private Long roleId;
+
+
+    private Long menuId;
 }

@@ -18,7 +18,6 @@ public class OrderMaster extends BasePo{
     @Column(length = 255)
     private String orderId;
 
-    @Column(length = 255)
     private Long userId;   //用户Id
 
     /** 买家名字. */
@@ -32,7 +31,6 @@ public class OrderMaster extends BasePo{
     @Column(length = 255)
     private String userIdCard;  //用户身份证
 
-    @Column(length = 255)
     private Long carId;         //车辆id
 
     @Column(length = 255)

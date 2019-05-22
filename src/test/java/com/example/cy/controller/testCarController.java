@@ -36,7 +36,7 @@ public class testCarController {
     private FileInfoService fileInfoService;
 
     @Test
-    @Ignore
+//    @Ignore
     public void testAddCar(){
         List<FileInfo> fileInfos=new ArrayList<>();
         FileInfo fileInfo=new FileInfo();
@@ -53,7 +53,7 @@ public class testCarController {
             car.setRent(200L);
             car.setCarType("WCC");
             car.setCarName("尼桑");
-//            car.setCarId("湘A154611"+i);
+           car.setCarId("湘A154611"+i);
             car.setCarBrand("尼桑GTR36");
             car.setCarImgUrl(fileInfos);
             car.setCarDescribe("全新梅赛德斯奔驰");

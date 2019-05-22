@@ -25,7 +25,7 @@ public interface UserService {
      * @param id
      * @return
      */
-    User findById(Integer id);
+    User findById(Integer  id);
 
     /**
      * 根据username查询用户

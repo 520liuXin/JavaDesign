@@ -22,7 +22,7 @@ public class OrderMasterQuery {
 
     private Long carId;         //车辆id
 
-    private Integer orderStatus ;//状态
+    private String orderStatus ;//状态
 
     private Integer leaseDay;   //租赁天数
 

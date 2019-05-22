@@ -274,7 +274,6 @@ public class UserController {
         user.setEmail(eamil);
         user.setPhone(phone);
         user.setSex(userSex);
-
         return user;
 
     }

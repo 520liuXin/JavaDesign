@@ -6,6 +6,7 @@ import com.example.cy.bean.User;
 import com.example.cy.bean.input.OrderMasterInput;
 import com.example.cy.bean.query.OrderMasterQuery;
 import com.example.cy.dao.OrderMasterDao;
+import com.example.cy.enums.OrderStatusEnum;
 import com.example.cy.service.CarService;
 import com.example.cy.service.OrderMasterService;
 import com.example.cy.utils.DateUtils;
@@ -151,11 +152,31 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         orderMasterQuery.setStartDate(orderMaster.getStartDate());
         orderMasterQuery.setEndDate(orderMaster.getEndDate());
         orderMasterQuery.setCarName(orderMaster.getCarName());
-        orderMasterQuery.setOrderStatus(orderMaster.getOrderStatus());
+        orderMasterQuery.setOrderStatus(getOrderStatus(orderMaster.getOrderStatus()));
         orderMasterQuery.setUserName(orderMaster.getUserName());
         orderMasterQuery.setCarDescribe(orderMaster.getCarDescribe());
         orderMasterQuery.setCreatedDate(orderMaster.getCreatedDate());
         return orderMasterQuery;
     }
+
+    private String getOrderStatus(Integer status){
+        if(status.equals(OrderStatusEnum.NEW.getCode())){
+            return "待支付";
+        }
+        if(status.equals(OrderStatusEnum.ORDERING.getCode())){
+            return "已支付";
+        }
+        if(status.equals(OrderStatusEnum.FINISH.getCode())){
+            return "已还车";
+        }
+        if(status.equals(OrderStatusEnum.CANCEL.getCode())){
+            return "已取消";
+        }
+        if(status.equals(OrderStatusEnum.DELETE.getCode())){
+            return "已删除";
+        }
+        return "订单无效";
+        }
+
 
 }

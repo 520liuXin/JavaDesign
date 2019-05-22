@@ -83,8 +83,6 @@ public class CarController {
 
    @RequestMapping (value="/add",method = RequestMethod.POST)
     public ResponseInfo<?> AddUser(@RequestParam("files") MultipartFile[] file,Car car)throws BusinessException {
-
-
         try {
             if(Calibration.isNotEmpty(car)){
                 Car newCar=carService.saveCar(car);

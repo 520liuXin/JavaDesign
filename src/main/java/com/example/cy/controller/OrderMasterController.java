@@ -127,6 +127,7 @@ public class OrderMasterController {
      */
     @RequestMapping(value = "/updtaOrder", method = RequestMethod.POST)
     public ResponseInfo<?> updataOrder(OrderMaster orderMaster){
+
         OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
         if(oldOrderMaster==null){
             return ResponseInfo.error("订单不存在");
@@ -143,17 +144,22 @@ public class OrderMasterController {
 
     /**
      * 删除订单
-     * @param orderMaster
+     * @param
      * @return
      */
     @RequestMapping(value = "/deleteOrder", method = RequestMethod.POST)
-    public ResponseInfo<?> deleteOrder(OrderMaster orderMaster) {
-        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderMaster.getOrderId());
+    public ResponseInfo<?> deleteOrder(@RequestBody JSONObject params) {
+
+        String orderId=params.getString("orderId");
+        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderId);
         if (oldOrderMaster == null) {
             return ResponseInfo.error("订单不存在");
         }
+        if(!OrderStatusEnum.FINISH.getCode().equals(oldOrderMaster.getOrderStatus())){
+            return ResponseInfo.error("订单未完成，不可删除订单");
+        }
         try {
-            orderMasterService.deleteOrder(orderMaster);
+            orderMasterService.deleteOrder(oldOrderMaster);
         } catch (Exception e) {
            return ResponseInfo.error("删除失败");
         }
@@ -163,20 +169,23 @@ public class OrderMasterController {
 
     /***
      * 还车
-     * @param orderMaster
+     * @param
      * @return
      */
+    @Transactional
     @RequestMapping(value = "/repayCar", method = RequestMethod.POST)
-    public ResponseInfo<?> repayCar(OrderMaster orderMaster) {
-        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderMaster.getOrderId());
+    public ResponseInfo<?> repayCar(@RequestBody JSONObject params) {
+
+        String orderId=params.getString("orderId");
+        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderId);
         if (oldOrderMaster == null) {
             return ResponseInfo.error("订单不存在");
         }
        int i =DateUtils.daysBetween(oldOrderMaster.getEndDate(),new Date());
         if(i<0){
-            orderMaster.setOrderStatus(OrderStatusEnum.FINISH.getCode());
-            orderMasterService.updataOrder(orderMaster);
-            Car newcar=carDao.findCarById(orderMaster.getCarId());
+            oldOrderMaster.setOrderStatus(OrderStatusEnum.FINISH.getCode());
+            orderMasterService.updataOrder(oldOrderMaster);
+            Car newcar=carDao.findCarById(oldOrderMaster.getCarId());
             newcar.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
             carService.updataCar(newcar);
            return ResponseInfo.success("还车成功");

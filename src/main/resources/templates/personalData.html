@@ -19,38 +19,38 @@
                 <div class="form-group userdata">
                     <label class="col-sm-2 control-label">姓名</label>
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control" name="" value="刘信" disabled>
+                        <input type="text" id="userName" class="form-control" name="" value="刘信" disabled>
                     </div>
                 </div>
                 <div class="form-group userdata">
                     <label class="col-sm-2 control-label">性别</label>
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control" value="男" disabled>
+                        <input type="text" id="userSex" class="form-control" value="男" disabled>
                     </div>
                 </div>
                 <div class="form-group userdata">
                     <label class="col-sm-2 control-label">电话号码</label>
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control" value="17673817175" disabled>
+                        <input type="text" id="userPhone" class="form-control" value="17673817175" disabled>
                     </div>
                 </div>
                 <div class="form-group userdata">
-                    <label class="col-sm-2 control-label">地址</label>
+                    <label class="col-sm-2 control-label">邮箱</label>
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control" value="湖南省长沙市" disabled>
+                        <input type="text" id="userEmail" class="form-control" value="10086@china.com" disabled>
                     </div>
                 </div>
                 <div class="form-group userdata">
                     <label class="col-sm-2 control-label">身份证号</label>
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control" value="430523199970916****" disabled>
+                        <input type="text" id="userIdNum" class="form-control" value="430523199970916****" disabled>
                     </div>
                 </div>
                 <div class="form-group userdata">
                     <!-- 标签的添加准备用模态框 -->
                     <label class="col-sm-2 control-label">感兴趣</label>  
                     <div class="col-sm-9">
-                        <input type="text" id="focusedInput" class="form-control tag-like" value="SUV，奔驰" data-toggle="modal" data-target="#myModal" disabled>
+                        <input type="text" id="userLabel" class="form-control tag-like" value="SUV，奔驰" data-toggle="modal" data-target="#myModal" disabled>
                     </div>
                 </div>
                 <!-- 编辑按钮（按下后显示确定） 身份证照片上传 -->
@@ -79,7 +79,7 @@
                 <div>
                     <div class="col-sm-2"></div>
                     <div class="col-sm-9">
-                            <button class="btn btn-default eidtAndSub pull-right" type="button">编辑</button>
+                            <button class="btn  eidtAndSub pull-right" type="button">编辑</button>
                     </div>
                         
                 </div>
@@ -87,81 +87,61 @@
     </div>
     <!-- modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                  </button>
-                  <h4 class="modal-title" id="myModalLabel">
-                    标签选择
-                  </h4>
-                </div>
-    
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn1" class="btn btn-info col-sm-12">马杀鸡</button>
-                        </div>
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn2" class="btn btn-info col-sm-12">锤大背</button>
-                        </div>
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn3" class="btn btn-info col-sm-12">螺旋升天</button>
-                        </div>
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn4" class="btn btn-info col-sm-12">法式按摩</button>
-                        </div>
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn5" class="btn btn-info col-sm-12">鞭笞足疗</button>
-                        </div>
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn6" class="btn btn-info col-sm-12">点我就自爆</button>
-                        </div>
-                        <div class="col-sm-4">
-                                <button type="button" name="tagbtn7" class="btn btn-info col-sm-12">想不到别的词了</button>
-                        </div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+              </button>
+              <h4 class="modal-title" id="myModalLabel">
+                感兴趣
+              </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                            <button type="button" name="奔驰" class="btn btn-default col-sm-12">奔驰</button>
                     </div>
-                 
+                    <div class="col-sm-4">
+                            <button type="button" name="宝马" class="btn btn-default col-sm-12">宝马</button>
+                    </div>
+                    <div class="col-sm-4">
+                            <button type="button" name="福特" class="btn btn-default col-sm-12">福特</button>
+                    </div>
+                    <div class="col-sm-4">
+                            <button type="button" name="轿车" class="btn btn-default col-sm-12">轿车</button>
+                    </div>
+                    <div class="col-sm-4">
+                            <button type="button" name="SUV" class="btn btn-default col-sm-12">SUV</button>
+                    </div>
+                    <div class="col-sm-4">
+                            <button type="button" name="跑车" class="btn btn-default col-sm-12">跑车</button>
+                    </div>
+                    <div class="col-sm-4">
+                            <button type="button" name="黑色" class="btn btn-default col-sm-12">黑色</button>
+                    </div>
+                    <div class="col-sm-4">
+                      <button type="button" name="白色" class="btn btn-default col-sm-12">白色</button>
+                    </div>
+                    <div class="col-sm-4">
+                      <button type="button" name="红色" class="btn btn-default col-sm-12">红色</button>
+                    </div>
                 </div>
-    
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">
-                    确认
-                  </button>
-                </div>
-    
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-          </div>
+             
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                确认
+              </button>
+            </div>
+
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+      </div> 
     <div>
-        <script>
-            $(function(){
-                // 喜好标签选择
-                $('.tag-like').click(function(){
-                    $('button').click(function(){
-                        var obj=$(this);
-                        obj.removeClass('btn-info');
-                        obj.addClass('btn-primary');
-                        console.log(obj);
-                    });
-                });
-                // 文件上传按钮控制
-                // 编辑按钮设置
-                var $editAndSub =$('.eidtAndSub');
-                $editAndSub.click(function(){
-                    alert(11);
-                    var $disabledInput=$('input');
-                    if($editAndSub.html()=='编辑'){
-                        $disabledInput.attr('disabled',false);
-                        $editAndSub.text('保存');
-                    }else{
-                        $disabledInput.attr('disabled',true);
-                        $editAndSub.text('编辑');
-                    }
-                });
-            });    
-        </script>
+       <script src="../js/personalData.js"></script>
     </div>
 </body>
 

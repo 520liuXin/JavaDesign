@@ -104,7 +104,7 @@ public class UserController {
 
     @PostMapping("/update")
     public ResponseInfo<?> updataUser(@RequestBody JSONObject params){
-        User user= getUser(params);
+        User user= updataGetUser(params);
         user.setId(SecurityUtils.getUser().getId());
         try {
             User newUser = userService.updataUser(user);
@@ -190,19 +190,19 @@ public class UserController {
     }
 
 
-    /**
-     * @Author able-liu
-     * @Description 获取当前用户并分页
-     * @Param
-     * @return
-     **/
-    @RequestMapping(value = "/findUserNoCriteria", method = RequestMethod.GET)
-    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5) Pageable pageable){
-        int pageNumber = pageable.getPageNumber();
-        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        Page<User> datas=userService.findUserNoCriteria(pageNumber-1, pageable.getPageSize());
-        return ResponseInfo.success(datas);
-    }
+//    /**
+//     * @Author able-liu
+//     * @Description 获取当前用户并分页
+//     * @Param
+//     * @return
+//     **/
+//    @RequestMapping(value = "/findUserNoCriteria", method = RequestMethod.GET)
+//    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5) Pageable pageable){
+//        int pageNumber = pageable.getPageNumber();
+//        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+//        Page<User> datas=userService.findUserNoCriteria(pageNumber-1, pageable.getPageSize());
+//        return ResponseInfo.success(datas);
+//    }
     /**
      * @Author able-liu
      * @Description /获取当前用户并分页可提供指定查询分页
@@ -251,6 +251,30 @@ public class UserController {
         user.setLabel(label);
         user.setName(name);
         user.setIdCard(idCard);
+
+        return user;
+
+    }
+
+
+    private User updataGetUser(JSONObject params){
+
+        String usertag=params.getString("Usertag");
+        String idCard=params.getString("idNumber");
+        String name=params.getString("trueName");
+        String eamil=params.getString("email");
+        String phone=params.getString("userPhone");
+        String userSex=params.getString("userSex");
+        usertag=usertag.replace("[","");
+        String label=usertag.replace("]","");
+        User user=new User();
+        user.setLabel(label);
+        user.setName(name);
+        user.setEmail(eamil);
+        user.setIdCard(idCard);
+        user.setEmail(eamil);
+        user.setPhone(phone);
+        user.setSex(userSex);
 
         return user;
 

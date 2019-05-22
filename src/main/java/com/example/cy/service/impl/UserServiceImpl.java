@@ -141,6 +141,7 @@ public class UserServiceImpl implements UserService {
         userQuery.setSex(user.getSex());
         userQuery.setIdCard(user.getIdCard());
         userQuery.setAdmin(user.getAdmin());
+        userQuery.setEmail(user.getEmail());
         return userQuery;
     }
     private User encapsulationUser(User user){
@@ -154,6 +155,7 @@ public class UserServiceImpl implements UserService {
         newuser.setIdCard(user.getIdCard());
         newuser.setUpdatedDate(new Date());
         newuser.setLabel(user.getLabel());
+        newuser.setEmail(user.getEmail());
         return newuser;
     }
 

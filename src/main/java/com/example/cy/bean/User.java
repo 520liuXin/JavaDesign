@@ -30,6 +30,9 @@ public class User extends BasePo implements UserDetails {
 
 
     @Column(length = 255)
+    private String email;
+
+    @Column(length = 255)
     private String imgurl;
 
 

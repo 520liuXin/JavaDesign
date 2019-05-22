@@ -26,6 +26,8 @@ public class UserQuery  {
 
     private  String idCard;
 
+    private String email;
+
 
 
 

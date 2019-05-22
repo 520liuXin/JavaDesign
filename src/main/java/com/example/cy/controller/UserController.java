@@ -76,7 +76,7 @@ public class UserController {
             return ResponseInfo.error("验证码不正确");
         }
         User user= getUser(params);
-       User oldUser=userDao.findUser(user.getUsername());
+       User oldUser=userDao.findByUsername(user.getUsername());
        if(Calibration.isNotEmpty(oldUser)){
            return ResponseInfo.error("用户存在，请登录");
        }
@@ -104,10 +104,11 @@ public class UserController {
 
     @PostMapping("/update")
     public ResponseInfo<?> updataUser(@RequestBody JSONObject params){
-        User user= updataGetUser(params);
-        user.setId(SecurityUtils.getUser().getId());
+
+        User user =userService.findUser(SecurityUtils.getUser().getUsername());
+       User newuser= updataGetUser(params,user);
         try {
-            User newUser = userService.updataUser(user);
+            User newUser = userService.updataUser(newuser);
         }catch (Exception e){
             return ResponseInfo.error("修改失败");
         }
@@ -143,7 +144,7 @@ public class UserController {
             userList = JSON.parseArray(jsonStr, User.class);
         }
         User user=userList.get(0);
-        User oldUser=userDao.findUser(user.getUsername());
+        User oldUser=userDao.findByUsername(user.getUsername());
         if(Calibration.isEmpty(oldUser)){
             return ResponseInfo.error("用户不存在，无法修改");
         }
@@ -257,7 +258,7 @@ public class UserController {
     }
 
 
-    private User updataGetUser(JSONObject params){
+    private User updataGetUser(JSONObject params,User user){
 
         String usertag=params.getString("Usertag");
         String idCard=params.getString("idNumber");
@@ -267,7 +268,6 @@ public class UserController {
         String userSex=params.getString("userSex");
         usertag=usertag.replace("[","");
         String label=usertag.replace("]","");
-        User user=new User();
         user.setLabel(label);
         user.setName(name);
         user.setEmail(eamil);

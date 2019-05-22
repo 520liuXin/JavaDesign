@@ -39,14 +39,15 @@ public interface UserDao extends JpaRepository<User,Long> {
      * @return
      */
     User findById(Integer id);
+    User findByUsername(String username);
 
-    /**
-     * 根据username查询用户
-     * @param username
-     * @return
-     */
-    @Query(" from user u where u.username =:username")
-    User findUser(@Param("username") String username);
+//    /**
+//     * 根据username查询用户
+//     * @param username
+//     * @return
+//     */
+////    @Query(" select u.* from user u where u.username =:username")
+////    User findUser(@Param("username") String username);
 
 
     Page<User> findAll(Specification<User> var1, Pageable var2);

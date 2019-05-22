@@ -45,16 +45,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUser(String username) {
-        return userDao.findUser(username);
+        return userDao.findByUsername(username);
     }
 
     @Override
     public User updataUser(User user) {
         try {
-            User newUser=encapsulationUser(user);
-            newUser.setUpdatedDate(new Date());
-            userDao.save(newUser);
-            return newUser;
+
+            user.setUpdatedDate(new Date());
+            userDao.save(user);
+            return user;
         }catch (Exception e) {
            return null;
         }
@@ -88,10 +88,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updataUserByAdmin(User user) {
         try {
-            User newUser=encapsulationUser(user);
-            newUser.setAdmin(user.getAdmin());
-            userDao.save(newUser);
-            return newUser;
+            user.setAdmin(user.getAdmin());
+            userDao.save(user);
+            return user;
         }
         catch (Exception e) {
             return null;

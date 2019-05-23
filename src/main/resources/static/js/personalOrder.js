@@ -77,12 +77,14 @@ $(function(){
                  );
 
 
-                $("a").click(function(){
-                    var pageinfo = $(this).html();
-                    changePage(pageinfo);
+                 $("a").click(function(){
+                    if($(this).html()!= "删除" ||$(this).html() != "还车"){
+                        var pageinfo = $(this).html();
+                        changePage(pageinfo);  
+                    }
                 });
 
-                $(".repay").click(function(){
+                $(".repayCar").click(function(){
                     console.log("repay");
                     var repay = {};
                     repay.orderId = $(this).attr("id");
@@ -196,11 +198,13 @@ $(function(){
 
 
                 $("a").click(function(){
-                    var pageinfo = $(this).html();
-                    changePage(pageinfo);
+                    if($(this).html()!= "删除" ||$(this).html() != "还车"){
+                        var pageinfo = $(this).html();
+                        changePage(pageinfo);  
+                    }
                 });
 
-                $(".repay").click(function(){
+                $(".repayCar").click(function(){
                     console.log("repay");
                     var repay = {};
                     repay.orderId = $(this).attr("id");

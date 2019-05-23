@@ -50,7 +50,7 @@ $(function(){
                         '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">操作'+
                         '<span class="caret"></span>'+
                         ' </button>'+
-                        '<ul class="dropdown-menu"><li><a href="">还车</a></li><li><a href="">删除</a></li></ul>'+
+                        '<ul class="dropdown-menu"><li><a id="'+item.orderId+'" class="repayCar" href="">还车</a></li><li><a id="'+item.orderId+'"class="dele" href="">删除</a></li></ul>'+
                         '</div></div></div></div>'
                     );
                 });             
@@ -80,6 +80,48 @@ $(function(){
                 $("a").click(function(){
                     var pageinfo = $(this).html();
                     changePage(pageinfo);
+                });
+
+                $(".repay").click(function(){
+                    console.log("repay");
+                    var repay = {};
+                    repay.orderId = $(this).attr("id");
+                    $.ajax({
+                        contentType:'application/json;charset=utf-8',
+                        url: "/order/repayCar",
+                        type:"POST",
+                        dataType: "json",
+                        data:JSON.stringify(repay),
+                        success:function(dataS){
+                            console.log("dataS:"+dataS);
+                            alert(dataS.data);
+                            parent.location.reload();
+                        },
+                        error:function(dataE){
+                            console.log("dataE:"+dataE);
+                            // parent.location.reload();
+                            alert("操作失败,请联系管理员");
+                        }
+                    });
+                });
+                $(".dele").click(function(){
+                    console.log("Dele");
+                    var dele = {};
+                    dele.orderId = $(this).attr("id");
+                    $.ajax({
+                        contentType:'application/json;charset=utf-8',
+                        url: "/order/deleteOrder",
+                        type:"POST",
+                        dataType: "json",
+                        data:JSON.stringify(dele),
+                        success:function(dataS){
+                            alert(dataS.data);
+                            parent.location.reload();
+                        },
+                        error:function(){
+                            alert("删除失败");
+                        }
+                    });
                 });
 
             },
@@ -126,7 +168,7 @@ $(function(){
                         '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">操作'+
                         '<span class="caret"></span>'+
                         ' </button>'+
-                        '<ul class="dropdown-menu"><li><a href="">还车</a></li><li><a href="">删除</a></li></ul>'+
+                        '<ul class="dropdown-menu"><li><a id="'+item.orderId+'" class="repayCar" href="">还车</a></li><li><a id="'+item.orderId+'"class="dele" href="">删除</a></li></ul>'+
                         '</div></div></div></div>'
                     );
                 });             
@@ -156,6 +198,48 @@ $(function(){
                 $("a").click(function(){
                     var pageinfo = $(this).html();
                     changePage(pageinfo);
+                });
+
+                $(".repay").click(function(){
+                    console.log("repay");
+                    var repay = {};
+                    repay.orderId = $(this).attr("id");
+                    $.ajax({
+                        contentType:'application/json;charset=utf-8',
+                        url: "/order/repayCar",
+                        type:"POST",
+                        dataType: "json",
+                        data:JSON.stringify(repay),
+                        success:function(dataS){
+                            console.log("dataS:"+dataS);
+                            alert(dataS.data);
+                            parent.location.reload();
+                        },
+                        error:function(dataE){
+                            console.log("dataE:"+dataE);
+                            // parent.location.reload();
+                            alert("操作失败,请联系管理员");
+                        }
+                    });
+                });
+                $(".dele").click(function(){
+                    console.log("Dele");
+                    var dele = {};
+                    dele.orderId = $(this).attr("id");
+                    $.ajax({
+                        contentType:'application/json;charset=utf-8',
+                        url: "/order/deleteOrder",
+                        type:"POST",
+                        dataType: "json",
+                        data:JSON.stringify(dele),
+                        success:function(dataS){
+                            alert(dataS.data);
+                            parent.location.reload();
+                        },
+                        error:function(){
+                            alert("删除失败");
+                        }
+                    });
                 });
 
             },

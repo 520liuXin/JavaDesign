@@ -108,7 +108,7 @@ public class FileInfoServiceImpl implements FileInfoService {
     public List<FileInfo> batchUpload(MultipartFile[] multipartFile,Car car) throws BusinessException {
         //基础路径  E:/springboot-upload/image/
         String basePath = uploadConfigure.getBasePath();
-        //获取文件保存路径 \20180608\113339\
+
         String folder = "";
         // 获取前缀为"FL_" 长度为20 的文件名  FL_eUljOejPseMeDg86h.png
         List<FileInfo> list=new ArrayList<>();
@@ -130,7 +130,7 @@ public class FileInfoServiceImpl implements FileInfoService {
                 fileInfo.setFileOriginName(file.getOriginalFilename());
                 fileInfo.setFileType(file.getContentType());
                 fileInfo.setSize(file.getSize());
-                fileInfo.setUrl("../img/"+fileName);
+                fileInfo.setUrl("../img/"+file.getOriginalFilename());
                 fileInfo.setFileName(fileName);
                 fileInfo.setFilePath(filePath.toString());
                 fileInfo.setCar(car);

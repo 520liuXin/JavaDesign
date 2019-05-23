@@ -91,7 +91,7 @@ public class CarController {
             }
 
         }catch (Exception e){
-            return ResponseInfo.success("添加失败");
+            return ResponseInfo.error("添加失败");
         }
         return ResponseInfo.success("添加成功");
     }
@@ -117,6 +117,20 @@ public class CarController {
         return ResponseInfo.error("查询失败");
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteCar", method = RequestMethod.POST)
+    public ResponseInfo<?> deleteCar(@RequestBody JSONObject params){
+        Long idInfo = Long.parseLong(params.getString("id"));
+        Car oldCar=carDao.findCarById(idInfo);
+
+        try {
+            carService.deleteCar(oldCar);
+        } catch (Exception e) {
+            return ResponseInfo.error("删除失败");
+        }
+        return ResponseInfo.success("删除成功");
+    }
 
 //
 //    /**

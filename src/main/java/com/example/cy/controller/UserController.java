@@ -120,10 +120,16 @@ public class UserController {
 
     @PostMapping("/updatePwd")
     public ResponseInfo<?> updataUserPwd(@RequestBody JSONObject params){
-        User user=userService.findUser(SecurityUtils.getUser().getUsername());
-        String oldPwd=params.getString("oldPwd");
-        if(!oldPwd.equals(user.getPassword())){
-            return ResponseInfo.error("原密码错误");
+        User user;
+        if("2".equals(SecurityUtils.getUser().getAdmin())){
+             user=userService.findUser(SecurityUtils.getUser().getUsername());
+            String oldPwd=params.getString("oldPwd");
+            if(!oldPwd.equals(user.getPassword())){
+                return ResponseInfo.error("原密码错误");
+            }
+        }else {
+            String username=params.getString("userName");
+             user=userDao.findByUsername(username);
         }
        String newPwd =params.getString("newPwd");
         user.setPassword(newPwd);
@@ -137,44 +143,41 @@ public class UserController {
 
 
 
-    @PostMapping("/update/admin")
-    public ResponseInfo<?> updataUserByAdmin( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
-        }
-        User user=userList.get(0);
-        User oldUser=userDao.findByUsername(user.getUsername());
-        if(Calibration.isEmpty(oldUser)){
-            return ResponseInfo.error("用户不存在，无法修改");
-        }
-        try {
-            User newUser = userService.updataUserByAdmin(user);
-        }catch (Exception e){
-            return ResponseInfo.error("修改失败");
-        }
-        return ResponseInfo.success("修改成功");
-    }
-
-
-
-    @PostMapping("/delete")
-    public ResponseInfo<?> deleteUser( @RequestBody JSONObject params){
-//
+//    @PostMapping("/update/admin")
+//    public ResponseInfo<?> updataUserByAdmin( String jsonStr){
 //        List < User > userList = new ArrayList < User > ();
 //        if (StringUtils.isNotBlank(jsonStr)) {
 //            userList = JSON.parseArray(jsonStr, User.class);
 //        }
 //        User user=userList.get(0);
-//        User oldUser=userDao.findUser(user.getUsername());
+//        User oldUser=userDao.findByUsername(user.getUsername());
 //        if(Calibration.isEmpty(oldUser)){
-//            return ResponseInfo.error("用户不存在，无法删除");
+//            return ResponseInfo.error("用户不存在，无法修改");
 //        }
 //        try {
-//                   userService.deleteUser(user);
+//            User newUser = userService.updataUserByAdmin(user);
 //        }catch (Exception e){
-//            return ResponseInfo.error("删除失败");
+//            return ResponseInfo.error("修改失败");
 //        }
+//        return ResponseInfo.success("修改成功");
+//    }
+
+
+
+    @PostMapping("/delete")
+    public ResponseInfo<?> deleteUser( @RequestBody JSONObject params){
+        String username=params.getString("userName");
+
+
+        User oldUser=userDao.findByUsername(username);
+        if(Calibration.isEmpty(oldUser)){
+            return ResponseInfo.error("用户不存在，无法删除");
+        }
+        try {
+            userService.deleteUser(oldUser);
+        }catch (Exception e){
+            return ResponseInfo.error("删除失败");
+        }
        return ResponseInfo.success("删除成功");
     }
 

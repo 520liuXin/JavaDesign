@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 public class UserQuery  {
@@ -27,6 +28,10 @@ public class UserQuery  {
     private  String idCard;
 
     private String email;
+
+    private Date createdDate;
+
+
 
 
 

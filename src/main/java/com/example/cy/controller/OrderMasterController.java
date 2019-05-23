@@ -125,7 +125,7 @@ public class OrderMasterController {
      * @param orderMaster
      * @return
      */
-    @RequestMapping(value = "/updtaOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/updataOrder", method = RequestMethod.POST)
     public ResponseInfo<?> updataOrder(OrderMaster orderMaster){
 
         OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
@@ -182,16 +182,20 @@ public class OrderMasterController {
             return ResponseInfo.error("订单不存在");
         }
        int i =DateUtils.daysBetween(oldOrderMaster.getEndDate(),new Date());
-        if(i<0){
+        if ("2".equals(SecurityUtils.getUser().getAdmin())) {
+            if(i>0){
+                return  ResponseInfo.error("租赁时间超长，请于管理员联系付清租赁费用才可还车！！！");
+            }
+        }
+        try{
             oldOrderMaster.setOrderStatus(OrderStatusEnum.FINISH.getCode());
             orderMasterService.updataOrder(oldOrderMaster);
             Car newcar=carDao.findCarById(oldOrderMaster.getCarId());
             newcar.setState(CarEnum.STSTE_NO_RENT_OUT.getCode());
             carService.updataCar(newcar);
-           return ResponseInfo.success("还车成功");
-
-        }else {
-          return   ResponseInfo.error("租赁时间超长，请于管理员联系付清租赁费用才可还车！！！");
+            return ResponseInfo.success("还车成功");
+        }catch (Exception e){
+            return ResponseInfo.error("还车失败，请稍后重试");
         }
 
     }

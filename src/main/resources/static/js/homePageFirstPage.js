@@ -153,7 +153,7 @@ $(function(){
               // $(".ViewAllRendering").html("<div class='typeTitle col-md-12'><h3>筛选精品</h3></div><ul class='fuzzyQuery'><ul>");
               $(".WDNMD").html("");
               if(info.code == "9999"){
-                $(".WDNMD").html("<div><h2>We did`nt find the car you looking for.</h2></div>");
+                $(".WDNMD").html("<div><h2>抱歉！！！ 查询车辆不存在。</h2></div>");
               }else{
                 $.each(info.data,function(i,item){
                   $(".WDNMD").append(

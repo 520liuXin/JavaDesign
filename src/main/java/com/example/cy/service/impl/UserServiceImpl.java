@@ -141,6 +141,7 @@ public class UserServiceImpl implements UserService {
         userQuery.setIdCard(user.getIdCard());
         userQuery.setAdmin(user.getAdmin());
         userQuery.setEmail(user.getEmail());
+        userQuery.setCreatedDate(user.getCreatedDate());
         return userQuery;
     }
     private User encapsulationUser(User user){

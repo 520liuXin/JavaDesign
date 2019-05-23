@@ -216,7 +216,7 @@ public class CarServiceImpl implements CarService {
 
     private Car packResultData(Car car){
         Car newCar=new Car();
-        newCar.setId(car.getId());
+       newCar.setId(car.getId());
         newCar.setCarId(car.getCarId());
         newCar.setCarBrand(car.getCarBrand());
         newCar.setCarName(car.getCarName());

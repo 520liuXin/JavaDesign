@@ -20,11 +20,11 @@ public class BasePo implements Serializable {
     private Long id;
 
 
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format="yyyy-MM-dd")
     @Column(name = "created_date")
-    private Date createdDate;
+       private Date createdDate;
 
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format="yyyy-MM-dd")
     @Column(name = "updated_date")
     private Date updatedDate;
 }

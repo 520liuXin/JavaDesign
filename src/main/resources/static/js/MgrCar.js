@@ -27,13 +27,7 @@ $(function(){
       $(".btn-searchBar").click(function(){
         $(".WDNMD").html(" ");
         var searchCar={};
-        var carinfoVal=$(".info-searchBar").val();
-        if(carinfoVal!=''){
-          searchCar.carInfo=carinfoVal;
-        }else{
-          alert("please input your information");
-        };
-  
+        searchCar.carInfo = $("#info-searchBar").val();
         $.ajax({
             contentType:'application/json;charset=utf-8',
             url: "car/fuzzyQuery",

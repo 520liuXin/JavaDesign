@@ -26,8 +26,8 @@ $(function(){
                         '<td>'+item.idCard+'</td>'+
                         '<td>'+timestampToTime(item.createdDate)+'</td>'+
                         '<td>'+item.email+'</td>'+
-                        '<td> <button type="button" data-toggle="modal" data-target="#editUserModal" class="btn btn-default editBtn btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>'+ 
-                        '<button type="button" class="btn btn-default delBtn btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>'+
+                        '<td> <button type="button" data-toggle="modal" data-target="#editUserModal" class="btn btn-default editBtn btn-sm"><span class="glyphicon editBtn glyphicon-pencil"></span></button>'+ 
+                        '<button type="button" id="delBtn" class="btn btn-default delBtn btn-sm"><span class="glyphicon delBtn glyphicon-trash"></span></button></td>'+
                         '</tr>'
                     );
                 });
@@ -80,18 +80,19 @@ $(function(){
                 // dataS.data.item
                 if(dataS.code == "0000"){
                     $(".infoBody").html(" ");
-                    $.each(dataS.data.item,function(i,item){
+                    $.each(dataS.data.items,function(i,item){
                         $(".infoBody").append(
-                            '<tr>'+
+                            '<tr>'+ 
                             '<td>'+item.username+'</td>'+
                             '<td>******</td>'+
-                            '<td>'+item.admin == "1" ? "管理员":"用户"+'</td>'+
+                            '<td>'+item.admin+'</td>'+
                             '<td>'+item.phone+'</td>'+
                             '<td>'+item.idCard+'</td>'+
-                            '<td>'+item.createdDate+'</td>'+
+                            '<td>'+timestampToTime(item.createdDate)+'</td>'+
                             '<td>'+item.email+'</td>'+
                             '<td> <button type="button" data-toggle="modal" data-target="#editUserModal" class="btn btn-default editBtn btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>'+ 
-                            '<button type="button" class="btn btn-default delBtn btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>'
+                            '<button type="button" class="btn btn-default delBtn btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>'+
+                            '</tr>'
                         );
                     });
                 }

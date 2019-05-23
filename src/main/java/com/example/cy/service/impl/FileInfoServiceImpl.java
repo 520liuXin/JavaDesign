@@ -130,7 +130,7 @@ public class FileInfoServiceImpl implements FileInfoService {
                 fileInfo.setFileOriginName(file.getOriginalFilename());
                 fileInfo.setFileType(file.getContentType());
                 fileInfo.setSize(file.getSize());
-                fileInfo.setUrl("../img/"+fileName);
+                fileInfo.setUrl("../img/"+file.getOriginalFilename());
                 fileInfo.setFileName(fileName);
                 fileInfo.setFilePath(filePath.toString());
                 fileInfo.setCar(car);

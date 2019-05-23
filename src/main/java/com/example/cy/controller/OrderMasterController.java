@@ -127,15 +127,16 @@ public class OrderMasterController {
 
     /**
      * 删除订单
-     * @param orderMaster
+     * @param
      * @return
      */
-    public ResponseInfo<?> deleteOrder(OrderMaster orderMaster){
-        OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderMaster.getOrderId());
+    public ResponseInfo<?> deleteOrder( @RequestBody JSONObject params){
+        String orderId=params.getString("orderId");
+        OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderId);
         if(oldOrderMaster==null){
             return ResponseInfo.error("订单不存在");
         }
-        OrderMaster newdata=orderMasterService.updataOrder(orderMaster);
+        OrderMaster newdata=orderMasterService.updataOrder(oldOrderMaster);
         if(newdata==null){
             return ResponseInfo.error("删除失败");
         }

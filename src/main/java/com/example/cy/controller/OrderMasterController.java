@@ -125,24 +125,25 @@ public class OrderMasterController {
     }
 
 
+
     /**
      * 删除订单
      * @param
      * @return
      */
-    public ResponseInfo<?> deleteOrder( @RequestBody JSONObject params){
+    @RequestMapping(value = "/deleteOrder", method = RequestMethod.POST)
+    public ResponseInfo<?> deleteOrder(@RequestBody JSONObject params) {
         String orderId=params.getString("orderId");
-        OrderMaster oldOrderMaster=orderMasterDao.findByOrderId(orderId);
-        if(oldOrderMaster==null){
+        OrderMaster oldOrderMaster = orderMasterDao.findByOrderId(orderId);
+        if (oldOrderMaster == null) {
             return ResponseInfo.error("订单不存在");
         }
-        OrderMaster newdata=orderMasterService.updataOrder(oldOrderMaster);
-        if(newdata==null){
+        try {
+            orderMasterService.deleteOrder(oldOrderMaster);
+        } catch (Exception e) {
             return ResponseInfo.error("删除失败");
         }
         return ResponseInfo.success("删除成功");
-
-
     }
 
 //    /**

@@ -56,35 +56,37 @@ public class UserController {
     @Autowired
     private AuthenticationManager myAuthenticationManager;
 
+    private String CHECK_CODE = "CHECK_CODE";
 
 
 
-   /**
-    * @Author able-liu
-    * @Description 添加用户
-    * @Param
-    * @return
-    **/
+
+    /**
+     * @Author able-liu
+     * @Description 添加用户
+     * @Param
+     * @return
+     **/
     @PostMapping("/add")
     public ResponseInfo<?> AddUser(HttpServletRequest request, @RequestBody JSONObject params){
         String username=params.getString("name");
         String password=params.getString("pwd");
         String usertag=params.getString("Usertag");
-       usertag=usertag.replace("[","");
-       String label=usertag.replace("]","");
+        usertag=usertag.replace("[","");
+        String label=usertag.replace("]","");
 
         User user=new User();
         user.setUsername(username);
         user.setPassword(password);
         user.setLabel(label);
-       User oldUser=userDao.findUser(username);
-       if(Calibration.isNotEmpty(oldUser)){
-           return ResponseInfo.error("用户存在，请登录");
-       }
+        User oldUser=userDao.findUser(username);
+        if(Calibration.isNotEmpty(oldUser)){
+            return ResponseInfo.error("用户存在，请登录");
+        }
         try {
             User newUser = userService.saveUser(user);
         }catch (Exception e){
-           return ResponseInfo.error("注册失败");
+            return ResponseInfo.error("注册失败");
         }
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         try{
@@ -104,16 +106,36 @@ public class UserController {
 
 
     @PostMapping("/update")
-    public ResponseInfo<?> updataUser( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
+    public ResponseInfo<?> updataUser(@RequestBody JSONObject params){
+
+        User user =userService.findUser(SecurityUtils.getUser().getUsername());
+        User newuser= updataGetUser(params,user);
+        try {
+            User newUser = userService.updataUser(newuser);
+        }catch (Exception e){
+            return ResponseInfo.error("修改失败");
         }
-        User user=userList.get(0);
-        User oldUser=userDao.findUser(user.getUsername());
-        if(Calibration.isEmpty(oldUser)){
-            return ResponseInfo.error("用户不存在，无法修改");
+        return ResponseInfo.success("修改成功");
+    }
+
+
+
+
+    @PostMapping("/updatePwd")
+    public ResponseInfo<?> updataUserPwd(@RequestBody JSONObject params){
+        User user;
+        if("2".equals(SecurityUtils.getUser().getAdmin())){
+            user=userService.findUser(SecurityUtils.getUser().getUsername());
+            String oldPwd=params.getString("oldPwd");
+            if(!oldPwd.equals(user.getPassword())){
+                return ResponseInfo.error("原密码错误");
+            }
+        }else {
+            String username=params.getString("userName");
+            user=userService.findUser(username);
         }
+        String newPwd =params.getString("newPwd");
+        user.setPassword(newPwd);
         try {
             User newUser = userService.updataUser(user);
         }catch (Exception e){
@@ -124,40 +146,38 @@ public class UserController {
 
 
 
-    @PostMapping("/update/admin")
-    public ResponseInfo<?> updataUserByAdmin( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
-        }
-        User user=userList.get(0);
-        User oldUser=userDao.findUser(user.getUsername());
-        if(Calibration.isEmpty(oldUser)){
-            return ResponseInfo.error("用户不存在，无法修改");
-        }
-        try {
-            User newUser = userService.updataUserByAdmin(user);
-        }catch (Exception e){
-            return ResponseInfo.error("修改失败");
-        }
-        return ResponseInfo.success("修改成功");
-    }
+//    @PostMapping("/update/admin")
+//    public ResponseInfo<?> updataUserByAdmin( String jsonStr){
+//        List < User > userList = new ArrayList < User > ();
+//        if (StringUtils.isNotBlank(jsonStr)) {
+//            userList = JSON.parseArray(jsonStr, User.class);
+//        }
+//        User user=userList.get(0);
+//        User oldUser=userDao.findByUsername(user.getUsername());
+//        if(Calibration.isEmpty(oldUser)){
+//            return ResponseInfo.error("用户不存在，无法修改");
+//        }
+//        try {
+//            User newUser = userService.updataUserByAdmin(user);
+//        }catch (Exception e){
+//            return ResponseInfo.error("修改失败");
+//        }
+//        return ResponseInfo.success("修改成功");
+//    }
 
 
 
     @PostMapping("/delete")
-    public ResponseInfo<?> deleteUser( String jsonStr){
-        List < User > userList = new ArrayList < User > ();
-        if (StringUtils.isNotBlank(jsonStr)) {
-            userList = JSON.parseArray(jsonStr, User.class);
-        }
-        User user=userList.get(0);
-        User oldUser=userDao.findUser(user.getUsername());
+    public ResponseInfo<?> deleteUser( @RequestBody JSONObject params){
+        String username=params.getString("userName");
+
+
+        User oldUser=userService.findUser(username);
         if(Calibration.isEmpty(oldUser)){
-            return ResponseInfo.error("用户不存在，无法修改");
+            return ResponseInfo.error("用户不存在，无法删除");
         }
         try {
-                   userService.deleteUser(user);
+            userService.deleteUser(oldUser);
         }catch (Exception e){
             return ResponseInfo.error("删除失败");
         }
@@ -172,24 +192,24 @@ public class UserController {
      */
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ResponseInfo<?> findAll(){
-        List <User> list=userDao.findAll();
+        List <UserQuery> list=userService.findAll();
         return ResponseInfo.success(list);
     }
 
 
-    /**
-     * @Author able-liu
-     * @Description 获取当前用户并分页
-     * @Param
-     * @return
-     **/
-    @RequestMapping(value = "/findUserNoCriteria", method = RequestMethod.GET)
-    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5) Pageable pageable){
-        int pageNumber = pageable.getPageNumber();
-        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-        Page<User> datas=userService.findUserNoCriteria(pageNumber-1, pageable.getPageSize());
-        return ResponseInfo.success(datas);
-    }
+//    /**
+//     * @Author able-liu
+//     * @Description 获取当前用户并分页
+//     * @Param
+//     * @return
+//     **/
+//    @RequestMapping(value = "/findUserNoCriteria", method = RequestMethod.GET)
+//    public ResponseInfo<?> findUserNoCriteria(@PageableDefault(page = 1, size = 5) Pageable pageable){
+//        int pageNumber = pageable.getPageNumber();
+//        pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+//        Page<User> datas=userService.findUserNoCriteria(pageNumber-1, pageable.getPageSize());
+//        return ResponseInfo.success(datas);
+//    }
     /**
      * @Author able-liu
      * @Description /获取当前用户并分页可提供指定查询分页
@@ -221,4 +241,46 @@ public class UserController {
         return SecurityUtils.getUser();
     }
 
+
+
+    private User getUser(JSONObject params){
+
+        String username=params.getString("Name");
+        String password=params.getString("Pwd");
+        String usertag=params.getString("Usertag");
+        String idCard=params.getString("idNumber");
+        String name=params.getString("trueName");
+        usertag=usertag.replace("[","");
+        String label=usertag.replace("]","");
+        User user=new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setLabel(label);
+        user.setName(name);
+        user.setIdCard(idCard);
+
+        return user;
+
+    }
+
+
+    private User updataGetUser(JSONObject params,User user){
+        String usertag=params.getString("Usertag");
+        String idCard=params.getString("idNumber");
+        String name=params.getString("trueName");
+        String eamil=params.getString("email");
+        String phone=params.getString("userPhone");
+        String userSex=params.getString("userSex");
+        usertag=usertag.replace("[","");
+        String label=usertag.replace("]","");
+        user.setLabel(label);
+        user.setName(name);
+        user.setEmail(eamil);
+        user.setIdCard(idCard);
+        user.setEmail(eamil);
+        user.setPhone(phone);
+        user.setSex(userSex);
+        return user;
+
+    }
 }

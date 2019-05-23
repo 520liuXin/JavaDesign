@@ -29,7 +29,7 @@ public class testUserController  extends TestCase{
         user.setPassword("1111");
         user.setUsername("liuxin");
         user.setIdCard("155664694");
-        user.setAdmin("1");
+        user.setAdmin(1L);
         User newUser=userService.saveUser(user);
         Assert.assertEquals("2",newUser.getAdmin());
     }
@@ -42,7 +42,7 @@ public class testUserController  extends TestCase{
         user.setPassword("565656598");
         user.setUsername("updata");
         user.setIdCard("updata");
-        user.setAdmin("1");
+        user.setAdmin(1L);
         User newUser=userService.updataUser(user);
         Assert.assertEquals("565656598",newUser.getPassword());
         Assert.assertNotEquals("1",newUser.getAdmin());
@@ -56,7 +56,7 @@ public class testUserController  extends TestCase{
         user.setPassword("updata11121");
         user.setUsername("updata");
         user.setIdCard("updata");
-        user.setAdmin("1");
+        user.setAdmin(1L);
         User newUser=userService.updataUserByAdmin(user);
         Assert.assertEquals("updata11121",newUser.getPassword());
         Assert.assertEquals("1",newUser.getAdmin());

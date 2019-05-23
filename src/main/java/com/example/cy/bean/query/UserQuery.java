@@ -6,11 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 public class UserQuery  {
 
-     private Long id;
+    private Long id;
 
 
     private  String username;
@@ -25,6 +26,12 @@ public class UserQuery  {
     private String sex;
 
     private  String idCard;
+
+    private String email;
+
+    private Date createdDate;
+
+
 
 
 

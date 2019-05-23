@@ -34,8 +34,15 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public List<User> findAll() {
-        return userDao.findAll();
+    public List<UserQuery> findAll() {
+        List<User> users =userDao.findAll();
+        List<UserQuery> userQueries=new ArrayList<>(users.size());
+        UserQuery query;
+        for(User user : users){
+            query=packResultData(user);
+            userQueries.add(query);
+        }
+        return userQueries;
     }
 
     @Override
@@ -51,12 +58,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updataUser(User user) {
         try {
-            User newUser=encapsulationUser(user);
-            newUser.setUpdatedDate(new Date());
-            userDao.save(newUser);
-            return newUser;
+
+            user.setUpdatedDate(new Date());
+            userDao.save(user);
+            return user;
         }catch (Exception e) {
-           return null;
+            return null;
         }
     }
 
@@ -65,7 +72,7 @@ public class UserServiceImpl implements UserService {
     public User saveUser(User user) {
         try{
             User newUser=encapsulationUser(user);
-            newUser.setAdmin("2");
+            newUser.setAdmin(2L);
             newUser.setCreatedDate(new Date());
             userDao.save(newUser);
             return newUser;
@@ -81,17 +88,16 @@ public class UserServiceImpl implements UserService {
             userDao.delete(user);
         }
         catch (Exception e) {
-           throw new Exception();
+            throw new Exception();
         }
     }
 
     @Override
     public User updataUserByAdmin(User user) {
         try {
-            User newUser=encapsulationUser(user);
-            newUser.setAdmin(user.getAdmin());
-            userDao.save(newUser);
-            return newUser;
+            user.setAdmin(user.getAdmin());
+            userDao.save(user);
+            return user;
         }
         catch (Exception e) {
             return null;
@@ -122,7 +128,7 @@ public class UserServiceImpl implements UserService {
             return responsePage;
         }
         List<UserQuery> userQueries=new ArrayList<>(users.size());
-       UserQuery query;
+        UserQuery query;
         for(User user : users){
             query=packResultData(user);
             userQueries.add(query);
@@ -140,7 +146,14 @@ public class UserServiceImpl implements UserService {
         userQuery.setImgurl(user.getImgurl());
         userQuery.setSex(user.getSex());
         userQuery.setIdCard(user.getIdCard());
-        userQuery.setAdmin(user.getAdmin());
+        if(user.getAdmin().equals(1L)){
+            userQuery.setAdmin("管理员");
+        }else {
+            userQuery.setAdmin("用户");
+        }
+//        userQuery.setAdmin(user.getAdmin());
+        userQuery.setEmail(user.getEmail());
+        userQuery.setCreatedDate(user.getCreatedDate());
         return userQuery;
     }
     private User encapsulationUser(User user){
@@ -154,6 +167,7 @@ public class UserServiceImpl implements UserService {
         newuser.setIdCard(user.getIdCard());
         newuser.setUpdatedDate(new Date());
         newuser.setLabel(user.getLabel());
+        newuser.setEmail(user.getEmail());
         return newuser;
     }
 
@@ -170,8 +184,8 @@ public class UserServiceImpl implements UserService {
                 predicates.add(criteriaBuilder.equal(root.get("phone").as(String.class), userInput.getPhone()));
             }
 
-            if(StringUtils.isNotBlank(userInput.getAdmin())){
-                predicates.add(criteriaBuilder.equal(root.get("admin").as(String.class), userInput.getAdmin()));
+            if(Objects.nonNull(userInput.getAdmin())){
+                predicates.add(criteriaBuilder.equal(root.get("admin").as(Long.class), userInput.getAdmin()));
             }
             if(StringUtils.isNotBlank(userInput.getSex())){
                 predicates.add(criteriaBuilder.equal(root.get("set").as(String.class), userInput.getSex()));
@@ -188,6 +202,3 @@ public class UserServiceImpl implements UserService {
         return specification;
     }
 }
-
-
-

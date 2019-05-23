@@ -54,7 +54,7 @@ $(function(){
                             window.location.href="mgrcenter";
                         }
                     }else{
-                        alert("登录信息有误，请核实您的信息");
+                        alert(dataF.data);
                     }
                 },
                 error: function(dataE){

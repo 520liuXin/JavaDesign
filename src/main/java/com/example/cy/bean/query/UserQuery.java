@@ -21,7 +21,7 @@ public class UserQuery  {
 
     private String imgurl;
 
-    private Long admin;
+    private String admin;
 
     private String sex;
 

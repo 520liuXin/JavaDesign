@@ -214,7 +214,7 @@ public class OrderMasterController {
         int pageNumber = pageable.getPageNumber();
         pageNumber = pageNumber <= 0 ? 1 : pageNumber;
         User user=SecurityUtils.getUser();
-        if("2".equals(user.getAdmin())){
+        if(user.getAdmin().equals(2L)){
             input.setUserId(user.getId());
         }
         Pageable page = new PageRequest(pageNumber - 1, pageable.getPageSize(), Sort.Direction.DESC, "createdDate");

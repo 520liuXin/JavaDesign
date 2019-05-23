@@ -189,7 +189,7 @@ public class UserController {
      */
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ResponseInfo<?> findAll(){
-        List <User> list=userDao.findAll();
+        List <UserQuery> list=userService.findAll();
         return ResponseInfo.success(list);
     }
 

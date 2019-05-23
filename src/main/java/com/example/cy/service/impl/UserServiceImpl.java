@@ -34,8 +34,15 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public List<User> findAll() {
-        return userDao.findAll();
+    public List<UserQuery> findAll() {
+        List<User> users =userDao.findAll();
+        List<UserQuery> userQueries=new ArrayList<>(users.size());
+        UserQuery query;
+        for(User user : users){
+            query=packResultData(user);
+            userQueries.add(query);
+        }
+        return userQueries;
     }
 
     @Override
@@ -139,7 +146,12 @@ public class UserServiceImpl implements UserService {
         userQuery.setImgurl(user.getImgurl());
         userQuery.setSex(user.getSex());
         userQuery.setIdCard(user.getIdCard());
-        userQuery.setAdmin(user.getAdmin());
+        if(user.getAdmin().equals(1L)){
+            userQuery.setAdmin("管理员");
+        }else {
+            userQuery.setAdmin("用户");
+        }
+//        userQuery.setAdmin(user.getAdmin());
         userQuery.setEmail(user.getEmail());
         userQuery.setCreatedDate(user.getCreatedDate());
         return userQuery;

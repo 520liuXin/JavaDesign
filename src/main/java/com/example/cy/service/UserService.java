@@ -19,7 +19,7 @@ public interface UserService {
      * 查询所有用户
      * @return
      */
-    List<User> findAll();
+    List<UserQuery> findAll();
     /**
      * 根据id查询用户
      * @param id
@@ -45,6 +45,7 @@ public interface UserService {
     User updataUserByAdmin(User user);
 
     Page<User> findUserNoCriteria(Integer page, Integer size);
+
 
 
     CommonResponsePage<UserQuery> findUserCriteria(Integer page, Integer size, UserInput user, String sort);

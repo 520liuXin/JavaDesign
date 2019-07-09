@@ -14,12 +14,12 @@
 
  
 图 1 主界面截图1
-![主界面截图1](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
+![主界面截图1](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E9%A6%96%E9%A1%B5.png)
 
 
  
 图 2 主界面截图2
-![主界面截图2](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
+![主界面截图2](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E9%A6%96%E9%A1%B5%20(2).png)
 
 
 （2）车辆车辆详情界面
@@ -27,19 +27,19 @@
 
  
 图 3 车辆详情界面截图1
-![车辆详情界面截图1](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
+![车辆详情界面截图1](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%BD%A6%E8%BE%86%E8%AF%A6%E6%83%85%20(2).png)
 
 
  
 图 4 车辆详情界面截图2
-![车辆详情界面截图2](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
+![车辆详情界面截图2](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%BD%A6%E8%BE%86%E8%AF%A6%E6%83%85.png)
 
 
 （3）订单信息填写界面和支付返回界面
 订单信息填写界面主要是对信息的填写，选择租赁起始时间和终止时间会实时生成订单总金额。
 支付返回界面主要呈现支付状态以及设置两个超链接，点击可放回首页或个人中心查看订单。具体效果图如下：	 
 图 5 订单信息填写界面截图
-![订单信息填写界面截图](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
+![订单信息填写界面截图](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%AE%A2%E5%8D%95.png)
 
 
 图 6 支付界面截图

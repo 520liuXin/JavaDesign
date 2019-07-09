@@ -8,67 +8,67 @@
 5.	用户登录（管理员账号：admin，密码：admin；用户账号：user，密码：user）；
 6.	登录成功进入首页。
 
-#  使用截图：
+#  使用截图
 
-##主界面设计
+### 主界面设计
 汽车租赁系统主界面主要由三部分构成;主界面上方设置四个按钮，分别为“租车首页”，“最新资讯”，“商家中心”，个人中心。主界面中间为滚动的车辆图片显示，下方为车辆列表显示，首页提供搜索框可通过关键词查询车辆，同时搜索框下方设置四个按钮，分别为“本月爆款”，“猜你喜欢”，“最新上架”，“与众不同”，点击可推荐不同车辆供用户选择。具体效果图如下：
 
  
-主界面截图1
+#####  主界面截图1
 ![主界面截图1](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E9%A6%96%E9%A1%B5.png)
 
 
  
-主界面截图2
+##### 主界面截图2
 ![主界面截图2](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E9%A6%96%E9%A1%B5%20(2).png)
 
 
-##车辆车辆详情界面
+### 车辆车辆详情界面
 车辆详情界面主要显示车辆图片、车辆配置信息、租赁规则以及用户须知。同时设置电话联系和立即预约等按钮，方便用户操作。具体效果图如下：
 
  
-车辆详情界面截图1
+##### 车辆详情界面截图1
 ![车辆详情界面截图1](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%BD%A6%E8%BE%86%E8%AF%A6%E6%83%85%20(2).png)
 
 
- 车辆详情界面截图2
+#####  车辆详情界面截图2
 ![车辆详情界面截图2](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%BD%A6%E8%BE%86%E8%AF%A6%E6%83%85.png)
 
 
-##订单信息填写界面和支付返回界面
+### 订单信息填写界面和支付返回界面
 订单信息填写界面主要是对信息的填写，选择租赁起始时间和终止时间会实时生成订单总金额。
 支付返回界面主要呈现支付状态以及设置两个超链接，点击可放回首页或个人中心查看订单。具体效果图如下：	 
-订单信息填写界面截图
+##### 订单信息填写界面截图
 ![订单信息填写界面截图](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%AE%A2%E5%8D%95.png)
 
 
-支付界面截图
+##### 支付界面截图
 ![支付界面截图](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E6%94%AF%E4%BB%98.png)
 
 
-支付返回界面截图
+##### 支付返回界面截图
 ![支付返回界面截图](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E6%94%AF%E4%BB%98%E6%88%90%E5%8A%9F.png)
 
 
 
-##登录/注册界面
+### 登录/注册界面
 登录界面主要提供登录功能，界面中将提供三个文本框分别用来填写用户名，密码以及验证码，用户填写用户名，密码以及验证码后验证成功可完成登录。
 注册界面设置多个文本框及按钮，主要填写用户名，用户密码，用户真实姓名，身份证号以及感兴趣标签的选择。具体效果图如下：
 
-登录界面截图:
+##### 登录界面截图:
 ![登录界面](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
 
 
-注册界面截图
+##### 注册界面截图
 ![注册界面](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E6%B3%A8%E5%86%8C.png)
 
 
 
-##管理中心界面
+## 管理中心界面
 管理中心界面主要是对数据的显示，界面右上角设置四个按钮，分别为“订单管理”，“汽车管理”，“用户管理”，“数据中心”。具体效果图如下：
 
  
-管理中心界面截图
+##### 管理中心界面截图
  ![订单管理](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86.png)
  
  

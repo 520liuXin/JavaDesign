@@ -10,6 +10,18 @@
 
 #  使用截图
 
+### 登录/注册界面
+登录界面主要提供登录功能，界面中将提供三个文本框分别用来填写用户名，密码以及验证码，用户填写用户名，密码以及验证码后验证成功可完成登录。
+注册界面设置多个文本框及按钮，主要填写用户名，用户密码，用户真实姓名，身份证号以及感兴趣标签的选择。具体效果图如下：
+
+##### 登录界面截图:
+![登录界面](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
+
+
+##### 注册界面截图
+![注册界面](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E6%B3%A8%E5%86%8C.png)
+
+
 ### 主界面设计
 汽车租赁系统主界面主要由三部分构成;主界面上方设置四个按钮，分别为“租车首页”，“最新资讯”，“商家中心”，个人中心。主界面中间为滚动的车辆图片显示，下方为车辆列表显示，首页提供搜索框可通过关键词查询车辆，同时搜索框下方设置四个按钮，分别为“本月爆款”，“猜你喜欢”，“最新上架”，“与众不同”，点击可推荐不同车辆供用户选择。具体效果图如下：
 
@@ -48,19 +60,6 @@
 
 ##### 支付返回界面截图
 ![支付返回界面截图](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E6%94%AF%E4%BB%98%E6%88%90%E5%8A%9F.png)
-
-
-
-### 登录/注册界面
-登录界面主要提供登录功能，界面中将提供三个文本框分别用来填写用户名，密码以及验证码，用户填写用户名，密码以及验证码后验证成功可完成登录。
-注册界面设置多个文本框及按钮，主要填写用户名，用户密码，用户真实姓名，身份证号以及感兴趣标签的选择。具体效果图如下：
-
-##### 登录界面截图:
-![登录界面](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/登录.png)
-
-
-##### 注册界面截图
-![注册界面](https://github.com/520liuXin/JavaDesign/blob/dev/src/main/resources/static/img/result/%E6%B3%A8%E5%86%8C.png)
 
 
 

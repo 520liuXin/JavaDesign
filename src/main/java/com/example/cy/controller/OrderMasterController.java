@@ -80,7 +80,6 @@ public class OrderMasterController {
         String  endTime=params.getString("endTime");
         String detailedAddress=params.getString("address");
         String price=params.getString("price");
-
         if(detailedAddress.isEmpty()){
             orderMaster.setSendCar(SendCarEnum.NO.getCode());
         }else {
@@ -182,7 +181,7 @@ public class OrderMasterController {
             return ResponseInfo.error("订单不存在");
         }
        int i =DateUtils.daysBetween(oldOrderMaster.getEndDate(),new Date());
-        if ("2".equals(SecurityUtils.getUser().getAdmin())) {
+        if (SecurityUtils.getUser().getAdmin().equals(2L)) {
             if(i>0){
                 return  ResponseInfo.error("租赁时间超长，请于管理员联系付清租赁费用才可还车！！！");
             }

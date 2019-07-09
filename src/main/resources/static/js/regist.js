@@ -70,7 +70,8 @@ $(function(){
                     alert("注册成功！");
                         window.location.href="homePageFirstPage.html";               
                 }else if(dataF.code == "9999"){
-                    alert("注册失败，该用户名已注册。");
+                    alert(dataF.data);
+                    // alert("注册失败，该用户名已注册。");
                 }else{
                     alert("意外错误，请刷新页面重试。");
                 }

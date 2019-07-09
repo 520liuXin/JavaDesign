@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * 自定义密码比较器 3
- * 在此 密码我就不加密了
+ *
  */
 public class Md5PasswordEncoder implements PasswordEncoder {
     @Override
